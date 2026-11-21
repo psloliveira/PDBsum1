@@ -1,0 +1,37 @@
+1.0       <- Minimum radius for gap spheres (in Angstroms)
+4.0       <- Maximum radius for gap spheres (in Angstroms)
+N         <- (C)CP4, (I)nsightII, (Q)uanta, (S)ybyl contour files, or (N)one
+Y         <- Calculate gap volume - (Y/N)?
+1.0       <- Scaling factor
+Y         <- Generate a pointers file for each .srf file - (Y/N)?
+Y         <- Use new multi-gap sphere algorithm - (Y/N)?
+10.0      <- Maximum gap span
+Y         <- Keep only filtered gap regions - (Y/N)?
+1.4       <- Minimum radius of retained neighbour spheres
+1.8       <- Maximum radius of density-filling spheres
+4         <- Number of top gap volumes to be written out
+
+SURFACE
+(Currently no additional parameters)
+
+SURFPLOT
+R             <- (C)olour/(B)&W PS file, (P)DB-format, (R)aster3D, (V)RML
+0             <- Background colour
+0             <- Colour of "walls" in back-projections
+N             <- (F)loor, (L)eft wall, (R)ight wall, (A)ll three, (N)one
+Y             <- Display foreground object (Y/N)?
+Y             <- Margin round object - (Y/N)?
+0.20          <- Atom radius (in Angstroms) for plot - NOT USED
+N             <- Print sequential numbers by the atoms (Y/N)?
+N             <- Maintain x-,y-,z-axes (ignore matrix below) (Y/N)?
+ 0.0          <- Rotation about x-axis
+ 0.0          <- Rotation about y-axis
+ 0.0          <- Rotation about z-axis
+ 1.0000   0.0000    0.0000             <-
+ 0.0000   1.0000    0.0000             <- Transformation matrix
+ 0.0000   0.0000    1.0000             <-
+  50.0 100.0 100.0    <- Position of light-source
+  8  8         <- Raster3D size, number of tiles in x and y (Max: 80 64)
+N              <- Infinite planes for back wall(s) in Raster3d (Y/N)?
+
+

@@ -1,0 +1,210 @@
+<!-- Insert file for barrel tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOLS="25">
+<SET BARREL_TYPEA="Antiparallel">
+<SET BARREL_TYPEP="Parallel">
+<SET BARREL_TYPEM="Mixed">
+
+<!-- Initialise plot parameters -->
+<SET DOC_NAME="barrels">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<SET VALUE0="TRUE">
+<FLD%>_COUNTER3=1</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif.dat
+
+<!-- Barrels: Plots and table of statistics -->
+ <tr>
+  <td width=485 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+    <table cellpadding=0 cellspacing=0 border=0>
+     <tr>
+      <td>
+       <H1>Beta barrels</H1>
+      </td>
+     </tr>
+
+<!-- Table of statistics -->
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+       <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sheet</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>strands</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>barrel<BR>strands,&nbsp;<I>n</I></B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Shear<BR>number</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Shear&nbsp;no.,&nbsp;<I>S</I><BR>(no&nbsp;bulge)</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>edge<BR>strands</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>bifur-<BR>cations</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Theor.<BR>tilt&nbsp;(&deg;)</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Obs.<BR>tilt&nbsp;(&deg;)</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Theor.<BR>radius&nbsp;(&Aring;)</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Obs.<BR>radius&nbsp;(&Aring;)</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER3++</FLD%>
+        <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>_LOOP1</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_SHEET_ID</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_NSTRANDS</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_NBAR_STRANDS</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BARREL_TYPE<NO%>BR_TYPE</NO%></FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_SHEAR_NO</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_SHEAR_NOB</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>BR_NEDGE_STRANDS</NO%>>
+          &nbsp;<font face=arial><FLD%>BR_NEDGE_STRANDS</FLD%>&nbsp;
+</SKIP VALUE<NO%>BR_NEDGE_STRANDS</NO%>>
+<SKIP !VALUE<NO%>BR_NEDGE_STRANDS</NO%>>
+          &nbsp;<font face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>BR_NEDGE_STRANDS</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>BR_NBIFURC</NO%>>
+          &nbsp;<font face=arial><FLD%>BR_NBIFURC</FLD%>&nbsp;
+</SKIP VALUE<NO%>BR_NBIFURC</NO%>>
+<SKIP !VALUE<NO%>BR_NBIFURC</NO%>>
+          &nbsp;<font face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>BR_NBIFURC</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_TILT_THEOR</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_TILT_OBS</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_RADIUS_THEOR</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BR_RADIUS_OBS</FLD%>&nbsp;
+         </td>
+        </tr>
+<FLD%>_COUNTER4++</FLD%>
+<SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+<SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+</SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER4=0</FLD%>
+</SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+</LOOP NDBT_FIELDS>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td class=medtxt>
+       <P>
+       Number of barrels in chain <FLD%>CHAIN</FLD%>:
+       <FLD%>NDBT_FIELDS</FLD%>
+      </td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=5></td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=30></td>
+     </tr>
+<!-- Motif description -->
+     <tr>
+      <td class=lhdr align=left>
+       <a href="./doc_p_<FLD%>DOC_NAME</FLD%>.html&doc=TRUE&pdbcode=n/a" onclick="NewWindow(this.href,'help','1000','620','yes');return false;"><img src="gif/doc.gif" border="0"></a> Motif description
+      </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+

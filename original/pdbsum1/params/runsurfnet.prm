@@ -1,0 +1,114 @@
+ 
+Parameters for Box Plot of ligand
+---------------------------------
+ 
+TITLE
+    
+ 
+INPUT FILE
+ligand.new
+
+Output files listed below. The information entered for each is as follows.
+The numbers in square brackets refer to the notes at the end of the file.
+The program names indicate which programs need to be rerun when any of the
+parameters are changed.
+
+<----------SURFNET----------><-SURFACE-><----------SURFPLOT------------>
+                                        Foregrnd  Backgrnd    Line
+                   Atom range            colour    colour     width
+          File     1st   Last  Contour   /shade    /shade    (1-10) SOLID
+Filename  type[1] atom   atom  level[2]  (0-10)[3] (0-10)[3]   [4]  /WIRE
+
+OUTPUT FILES
+ligand_a    A       1   100000   0.0       10         2     G    1
+ligand_b    B       1   100000   0.0       10        -2     G    2 SOLID
+
+
+Program parameters
+------------------
+
+SURFNET
+  0.0   0.0   0.0  <- Origin of grid box (to use: set atom range below to 0 0)
+1 100000        <- Atom range defining grid bounds (0 0 to use origin above)
+4.0       <- Additional boundary round atom-range/origin (Angstroms)
+0.80      <- Grid separation
+1.0       <- Minimum radius for gap spheres (in Angstroms)
+5.0       <- Maximum radius for gap spheres (in Angstroms)
+N         <- (F)rodo or (Q)uanta brick files, or (N)one
+N         <- Calculate gap volume - (Y/N)?
+
+
+SURFACE
+(Currently no additional parameters)
+
+SURFPLOT
+Y             <- Produce colour PostScript file - (Y/N)?
+0             <- Background colour
+0             <- Colour of "walls" in back-projections
+Y             <- Show background orthographic projections (Y/N)?
+Y             <- Display foreground object (Y/N)?
+Y             <- Margin round object - (Y/N)?
+0.30          <- Atom radius (in Angstroms) for plot
+N             <- Print sequential numbers by the atoms (Y/N)?
+Y             <- Maintain x-,y-,z-axes (ignore matrix below) (Y/N)?
+ 0.0          <- Rotation about x-axis
+ 0.0          <- Rotation about y-axis
+ 0.0          <- Rotation about z-axis
+1.0 0.0 0.0
+0.0 1.0 0.0
+0.0 0.0 1.0
+
+
+---------------------------------------------------------------------------
+
+Notes:-
+
+Note 1. type is one of the following characters:-
+    A - Atoms only, each atom will be plotted as a sphere
+    B - Bonds between atoms
+    C - Contours generated according to the density of atoms
+    G - Gap map (see below)
+    J - Each atom coordinate is joined to the one before and after it
+
+    P - Pairs distribution where each sidechain is shown (by bonds
+        joining the atoms) separately
+    S - Surface contours at van der Waals radius of each atom (contour
+        level of 100.0). If an asterisk, *, follows the S, then the
+        radius of each atom will be picked up from the B-value column
+        of the PBD file. Otherwise, the default van der Waals radii are
+        used.
+    % - As C above, but all density values in the output grid are
+        adjusted such that the value at each grid-point gives the
+        percentage of non-zero grid-points with lower values.
+
+For a Gap map (type G) the first number after it refers to which file is to
+be used for generating gaps from. If this is a zero, then gaps are required
+between ALL atoms. The second number after the G should be a zero.
+
+Note 2. The contour level can be entered as a percentage by entry of a %
+after the contour value.
+
+Note 3. Colours can be entered separately for the foreground and projected
+objects. The colours are as follows:
+
+ 0=white, 1=yellow, 2=cyan, 3=lime green, 4=green, 5=blue, 6=pink,
+ 7=orange, 8=red, 9=purple, 10=black, 11=Light blue, 12=Cream
+
+If the colour PostScript option in SURFPLOT below is set to N, the colour
+values will be interpreted as grey shades (0=white to 10=black).
+
+If the colour is entered as -999 for the foreground object, the object will
+not be displayed. Similarly, for the background projections
+
+For "atom" objects (displayed as spheres), if the colour is set between -1
+and -10, a single point, of the corresponding colour, will be plotted
+rather than a sphere.
+
+For SOLID surfaces, if in black and white, a negative colour causes all
+polygons to be shaded white, giving a sketched, cartoon appearance.
+
+Note 4. Line widths can be set between 1 and 10. The widths of the
+projected lines will be a fifth of those for the foreground object.
+
+
+

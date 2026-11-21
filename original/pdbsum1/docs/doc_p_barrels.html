@@ -1,0 +1,222 @@
+<SET PAGE_TITLE="PDBsum documentation: PROMOTIF - beta barrels">
+<SET RIGHT_LINK="<LNK%>GET_PDBSUM_DOC</LNK%>doc_p_sheets.html">
+<SET UP_LINK="<LNK%>GET_PDBSUM_DOC</LNK%>doc_promotif.html">
+<SET LINK_COLOUR="BLUE">
+
+
+<H1>Beta Barrels</H1>
+
+<H2>Complete and distorted barrels</H2>
+
+Based on secondary structure information, barrel structures can be
+classified into two types: "complete barrels" and "distorted
+barrels". "Complete barrels" can be identified simply based on a
+complete ring of hydrogen bonds in the derived secondary structure
+information. Here, hydrogen bonds are calculated using SSTRUC, a local
+implementation (Smith, unpublished data) of DSSP (Kabsch &amp; Sander,
+1983). In contrast, it is very difficult to detect "distorted
+barrels", because hydrogen bonds are not formed between some barrel
+strands, or some strands are not detected at all by the algorithm. At present,
+only "complete barrels" are analysed here.
+
+<H2>Exterior and interior residues on the barrel strands</H2>
+
+The direction of side chains of residues on the strands are calculated
+based on the direction of the vector from the Ca atom to the Cb
+atom. For glycine, a dummy Cb atom is generated. The barrel axis is
+calculated so that it goes through the centre of the barrel, which is
+the average position of Ca atoms for the middle residue on each barrel
+strand, and the centre of the barrel bottom, which is the average
+position of Ca atoms for the N-terminal residue on each barrel
+strand. The angle made between the vector perpendicular to the barrel
+axis through the axis and the Ca atom and the vector from the Ca atom
+to the Cb atom is calculated. Where the angle is between 0 and 90
+degrees, the residue is defined to be an "interior residue". Where the
+angle is between 90 and 180 degrees, the residue is defined to be an
+"exterior residue". The "exterior residues" and "interior residues"
+are represented by ovals and rectangles, respectively in HERA-plots
+(Fig. 1).
+
+<P>
+<H2><B>Fig. 1</B></H2><IMG src="gif/shear1.gif" align=center>
+<P><IMG src="gif/shear2.gif" align=center>
+
+
+<H2>Barrel strand number, n, and the shear number, S</H2>
+
+There are two numbers used to describe the geometry of barrel
+structures. One is the number of strands making up the barrel
+structures, <I>n</I>, and the other is the shear number, <I>S</I>, proposed by
+McLachlan in 1979. The latter is a measure of the extent to which the
+beta-sheet is staggered. By rolling out the barrel, the hydrogen
+bonding pattern can be drawn (see Fig. 1). In the case of the upper
+barrel of Fig.1, nine strands are shown, as the first strand is drawn
+on both edges of the sheet.  The residues can be thought of as lying
+at the grid points of a virtual lattice.  Starting from the first
+residue (Phe 6) in strand 1, it is possible to move around the barrel
+until strand 1 is reached again. Here, the position of the first
+residue in the strand 1' (Phe 6) is now shifted by eight residues from
+its original position on strand 1 of the virtual lattice. The shear
+number for this barrel is eight. Since consecutive residues along a
+strand alternate between the two sides of the sheet, and corresponding
+residues on adjacent strands are on the same side of the sheet, the
+shear number should theoretically be an even integer.
+
+<P>
+Once
+calculated, the <I>n</I> and <I>S</I> values can be used to determine other
+geometrical parameters, such as strand tilt relative to the barrel
+axis and barrel radius. (McLachlan, 1979; Lesk et al., 1989; Murzin et
+al., 1994).
+
+<H2>Bifurcation of barrel beta-sheets</H2>
+
+Any beta-strand can be classified according to the number of other
+strands to which it is hydrogen bonded.  "Usual strands" are
+hydrogen bonded to two adjacent strands, whilst "edge strands" are
+hydrogen bonded to only one adjacent strand, and "bifurcated strands"
+have more than two adjacent strands. Although typical complete barrel
+structures are composed of only "usual strands", some barrel
+structures have at least one "bifurcated strand" and correspondingly
+an "edge strand" (see Fig. 2).  The numbers of bifurcated strands
+and edge strands are listed in the table.
+
+<P>
+<H2><B>Fig. 2</B></H2><IMG src="gif/cbarrel.gif" align=center>
+
+<H2>Removal of bulge residues</H2>
+
+Sometimes, beta-bulge residues occur in the middle of a beta-strands,
+which can affect <I>S</I> values. Therefore, the <I>S</I> values without bulge
+residues are listed. The procedure of the bulge removal follows the
+algorithm developed by Chan et al. (1993).
+
+<!--
+<P>The diagrams in the postscript files, which can be downloaded, contain the 
+HERA plot with the bulge residues removed.
+-->
+
+<P><I>An extended definition of layer structure</I><BR>
+
+If <I>S</I> is equal to <I>n</I> or 2<I>n</I>, particular sets of residues on the barrel
+lie in planes, perpendicular to the barrel axis, and form stacked
+"layers" (Lesk et al., 1989; Murzin et al., 1994) (see
+Fig. 1). However, in the case of <I>n</I>&lt;<I>S</I>&lt;2<I>n</I>, such sets
+perpendicular to the barrel axis cannot be identified. Previously
+(Lesk et al., 1989), only interior residues involved in barrel packing
+were defined as "layers" of TIM barrel structures. However, exterior
+as well as interior residues lie in planes. Where <I>S=n</I>, a layer
+includes alternating interior and exterior residues. Where <I>S</I>=2<I>n</I>,
+layers include only all interior or all exterior residues, and
+adjacent layers alternate. Here, "semi-complete layers", in which the
+direction of glycine is allowed to be flipped from interior to
+exterior or vice-versa, are also detected.
+<!-- The layer residues in the
+postscript diagrams are emphasized by thick ovals or squares.-->
+
+<P>
+<B><I>References</I></B>
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov:80/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=8251933"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   Chan AWE, Hutchinson EG, Harris D and Thornton JM (1993).
+   Identification, classification and analysis of beta-bulges in proteins.
+   <I>Protein Science</I>, <B>2</B>, 1574-1590.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=6667333"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   Kabsch W and Sander C (1983).
+   Dictionary of protein secondary structure: pattern recognition of
+   hydrogen-bonded and geometrical features.
+   <I>Biopolymers</I>, <B>22</B>, 2577-2637.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=2664768"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   Lesk AM, Branden C-I and Chothia C (1989).
+   Structural principles of alpha/beta barrel proteins: the packing of the
+   interior of the sheet.
+   <I>Proteins: Struct Funct Genet</I>, <B>5</B>, 139-148.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=430571"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   McLachlan AD (1979).
+   Gene duplications in the structural evolution of chymotrypsin.
+   <I>J. Mol. Biol.</I>, <B>128</B>, 49-79.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=8126726"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   Murzin AG, Lesk AM and Chothia C (1994).
+   Principles determining the structure of beta-sheet barrels in proteins.
+   I. A theoretical analysis.
+   <I>J. Mol. Biol.</I>, <B>236</B>, 1369-1381.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=8126727"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+   Murzin AG, Lesk AM and Chothia C (1994).
+   Principles determining the structure of beta-sheet barrels in proteins.
+   II. The observed structures.
+   <I>J. Mol. Biol.</I>, <B>236</B>, 1382-1400.
+  </td>
+ </tr>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=10548053"><img border=0 src="gif/PubMed.gif"></A>
+  </th>
+  <td valign=top>
+    Nagano N, Hutchinson EG and Thornton, JM (1999).
+    Barrel structures in proteins: automatic identification and
+    classification including a sequence analysis of TIM barrels.
+    <I>Protein Sci</I>. <B>8</B>, 2072-2084.
+  </td>
+ </tr>
+</table>
+
+<P>
+&nbsp;
+
+<p>
+<table width=680 cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+ <tr> 
+  <td bgcolor=#3c85b0 width=16777216><img src="gif/gif/1x1.gif" width=1 height=1></td>
+ </tr>
+</table>
+
+<I>
+<a href="<LNK%>HOME_NOZOMI</LNK%>" class=MenuClass>Nozomi Nagano</a>
+1999</I>
+
+
+
+
+
+

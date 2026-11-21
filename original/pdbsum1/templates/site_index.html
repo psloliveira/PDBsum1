@@ -1,0 +1,84 @@
+<!-- Define the site GIFs -->
+<SET SITE_GIF1="green">
+<SET SITE_GIF2="blue">
+<SET SITE_GIF3="red">
+<SET SITE_GIF4="yellow">
+<SET SITE_GIF5="purple">
+<SET SITE_GIF6="brown">
+<SET SITE_GIF7="pink">
+<SET SITE_GIF8="cyan">
+<SET NSITECOLS="8">
+
+<!--Next level 1 (Sites)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<BLOCK SITE_MID>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</BLOCK SITE_MID>
+<BLOCK SITE_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</BLOCK SITE_LAST>
+<b>Active sites</b>
+</td>
+</tr> 
+<BLOCK SITE_LAST>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</BLOCK SITE_LAST>
+</table>
+<!--end of level 1 (Sites)-->
+<!-- terminal level 2 (List of active sites)-->
+<LOOP NSITE>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<BLOCK SITE_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK SITE_MID>
+<BLOCK SITE_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK SITE_LAST>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP MIDLOOP2>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</SKIP MIDLOOP2>
+<SKIP ENDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=trmlmn>
+</SKIP ENDLOOP2>
+<SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<FLD%>_COUNTER4=<NO%>SITE_NO</NO%></FLD%>
+<FLD%>_COUNTER4%<NO%>NSITECOLS</NO%></FLD%>
+<a href="./protein.html&o=PDB_SITE&l=<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>&c=<FLD%>_CALL_NO</FLD%>" class=menuClass><IMG border=0 src="gif/<FLD%>SITE_GIF<NO%>COUNTER4</NO%></FLD%>_tri.gif"> <FLD%>SITE_NAME</FLD%></a>
+</SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<SKIP !CALL_NO<FLD%>_CALL_NO</FLD%>>
+<FONT COLOR=darkred><B><IMG border=0 src="gif/<FLD%>SITE_GIF<NO%>COUNTER4</NO%></FLD%>_tri.gif"> <FLD%>SITE_NAME</FLD%></B></FONT>
+</SKIP !CALL_NO<FLD%>_CALL_NO++</FLD%>>
+</td> 
+</tr>
+<SKIP MIDLOOP2>
+<tr>
+<BLOCK SITE_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK SITE_MID>
+<BLOCK SITE_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK SITE_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</SKIP MIDLOOP2>
+</table>
+</LOOP NSITE>

@@ -1,0 +1,250 @@
+.color {background: #207a7a}
+.stxt {font-family: Arial; font-size: 10pt;}
+.STH, .STH1, .txt, .htxt, .txt1, .TH2 {font-family: Arial; font-size: 10pt;}
+.STH, .STH1, .htxt, .TH1, .TH2 {font-weight: bold;}
+.TH1, .TH2 {background: #f4f464}
+.TH1 {font-size: 13pt;}
+.htxt {color: navy}
+.linkm {color: red; text-decoration: none; align: right}
+.txt1, .more, .STH1 {background: #f4f4c4}
+.lnk, .linkm, .submn {font-family: Arial; font-size: 9pt;}
+.menuH {font-family: Arial; font-size: 12pt; font-weight: bold;}
+.submn {font-family: Arial; font-size: 10pt;text-decoration: none;}
+.trmlmn {color: 3333ff; font-family: Arial; font-size: 9pt;text-decoration: none;}
+.trmlnm {color: red; font-family: Arial; font-size: 9pt;}
+.more1{color: red; font-family: Arial; font-size: 9pt;}
+.id{color: firebrick; font-family: Arial; font-weight: bold; font-size: 14pt;}
+.name{color: darkred; font-family: Arial; font-size: 12pt;}
+.nameM{color: white; font-family: Arial; font-size: 9pt; font-weight: bold;}
+.view {color: white; font-family: Arial; font-size: 9pt; font-weight: bold;}
+.lhdr{font-family: Arial; font-size: 14pt;}
+.medhdr{font-family: Arial; font-size: 12pt;}
+.medtxt{font-family: Arial; font-size: 12pt;}
+.ftxt, .hdr, .shdr{font-family: Arial; font-size: 9pt;}
+.ntxt, btxt {font-family: Arial; font-size: 8pt;}
+.ttxt {font-family: Arial; font-size: 7pt;}
+.name {color: darkred; font-family: Arial; font-size: 12pt; font-weight: bold;}
+.addmenu {color: darkred; font-family: Arial; font-size: 8pt; font-weight: bold; text-decoration: none;}
+
+.annotClass {
+	COLOR: 008b00; TEXT-DECORATION: none
+}
+
+.mol_window {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.ligand_window {
+    width: 280px;
+    height: 240px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.thumbnail_window {
+    width: 240px;
+    height: 240px;
+    background-color: #ffffff;
+    position: relative;
+}
+
+.menuClass {
+	COLOR: 3333ff; TEXT-DECORATION: none
+}
+.menuClass:visited {
+	COLOR: 3333ff; TEXT-DECORATION: none
+}
+.menuClass:hover {
+	COLOR: red; TEXT-DECORATION: none
+}
+.menuClass:active {
+	COLOR: 3333ff; TEXT-DECORATION: underline
+}
+
+.menuClass2 {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 9pt; TEXT-DECORATION: none
+}
+.menuClass2:visited {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 9pt; TEXT-DECORATION: none
+}
+.menuClass2:hover {
+	COLOR: navy; font-family: Arial; font-weight: bold; font-size: 9pt; TEXT-DECORATION: none
+}
+.menuClass2:active {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 9pt; TEXT-DECORATION: none
+}
+.menuClass3 {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 10pt; TEXT-DECORATION: none
+}
+.menuClass3:visited {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 10pt; TEXT-DECORATION: none
+}
+.menuClass3:hover {
+	COLOR: navy; font-family: Arial; font-weight: bold; font-size: 10pt; TEXT-DECORATION: none
+}
+.menuClass3:active {
+	COLOR: 3c85bf; font-family: Arial; font-weight: bold; font-size: 10pt; TEXT-DECORATION: none
+}
+
+.lhdr, .hdr, .shdr, .mhdr, .medhdr, .btxt {font-weight: bold;}
+.hdr, .mhdr {background: #eeeeee}
+.mhdr {font-family: Arial; font-size: 14pt; padding-right: 2px; padding-left: 2px; padding-bottom: 2px; padding-top: 2px;}
+
+font.emblBlue {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-weight: bold;
+   color: #006666;
+   font-style: normal
+}
+
+font.emblBlue_head {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 8pt;
+   font-weight: bold;
+   color: #006666;
+   font-style: normal
+}
+
+font.emblRedBold {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-weight: bold;
+   color: #e33e3e;
+   font-style: normal
+}
+
+font.ebi_green {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-weight: normal;
+   color: #006666;
+   font-style: normal
+}
+
+font.ebi_blue_normal {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-weight: normal;
+   color: #003063;
+   font-style: normal
+}
+
+font.ebi_blue_tiny {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 7pt;
+   font-weight: normal;
+   color: #003063;
+   font-style: normal
+}
+
+font.ebi_red_tiny {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 7pt;
+   font-weight: normal;
+   color: darkred;
+   font-style: normal
+}
+
+font.tiny {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 7pt;
+   font-weight: normal;
+   font-style: normal
+}
+
+font.dark_grey {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   font-weight: normal;
+   color: #777777;
+   font-style: normal
+}
+
+font.search_12 {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 12pt;
+   color: #000000;
+   font-style: normal
+}
+
+font.search_10 {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 10pt;
+   color: #000000;
+   font-style: normal
+}
+
+font.size_7 {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 7pt;
+   color: #000000;
+   font-style: normal
+}
+
+font.size_8 {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+   font-size: 8pt;
+   color: #000000;
+   font-style: normal
+}
+
+body {
+   font-family: Arial Unicode MS, Lucida Sans Unicode, Arial, Helvetica, sans-serif;
+}
+
+font.black_normal {
+   font-size: 10pt;
+   color: #000000;
+}
+
+font.ok {
+   font-size: 10pt;
+   color: #777777;
+   font-style: normal;
+}
+
+font.checked {
+   font-size: 10pt;
+   color: #003063;
+   font-style: normal
+}
+
+ /* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+} 

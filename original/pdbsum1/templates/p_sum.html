@@ -1,0 +1,1252 @@
+<!-- Insert file for summary tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOL_SUMMARY="9">
+<SET NCOL_BETA_BARRELS="7">
+<SET NCOL_SHEETS="9">
+<SET NCOL_BAB_MOTIFS="17">
+<SET NCOL_BETA_HAIRPINS="13">
+<SET NCOL_PSI_LOOPS="13">
+<SET NCOL_BETA_BULGES="11">
+<SET NCOL_STRANDS="7">
+<SET NCOL_HELICES="7">
+<SET NCOL_HELIX_INTERACTIONS="12">
+<SET NCOL_BETA_TURNS="7">
+<SET NCOL_GAMMA_TURNS="7">
+<SET NCOL_DISULPHIDES="5">
+<SET BARREL_TYPEA="Antiparallel">
+<SET BARREL_TYPEP="Parallel">
+<SET BARREL_TYPEM="Mixed">
+<SET SHEET_TYPEA="Antiparallel">
+<SET SHEET_TYPEP="Parallel">
+<SET SHEET_TYPEM="Mixed">
+<SET BULGE_TYPEA="Antiparallel">
+<SET BULGE_TYPEP="Parallel">
+<SET BULGE_CLASSC="classic">
+<SET BULGE_CLASSS="special">
+<SET BULGE_CLASSB="bent">
+<SET BULGE_CLASSG="G1">
+<SET BULGE_CLASSW="wide">
+<SET BARRELN="N">
+<SET BARRELY="Y">
+<SET FALSE="No">
+<SET TRUE="Yes">
+
+<!-- Initialise plot parameters -->
+<SET DOC_NAME="promotif">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<SET LETTERS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz">
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif.dat
+
+<!-- PROMOTIF summary -->
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+ <tr>
+  <td valign=top>
+   <H1>PROMOTIF summary</H1>
+
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=10 ALT=""></td>
+ </tr>
+
+<!-- Link to documention -->
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+ <tr>
+  <td class=lhdr align=left>
+   <a href="./doc_promotif.html&doc=TRUE&pdbcode=n/a" onclick="NewWindow(this.href,'help','1000','620','yes');return false;"><img src="gif/doc.gif" border="0"></a> PROMOTIF documentation
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+
+<!-- Secondary stucture summary -->
+ <tr>
+  <td class=lhdr>
+   Secondary structure summary<BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_SUMMARY</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Alpha helix</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>3-10 helix</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Other</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Total residues</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_SUMMARY</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NSUMMARY>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>SU_NRES_STRAND</FLD%>&nbsp;(<FLD%>SU_PERCEN_STRAND</FLD%>%)&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>SU_NRES_HELIX</FLD%>&nbsp;(<FLD%>SU_PERCEN_HELIX</FLD%>%)&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>SU_NRES_3_10</FLD%>&nbsp;(<FLD%>SU_PERCEN_3_10</FLD%>%)&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>SU_NRES_REST</FLD%>&nbsp;(<FLD%>SU_PERCEN_REST</FLD%>%)&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+<FLD%>_COUNTER8=0</FLD%>
+<FLD%>_COUNTER8+<NO%>SU_NRES_STRAND</NO%></FLD%>
+<FLD%>_COUNTER8+<NO%>SU_NRES_HELIX</NO%></FLD%>
+<FLD%>_COUNTER8+<NO%>SU_NRES_3_10</NO%></FLD%>
+<FLD%>_COUNTER8+<NO%>SU_NRES_REST</NO%></FLD%>
+      &nbsp;<font face=arial><FLD%>COUNTER8</FLD%>&nbsp;
+     </td>
+     <td></td>
+    </tr>
+</LOOP NSUMMARY>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_SUMMARY</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 1. Beta barrels -->
+<SKIP !NBETA_BARRELS>
+<SKIP NBETA_BARRELS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=BETA_BARRELS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NBETA_BARRELS</FLD%> beta barrel<s% NBETA_BARRELS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BETA_BARRELS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=right valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sheet</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>strands</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.&nbsp;of<BR>barrel<BR>strands,&nbsp;<I>n</I></B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_BARRELS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NBETA_BARRELS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>BR_SHEET_ID</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>BR_NSTRANDS</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>BR_NBAR_STRANDS</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>BARREL_TYPE<NO%>BR_TYPE</NO%></FLD%></font>&nbsp;
+     </td>
+    </tr>
+</LOOP NBETA_BARRELS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_BARRELS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NBETA_BARRELS[eq0]>
+</SKIP !NBETA_BARRELS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 2. Beta sheets -->
+<SKIP !NSHEETS>
+<SKIP NSHEETS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=SHEETS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NSHEETS</FLD%> beta sheet<s% NSHEETS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_SHEETS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sheet</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;No.&nbsp;<BR>&nbsp;strands&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Barrel</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Topology</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_SHEETS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NSHEETS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>LETTERS(p<NO%>SH_SHEET_ID</NO%>)</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>SH_NSTRANDS</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=left>
+      &nbsp;<font face=arial><FLD%>SHEET_TYPE<NO%>SH_TYPE</NO%></FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>BARREL<NO%>SH_BARREL_FLAG</NO%></FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=left>
+      &nbsp;<font face=arial><FLD%>SH_TOPOLOGY</FLD%></font>&nbsp;
+     </td>
+    </tr>
+</LOOP NSHEETS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_SHEETS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NSHEETS[eq0]>
+</SKIP !NSHEETS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 3. Beta-alpha-beta motifs -->
+<SKIP !NBAB_MOTIFS>
+<SKIP NBAB_MOTIFS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=BAB_MOTIFS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NBAB_MOTIFS</FLD%> beta-alpha-beta motif<s% NBAB_MOTIFS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BAB_MOTIFS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr> 
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 1</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 2</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No. of</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No. of residues</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+     <td></td>
+     <td class=color colspan=3><img src="gif/1x1.gif" width=1 height=1></td>
+    </tr>
+    <tr> 
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>helices</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Loop</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BAB_MOTIFS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NBAB_MOTIFS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=right>
+      &nbsp;<font color="blue" face=arial><FLD%>BA_RES_NAM1{t}</FLD%>&nbsp;<FLD%>BA_RES_NUM1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>BA_RES_NAM2{t}</FLD%>&nbsp;<FLD%>BA_RES_NUM2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>BA_LEN_STRAND1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=right>
+      &nbsp;<font color="green" face=arial><FLD%>BA_RES_NAM3{t}</FLD%>&nbsp;<FLD%>BA_RES_NUM3</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>BA_RES_NAM4{t}</FLD%>&nbsp;<FLD%>BA_RES_NUM4</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>BA_LEN_STRAND2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>BA_NHELICES</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>BA_LEN_LOOP</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>BA_LEN_HELIX</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NBAB_MOTIFS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BAB_MOTIFS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NBAB_MOTIFS[eq0]>
+</SKIP !NBAB_MOTIFS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 4. Beta hairpins -->
+<SKIP !NBETA_HAIRPINS>
+<SKIP NBETA_HAIRPINS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=BETA_HAIRPINS&r=psplot&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NBETA_HAIRPINS</FLD%> beta hairpin<s% NBETA_HAIRPINS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BETA_HAIRPINS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 1</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 2</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=right valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;Hairpin&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;class&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BETA_HAIRPINS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NBETA_HAIRPINS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>HP_RESNAM1{t}</FLD%><FLD%>HP_RESNUM1</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>HP_RESNAM2{t}</FLD%><FLD%>HP_RESNUM2</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>HP_NRES_STRAND1</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>HP_RESNAM3{t}</FLD%><FLD%>HP_RESNUM3</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>HP_RESNAM4{t}</FLD%><FLD%>HP_RESNUM4</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>HP_NRES_STRAND2</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>HP_NHPIN_RES</FLD%>:<FLD%>HP_NBRIDGE_RES</FLD%>&nbsp;<FLD%>HP_TYPE</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NBETA_HAIRPINS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_HAIRPINS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NBETA_HAIRPINS[eq0]>
+</SKIP !NBETA_HAIRPINS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 5. Psi loops -->
+<SKIP !NPSI_LOOPS>
+<SKIP NPSI_LOOPS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=PSI_LOOPS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NPSI_LOOPS</FLD%> psi loop<s% NPSI_LOOPS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_PSI_LOOPS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 1</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 2</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Loop</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+     <td></td>
+     <td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_PSI_LOOPS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NPSI_LOOPS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=right>
+      &nbsp;<font color="blue" face=arial><FLD%>PS_RES_NAM1{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>PS_RES_NAM2{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>PS_LEN_STRAND1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=right>
+      &nbsp;<font color="green" face=arial><FLD%>PS_RES_NAM3{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM3</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>PS_RES_NAM4{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM4</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="green" face=arial><FLD%>PS_LEN_STRAND2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>PS_LEN_LOOP</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NPSI_LOOPS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_PSI_LOOPS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NPSI_LOOPS[eq0]>
+</SKIP !NPSI_LOOPS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 6. Beta bulges -->
+<SKIP !NBETA_BULGES>
+<SKIP NBETA_BULGES[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=BETA_BULGES&r=psplot&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NBETA_BULGES</FLD%> beta bulge<s% NBETA_BULGES></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BETA_BULGES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Bulge type</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Res X</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Res 1</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Res 2</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Res 3</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Res 4</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_BULGES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NBETA_BULGES>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td>
+      &nbsp;<font face=arial><FLD%>BULGE_TYPE<NO%>BL_TYPE</NO%></FLD%>&nbsp;<FLD%>BULGE_CLASS<NO%>BL_CLASS</NO%></FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial color="red">
+      <FLD%>BL_RESNAM1{t}</FLD%><FLD%>BL_RESNUM1</FLD%><FLD%>BL_CHAIN1</FLD%>
+      &nbsp;</font>
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial color="green">
+      <FLD%>BL_RESNAM2{t}</FLD%><FLD%>BL_RESNUM2</FLD%><FLD%>BL_CHAIN2</FLD%>
+      &nbsp;</font>
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial color="blue">
+      <FLD%>BL_RESNAM3{t}</FLD%><FLD%>BL_RESNUM3</FLD%><FLD%>BL_CHAIN3</FLD%>
+      &nbsp;</font>
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial color="purple">
+      <FLD%>BL_RESNAM4{t}</FLD%><FLD%>BL_RESNUM4</FLD%><FLD%>BL_CHAIN4</FLD%>
+      &nbsp;</font>
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial color="purple">
+      <FLD%>BL_RESNAM5{t}</FLD%><FLD%>BL_RESNUM5</FLD%><FLD%>BL_CHAIN5</FLD%>
+      &nbsp;</font>
+     </td>
+    </tr>
+</LOOP NBETA_BULGES>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_BULGES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NBETA_BULGES[eq0]>
+</SKIP !NBETA_BULGES>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 7. Beta strands -->
+<SKIP !NSTRANDS>
+<SKIP NSTRANDS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=STRANDS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NSTRANDS</FLD%> strand<s% NSTRANDS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_STRANDS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sheet</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;No.<BR>resid&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_STRANDS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NSTRANDS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>ST_RES_NAM1{t}</FLD%><FLD%>ST_RES_NUM1</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>ST_RES_NAM2{t}</FLD%><FLD%>ST_RES_NUM2</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>LETTERS(p<NO%>ST_SHEET_ID1</NO%>)</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>ST_NRESID</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NSTRANDS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_STRANDS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NSTRANDS[eq0]>
+</SKIP !NSTRANDS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 8. Helices -->
+<SKIP !NHELICES>
+<SKIP NHELICES[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=HELICES&r=psplot&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true">
+<SKIP NHELICES[gt1]>
+<FLD%>NHELICES</FLD%> helix</a><BR>
+</SKIP NHELICES[gt1]>
+<SKIP NHELICES[eq1]>
+<FLD%>NHELICES</FLD%> helices</a><BR>
+</SKIP NHELICES[eq1]>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_HELICES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;No.<BR>resid&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_HELICES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NHELICES>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HL_RESNAM1{t}</FLD%><FLD%>HL_RESNUM1</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HL_RESNAM2{t}</FLD%><FLD%>HL_RESNUM2</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HL_TYPE</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HL_NRESID</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NHELICES>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_HELICES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NHELICES[eq0]>
+</SKIP !NHELICES>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 9. Helix-helix interactions -->
+<SKIP !NHELIX_INTERACTIONS>
+<SKIP NHELIX_INTERACTIONS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=HELIX_INTERACTIONS&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NHELIX_INTERACTIONS</FLD%> helix-helix interaction<s% NHELIX_INTERACTIONS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_HELIX_INTERACTIONS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=right valign=bottom colspan=2 bgcolor="#DDDDDD">&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=left valign=bottom colspan=2 bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;Interaction&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No. interacting residues</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr>
+     <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+     <td></td>
+     <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+     <td></td>
+     <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+     <td></td>
+     <td class=color colspan=3><img src="gif/1x1.gif" width=3 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helices</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>types</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>type</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix&nbsp;1</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix&nbsp;2</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_HELIX_INTERACTIONS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NHELIX_INTERACTIONS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_CHAIN1</FLD%><FLD%>HI_HELIX_NUM1</FLD%></font>&nbsp;
+     </td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_CHAIN2</FLD%><FLD%>HI_HELIX_NUM2</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_HELIX_TYPE1</FLD%>&nbsp;
+     </td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_HELIX_TYPE2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_INT_TYPE1</FLD%>&nbsp;
+     </td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_INT_TYPE2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_NRES_INT1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>HI_NRES_INT2</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NHELIX_INTERACTIONS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_HELIX_INTERACTIONS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NHELIX_INTERACTIONS[eq0]>
+</SKIP !NHELIX_INTERACTIONS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 10. Beta turns -->
+<SKIP !NBETA_TURNS>
+<SKIP NBETA_TURNS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=BETA_TURNS&r=psplot&l=<FLD%>_LOOP1</FLD%>&s=1&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NBETA_TURNS</FLD%> beta turn<s% NBETA_TURNS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_BETA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;Turn&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+    </tr>
+    <tr>
+     <td class=htxt colspan=1 align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Turn</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td class=htxt align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sequence</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td class=htxt align=left valign=bottom bgcolor="#DDDDDD">
+      <B>&nbsp;type&nbsp;</B>
+     </td>
+     <td></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>H-bond</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NBETA_TURNS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td  align=center>
+      &nbsp;<font face=arial><FLD%>BT_RESNAM1{t}</FLD%><FLD%>BT_RESNUM1</FLD%>-<FLD%>BT_RESNAM4{t}</FLD%><FLD%>BT_RESNUM4</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td >
+      &nbsp;
+      <font face=arial><FLD%>BT_SEQUENCE(p1)</FLD%><FLD%>BT_SEQUENCE(p2)</FLD%><FLD%>BT_SEQUENCE(p3)</FLD%><FLD%>BT_SEQUENCE(p4)</FLD%></font>
+      &nbsp;
+     </td>
+     <td></td>
+     <td  align=center>
+      &nbsp;<font face=arial><FLD%>BT_TURNTYPE</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td  align=center>
+      &nbsp;<font face=arial><FLD%><NO%>BT_HBOND_FLAG</NO%></FLD%></font>&nbsp;
+     </td>
+    </tr>
+</LOOP NBETA_TURNS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_BETA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NBETA_TURNS[eq0]>
+</SKIP !NBETA_TURNS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 11. Gamma turns -->
+<SKIP !NGAMMA_TURNS>
+<SKIP NGAMMA_TURNS[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=GAMMA_TURNS&r=psplot&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NGAMMA_TURNS</FLD%> gamma turn<s% NGAMMA_TURNS></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_GAMMA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sequence</B></FONT>&nbsp;
+     </td>
+     <td></td>
+     <td align=left valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Turn type</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_GAMMA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NGAMMA_TURNS>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font color="red" face=arial><FLD%>GT_RESNAM1{t}</FLD%><FLD%>GT_RESNUM1</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font color="blue" face=arial><FLD%>GT_RESNAM3{t}</FLD%><FLD%>GT_RESNUM3</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td>
+      &nbsp;<font face=arial><FLD%>GT_SEQUENCE(p1)</FLD%><FLD%>GT_SEQUENCE(p2)</FLD%><FLD%>GT_SEQUENCE(p3)</FLD%></font>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>GT_TURNTYPE</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NGAMMA_TURNS>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_GAMMA_TURNS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NGAMMA_TURNS[eq0]>
+</SKIP !NGAMMA_TURNS>
+<SKIP COUNTER9[eq1]>
+<FLD%>_COUNTER9=1</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+</SKIP COUNTER9[eq1]>
+
+<!-- 12. Disulphides -->
+<SKIP !NDISULPHIDES>
+<SKIP NDISULPHIDES[eq0]>
+<FLD%>_COUNTER7++</FLD%>
+ <tr>
+  <td class=lhdr>
+   <a href="./protein.html&o=DISULPHIDES&l=<FLD%>_LOOP1</FLD%>&c=<FLD%>_COUNTER7</FLD%><FLD%>LOCK</FLD%>&chain=<FLD%>PLOT_CHAIN</FLD%>" class=menuClass
+  onMouseOver="window.status='Go to detailed page for this motif'; return true"><FLD%>NDISULPHIDES</FLD%> disulphide<s% NDISULPHIDES></a><BR>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+   <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+    <tr>
+     <td class=color colspan=<NO%>NCOL_DISULPHIDES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>1st cysteine</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>2nd cysteine</B></FONT>&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td align=center valign=bottom bgcolor="#DDDDDD">
+      &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_DISULPHIDES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<LOOP NDISULPHIDES>
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+<FLD%>_COUNTER9*-1</FLD%>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>DS_CHAIN1</FLD%>&nbsp;<FLD%>DS_RES_NUM1</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>DS_CHAIN2</FLD%>&nbsp;<FLD%>DS_RES_NUM2</FLD%>&nbsp;
+     </td>
+     <td></td>
+     <td align=center>
+      &nbsp;<font face=arial><FLD%>DS_TYPE</FLD%>&nbsp;
+     </td>
+    </tr>
+</LOOP NDISULPHIDES>
+    <tr> 
+     <td class=color colspan=<NO%>NCOL_DISULPHIDES</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=20 ALT=""></td>
+ </tr>
+</SKIP NDISULPHIDES[eq0]>
+</SKIP !NDISULPHIDES>
+

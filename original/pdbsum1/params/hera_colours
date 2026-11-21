@@ -1,0 +1,20 @@
+0.0000 0.0000 0.0000 'BLACK'        <- Colour 1
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 2
+1.0000 0.0000 0.0000 'RED'          <- Colour 3
+0.0000 1.0000 0.0000 'GREEN'        <- Colour 4
+0.0000 0.0000 1.0000 'BLUE'         <- Colour 5
+1.0000 1.0000 0.0000 'YELLOW'       <- Colour 6
+0.8000 0.5000 0.0000 'ORANGE'       <- Colour 7
+0.5000 1.0000 0.0000 'LIME GREEN'   <- Colour 8
+0.5000 0.0000 1.0000 'PURPLE'       <- Colour 9
+0.5000 1.0000 1.0000 'CYAN'         <- Colour 10
+1.0000 0.5000 1.0000 'PINK'         <- Colour 11
+0.3000 0.8000 1.0000 'SKY BLUE'     <- Colour 12
+1.0000 1.0000 0.7000 'CREAM'        <- Colour 13
+0.0000 1.0000 1.0000 'TURQUOISE'    <- Colour 14
+1.0000 0.0000 1.0000 'LILAC'        <- Colour 15
+0.8000 0.0000 0.0000 'BRICK RED'    <- Colour 16
+0.5000 0.0000 0.0000 'BROWN'        <- Colour 17
+0.9700 0.9700 0.9700 'LIGHT GREY'   <- Colour 18
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 19
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 20

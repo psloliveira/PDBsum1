@@ -1,0 +1,73 @@
+##########################################################################
+#
+# Paths and directories for PDBsum1
+#
+###########################################################################
+
+#
+#-- Operating system: linux/win/mac
+#
+OPERATING_SYSTEM     = linux
+
+#
+#-- Location of installed PDBsum1 system and subdirectories
+#
+PDBSUM1_DIR          = /hps/software/users/thornton/roman/pdbsum1
+
+#
+#-- Location where data files are to be written
+#
+PDBSUM1_RESULTS_DIR  = /nfs/research/thornton/roman/data/pdbsum1
+
+#
+#-- Paths to required external software (put NONE if not available)
+#
+CONVERT_EXE          = /usr/bin/convert
+PS2PDF               = /usr/bin/ps2pdf
+PYMOL_EXE            = pymol
+WGET                 = /usr/bin/wget
+
+#
+# *** DO NOT EDIT THE LINES BELOW
+#
+
+#
+#-- Paths to external web sites
+#
+EBI                  = https://www.ebi.ac.uk
+EBI_CGI              = $(EBI)/thornton-srv/databases/cgi-bin
+URL_ARCHSCHEMA       = $(EBI_CGI)/archschema/RunArchSchema.jnlp?seqId=
+GET_UNIPROT_DATA     = https://www.uniprot.org/uniprot/
+ARCHSCHEMA_HOME_PAGE = $(EBI)/thornton-srv/databases/archschema
+PROCHECK_HOME_PAGE   = $(EBI)/thornton-srv/software/PROCHECK
+URL_INTERPRO         = https://www.ebi.ac.uk/interpro/api/
+URL_PFAM             = $(URL_INTERPRO)/protein/UniProt/
+URL_PFAM_CODE        = $(EBI_CGI)/pdbsum/GetPfamStr.pl?pfam_id=
+
+#
+#-- Internal parameters
+#
+PDBSUM_EXE_DIR             = $(PDBSUM1_DIR)/exe_$(OPERATING_SYSTEM)
+PDBSUM_PARAMS_DIR          = $(PDBSUM1_DIR)/params
+PDBSUM_REAL_DATA_DIR       = $(PDBSUM1_DIR)/data
+PDBSUM_GENDATA_DIR         = $(PDBSUM_REAL_DATA_DIR)
+PDBSUM1_HOME_DIR           = $(PDBSUM1_DIR)
+PDBSUM_TEMPLATES_DIR       = $(PDBSUM1_HOME_DIR)/templates
+PDBSUM_TEMPLATES_GIF_DIR   = $(PDBSUM_TEMPLATES_DIR)/gif
+PDBSUM_REAL_TEMPLATE       = $(PDBSUM1_RESULTS_DIR)/[bc]/[abcd]
+PDBSUM_REAL_TEMPLATES_DIR  = $(PDBSUM1_DIR)/templates
+PDBSUM_TEMPLATES_GIF_DIR   = $(PDBSUM_REAL_TEMPLATES_DIR)/gif
+PDBSUM_DOCS_DIR            = $(PDBSUM1_DIR)/docs
+PDBSUM_SCRIPTS_DIR         = $(PDBSUM1_DIR)/scripts
+PDBSUM_TEMPLATE            = $(PDBSUM1_RESULTS_DIR)/[bc]/[abcd]
+
+#
+#-- Other executables
+#
+NACCESS_EXE                = $(PDBSUM_EXE_DIR)/naccess
+
+#
+#-- Paths to data files downloaded from external sources
+#
+HETGROUP_DICTIONARY        = $(PDBSUM_REAL_DATA_DIR)/components.cif
+

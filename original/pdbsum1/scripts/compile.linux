@@ -1,0 +1,97 @@
+# C programs
+
+gcc -O2 -funroll-loops -c ../src/pdbsum/common.c
+gcc -O2 -funroll-loops -c ../src/pdbsum/align.c
+gcc -O2 -funroll-loops -c ../src/pdbsum/reapar.c
+gcc -O2 -funroll-loops -c ../src/pdbsum/readpdb.c
+gcc -O2 -funroll-loops -c ../src/pdbsum/readsum.c
+
+gcc -O2 -funroll-loops -c ../src/pdbsum/fixpdb.c
+gcc -o fixpdb fixpdb.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/genpymol.c
+gcc -o genpymol genpymol.o common.o reapar.o readpdb.o readsum.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/newsec.c
+gcc -o newsec newsec.o common.o reapar.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/pdbsum1.c
+gcc -o pdbsum1 pdbsum1.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/ppcont.c
+gcc -o ppcont ppcont.o common.o reapar.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/promfilt.c
+gcc -o promfilt promfilt.o common.o reapar.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/rascript.c
+gcc -o rascript rascript.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/resdata.c
+gcc -o resdata resdata.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/romlas.c
+gcc -o romlas romlas.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/seqdata.c
+gcc -o seqdata seqdata.o common.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/showmain.c
+gcc -o showmain showmain.o common.o reapar.o -lm -lz
+gcc -c ../src/pdbsum/topoldia.c
+gcc -o topoldia topoldia.o common.o reapar.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/uniplot.c
+gcc -o uniplot uniplot.o common.o align.o reapar.o readpdb.o -lm -lz
+gcc -O2 -funroll-loops -c ../src/pdbsum/wiring.c
+gcc -o wiring wiring.o common.o reapar.o -lm -lz
+
+gcc -O2 -funroll-loops -c ../src/hbplus/hbp_gen.c
+gcc -O2 -funroll-loops -c ../src/hbplus/hbp_inpdb.c
+gcc -O2 -funroll-loops -c ../src/hbplus/hbp_findh.c
+gcc -O2 -funroll-loops -c ../src/hbplus/hbp_hhb.c
+gcc -O2 -funroll-loops -c ../src/hbplus/hbp_qnh.c
+gcc -O2 -funroll-loops -c ../src/hbplus/hbplus.c
+gcc -o hbplus hbplus.o hbp_gen.o hbp_inpdb.o hbp_findh.o hbp_hhb.o hbp_qnh.o -lm
+
+gcc -O2 -funroll-loops -c ../src/ligplot/dimps.c
+gcc -O2 -funroll-loops -c ../src/ligplot/dimhtml.c
+gcc -o dimhtml dimhtml.o dimps.o common.o reapar.o -lm -lz
+gcc -O2 -funroll-loops -o hbadd ../src/ligplot/hbadd.c -lm
+gcc -O2 -funroll-loops -o ligplot ../src/ligplot/ligplot.c -lm
+gcc -O2 -funroll-loops -c ../src/ligplot/postmatch.c
+gcc -o postmatch postmatch.o common.o reapar.o -lm -lz
+
+gcc -O2 -funroll-loops -o nucplot ../src/nucplot/nucplot.c -lm
+
+gcc -O2 -funroll-loops -o nb ../src/procheck/nb.c -lm
+
+gcc -O2 -funroll-loops -c ../src/speedfill/kdtree.c
+gcc -O2 -funroll-loops -c ../src/speedfill/ras3d.c
+gcc -O2 -funroll-loops -c ../src/speedfill/speedfill.c
+gcc -o speedfill speedfill.o common.o reapar.o readpdb.o kdtree.o ras3d.o -lm -lz
+
+# FORTRAN programs
+
+gfortran -fbounds-check -o naccess ../src/naccess/naccess.f -lm
+
+gfortran -fbounds-check -c ../src/pdbsum/fcommon.f
+gfortran -fbounds-check -c ../src/pdbsum/pdbhtml.f
+gfortran -o pdbhtml pdbhtml.o fcommon.o -lm
+
+gfortran -fbounds-check -c ../src/procheck/ps.f
+gfortran -fbounds-check -o anglen ../src/procheck/anglen.f
+gfortran -fbounds-check -o clean ../src/procheck/clean.f
+gfortran -fbounds-check -c ../src/procheck/bplot.f
+gfortran -o bplot bplot.o ps.o -lm
+gfortran -fbounds-check -c ../src/procheck/gfac2pdb.f
+gfortran -o gfac2pdb gfac2pdb.o ps.o -lm
+gfortran -fbounds-check -c ../src/procheck/pplot.f
+gfortran -o pplot pplot.o ps.o -lm
+gfortran -fbounds-check -c ../src/procheck/tplot.f
+gfortran -o tplot tplot.o ps.o -lm
+gfortran -fbounds-check -o secstr ../src/procheck/secstr.f
+
+gfortran -fbounds-check -o p_bulge3 ../src/promotif3/p_bulge3.f -lm
+gfortran -fbounds-check -o p_disulph3  ../src/promotif3/p_disulph3.f -lm
+gfortran -fbounds-check -o p_hairpin3 ../src/promotif3/p_hairpin3.f -lm
+gfortran -fbounds-check -o p_helix3 ../src/promotif3/p_helix3.f -lm
+gfortran -fbounds-check -o p_hera3 ../src/promotif3/p_hera3.f -lm
+gfortran -fbounds-check -o p_sheet3 ../src/promotif3/p_sheet3.f -lm
+gfortran -fbounds-check -o p_sstruc3 ../src/promotif3/p_sstruc3.f -lm
+gfortran -fbounds-check -o p_turn3 ../src/promotif3/p_turn3.f -lm
+gfortran -fbounds-check -c ../src/promotif3/psrout.f -lm
+gfortran -fbounds-check -c ../src/promotif3/psplot3.f -lm
+gfortran -o psplot3 psplot3.o psrout.o fcommon.o -lm
+
+# Delete all the object files
+rm *.o

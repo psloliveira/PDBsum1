@@ -1,0 +1,943 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<BLOCK DEFAULT_OPTION>
+<SET PAGE_TITLE="Protein-protein interface<s% NINTERFACES> for <FLD%>PDB_CODE</FLD%>">
+<SET BAR_HEADER="Protein-Protein interface<s% NINTERFACES> for <FLD%>PDB_CODE</FLD%>">
+</BLOCK DEFAULT_OPTION>
+<BLOCK !DEFAULT_OPTION>
+<SET PAGE_TITLE="Protein-protein interface: <FLD%>PDB_CODE</FLD%>, chains <FLD%>PPIFACE_CHAIN1</FLD%>}{<FLD%>PPIFACE_CHAIN2</FLD%>">
+<SET BAR_HEADER="Protein-Protein interface: <FLD%>PPIFACE_CHAIN1</FLD%>}{<FLD%>PPIFACE_CHAIN2</FLD%>">
+</BLOCK !DEFAULT_OPTION>
+<SET BAR_ALIGN="center">
+<SET INTERFACES_PAGE="TRUE">
+<BLOCK CONSERVATION_OPTION>
+<SET COLOUR_SCHEME="&colour=CONSERV">
+</BLOCK CONSERVATION_OPTION>
+
+<SET INTERFACES_PAGE="TRUE">
+<SET SIDE_LINE="TRUE">
+
+<!-- Define colours -->
+<SET NCOLS="18">
+
+<!-- Define residue to be highlighted in the LIGPLOT diagram -->
+<BLOCK PARAM1>
+<SET HIGHLIGHT_RES="<FLD%>PARAM1</FLD%>">
+<SET LRES="&res=<FLD%>HIGHLIGHT_RES</FLD%>">
+<SET VAR_TYPE="<FLD%>PARAM3</FLD%>">
+</BLOCK PARAM1>
+
+#insert:tags.html
+
+<TABLE border=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>
+
+<TR>
+<TD WIDTH=1% VALIGN=top>
+<!-- -->
+<table BGCOLOR=white border=0 CELLSPACING=0 CELLPADDING=0 WIDTH=50%
+ALIGN=center>
+<BLOCK DEFAULT_OPTION>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td  width=240 height=240 valign=top align=center><img src="tmpgif/newsec/traces.png" border=0 width=240 hight=240></a></td>
+ </tr>
+</BLOCK DEFAULT_OPTION>
+<BLOCK !DEFAULT_OPTION>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td  width=240 height=240 valign=top align=center>
+   <a href="tmpgif/newsec/chains<FLD%>PPIFACE_CHAIN1</FLD%><FLD%>PPIFACE_CHAIN2</FLD%>.png" 
+   onclick="NewWindow(this.href,'','260','260','yes');return false;"
+   target=image
+   title="Click to view"><img
+   src="tmpgif/newsec/tppiface<FLD%>PPIFACE_CHAIN1</FLD%><FLD%>PPIFACE_CHAIN2</FLD%>.png" name="chains" border=0 width=240 hight=240></a></td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+   <font size=1pt face=arial color=darkred>Chains <FLD%>PPIFACE_CHAIN1</FLD%> and <FLD%>PPIFACE_CHAIN2</FLD%> highlighted</font>
+  </td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center><font size=1pt face=arial color=darkred>(click to view)</font></td>
+ </tr>
+</BLOCK !DEFAULT_OPTION>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+   &nbsp;
+  </td>
+</TR>
+</TABLE>
+<!-- -->
+<BLOCK !DEFAULT_OPTION>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td>
+    <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+     <tr> 
+       <td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+
+      <!-- RasMol -->
+       <td>
+        <a href="../rasmol/chains_<FLD%>PPIFACE_CHAIN1</FLD%><FLD%>PPIFACE_CHAIN2</FLD%>.rasmol"
+	download type="application/x-rasmol"
+	title="View both chains in RasMol"><img
+        border=0 height=18 src="gif/rasmollogo3_5.gif" ALT=""></a>
+       </td>
+       <td>&nbsp;</td>
+
+       <!-- JSmol 
+       <td>
+        <a href="./jmolrasmol.html&param1=pdbsum&param2=<FLD%>PPIFACE_CHAIN1</FLD%>&param3=<FLD%>PPIFACE_CHAIN2</FLD%>"
+        onclick="NewWindow(this.href,'jmol','750','750','yes');return false;"
+        onmouseover="return overlib('View both chains in JSmol', WRAP);"
+        onmouseout="return nd();"><img
+	border=0 height=20 src="gif/JSmol_sm.png" ALT="JSmol"></A>
+       </td>
+-->
+     </tr>
+     <tr>
+       <td colspan=4>&nbsp;</td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+</table>
+</BLOCK !DEFAULT_OPTION>
+
+<!-- Interfaces tab -->
+<table width=50% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td>
+   <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td valign=bottom>
+      <img src="gif/1x1.gif" width=10 height=1 ALT="">
+      <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+        <td bgcolor=#207a7a><img src="gif/1x1.gif" width=5 height=1></td>
+       </tr> 
+      </table>
+     </td> 
+     <td><img src="gif/zl09x20.gif" width=10 height=20 ALT=""></td>
+     <td bgcolor=#207a7a width="150" height=20 align="center"><b><font color=white face=arial size=2pt>Interfaces</font></b></td>
+     <td><img src="gif/zr10x20.gif" width=10 height=20 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+</table>
+<!-- ******************************************************************** -->
+<!-- -------------------------Tree start--------------------------------- -->
+<table width=185 cellspacing=0 cellpadding=0 border=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=10></td>
+  <td>
+<!-- separator -->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+<tr>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<td width=400 bgcolor=white><img src="gif/sh.gif" width=117></td>
+</tr>
+</table>
+<!-- end separator -->
+
+<!-- Link to interface summary page, where present -->
+
+<!--Next level 1 (interface summary)-->
+<SKIP NINTERFACES[eq1]>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+
+<SKIP CALL_NO999>
+<B><a href="./interfaces.html" class=menuClass>Interface summary</a></B>
+</SKIP CALL_NO999>
+<SKIP !CALL_NO999>
+<FONT COLOR=darkred><B>Interface summary</B>
+</FONT>
+</SKIP !CALL_NO999>
+
+</td> 
+</tr> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=8></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=8 ALT=""></td> 
+<td></td> 
+</tr>
+</table>
+</SKIP NINTERFACES[eq1]>
+<!--end of level 1 (interface summary)-->
+
+<!-- List of interfaces and copy interfaces -->
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NINTERFACES>
+<!--Next level 1 (Unique interfaces list)-->
+<SKIP PPIFACE_COPY>
+<FLD%>_COUNTER1++</FLD%>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<B><a href="./interfaces_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.html" class=menuClass><IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">}{<IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></a></B>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+<FONT COLOR=darkred><B><IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">}{<IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></B>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+(<FLD%>PPIFACE_NRESID1</FLD%>:<FLD%>PPIFACE_NRESID2</FLD%> res)
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</FONT>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</td> 
+</tr> 
+<SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+</table>
+</SKIP PPIFACE_COPY>
+<!--end of level 1 (Unique interfaces list)-->
+
+<!-- level 2 (Copy interfaces list)-->
+<SKIP !PPIFACE_COPY>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<SKIP !PPIFACE_ENDCOPY>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</SKIP !PPIFACE_ENDCOPY>
+<SKIP PPIFACE_ENDCOPY>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=submn>
+</SKIP PPIFACE_ENDCOPY>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<B><a href="./interfaces_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.html"
+    class=menuClass><IMG
+    align=top width=18 border=0
+    src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">}{<IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></a></B>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+<FONT COLOR=darkred><B><IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">}{<IMG align=top width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></B>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+(<FLD%>PPIFACE_NRESID1</FLD%>:<FLD%>PPIFACE_NRESID2</FLD%> res)
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</FONT>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</td> 
+</tr> 
+<tr>
+<SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[eq<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[ne<FLD%>NUNIQUE_PPINTERFACES</FLD%>]>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<SKIP PPIFACE_ENDCOPY>
+<td class=color><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP PPIFACE_ENDCOPY>
+<SKIP !PPIFACE_ENDCOPY>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP !PPIFACE_ENDCOPY>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+<!-- end of level 2 (Copy interfaces list)-->
+</SKIP !PPIFACE_COPY>
+</LOOP NINTERFACES>
+  </td>
+ </tr> 
+</table>
+<!-- -------------------------Tree end------------------------------- -->
+
+<!-- ******************************************************************** -->
+
+<SKIP COUNTER2[eq0]>
+<img src="gif/1x1.gif" width=1 height=10><BR>
+<img src="gif/1x1.gif" width=5 height=1>
+<FONT Face=ARIAL SIZE=2pt COLOR=BLUE><b>*</b></FONT>
+<FONT Face=ARIAL SIZE=2pt>Coloured by residue conservation</FONT><BR>
+</SKIP COUNTER2[eq0]>
+
+</TD>
+
+<TD WIDTH=2%>&nbsp;&nbsp;</TD>
+
+<TD WIDTH=600 VALIGN=top>
+
+<!-- ALL INTERFACES -->
+
+<BLOCK DEFAULT_OPTION>
+
+<!-- Plot of all interfaces -->
+
+<table width=600 cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td class=lhdr align=left valign=center colspan=2>
+   Interfaces summary for <FLD%>PDB_CODE</FLD%>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+ <tr>
+  <td>
+   <img src="tmpgif/protprot/iface.gif">
+  </td>
+  <td valign=bottom align=center>
+    <a href="../protprot/iface.pdf"
+    title="PDF version of interface diagram"><img
+     border=0 width=50 src="gif/pdf.gif" ALT=""></a><BR>
+    <a href="../protprot/iface.ps"
+    title="PostScript version of interface diagram"><img
+    border=0 src="gif/psvers.gif" ALT=""></a>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2><img src="gif/1x1.gif" width=1 height=10></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt colspan=2>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+    <tr>
+     <td class=medtxt>
+      <B>Key: </B> &nbsp; &nbsp;
+     </td>
+     <td><img width=27 height=4 src="gif/saltbr.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Salt<BR>bridges
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/disulph.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Disulphide<BR>bonds
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/hbond.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Hydrogen<BR>bonds
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/nonbond.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Non-bonded<BR>contacts
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt colspan=2>
+   <B>Schematic diagram of interactions between protein chains.</B>
+   Interacting chains are joined by coloured lines, each representing
+   a different type of interaction, as per the key above.
+   The area of each circle is proportional to the surface area of the
+   corresponding protein chain.
+   The extent of the interface region on each chain is represented by
+   a coloured wedge whose colour corresponds to the colour of the other
+   chain and whose size signifies the interface surface area. Statistics
+   for all the interfaces are given below. Click on any interface in the
+   table below for a detailed analysis of that interface.
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt colspan=2>
+   <B>Interface statistics</B>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2><img src="gif/1x1.gif" width=1 height=10></td>
+ </tr>
+ <tr>
+  <td colspan=2>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>Chains</B>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      <B>No. of<BR>&nbsp;interface&nbsp;<BR>residues</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      <B>&nbsp;Interface&nbsp;<BR>&nbsp;area (&Aring;<SUP>2</SUP>)&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>salt<BR>&nbsp;bridges&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;disulphide&nbsp;<BR>bonds</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;hydrogen&nbsp;<BR>bonds</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;non-bonded&nbsp;<BR>&nbsp;contacts&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NINTERFACES>
+<!-- <FLD%>_ON_OFF++</FLD%> -->
+    <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF</FLD%></LNK%>">
+     <td align=left>
+<SKIP !PPIFACE_COPY>
+      <font face=arial>&amp;</font>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !PPIFACE_COPY>
+      <B><a href="./interfaces_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.html"
+      class=menuClass><IMG align=top width=18 border=0
+      src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">}{<IMG align=top
+      width=18 border=0
+      src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></a></B>&nbsp;&nbsp;
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=right><font face=arial><B><FLD%>PPIFACE_NRESID1</FLD%></B></font></td>
+     <td align=center><font face=arial><B>:</B></font></td>
+     <td class=txt align=left><font face=arial><B><FLD%>PPIFACE_NRESID2</FLD%></B></font></td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=right><font face=arial color="#008B00"><B><FLD%>PPIFACE_BURIED1{r0}</FLD%></B></font></td>
+     <td align=center><font face=arial color="#008B00"><B>:</td>
+     <td class=txt align=left><font face=arial color="#008B00"><B><FLD%>PPIFACE_BURIED2{r0}</FLD%></B></font></td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center><font face=arial color="#FF0000"><B>
+<SKIP PPIFACE_SALT_BRIDGES[eq0]>
+      <FLD%>PPIFACE_SALT_BRIDGES</FLD%>
+</SKIP PPIFACE_SALT_BRIDGES[eq0]>
+<SKIP PPIFACE_SALT_BRIDGES[gt0]>
+      -
+</SKIP PPIFACE_SALT_BRIDGES[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center><font face=arial color="#EEEE00"><B>
+<SKIP PPIFACE_DISULPHIDES[eq0]>
+      <FLD%>PPIFACE_DISULPHIDES</FLD%>
+</SKIP PPIFACE_DISULPHIDES[eq0]>
+<SKIP PPIFACE_DISULPHIDES[gt0]>
+      -
+</SKIP PPIFACE_DISULPHIDES[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center><font face=arial color="#9BE2FF"><B>
+<SKIP PPIFACE_NHBONDS[eq0]>
+      <FLD%>PPIFACE_NHBONDS</FLD%>
+</SKIP PPIFACE_NHBONDS[eq0]>
+<SKIP PPIFACE_NHBONDS[gt0]>
+      -
+</SKIP PPIFACE_NHBONDS[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center><font face=arial color="orange"><B>
+<SKIP PPIFACE_NCONTACTS[eq0]>
+      <FLD%>PPIFACE_NCONTACTS</FLD%>
+</SKIP PPIFACE_NCONTACTS[eq0]>
+<SKIP PPIFACE_NCONTACTS[gt0]>
+      -
+</SKIP PPIFACE_NCONTACTS[gt0]>
+      </B></font>
+     </td>
+    </tr>
+</LOOP NINTERFACES>
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+<SKIP COUNTER1[eq0]>
+    <tr> 
+     <td colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=5></td>
+    </tr>
+    <tr> 
+     <td class=txt align=left class=medtxt colspan=<NO%>NCOLS</NO%>>
+      <B>Note</B>. Indented interfaces in the table are equivalent to the
+      last prior non-indented interface. Equivalent chains are listed below.
+      <BR>
+      &nbsp;
+     </td>
+    </tr>
+    <tr> 
+     <td align=left class=medtxt colspan=<NO%>NCOLS</NO%>>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+       <tr>
+        <td><img src="gif/1x1.gif" width=20 height=1></td>
+        <th class=medtxt align=left valign=top>
+         Equivalent chains:
+        </th>
+        <td><img src="gif/1x1.gif" width=10 height=1></td>
+        <td align=left>
+<LOOP NUNIQ>
+<IMG align=top width=18 border=0 src="gif/chain<FLD%>CHAIN{chn}</FLD%>.jpg">
+<LOOP NCOPIES>
+= <IMG align=top width=18 border=0 src="gif/chain<FLD%>COPY{chn}</FLD%>.jpg">
+</LOOP NCOPIES>
+<BR>
+</LOOP NUNIQ>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+</SKIP COUNTER1[eq0]>
+   </table>
+  </td>
+ </tr>
+</table>
+</BLOCK DEFAULT_OPTION>
+
+
+<!-- SINGLE INTERFACE -->
+
+<BLOCK !DEFAULT_OPTION>
+
+<!-- Interface plot -->
+
+<table width=600 cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td align=left>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+    <tr>
+     <td class=lhdr align=left valign=center>
+      Protein-protein interface:
+     </td>
+     <td align=left valign=center><IMG align=center width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg"></td>
+     <td align=left valign=center>}{</td>
+     <td align=left valign=center><IMG align=bottom width=18 border=0 src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+    <tr>
+     <td><img src="gif/1x1.gif" width=80></td>
+     <td>
+      <img src="../protprot/iface_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.gif">
+     </td>
+     <td><img src="gif/1x1.gif" width=120 height=1></td>
+     <td valign=bottom align=center>
+      <a href="../protprot/iface_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.pdf"
+	 title="PDF version of interface diagram"><img
+         border=0 width=50 src="gif/pdf.gif" ALT=""></a><BR>
+      <a href="../protprot/iface_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.ps"
+	 title="PostScript version of interface diagram"><img
+         border=0 src="gif/psvers.gif" ALT=""></a>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=10></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+    <tr>
+     <td><img src="gif/1x1.gif" width=40></td>
+     <td class=medtxt>
+      <B>Key: </B> &nbsp; &nbsp;
+     </td>
+     <td><img width=27 height=4 src="gif/saltbr.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Salt<BR>bridges
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/disulph.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Disulphide<BR>bonds
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/hbond.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Hydrogen<BR>bonds
+     </td>
+     <td> &nbsp; </td>
+     <td><img width=27 height=4 src="gif/nonbond.gif"></td>
+     <td>&nbsp;</td>
+     <td class=medtxt>
+      Non-bonded<BR>contacts
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+ <tr>
+  <td align=left class=medtxt>
+   <B>Schematic diagram of interactions between protein chains.</B>
+   Interacting chains are joined by coloured lines, each representing
+   a different type of interaction, as per the key above.
+   The area of each circle is proportional to the surface area of the
+   corresponding protein chain.
+   The extent of the interface region on each chain is represented by
+   the black wedge whose size signifies the interface surface area.
+   Statistics for this interface are given below.
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+
+ <tr>
+  <td align=left class=medtxt>
+   <B>Interface statistics</B>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=10></td>
+ </tr>
+ <tr>
+  <td>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>Chain</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      <B>No. of<BR>&nbsp;interface&nbsp;<BR>residues</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD" colspan=3>
+      <B>&nbsp;Interface&nbsp;<BR>&nbsp;area (&Aring;<SUP>2</SUP>)&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>salt<BR>&nbsp;bridges&nbsp;</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;disulphide&nbsp;<BR>bonds</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;hydrogen&nbsp;<BR>bonds</B></FONT>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=htxt align=center valign=bottom bgcolor="#DDDDDD">
+      <B>No. of<BR>&nbsp;non-bonded&nbsp;<BR>&nbsp;contacts&nbsp;</B></FONT>
+     </td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+    <tr>
+     <td align=left>
+      <B><IMG align=top width=18 border=0
+      src="gif/chain<FLD%>PPIFACE_CHAIN1{chn}</FLD%>.jpg">
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td>&nbsp;</td>
+     <td class=txt align=right><font face=arial><B><FLD%>PPIFACE_NRESID1</FLD%></B></font></td>
+     <td>&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td>&nbsp;</td>
+     <td class=txt align=right><font face=arial color="#008B00"><B><FLD%>PPIFACE_BURIED1{r0}</FLD%></B></font></td>
+     <td>&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center rowspan=2><font face=arial color="#FF0000"><B>
+<SKIP PPIFACE_SALT_BRIDGES[eq0]>
+      <FLD%>PPIFACE_SALT_BRIDGES</FLD%>
+</SKIP PPIFACE_SALT_BRIDGES[eq0]>
+<SKIP PPIFACE_SALT_BRIDGES[gt0]>
+      -
+</SKIP PPIFACE_SALT_BRIDGES[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center rowspan=2><font face=arial color="#EEEE00"><B>
+<SKIP PPIFACE_DISULPHIDES[eq0]>
+      <FLD%>PPIFACE_DISULPHIDES</FLD%>
+</SKIP PPIFACE_DISULPHIDES[eq0]>
+<SKIP PPIFACE_DISULPHIDES[gt0]>
+      -
+</SKIP PPIFACE_DISULPHIDES[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center rowspan=2><font face=arial color="#9BE2FF"><B>
+<SKIP PPIFACE_NHBONDS[eq0]>
+      <FLD%>PPIFACE_NHBONDS</FLD%>
+</SKIP PPIFACE_NHBONDS[eq0]>
+<SKIP PPIFACE_NHBONDS[gt0]>
+      -
+</SKIP PPIFACE_NHBONDS[gt0]>
+      </B></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td class=txt align=center rowspan=2><font face=arial color="orange"><B>
+<SKIP PPIFACE_NCONTACTS[eq0]>
+      <FLD%>PPIFACE_NCONTACTS</FLD%>
+</SKIP PPIFACE_NCONTACTS[eq0]>
+<SKIP PPIFACE_NCONTACTS[gt0]>
+      -
+</SKIP PPIFACE_NCONTACTS[gt0]>
+      </B></font>
+     </td>
+    </tr>
+    <tr>
+     <td align=left>
+      <B><IMG align=top width=18 border=0
+      src="gif/chain<FLD%>PPIFACE_CHAIN2{chn}</FLD%>.jpg">
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td>&nbsp;</td>
+     <td class=txt align=right><font face=arial><B><FLD%>PPIFACE_NRESID2</FLD%></B></font></td>
+     <td>&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td>&nbsp;</td>
+     <td class=txt align=right><font face=arial color="#008B00"><B><FLD%>PPIFACE_BURIED2{r0}</FLD%></B></font></td>
+     <td>&nbsp;</td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+     <td><img src="gif/1x1.gif" width=3 height=1></td>
+    </tr>
+    <tr> 
+     <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+     width=1 height=1></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=1 height=30></td>
+ </tr>
+</table>
+
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td>&nbsp;</td>
+  <td class=lhdr align=center>
+   Residue interactions across interface<BR>
+   <font color=darkred>Coloured by
+<BLOCK RESIDUE_OPTION>
+residue type
+</BLOCK RESIDUE_OPTION>
+<BLOCK CONSERVATION_OPTION>
+residue conservation
+</BLOCK CONSERVATION_OPTION>
+   </font>
+  </td>
+  <td colspan=2>&nbsp;</td>
+ </tr>
+
+<BLOCK PARAM1>
+ <tr>
+  <td>&nbsp;</td>
+  <td class=lhdr align=center>
+<SKIP VAR_TYPE[ne-1]>
+    (selected residue
+    <FLD%>HIGHLIGHT_RES</FLD%> circled in black)<BR>
+</SKIP VAR_TYPE[ne-1]>
+<SKIP VAR_TYPE[eq-1]>
+    (variant residue
+    <font color=purple><FLD%>HIGHLIGHT_RES</FLD%></font> circled in purple)<BR>
+</SKIP VAR_TYPE[eq-1]>
+  <td colspan=2>&nbsp;</td>
+ </tr>
+</BLOCK PARAM1>
+
+ <tr>
+  <td colspan=4>
+   &nbsp;
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td align=center>
+   <img src="../protprot/dimplot_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.gif">
+  </td>
+  <td><img src="gif/1x1.gif" width=30 height=1></td>
+  <td valign=bottom align=left>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr>
+     <td valign=center align=center>
+      <a href="../protprot/iface_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.txt"
+       title="List of interactions"><img
+       border=0 src="gif/results.gif" ALT=""></a>
+     </td>
+     <td valign=center align=left class=ftxt>
+       List of<BR>interactions
+     </td>
+    </tr>
+    <tr>
+     <td valign=center align=center>
+      <a href="../protprot/dimplot_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.pdf"
+      title="PDF version of interface diagram"><img
+       border=0 width=50 src="gif/pdf.gif" ALT=""></a>
+     </td>
+     <td valign=center align=left class=ftxt>
+       Diagram in<BR>PDF format
+     </td>
+    </tr>
+    <tr>
+     <td valign=center align=center>
+      <a href="../protprot/dimplot_<FLD%>PPIFACE_CHAIN1{chn}</FLD%><FLD%>PPIFACE_CHAIN2{chn}</FLD%>.ps"
+         title="PostScript version of interface diagram"><img
+         border=0 src="gif/psvers.gif" ALT=""></a>
+     </td>
+     <td valign=center align=left class=ftxt>
+       Diagram in<BR>PostScript<BR>format
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+<p>
+<table width=800 cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20></td>
+  <td valign=center class=medtxt>
+   <B>Key:</B>
+  </td>
+  <td valign=center><img width=27 height=4 src="gif/saltbr.gif"></td>
+  <td>&nbsp;</td>
+  <td valign=center class=medtxt>
+   Salt&nbsp;bridges
+  </td>
+  <td> &nbsp; </td>
+  <td valign=center><img width=27 height=4 src="gif/disulph.gif"></td>
+  <td>&nbsp;</td>
+  <td valign=center class=medtxt>
+   Disulphide&nbsp;bonds
+  </td>
+  <td> &nbsp; </td>
+  <td valign=center><img width=27 height=4 src="gif/hbond.gif"></td>
+  <td>&nbsp;</td>
+  <td valign=center class=medtxt>
+   Hydrogen&nbsp;bonds
+  </td>
+  <td> &nbsp; </td>
+  <td valign=center><img width=27 height=7 src="gif/contact.gif"></td>
+  <td>&nbsp;</td>
+  <td valign=center class=medtxt>
+   Non-bonded&nbsp;contacts
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20></td>
+  <td class=medtxt colspan=16>
+   &nbsp;<BR>
+   The number of H-bond lines between any two residues indicates the
+   number of potential hydrogen bonds between them. For non-bonded contacts,
+   which can be plentiful, the width of the striped line is proportional
+   to the number of atomic contacts.
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20></td>
+  <td class=ftxt colspan=16>
+   &nbsp;<BR>
+<BLOCK RESIDUE_OPTION>
+     <B>Residue colours:</B> <FONT COLOR="#0099FF">Positive (H,K,R)</FONT>; <FONT COLOR="#FF0000">negative (D,E)</FONT>; <FONT COLOR="#1A8000">S,T,N,Q = neutral</FONT>; <FONT COLOR="#888888">A,V,L,I,M = aliphatic</FONT>; <FONT COLOR="#CC66FF">F,Y,W = aromatic</FONT>; <FONT COLOR="#CC9900">P,G = Pro&Gly</FONT>; <FONT COLOR="#FFFF00">C = cysteine</FONT>.
+</BLOCK RESIDUE_OPTION>
+<BLOCK CONSERVATION_OPTION>
+      <B>Conservation colouring:</B> &nbsp; &nbsp;
+      <B><FONT COLOR="#0000FF">Low&nbsp;1</FONT>&nbsp;<FONT COLOR="#CC66FF">2</FONT>&nbsp;<FONT COLOR="#0099FF">3</FONT>&nbsp;<FONT COLOR="#33CCFF">4</FONT>&nbsp;<FONT COLOR="#00FF00">5</FONT>&nbsp;<FONT COLOR="#FFFF00">6</FONT>&nbsp;<FONT COLOR="#FF6600">7</FONT>&nbsp;<FONT COLOR="#FF69B4">8</FONT>&nbsp;<FONT COLOR="#FF0000">9&nbsp;High</FONT>
+</BLOCK CONSERVATION_OPTION>
+  </td>
+ </tr>
+
+<!-- Show key for variants -->
+<BLOCK PARAM1>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20></td>
+  <td class=ftxt colspan=16>
+   <B>Circled variants: </B>
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NVAR_TYPES>
+<font color=<FLD%>VAR_COLOUR<NO%>_COUNTER1</NO%></FLD%>>
+<FLD%>VAR_TYPE<NO%>_COUNTER1</NO%></FLD%>
+</font>
+<SKIP NVAR_TYPES[eq<FLD%>_LOOP1</FLD%>]>
+&nbsp;-&nbsp;
+</SKIP NVAR_TYPES[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER1++</FLD%>
+</LOOP NVAR_TYPES>
+  </td>
+ </tr>
+</BLOCK PARAM1>
+
+</table>
+
+</BLOCK !DEFAULT_OPTION>
+
+
+</TD>
+</TR>
+</TABLE>
+

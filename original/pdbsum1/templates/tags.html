@@ -1,0 +1,1029 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="eng"><!-- InstanceBegin template="/Templates/new_template_no_menus.dwt" codeOutsideHTMLIsLocked="false" -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />  
+<meta name="author" content="EBI Web Team" />
+<meta http-equiv="Content-Language" content="en-GB" />
+<meta http-equiv="Window-target" content="_top" />
+<meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/" />
+<meta name="generator" content="Dreamweaver 8" />
+<!-- InstanceBeginEditable name="doctitle" -->
+<!-- Tags file giving top bar with tags for PDBsum pages -->
+<!-- PDBsum template v.3 -->
+<head><link rel="stylesheet" type="text/css" href="css/page.css">
+<style type="text/css">
+body {background-color: white}
+</style>
+<SET CHAINNONE="TRUE">
+
+<title><FLD%>PAGE_TITLE</FLD%></title>
+
+<!-- InstanceEndEditable -->
+<link rel="stylesheet" href="css/contents.css" c="T" type="text/css" />
+
+<!-- Styles from css/userstyles.css -->
+<link rel="stylesheet"  href="css/basicforms.css"   type="text/css" />
+<link rel="stylesheet"  href="css/formsfixed.css"   type="text/css" />
+<link rel="stylesheet"  href="css/formsmax.css"   type="text/css" />
+<link rel="stylesheet"  href="css/linkmenu.css"   type="text/css" />
+<link rel="stylesheet"  href="css/retro.css"   type="text/css" />
+
+<script  src="js/contents.js" type="text/javascript"></script>
+<!--
+<script src="<LNK%>JMOL_DIR</LNK%>/Jmol.js" type="text/javascript"></script>
+-->
+<style type="text/css">
+@media print { 
+  body, .contents, .header, .contentsarea, .head { 
+    position: relative;
+  }  
+} 
+</style>
+<!-- InstanceBeginEditable name="head" -->
+<!--  start meta tags, css , javascript here   -->
+<script language="javascript">
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)
+}
+</script>
+<script language="JavaScript">
+<!--
+browsok = (((navigator.appName == "Netscape")
+&& (parseInt(navigator.appVersion) >= 3))
+|| ((navigator.appName == "Microsoft Internet Explorer")
+&& (parseInt(navigator.appVersion)>=3)));
+if (browsok)
+{
+// MouseOn
+top_page_on = new Image(); top_page_on.src="gif/TopPage3_75x20.gif";
+links_on = new Image(); links_on.src="gif/Links3_51x20.gif";
+ligands_on = new Image(); ligands_on.src="gif/Ligands3_65x20.gif";
+metals_on = new Image(); metals_on.src="gif/Metals3_60x20.gif";
+interface_on = new Image(); interface_on.src="gif/Prot-prot3_75x20.gif";
+surface_on = new Image(); surface_on.src="gif/Surface3_67x20.gif";
+clefts_on = new Image(); clefts_on.src="gif/Clefts3_55x20.gif";
+pores_on = new Image(); pores_on.src="gif/Pores3_54x20.gif";
+tunnels_on = new Image(); tunnels_on.src="gif/Tunnels3_65x20.gif";
+variants_on = new Image(); variants_on.src="gif/Variants3_71x20.gif";
+dna_rna_on = new Image(); dna_rna_on.src="gif/dna_rna3_77x20.gif";
+procheck_on = new Image(); procheck_on.src="gif/procheck_on.gif";
+protein_on = new Image(); protein_on.src="gif/Protein3_62x20.gif";
+<BLOCK PROTEIN_PAGE>
+<SKIP !CHAIN<FLD%>CHAIN</FLD%>>
+chain_on = new Image(); chain_on.src="tmpgif/newsec/chain.png";
+</SKIP !CHAIN<FLD%>CHAIN</FLD%>>
+<SKIP CHAIN<FLD%>CHAIN</FLD%>>
+chain_on = new Image(); chain_on.src="tmpgif/newsec/chain<FLD%>CHAIN</FLD%>.png";
+</SKIP CHAIN<FLD%>CHAIN</FLD%>>
+</BLOCK PROTEIN_PAGE>
+
+<BLOCK LIGANDS_PAGE>
+chemplot_on = new Image(); chemplot_on.src="<LNK%>RUNLIGPLOT_PL</LNK%>&file=ligplot<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>&gif=YES&chemplot=TRUE<FLD%>LRES</FLD%><FLD%>WKDIR</FLD%>";
+</BLOCK LIGANDS_PAGE>
+
+<BLOCK METALS_PAGE>
+chemplot_on = new Image(); chemplot_on.src="<LNK%>RUNLIGPLOT_PL</LNK%>&file=ligplot<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>&gif=YES&chemplot=TRUE";
+</BLOCK METALS_PAGE>
+
+<BLOCK INTERFACES_PAGE>
+chains_on = new Image(); chains_on.src="tmpgif/chains<FLD%>PPIFACE_CHAIN1</FLD%><FLD%>PPIFACE_CHAIN2</FLD%>.png";
+</BLOCK INTERFACES_PAGE>
+<BLOCK DNA_PAGE>
+dna_on = new Image(); dna_on.src="tmpgif/dna.png";
+</BLOCK DNA_PAGE>
+
+// MouseOff
+top_page_off = new Image(); top_page_off.src="gif/TopPage2_75x20.gif";
+links_off = new Image(); links_off.src="gif/Links2_51x20.gif";
+ligands_off = new Image(); ligands_off.src="gif/Ligands2_65x20.gif";
+metals_off = new Image(); metals_off.src="gif/Metals2_60x20.gif";
+interface_off = new Image(); interface_off.src="gif/Prot-prot2_75x20.gif";
+surface_off = new Image(); surface_off.src="gif/Surface2_67x20.gif";
+clefts_off = new Image(); clefts_off.src="gif/Clefts2_55x20.gif";
+pores_off = new Image(); pores_off.src="gif/Pores2_54x20.gif";
+tunnels_off = new Image(); tunnels_off.src="gif/Tunnels2_65x20.gif";
+variants_off = new Image(); variants_off.src="gif/Variants2_71x20.gif";
+dna_rna_off = new Image(); dna_rna_off.src="gif/dna_rna2_77x20.gif";
+procheck_off = new Image(); procheck_off.src="gif/procheck_off.gif";
+protein_off = new Image(); protein_off.src="gif/Protein2_62x20.gif";
+<BLOCK PROTEIN_PAGE>
+<SKIP !CHAIN<FLD%>CHAIN</FLD%>>
+chain_off = new Image(); chain_off.src="tmpgif/newsec/tchain.png";
+</SKIP !CHAIN<FLD%>CHAIN</FLD%>>
+<SKIP CHAIN<FLD%>CHAIN</FLD%>>
+chain_off = new Image(); chain_off.src="tmpgif/newsec/tchain<FLD%>CHAIN</FLD%>.png";
+</SKIP CHAIN<FLD%>CHAIN</FLD%>>
+</BLOCK PROTEIN_PAGE>
+
+<BLOCK LIGANDS_PAGE>
+chemplot_off = new Image(); chemplot_off.src="<LNK%>RUNLIGPLOT_PL</LNK%>&file=ligplot<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>&gif=YES<FLD%>LRES</FLD%><FLD%>WKDIR</FLD%>";
+</BLOCK LIGANDS_PAGE>
+
+<BLOCK METALS_PAGE>
+chemplot_off = new Image(); chemplot_off.src="<LNK%>RUNLIGPLOT_PL</LNK%>&file=ligplot<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>&gif=YES";
+</BLOCK METALS_PAGE>
+
+<BLOCK INTERFACES_PAGE>
+chains_off = new Image(); chains_off.src="tmpgif/tppiface<FLD%>PPIFACE_CHAIN1</FLD%><FLD%>PPIFACE_CHAIN2</FLD%>.png";
+</BLOCK INTERFACES_PAGE>
+
+<BLOCK DNA_PAGE>
+dna_off = new Image(); dna_off.src="tmpgif/tdna.png";
+</BLOCK DNA_PAGE>
+
+}
+function mouseon(n)
+{
+if (browsok)
+{
+imageON = eval(n + "_on.src");
+document [n].src = imageON;
+}
+}
+function mouseoff(n)
+{
+if (browsok)
+{
+imageOFF = eval(n + "_off.src");
+document [n].src = imageOFF;
+}
+}
+// -->
+</script>
+<!-- Showtip script -->
+<script>
+//Script created by Jim Young (www.requestcode.com)
+
+     function showtip(current,e,num)
+        {
+         if (document.layers) // Netscape 4.0+
+            {
+             theString="<DIV CLASS='ttip'>"+tip[num]+"</DIV>"
+             document.tooltip.document.write(theString)
+             document.tooltip.document.close()
+             //document.tooltip.left=e.pageX+14
+	     document.tooltip.left=30
+             //document.tooltip.top=e.pageY+2
+	     document.tooltip.top=115
+             document.tooltip.visibility="show"
+            }
+         else
+           {
+            if(document.getElementById) // Netscape 6.0+ and Internet Explorer 5.0+
+              {
+               elm=document.getElementById("tooltip")
+               elml=current
+               elm.innerHTML=tip[num]
+               elm.style.height=elml.style.height
+               elm.style.top=parseInt(elml.offsetTop+elml.offsetHeight+10)
+               elm.style.left=parseInt(elml.offsetLeft+elml.offsetWidth-50)
+               elm.style.visibility = "visible"
+              }
+           }
+        }
+function hidetip(){
+if (document.layers) // Netscape 4.0+
+   {
+    document.tooltip.visibility="hidden"
+   }
+else
+  {
+   if(document.getElementById) // Netscape 6.0+ and Internet Explorer 5.0+
+     {
+      elm.style.visibility="hidden"
+     }
+  } 
+}
+
+</script>
+
+<!-- Overlib script -->
+<script type="text/javascript" src="js/overlib.js">
+<!-- overLIB (c) Erik Bosrup -->
+</script>
+
+<SKIP !JWSTEST>
+<!-- ... Web-start detection scripts from Sun -->
+<!-- 1. Detection of Netscape/IE browser -->
+<script LANGUAGE="Javascript">
+   var javawsInstalled = 0;
+   var javaws142Installed=0;
+   var javaws150Installed=0;
+   var javaws160Installed = 0;
+   isIE = "false";
+
+   if (navigator.mimeTypes && navigator.mimeTypes.length) {
+      x = navigator.mimeTypes['application/x-java-jnlp-file'];
+      if (x) { 
+        javawsInstalled = 1; 
+        javaws142Installed=1;
+        javaws150Installed=1;
+        javaws160Installed = 1; 
+      }
+   } else {
+      isIE = "true";
+   }
+
+   function testWebstart() {
+
+  <!-- Webstart installed, so can launch ArchSchema -->
+  if (javawsInstalled || (navigator.userAgent.indexOf("Gecko") !=-1)) {
+    return(1);
+  } else {
+  <!-- Otherwise, do nothing -->
+    return(0);
+  }
+   }
+</script>
+
+<!-- 2. VB script for detecting whether IE has webstart installed -->
+<script LANGUAGE="VBScript">
+on error resume next
+If isIE = "true" Then
+  If Not(IsObject(CreateObject("JavaWebStart.isInstalled"))) Then
+     javawsInstalled = 0
+  Else
+     javawsInstalled = 1
+  End If
+  If Not(IsObject(CreateObject("JavaWebStart.isInstalled.1.4.2.0"))) Then
+     javaws142Installed = 0
+  Else
+     javaws142Installed = 1
+  End If 
+  If Not(IsObject(CreateObject("JavaWebStart.isInstalled.1.5.0.0"))) Then
+     javaws150Installed = 0
+  Else
+     javaws150Installed = 1
+  End If  
+  If Not(IsObject(CreateObject("JavaWebStart.isInstalled.1.6.0.0"))) Then
+     javaws160Installed = 0
+  Else
+     javaws160Installed = 1
+  End If  
+End If
+</script>
+</SKIP !JWSTEST>
+
+<!--  end meta tags, css , javascript here  -->
+<!-- InstanceEndEditable -->
+</head>
+<body onload="if(navigator.userAgent.indexOf('MSIE') != -1) {document.getElementById('head').allowTransparency = true;}">
+<script type="text/javascript" src="/thornton-srv/databases/profunc/templates/wz_tooltip.js"></script>
+
+<!-- Outer table -->
+<table class="contentspane" id="contentspane">
+  <tr>
+    <td class="leftmargin"><img src="gif/spacer.gif"/></td>
+    <td class="leftmenucell" id="leftmenucell">
+      <div class="leftmenu" id="leftmenu"><img src="gif/spacer.gif"/></div>
+    </td>
+    <td class="contentsarea" id="contentsarea">
+      <!-- InstanceBeginEditable name="contents" -->
+
+      <!-- start contents here -->
+
+
+<!-- Define URL for PDBsum home page according to origin -->
+<SET PDBSUM_HOME="<LNK%>PDBSUM_HOME_PAGE</LNK%>">
+
+<!-- Initialise counters -->
+<FLD%>_COUNTER1=32</FLD%>
+
+<!-- Define how many tabs are not required -->
+<BLOCK !LARGE>
+<BLOCK EXTRA_PAGE>
+<FLD%>_COUNTER1--</FLD%>
+</BLOCK EXTRA_PAGE>
+<BLOCK !PROTEIN>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !PROTEIN>
+<BLOCK !DNA>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !DNA>
+<BLOCK !NLIGAND_TYPES>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !NLIGAND_TYPES>
+<BLOCK !METAL>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !METAL>
+<BLOCK !INTERFACES>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !INTERFACES>
+<BLOCK !SURFACES>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !SURFACES>
+<BLOCK !HAVE_CLEFTS>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !HAVE_CLEFTS>
+<BLOCK !HAVE_PORES>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !HAVE_PORES>
+<BLOCK !HAVE_TUNNELS>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !HAVE_TUNNELS>
+<BLOCK !HAVE_VARIANTS>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !HAVE_VARIANTS>
+</BLOCK !LARGE>
+<BLOCK LARGE>
+<FLD%>_COUNTER1-20</FLD%>
+</BLOCK LARGE>
+<BLOCK !LINKS>
+<FLD%>_COUNTER1-2</FLD%>
+</BLOCK !LINKS> 
+
+<!-- Define flags for tabs that are present -->
+<BLOCK !LARGE>
+<BLOCK PROTEIN>
+<SET TABS="<NO%>TABS</NO%>P">
+</BLOCK PROTEIN>
+<BLOCK DNA>
+<SET TABS="<NO%>TABS</NO%>D">
+</BLOCK DNA>
+<BLOCK NLIGAND_TYPES>
+<SET TABS="<NO%>TABS</NO%>N">
+</BLOCK NLIGAND_TYPES>
+<BLOCK METAL>
+<SET TABS="<NO%>TABS</NO%>M">
+</BLOCK METAL>
+<BLOCK INTERFACES>
+<SET TABS="<NO%>TABS</NO%>I">
+</BLOCK INTERFACES>
+<BLOCK SURFACES>
+<SET TABS="<NO%>TABS</NO%>S">
+</BLOCK SURFACES>
+<BLOCK HAVE_CLEFTS>
+<SET TABS="<NO%>TABS</NO%>C">
+</BLOCK HAVE_CLEFTS>
+<BLOCK HAVE_PORES>
+<SET TABS="<NO%>TABS</NO%>O">
+</BLOCK HAVE_PORES>
+<BLOCK HAVE_TUNNELS>
+<SET TABS="<NO%>TABS</NO%>T">
+</BLOCK HAVE_TUNNELS>
+</BLOCK !LARGE>
+<BLOCK LINKS>
+<SET TABS="<NO%>TABS</NO%>L">
+</BLOCK LINKS> 
+
+
+<!-- Set the various column spans for the missing tabs -->
+<FLD%>_COUNTER2=<NO%>_COUNTER1</NO%></FLD%>
+<FLD%>_COUNTER2-4</FLD%>
+<FLD%>_COUNTER3=<NO%>_COUNTER1</NO%></FLD%>
+<FLD%>_COUNTER3-5</FLD%>
+
+<BLOCK !NO_TABS>
+
+<table bgcolor="white" border=0 cellpadding="0" cellspacing="0" width="850" border=1>
+
+ <!-- Row 1 -->
+ <tbody>
+  <tr>
+<BLOCK SIDE_LINE>
+   <td>
+    <img src="gif/1x1.gif" height="10" width="1">
+   </td>
+</BLOCK SIDE_LINE>
+   <td rowspan="3" colspan="2">
+
+   <!-- PDBsum1 logo -->
+    <table bgcolor="white" border="0" cellpadding="0" cellspacing="0">
+     <tbody>
+      <tr>
+       <td>
+         <a href="../../../runs/run<FLD%>RUN_NUMBER</FLD%>.html"
+            title="Go to the run page for this entry"
+	    ><img src="gif/PDBsum1_logo.png" type="c" border="0" width=150></a>
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </td>
+
+   <!-- Entry of PDB code at top of page -->
+   <td colspan="<FLD%>_COUNTER1</FLD%>" align="right" height=45 width="11800"
+    valign=top>
+     <img src="gif/1x1.gif" height="45" width="1">
+   </td>
+  </tr>
+
+ <!-- Row 2 : Tabs -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td rowspan="2">
+   <img src="gif/1x1.gif" height="10" width="1">
+  </td> 
+</BLOCK SIDE_LINE>
+
+  <!-- ACTIVE TABS -->
+  <td rowspan="2" width="11800">
+   <img src="gif/1x1.gif" height="1" width="1"></td>
+
+<!-- Top page tag -->
+<BLOCK TOP_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left.gif" height="20" width="1">
+  </td>
+  <td rowspan="2">
+   <img src="gif/TopPage4_75x20.gif" height="20" width="75">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK TOP_PAGE>
+<BLOCK !TOP_PAGE>
+  <td rowspan="2">
+   <a href="./index.html"
+    onmouseout="mouseoff('top_page')"
+    onmouseover="mouseon('top_page'); return true;">
+   <img src="gif/TopPage2_75x20.gif" name="top_page" border="0"
+    height="20" width="75" alt="Top Page"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !TOP_PAGE>
+
+<!-- Protein tag -->
+<BLOCK !LARGE>
+<BLOCK PROTEIN>
+<BLOCK PROTEIN_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/Protein4_62x20.gif" name="protein" border="0" height="20"
+    width="62" alt="protein">
+  </td>
+  <td rowspan="2"><img src="gif/zakladka_right_13x20.gif" height="20"
+   width="13">
+  </td>
+</BLOCK PROTEIN_PAGE>
+<BLOCK !PROTEIN_PAGE>
+<FLD%>_COUNTER4=0</FLD%>
+<LOOP NUNIQ>
+<FLD%>_COUNTER4++</FLD%>
+<SKIP COUNTER4[ne1]>
+  <td rowspan="2">
+   <a href="./protein_<FLD%>CHAIN</FLD%>.html"
+    title="protein">
+   <img src="gif/Protein2_62x20.gif" name="protein" border="0" height="20"
+    width="62" alt="protein"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</SKIP COUNTER4[ne1]>
+</LOOP NUNIQ>
+</BLOCK !PROTEIN_PAGE>
+</BLOCK PROTEIN>
+
+<!-- DNA tag -->
+<BLOCK DNA>
+<BLOCK DNA_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/dna_rna4_77x20.gif" name="dna_rna" border="0" height="20"
+    width="77" alt="dna_rna">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK DNA_PAGE>
+<BLOCK !DNA_PAGE>
+  <td rowspan="2">
+   <a href="./dna.html"
+    onmouseout="mouseoff('dna_rna')"
+    onmouseover="mouseon('dna_rna'); return true;">
+   <img src="gif/dna_rna2_77x20.gif" name="dna_rna" border="0" height="20"
+    width="77" alt="dna_rna"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !DNA_PAGE>
+</BLOCK DNA>
+
+<!-- Ligands tag -->
+<BLOCK NLIGAND_TYPES>
+<BLOCK LIGANDS_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/Ligands4_65x20.gif" name="ligands" border="0" height="20"
+    width="65" alt="ligands">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK LIGANDS_PAGE>
+<BLOCK !LIGANDS_PAGE>
+  <td rowspan="2">
+   <a href="./lig_01_01.html"
+    onmouseout="mouseoff('ligands')"
+    onmouseover="mouseon('ligands'); return true;">
+   <img src="gif/Ligands2_65x20.gif" name="ligands" border="0" height="20"
+    width="65" alt="ligands"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !LIGANDS_PAGE>
+</BLOCK NLIGAND_TYPES>
+
+<!-- Metals tag -->
+<BLOCK METAL>
+<BLOCK METALS_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/Metals4_60x20.gif" name="metals" border="0" height="20"
+    width="60" alt="metals">
+   </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK METALS_PAGE>
+<BLOCK !METALS_PAGE>
+  <td rowspan="2">
+   <a href="./met_01_01.html"
+    onmouseout="mouseoff('metals')"
+    onmouseover="mouseon('metals'); return true;">
+   <img src="gif/Metals2_60x20.gif" name="metals" border="0" height="20"
+    width="60" alt="metals"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !METALS_PAGE>
+</BLOCK METAL>
+
+<!-- Interfaces tag -->
+<BLOCK INTERFACES>
+<BLOCK INTERFACES_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/Prot-prot4_75x20.gif" name="interface" border="0" height="20"
+    width="75" alt="Protein-protein interface(s)">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK INTERFACES_PAGE>
+<BLOCK !INTERFACES_PAGE>
+<SKIP NINTERFACES[eq1]>
+  <td rowspan="2">
+   <a href="./interfaces.html"
+    onmouseout="mouseoff('interface')"
+    onmouseover="mouseon('interface'); return true;">
+   <img src="gif/Prot-prot2_75x20.gif" name="interface" border="0" height="20"
+    width="75" alt="Protein-protein interface(s)"></a>
+  </td>
+</SKIP NINTERFACES[eq1]>
+<SKIP NINTERFACES[gt1]>
+  <td rowspan="2">
+   <a href="./interfaces.html"
+    onmouseout="mouseoff('interface')"
+    onmouseover="mouseon('interface'); return true;">
+   <img src="gif/Prot-prot2_75x20.gif" name="interface" border="0" height="20"
+    width="75" alt="Protein-protein interface(s)"></a>
+  </td>
+</SKIP NINTERFACES[gt1]>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !INTERFACES_PAGE>
+</BLOCK INTERFACES>
+
+<!-- Clefts tag -->
+<BLOCK HAVE_CLEFTS>
+<BLOCK CLEFTS_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+  <img src="gif/Clefts4_55x20.gif" name="clefts" border="0" height="20"
+   width="55" alt="clefts">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK CLEFTS_PAGE>
+<BLOCK !CLEFTS_PAGE>
+  <td rowspan="2">
+   <a href="./clefts.html"
+    onmouseout="mouseoff('clefts')"
+    onmouseover="mouseon('clefts'); return true;">
+   <img src="gif/Clefts2_55x20.gif" name="clefts" border="0" height="20"
+    width="55" lt="clefts"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !CLEFTS_PAGE>
+</BLOCK HAVE_CLEFTS>
+
+<!-- Pores tag -->
+<BLOCK HAVE_PORES>
+<BLOCK PORE_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+  <img src="gif/Pores4_54x20.gif" name="pores" border="0" height="20"
+   width="54" alt="pores">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK PORE_PAGE>
+<BLOCK !PORE_PAGE>
+  <td rowspan="2">
+   <a href="./pore.html"
+    onmouseout="mouseoff('pores')"
+    onmouseover="mouseon('pores'); return true;">
+   <img src="gif/Pores2_54x20.gif" name="pores" border="0" height="20"
+    width="54" lt="pores"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !PORE_PAGE>
+</BLOCK HAVE_PORES>
+
+<!-- Tunnels tag -->
+<BLOCK HAVE_TUNNELS>
+<BLOCK MOLE_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+  <img src="gif/Tunnels4_65x20.gif" name="tunnels" border="0" height="20"
+   width="65" alt="tunnels">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK MOLE_PAGE>
+<BLOCK !MOLE_PAGE>
+  <td rowspan="2">
+<BLOCK MOLE2>
+   <a href="./mole2.html"
+</BLOCK MOLE2>
+<BLOCK !MOLE2>
+   <a href="./mole.html"
+</BLOCK !MOLE2>
+    onmouseout="mouseoff('tunnels')"
+    onmouseover="mouseon('tunnels'); return true;">
+   <img src="gif/Tunnels2_65x20.gif" name="tunnels" border="0" height="20"
+    width="65" lt="tunnels"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !MOLE_PAGE>
+</BLOCK HAVE_TUNNELS>
+</BLOCK !LARGE>
+
+<!-- Links tag -->
+<BLOCK LINKS>
+<BLOCK LINKS_PAGE>
+  <td rowspan="2">
+   <img src="gif/zakladka_left_5x1.gif" height="20" width="5">
+  </td>
+  <td rowspan="2">
+   <img src="gif/Links4_51x20.gif" border="0" height="20" width="51"
+    alt="links">
+  </td>
+  <td rowspan="2">
+   <img src="gif/zakladka_right_13x20.gif" height="20" width="13">
+  </td>
+</BLOCK LINKS_PAGE>
+<BLOCK !LINKS_PAGE>
+  <td rowspan="2">
+   <a href="./links.html"
+    onmouseout="mouseoff('links')"
+    onmouseover="mouseon('links'); return true;">
+   <img src="gif/Links2_51x20.gif" name="links" border="0" height="20"
+    width="51" alt="links"></a>
+  </td>
+  <td rowspan="2" valign=bottom>
+   <img src="gif/1x1.gif" height="10" width="3">
+  </td>
+</BLOCK !LINKS_PAGE>
+</BLOCK LINKS>
+
+  <td colspan="7">
+   <img src="gif/1x1.gif" height="10" width="1">
+  </td>
+ </tr>
+
+ <!-- Row 3 : PDB code border 1 -->
+ <tr>
+  <td colspan="2" height="10" width="10" valign=bottom><img
+   src="gif/topleft.gif" height="10" width="10"></td>
+  <td valign=bottom>
+   <img src="gif/topbar.gif" height="10" width="40">
+  </td>
+  <td colspan="2" valign=bottom>
+   <img src="gif/topright.gif" height="10" width="10">
+  </td>
+  <td bgcolor="white" valign=bottom>
+   <img src="gif/1x1.gif" height="2" width="20">
+  </td>
+ </tr>
+
+ <!-- Row 4: PDB code border 2 -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+</BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="3"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="100"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width="16777216"><img
+   src="gif/1x1.gif" height="1" width="1"></td>
+
+<!-- Tab underlines for active tabs -->
+<BLOCK TOP_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="75"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK TOP_PAGE>
+<BLOCK !TOP_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !TOP_PAGE>
+
+<!-- Protein underline -->
+<BLOCK !LARGE>
+<BLOCK PROTEIN>
+<BLOCK PROTEIN_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="62"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK PROTEIN_PAGE>
+<BLOCK !PROTEIN_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !PROTEIN_PAGE>
+</BLOCK PROTEIN>
+
+<!-- DNA underline -->
+<BLOCK DNA>
+<BLOCK DNA_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="77"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK DNA_PAGE>
+<BLOCK !DNA_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !DNA_PAGE>
+</BLOCK DNA>
+
+<!-- Ligands underline -->
+<BLOCK NLIGAND_TYPES>
+<BLOCK LIGANDS_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="65"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK LIGANDS_PAGE>
+<BLOCK !LIGANDS_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !LIGANDS_PAGE>
+</BLOCK NLIGAND_TYPES>
+
+<!-- Metals underline -->
+<BLOCK METAL>
+<BLOCK METALS_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="60"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK METALS_PAGE>
+<BLOCK !METALS_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !METALS_PAGE>
+</BLOCK METAL>
+
+<!-- Interfaces underline -->
+<BLOCK INTERFACES>
+<BLOCK INTERFACES_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="75"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK INTERFACES_PAGE>
+<BLOCK !INTERFACES_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !INTERFACES_PAGE>
+</BLOCK INTERFACES>
+
+<!-- Clefts underline -->
+<BLOCK HAVE_CLEFTS>
+<BLOCK CLEFTS_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="55"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK CLEFTS_PAGE>
+<BLOCK !CLEFTS_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !CLEFTS_PAGE>
+</BLOCK HAVE_CLEFTS>
+
+<!-- Pores underline -->
+<BLOCK HAVE_PORES>
+<BLOCK PORE_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="54"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK PORE_PAGE>
+<BLOCK !PORE_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !PORE_PAGE>
+</BLOCK HAVE_PORES>
+
+<!-- Tunnels underline -->
+<BLOCK HAVE_TUNNELS>
+<BLOCK MOLE_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="65"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK MOLE_PAGE>
+<BLOCK !MOLE_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !MOLE_PAGE>
+</BLOCK HAVE_TUNNELS>
+
+</BLOCK !LARGE>
+
+<!-- Links underline -->
+<BLOCK LINKS>
+<BLOCK LINKS_PAGE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="white"><img src="gif/1x1.gif" height="1" width="51"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="13"></td>
+</BLOCK LINKS_PAGE>
+<BLOCK !LINKS_PAGE>
+  <td colspan="2" bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif"></td>
+</BLOCK !LINKS_PAGE>
+</BLOCK LINKS>
+
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1"></td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1"></td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1"></td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="1"></td>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>"><img src="gif/1x1.gif" height="1" width="20"></td>
+ </tr>
+
+ <!-- Row 5 : PDB code border 4 -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2" width="1">
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan="<FLD%>_COUNTER2</FLD%>" bgcolor="white">
+   <img src="gif/1x1.gif" height="2" width="3">
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="1">
+  </td>
+  <td colspan="3" bgcolor="white">
+   <img src="gif/1x1.gif">
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="1">
+  </td>
+  <td bgcolor="white">
+   <img src="gif/1x1.gif" height="2" width="20">
+  </td>
+ </tr>
+
+ <!-- Row 6 : Title bar and PDB code -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="19" width="1">
+  </td>
+  <td bgcolor="white" width="3">
+</BLOCK SIDE_LINE>
+<BLOCK !SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width="3">
+</BLOCK !SIDE_LINE>
+   <img src="gif/1x1.gif" height="19" width="3">
+  </td>
+  <td colspan="<FLD%>_COUNTER3</FLD%>" bgcolor="<FLD%>BAR_COLOUR</FLD%>">
+   <table border="0" cellpadding="0" cellspacing="0" width="100%">
+    <tbody>
+     <tr>
+      <td>
+       <img src="gif/1x1.gif" height="10" width="3">
+      </td>
+      <td class="view" width="50">
+      </td>
+      <td class="nameM" align="<FLD%>BAR_ALIGN</FLD%>" width="90%">
+       <FLD%>BAR_HEADER</FLD%>
+<SKIP !PROTEIN_PAGE>
+<SKIP !NCOPIES>
+<LOOP NCOPIES>
+<FLD%>COPY</FLD%>
+</LOOP NCOPIES>
+</SKIP !NCOPIES>
+</SKIP !PROTEIN_PAGE>
+      </td>
+      <td height="10" width="100" class=view>
+       <font class=view>PDB&nbsp;id</font>
+      </td>
+     </tr>
+    </tbody>
+   </table>
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="1">
+  </td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="9">
+  </td>
+  <th bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>" align=center valign=center>
+   <font color=firebrick><FLD%>PDB_CODE</FLD%></font>
+  </th>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="9">
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="1" width="1">
+  </td>
+  <td bgcolor="<FLD%>BAR_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="19" width="20">
+  </td>
+ </tr>
+
+ <!-- Row 7 : PDB code border 6 -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2" width="1">
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan="<FLD%>_COUNTER2</FLD%>" rowspan="2" bgcolor="white">
+   <img src="gif/1x1.gif" height="2" width="3">
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2" width="1">
+  </td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2">
+  </td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2">
+  </td>
+  <td bgcolor="<FLD%>GREY_BG_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2">
+  </td>
+  <td bgcolor="<FLD%>RED_BORDER_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="2" width="1">
+  </td>
+  <td bgcolor="white">
+   <img src="gif/1x1.gif" height="2" width="20">
+  </td>
+ </tr>
+
+ <!-- Row 8 : PDB code border 7 -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>">
+   <img src="gif/1x1.gif" height="10" width="1">
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan="2" height="10" width="10">
+   <img src="gif/bottomleft.gif" height="10" width="10">
+  </td>
+  <td>
+   <img src="gif/bottombar.gif" height="10" width="40">
+  </td>
+  <td colspan="2">
+   <img src="gif/bottomright.gif" height="10" width="10">
+  </td>
+  <td bgcolor="white">
+   <img src="gif/1x1.gif" height="10" width="20">
+  </td>
+ </tr>
+
+</tbody>
+<!-- Reset counters -->
+<FLD%>_COUNTER1=0</FLD%>
+<FLD%>_COUNTER2=0</FLD%>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+</table>
+
+</BLOCK !NO_TABS>

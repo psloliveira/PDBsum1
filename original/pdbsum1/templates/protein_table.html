@@ -1,0 +1,684 @@
+<!-- Mini protein chain diagrams and their PFam domain architectures -->
+
+<!-- Initialise counters -->
+<FLD%>_COUNTER6=0</FLD%> <!-- No. differences between UniProt & PDB seqs -->
+<FLD%>_COUNTER7=0</FLD%> <!-- Chain counter -->
+
+<P>
+
+<!-- Loop over all the unique protein chains -->
+<LOOP NSPROT_ID>
+
+<table bgcolor="white" width=100% border=0 cellpadding=0 cellspacing=0>
+
+<!-- Protein chains tab -->
+ <tr>
+  <td align=left valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tl_curve.gif" height=5 width=5>
+     </td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+       src="gif/1x1.gif"></td>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tr_curve.gif" height=5 width=5>
+     </td>
+    </tr>
+    <tr>
+     <td height=4><img
+       src="gif/1x1.gif" height=4></td>
+    </tr>
+    <tr>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+      <img src="gif/1x1.gif" width=1>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td class=ftxt valign=top>
+
+      <!-- List of chains -->
+      <table border=0 cellpadding=0 cellspacing=0>
+       <tr>
+<FLD%>_COUNTER7=1</FLD%>
+<FLD%>_COUNTER7+<NO%>UNIPLOT_NCOPIES</NO%></FLD%>
+        <td align=left valign=center>
+         <B>Protein&nbsp;chain<s% COUNTER7></B>
+        </td>
+        <td align=left valign=center>
+         <img src="gif/1x1.gif" width=3>
+        </td>
+        <td align=left valign=center>
+         <a href="protein_<FLD%>UNIPLOT_CHAIN</FLD%>.html"
+          title="Go to protein page for this chain"><img
+          width=18 border=0
+          src="gif/chain<FLD%>UNIPLOT_CHAIN{chn}</FLD%>.jpg"></a>
+        </td>
+<LOOP UNIPLOT_NCOPIES>
+        <td align=left valign=center>
+         <a href="protein_<FLD%>UNIPLOT_CHAIN</FLD%>.html"
+          title="Go to protein page for this chain"><img
+          width=18 border=0
+          src="gif/chain<FLD%>UNIPLOT_COPY{chn}</FLD%>.jpg"></a>
+        </td>
+</LOOP UNIPLOT_NCOPIES>
+       </tr>
+      </table>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+      <img src="gif/1x1.gif" width=1 height=15>
+     </td>
+
+     <td width=16777216><img src="gif/1x1.gif" height="1" width="1"></td>
+
+     <td width=20% align=right>
+
+<!-- Check for polyprotein subscript -->
+<FLD%>_COUNTER1=<NO%>UNIPLOT_SUBSCRIPT</NO%></FLD%>
+
+<FLD%>_TEXT1=<NO%>UNIPLOT_UNIPROT_ACC</NO%></FLD%>
+<SKIP COUNTER1[eq0]>
+<FLD%>_TEXT1=<NO%>UNIPLOT_UNIPROT_ACC</NO%>_<NO%>UNIPLOT_SUBSCRIPT</NO%></FLD%>
+</SKIP COUNTER1[eq0]>
+
+      <!-- Table of links relating to this UniProt code -->
+      <table border=0 cellpadding=0 cellspacing=0>
+       <tr>
+        <!-- Annotations relating to UniProt sequence -->
+<SKIP !UNIPLOT_UNIPROT_ACC>
+
+        <!-- Alignment between UniProt and PDB sequence -->
+        <td valign=center>
+         <a href="align_<FLD%>CHAIN</FLD%>.html"
+         onclick="NewWindow(this.href,'','1000','250','yes');return false;"
+         target=alignment
+         onmouseover="return overlib('Click to view sequence alignment', WRAP);"
+         onmouseout="return nd();">
+         <img align=center width=30 border=0 src="gif/alignment.png"></a>
+        </td>
+
+        <!-- UniProt functional annotation -->
+<SKIP ![<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+        <td valign=center>
+         <a href="./unifunc.html&u=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+         onclick="NewWindow(this.href,'','800','600','yes');return false;"
+         target=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>
+         onmouseover="return overlib('Click to view UniProt functional annotation for this sequence', WRAP);"
+         onmouseout="return nd();">
+         <img align=center border=0 src="gif/fn.gif"></a>
+        </td>
+</SKIP ![<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+
+<!-- Read in data from the unichain.dat file -->
+#kread:<LNK%>UNICHAIN_DAT</LNK%>::KEY:<FLD%>TEXT1</FLD%>
+
+<SKIP !READ_OK>
+<SKIP !UC_NSEQS>
+        <!-- Link to other structures for this UniProt entry -->
+        <td class=ftxt valign=center>
+         <a href="<LNK%>GET_UNICHAINS</LNK%><FLD%>TEXT1</FLD%>&uniprot_code=<FLD%>UNIPLOT_UNIPROT_ID</FLD%>"
+          target=<FLD%>TEXT1</FLD%>_aln
+<SKIP UC_NSEQS[eq1]>
+          title="Click to view all <FLD%>UC_NSEQS</FLD%> PDB chains that correspond to this UniProt sequence"
+</SKIP UC_NSEQS[eq1]>
+<SKIP UC_NSEQS[ne1]>
+          title="This is the only PDB chain corresponding to this UniProt sequence. Click to view"
+</SKIP UC_NSEQS[ne1]>
+         ><img align=center border=0 src="gif/plusor.gif"></a>
+        </td>
+</SKIP !UC_NSEQS>
+</SKIP !READ_OK>
+
+<SKIP !"<LNK%>CLUSTDIR</LNK%><FLD%>TEXT1{e2}</FLD%><LNK%>DIR_SEP</LNK%><FLD%>TEXT1</FLD%><LNK%>DIR_SEP</LNK%>database.dat">
+        <!-- Ligand clusters page, if available -->
+        <td class=ftxt valign=center>
+         <a href="./ligclust.html&param1=<FLD%>TEXT1</FLD%>"
+          target=LigClust<FLD%>TEXT1</FLD%>
+          title="Click for ligand cluster analysis from all structures of this protein"
+         ><img border=0 src="gif/ligclust.gif"></a></td>
+        <td><img width=2 src="gif/1x1.gif"></td>
+</SKIP !"<LNK%>CLUSTDIR</LNK%><FLD%>TEXT1{e2}</FLD%><LNK%>DIR_SEP</LNK%><FLD%>TEXT1</FLD%><LNK%>DIR_SEP</LNK%>database.dat">
+
+        <!-- Call SAS with current UniProt sequence -->
+<BLOCK !PROPRIETARY>
+        <td class=ftxt valign=center><a
+<SKIP COUNTER1[ne0]>
+         href="<LNK%>EBI</LNK%>/thornton-srv/databases/cgi-bin/sas/StartSAS.pl?SWISSPROT_CODE=TRUE&sprotnum=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+</SKIP COUNTER1[ne0]>
+<SKIP COUNTER1[eq0]>
+         href="<LNK%>EBI</LNK%>/thornton-srv/databases/cgi-bin/sas/StartSAS.pl?SWISSPROT_CODE=TRUE&sprotnum=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>&covid19=<FLD%>UNIPLOT_SUBSCRIPT</FLD%>"
+</SKIP COUNTER1[eq0]>
+          target=SAS_<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>
+          title="Run SAS to retrieve all related PDB structures"
+          ><img border=0 src="gif/saslogo_tiny.gif"></a></td>
+        <td><img width=2 src="gif/1x1.gif"></td>
+</BLOCK !PROPRIETARY>
+
+<SKIP UNIPLOT_COVID_19>
+<SKIP !UPLOT_NPFAM>
+        <!-- Link to Pfam page -->
+        <td class=ftxt valign=center><a
+         href="<LNK%>URL_PFAM{s/api//}</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          target="Pfam_<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          title="Pfam entry for UniProt seq <FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          ><img border=0 src="gif/pfam_logo.gif" alt="Pfam"></a></td>
+
+        <td>&nbsp;</td>
+</SKIP !UPLOT_NPFAM>
+
+        <!-- Launch ArchSchema for given UniProt sequence -->
+<BLOCK !PROPRIETARY>
+<SKIP !UPLOT_NPFAM>
+        <td class=ftxt valign=center>
+         <a href="<LNK%>URL_ARCHSCHEMA</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          title="Launch ArchSchema to show related Pfam domain architectures"
+          ><img border=0 src="gif/archschema_icon.gif"
+          alt="ArchSchema"></a>
+        </td>
+        <td class=ftxt valign=center>
+         <SUP><a
+          href="<LNK%>ARCHSCHEMA_HOME_PAGE</LNK%>"
+          title="For more info, go to ArchSchema home page"
+         target=ArchSchema
+         ><B>?</B></a></SUP>
+        </td>
+</SKIP !UPLOT_NPFAM>
+</BLOCK !PROPRIETARY>
+</SKIP UNIPLOT_COVID_19>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+       </tr>
+      </table>
+      <!-- End of UniProt-related links -->
+
+     </td>
+    </tr>
+    <tr>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor=white colspan=3 height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td colspan=2 bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table> 
+
+<!-- Show wiring diagram table -->
+<table width=100% border=0 cellpadding=0 cellspacing=0>
+
+ <tr>
+
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" rowspan=2 width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+
+  <!-- Thumbnail image of this chain -->
+  <td width=50 rowspan=2 align=left valign=top>
+   <a href="protein_<FLD%>UNIPLOT_CHAIN</FLD%>.html"
+    onmouseover="Tip('<img src=tmpgif/chain<FLD%>UNIPLOT_CHAIN{chn}</FLD%>.jpg><br><B>Chain <FLD%>UNIPLOT_CHAIN{chn}</FLD%></B>', WIDTH, 240, PADDING, 4, BGCOLOR, '#ffffff')"><img
+    align=left width=60 border=0
+    src="tmpgif/newsec/chain<FLD%>UNIPLOT_CHAIN{chn}</FLD%>.png">
+  </td>
+
+  <!-- UniProt accession code (and id) -->
+  <td colspan=3 valign=top align=left>
+   <table width=100% border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td class=ftxt valign=top align=left>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+      <B><FONT COLOR=GREEN>
+      <a href="<LNK%>GET_UNIPROT_DATA</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+       title="Go to UniProt page for this protein"
+       target=_blank
+       class=annotClass
+      ><FLD%>UNIPLOT_UNIPROT_ACC</FLD%></a>
+      </FONT></B>&nbsp;(<FLD%>UNIPLOT_UNIPROT_ID</FLD%>)&nbsp;-&nbsp;
+
+      <!-- UniProt name -->
+      <FLD%>UNIPLOT_UNIPROT_NAME{d/ OS=}</FLD%>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+<SKIP UNIPLOT_UNIPROT_ACC>
+      No UniProt id for this chain
+</SKIP UNIPLOT_UNIPROT_ACC>
+     </td>
+
+<BLOCK INCLUDE>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+     <td valign=top align=right>
+      <!-- Table of links relating to this UniProt code -->
+      <table border=0 cellpadding=0 cellspacing=0>
+       <tr>
+        <!-- UniProt functional annotation -->
+<SKIP ![<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+        <td valign=center>
+         <a href="./unifunc.html&u=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+         onclick="NewWindow(this.href,'','800','600','yes');return false;"
+         target=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>
+         onmouseover="return overlib('Click to view UniProt functional annotation for this sequence', WRAP);"
+         onmouseout="return nd();">
+         <img align=center border=0 src="gif/fn.gif"></a>
+        </td>
+</SKIP ![<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+
+<!-- Read in data from the unichain.dat file -->
+<SKIP !UNIPLOT_UNIPROT_ACC>
+#kread:<LNK%>UNICHAIN_DAT</LNK%>::KEY:<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+
+<SKIP !READ_OK>
+<SKIP !UC_NSEQS>
+        <!-- Link to other structures for this UniProt entry -->
+        <td class=ftxt valign=center>
+         <a href="<LNK%>GET_UNICHAINS</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>&uniprot_code=<FLD%>UNIPLOT_UNIPROT_ID</FLD%>"
+          target=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>_aln
+<SKIP UC_NSEQS[eq1]>
+          onmouseover="return overlib('Click to view all <FLD%>UC_NSEQS</FLD%> PDB chains that correspond to this UniProt sequence', WRAP);"
+</SKIP UC_NSEQS[eq1]>
+<SKIP UC_NSEQS[ne1]>
+          onmouseover="return overlib('This is the only PDB chain corresponding to this UniProt sequence. Click to view', WRAP);"
+</SKIP UC_NSEQS[ne1]>
+          onmouseout="return nd();">
+         <img align=center border=0 src="gif/plusor.gif"></a>
+        </td>
+</SKIP !UC_NSEQS>
+</SKIP !READ_OK>
+
+        <!-- Call SAS with current UniProt sequence -->
+        <td class=ftxt valign=center><a
+         href="<LNK%>EBI</LNK%>/thornton-srv/databases/cgi-bin/sas/StartSAS.pl?SWISSPROT_CODE=TRUE&sprotnum=<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          target=SAS_<FLD%>UNIPLOT_UNIPROT_ACC</FLD%>
+	  title="Run SAS to retrieve all related PDB structures"
+          ><img border=0 src="gif/saslogo_tiny.gif"></a></td>
+        <td><img width=2 src="gif/1x1.gif"></td>
+
+        <!-- Link to Pfam page -->
+        <td class=ftxt valign=center><a
+         href="<LNK%>URL_PFAM{s/api//}</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          target=_blank
+          onmouseover="return overlib('Pfam entry for UniProt seq <FLD%>UNIPLOT_UNIPROT_ACC</FLD%>', WRAP);"
+          onmouseout="return nd();"
+          ><img border=0 src="gif/pfam_logo.gif" alt="Pfam"></a></td>
+
+        <td>&nbsp;</td>
+
+        <!-- Launch ArchSchema for given UniProt sequence -->
+<SKIP !UPLOT_NPFAM>
+        <td class=ftxt valign=center>
+         <a href="<LNK%>URL_ARCHSCHEMA</LNK%><FLD%>UNIPLOT_UNIPROT_ACC</FLD%>"
+          onmouseover="return overlib('Launch ArchSchema to show related Pfam domain architectures', WRAP);"
+          onmouseout="return nd();"
+          ><img border=0 src="gif/archschema_icon.gif"
+          alt="ArchSchema"></a>
+        </td>
+        <td class=ftxt valign=center>
+         <SUP><a
+          href="<LNK%>ARCHSCHEMA_HOME_PAGE</LNK%>"
+          onmouseover="return overlib('For more info, go to ArchSchema home page', WRAP);"
+         onmouseout="return nd();"
+         target=ArchSchema
+         ><B>?</B></a></SUP>
+        </td>
+</SKIP !UPLOT_NPFAM>
+       </tr>
+      </table>
+      <!-- End of UniProt-related links -->
+     </td>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+</BLOCK INCLUDE>
+    </tr>
+   </table> 
+  </td>
+
+  <td width=1>
+   <img src="gif/1x1.gif" rowspan=2 width=1>
+  </td>
+
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" rowspan=2 width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+ </tr>
+
+ <!-- Mini-wiring diagram -->
+ <tr valign=top>
+  <td colspan=3 valign=top align=left>
+<SKIP !UNIPLOT_NIMAGES>
+
+<!-- Calculate how many loops we need to do -->
+<FLD%>_COUNTER1=<NO%>UNIPLOT_NIMAGES</NO%></FLD%>
+<FLD%>_COUNTER1++</FLD%>
+<FLD%>_COUNTER1/<NO%>NWIR_IMAGES</NO%></FLD%> <!-- Number of lines -->
+<FLD%>_COUNTER2=0</FLD%> <!-- Count of image position in line -->
+<FLD%>_COUNTER3=0</FLD%> <!-- Image counter -->
+<FLD%>_COUNTER4=0</FLD%> <!-- Line counter -->
+
+   <!-- Start mini-wiring diagrams table -->
+   <table cellspacing=0 cellpadding=0 border=0>
+
+<!-- New line -->
+<FLD%>_COUNTER4++</FLD%>
+
+    <!-- Row 1 -->
+    <tr>
+     <td align=right valign=center rowspan=4 class=ttxt>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+      <font color=navy>Seq:<br>Struc:</font>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+<SKIP UNIPLOT_UNIPROT_ACC>
+      <font color=navy>Struc:</font>
+</SKIP UNIPLOT_UNIPROT_ACC>
+     </td>
+     <td rowspan=4><img src="gif/1x1.gif" width=3 height=1></td>
+     <td colspan=<FLD%>NWIR_IMAGES</FLD%>><img src="gif/1x1.gif"></td>
+     <td rowspan=4><img src="gif/1x1.gif" width=3 height=1></td>
+
+     <!-- If final line, then show UniProt and PDB sequence lengths -->
+     <td align=left valign=center rowspan=4 class=ttxt>
+<SKIP COUNTER4[ne<FLD%>_COUNTER1</FLD%>]>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+      <font color=navy><FLD%>UNIPLOT_SEQLEN</FLD%>&nbsp;a.a.</font><BR>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+<SKIP UNIPLOT_NMISMATCH>
+      <font color=navy><FLD%>UNIPLOT_NRESID</FLD%>&nbsp;a.a.</font>
+</SKIP UNIPLOT_NMISMATCH>
+<SKIP !UNIPLOT_NMISMATCH>
+      <font color=navy><FLD%>UNIPLOT_NRESID</FLD%>&nbsp;a.a.<font color=red>*</font></font>
+<FLD%>_COUNTER6+<NO%>UNIPLOT_NMISMATCH</NO%></FLD%>
+</SKIP !UNIPLOT_NMISMATCH>
+     </td>
+     <td align=left rowspan=4 class=ttxt>
+      <img src="gif/1x1.gif" width=10 height=1>
+     </td>
+     <!-- Icon for generating enlarged version of Pfam domain plot -->
+     <td align=left valign=center rowspan=4 class=ttxt>
+<SKIP UNIPLOT_COVID_19>
+      <a href="tmpgif/wiring/wirpfam_<FLD%>CHAIN</FLD%>.gif"
+       onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+       target=wiring_pfam_<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+       title="Click for larger version of domain diagram">
+      <img border=0 width=20 src="gif/zoom_in.gif"></a>
+</SKIP UNIPLOT_COVID_19>
+</SKIP COUNTER4[ne<FLD%>_COUNTER1</FLD%>]>
+<SKIP COUNTER4[eq<FLD%>_COUNTER1</FLD%>]>
+      &nbsp
+</SKIP COUNTER4[eq<FLD%>_COUNTER1</FLD%>]>
+     </td>
+    </tr>
+    <tr>
+
+<!-- Loop over the images -->
+<LOOP UNIPLOT_NIMAGES>
+<FLD%>_COUNTER2++</FLD%>
+<FLD%>_COUNTER3++</FLD%>
+
+    <!-- Row 2 - the images -->
+     <td align=left valign=center rowspan=2>
+<SKIP UNIPLOT_NDOMAINS>
+      <a href="align_<FLD%>CHAIN</FLD%>.html"
+      onclick="NewWindow(this.href,'','1000','250','yes');return false;"
+      target=alignment
+      title="Click to view sequence alignment">
+</SKIP UNIPLOT_NDOMAINS>
+     <img border=0
+<SKIP !UNIPLOT_NDOMAINS>
+      usemap=#Map<FLD%>_LOOP1</FLD%>_<FLD%>_LOOP2</FLD%>
+</SKIP !UNIPLOT_NDOMAINS>
+      src="tmpgif/seqdata/uniplot<FLD%>_LOOP1{i3}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.gif"
+<SKIP UNIPLOT_NDOMAINS>
+      ></a>
+</SKIP UNIPLOT_NDOMAINS>
+<SKIP !UNIPLOT_NDOMAINS>
+      >
+      <map name=Map<FLD%>_LOOP1</FLD%>_<FLD%>_LOOP2</FLD%>>
+<LOOP UNIPLOT_NDOMAINS>
+       <area shape="rect"
+        coords="<FLD%>UNIPLOT_MAP_XMIN</FLD%>, <FLD%>UNIPLOT_MAP_YMIN</FLD%>, <FLD%>UNIPLOT_MAP_XMAX</FLD%>, <FLD%>UNIPLOT_MAP_YMAX</FLD%>"
+<SKIP !UNIPLOT_PFAM>
+<SKIP UNIPLOT_COVID_19>
+<SKIP UNIPLOT_PFAMB>
+        title="Pfam domain <FLD%>UNIPLOT_DOMAIN_ID</FLD%>: <FLD%>UNIPLOT_DOMAIN_NAME</FLD%> - <FLD%>UNIPLOT_DOMAIN_DESC</FLD%>"
+        href="<LNK%>URL_PFAM_CODE</LNK%><FLD%>UNIPLOT_DOMAIN_ID</FLD%>"
+</SKIP UNIPLOT_PFAMB>
+<SKIP !UNIPLOT_PFAMB>
+        title="PfamB domain <FLD%>UNIPLOT_DOMAIN_ID</FLD%>"
+        href="<LNK%>URL_PFAM_CODE</LNK%><FLD%>UNIPLOT_DOMAIN_ID</FLD%>"
+</SKIP !UNIPLOT_PFAMB>
+        target=Pfam<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+</SKIP UNIPLOT_COVID_19>
+<SKIP !UNIPLOT_COVID_19>
+        href="javascript:void(0)"
+        title="<FLD%>UNIPLOT_DOMAIN_NAME</FLD%> - <FLD%>UNIPLOT_DOMAIN_DESC</FLD%>"
+</SKIP !UNIPLOT_COVID_19>
+</SKIP !UNIPLOT_PFAM>
+<SKIP !UNIPLOT_CATH>
+<SKIP CATH_<FLD%>UNIPLOT_DOMAIN_ID</FLD%>>
+        title="CATH domain <FLD%>UNIPLOT_DOMAIN_ID</FLD%>: <FLD%>UNIPLOT_DOMAIN_NAME</FLD%>, <FLD%>UNIPLOT_DOMAIN_DESC</FLD%>"
+        href="<LNK%>URL_CATH_CODE</LNK%><FLD%>UNIPLOT_DOMAIN_ID</FLD%>"
+        target=CATH<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+</SKIP CATH_<FLD%>UNIPLOT_DOMAIN_ID</FLD%>>
+<SKIP !CATH_<FLD%>UNIPLOT_DOMAIN_ID</FLD%>>
+        title="CATH domain unassigned"
+        href="<LNK%>URL_CATH_PDB</LNK%>"
+        target=CATH<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+</SKIP !CATH_<FLD%>UNIPLOT_DOMAIN_ID</FLD%>>
+</SKIP !UNIPLOT_CATH>
+        >
+</LOOP UNIPLOT_NDOMAINS>
+       <area shape="rect"
+        coords="<FLD%>UNIPLOT_SST_XMIN</FLD%>, <FLD%>UNIPLOT_SST_YMIN</FLD%>, <FLD%>UNIPLOT_SST_XMAX</FLD%>, <FLD%>UNIPLOT_SST_YMAX</FLD%>"
+        title="Click to view sequence alignment"
+        href="align_<FLD%>CHAIN</FLD%>.html"
+        onclick="NewWindow(this.href,'','1000','250','yes');return false;"
+        target=alignment>
+      </map>
+</SKIP !UNIPLOT_NDOMAINS>
+     </td>
+
+   <!-- Go to next line, if required -->
+<SKIP COUNTER2[ne<FLD%>NWIR_IMAGES</FLD%>]>
+    </tr>
+
+    <!-- Start new table and new line, if needed -->
+<FLD%>_COUNTER4++</FLD%>
+
+<SKIP UNIPLOT_NIMAGES[eq<FLD%>_LOOP2</FLD%>]>
+   <!-- Close previous table and start new one -->
+   </table>
+   <table cellspacing=0 cellpadding=0 border=0>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=15></td>
+    </tr>
+   </table>
+
+   <table cellspacing=0 cellpadding=0 border=0>
+
+    <!-- Row 1 -->
+    <tr>
+     <td align=rightt valign=center rowspan=4 class=ttxt>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+      <font color=navy>Seq:<br>Struc:</font>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+<SKIP UNIPLOT_UNIPROT_ACC>
+      <font color=navy>Struc:</font>
+</SKIP UNIPLOT_UNIPROT_ACC>
+     </td>
+     <td rowspan=4><img src="gif/1x1.gif" width=3 height=1></td>
+     <td colspan=<FLD%>NWIR_IMAGES</FLD%>><img src="gif/1x1.gif"></td>
+     <td rowspan=4><img src="gif/1x1.gif" width=3 height=1></td>
+
+     <!-- If final line, then show UniProt and PDB sequence lengths -->
+     <td align=left valign=center rowspan=4 class=ttxt>
+<SKIP COUNTER4[ne<FLD%>_COUNTER1</FLD%>]>
+<SKIP !UNIPLOT_UNIPROT_ACC>
+      <font color=navy><FLD%>UNIPLOT_SEQLEN</FLD%>&nbsp;a.a.</font><BR>
+</SKIP !UNIPLOT_UNIPROT_ACC>
+<SKIP UNIPLOT_NMISMATCH>
+      <font color=navy><FLD%>UNIPLOT_NRESID</FLD%>&nbsp;a.a.</font>
+</SKIP UNIPLOT_NMISMATCH>
+<SKIP !UNIPLOT_NMISMATCH>
+      <font color=navy><FLD%>UNIPLOT_NRESID</FLD%>&nbsp;a.a.<font color=red>*</font></font>
+<FLD%>_COUNTER6+<NO%>UNIPLOT_NMISMATCH</NO%></FLD%>
+</SKIP !UNIPLOT_NMISMATCH>
+     </td>
+     <td align=left rowspan=4 class=ttxt>
+      <img src="gif/1x1.gif" width=10 height=1>
+     </td>
+     <!-- Icon for generating enlarged version of Pfam domain plot -->
+     <td align=left valign=center rowspan=4 class=ttxt>
+      <a href="tmpgif/wiring/wirpfam_<FLD%>CHAIN</FLD%>.gif"
+       onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+       target=wiring_pfam_<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+       title="Click for larger version of domain diagram">
+      <img border=0 width=20 src="gif/zoom_in.gif"></a>
+</SKIP COUNTER4[ne<FLD%>_COUNTER1</FLD%>]>
+<SKIP COUNTER4[eq<FLD%>_COUNTER1</FLD%>]>
+      &nbsp
+</SKIP COUNTER4[eq<FLD%>_COUNTER1</FLD%>]>
+     </td>
+    </tr>
+</SKIP UNIPLOT_NIMAGES[eq<FLD%>_LOOP2</FLD%>]>
+<FLD%>_COUNTER2=0</FLD%>
+</SKIP COUNTER2[ne<FLD%>NWIR_IMAGES</FLD%>]>
+
+</LOOP UNIPLOT_NIMAGES>
+
+<!-- Close off end of last line, if necessary -->
+<SKIP COUNTER2[eq0]>
+     <!-- Fill in for absent image -->
+     <td rowspan=2>
+      <img src="gif/1x1.gif">
+     </td>
+    </tr>
+</SKIP COUNTER2[eq0]>
+   </table>
+
+   <!-- Add gap, if required -->
+<SKIP COUNTER1[gt1]>
+<SKIP UNIPLOT_UNIPROT_ACC>
+   <table cellspacing=0 cellpadding=0 border=0>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=15></td>
+    </tr>
+   </table>
+</SKIP UNIPLOT_UNIPROT_ACC>
+</SKIP COUNTER1[gt1]>
+</SKIP !UNIPLOT_NIMAGES>
+  </td> 
+ </tr>
+
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+  <td colspan=5>
+   <img src="gif/1x1.gif" width=1 height=3>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+ </tr>
+
+<!-- Close off line -->
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" colspan=7><img
+   src="gif/1x1.gif" width=1 height=1></td>
+ </tr>
+
+ <tr bgcolor="#DDDDDD">
+  <td colspan=7><img width=1 height=4 src="gif/1x1.gif"></td>
+ </tr>
+
+ <tr>
+  <td colspan=7>
+   <img src="gif/1x1.gif" width=1 height=5>
+  </td>
+ </tr>
+
+</LOOP NSPROT_ID>
+
+<SKIP !NSPROT_ID>
+ <!-- Key to schematic diagrams -->
+ <tr>
+  <td colspan=7>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+    <tr>
+     <td valign=center class=ttxt>
+      <font  color=darkred><B>Key: &nbsp; </B></font></td>
+<SKIP !UNIPLOT_HAVE_PFAMA>
+     <td valign=center><img src="gif/key_pfama.gif"></td>
+     <td valign=center class=ttxt>
+      <font color=darkred>&nbsp;PfamA&nbsp;domain</font></td>
+     <td><img src="gif/1x1.gif" width=10 height=1></td>
+</SKIP !UNIPLOT_HAVE_PFAMA>
+<SKIP !UNIPLOT_HAVE_PFAMB>
+     <td valign=center><img src="gif/key_pfamb.gif"></td>
+     <td valign=center class=ttxt>
+      <font color=darkred>&nbsp;PfamB&nbsp;domain</font></td>
+     <td><img src="gif/1x1.gif" width=10 height=1></td>
+</SKIP !UNIPLOT_HAVE_PFAMB>
+     <td><img src="gif/1x1.gif" width=1 height=1></td>
+     <td valign=center><img src="gif/key_sst.gif"></td>
+     <td valign=center class=ttxt>
+      <font color=darkred>&nbsp;Secondary&nbsp;structure</font></td>
+     <td><img src="gif/1x1.gif" width=10 height=1></td>
+<SKIP !UNIPLOT_HAVE_CATH>
+     <td valign=center><img src="gif/key_cath.gif"></td>
+     <td valign=center class=ttxt>
+      <font color=darkred>&nbsp;CATH&nbsp;domain</font></td>
+     <td><img src="gif/1x1.gif" width=10 height=1></td>
+    </tr>
+</SKIP !UNIPLOT_HAVE_CATH>
+<SKIP COUNTER6[eq0]>
+    <tr>
+     <td colspan=14 class=ttxt>
+      <font color=red>*</font>
+      <font color=navy>PDB and UniProt seqs differ
+      at <FLD%>_COUNTER6</FLD%> residue position<s% COUNTER6> (black
+<SKIP COUNTER6[gt1]>
+       cross)
+</SKIP COUNTER6[gt1]>
+<SKIP COUNTER6[eq1]>
+       crosses)
+</SKIP COUNTER6[eq1]>
+      </font>
+     </td>
+    </tr>
+</SKIP COUNTER6[eq0]>
+
+<!-- Key to Alpha Fold confidence scores -->
+<BLOCK ALPHA_FOLD>
+    <tr>
+     <td colspan=7>&nbsp;</td>
+    </tr>
+    <tr>
+     <td>&nbsp;</td>
+     <td valign=center class=ttxt colspan=6>
+      <font color=darkred>
+      <B>Alpha Fold confidence scores:</B>
+      </font>:
+       <img width=10 src="gif/square_blue.png"> Very high;
+       <img width=10 src="gif/square_skyblue.png"> Confident;;
+       <img width=10 src="gif/square_gold.png"> Low;
+       <img width=10 src="gif/square_orange.png"> Very low.
+     </td>
+    </tr>
+</BLOCK ALPHA_FOLD>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=7><img src="gif/1x1.gif" width=1 height=5>
+  </td>
+ </tr>
+</SKIP !NSPROT_ID>
+</table>
+
+<P>
+

@@ -1,0 +1,72 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET PAGE_TITLE="PDBsum entry: <FLD%>PDB_CODE</FLD%>">
+<SET PDB_TITLE="<FLD%>TITLE</FLD%>">
+<SET BAR_ALIGN="center">
+<SET BAR_HEADER="<FLD%>HEADER</FLD%>">
+<SET ENCODE_COLOUR="#0D3692">
+<SET COMMA1=",">
+<SET COMMA0=".">
+<SET COLON1=",">
+<SET COLON0=":">
+<SET NCOLS="20">
+<SET DNA_PAGE="TRUE">
+<SET SIDE_LINE="TRUE">
+
+<SET MAX_COPIES="5">
+<SET MAX_UNIQUE="100">
+
+<SET ONE="1">
+
+<!-- Get middle part of PDB code -->
+<SET CHAR2="<FLD%>PDB_CODE(p2)</FLD%>">
+<SET CHAR3="<FLD%>PDB_CODE(p3)</FLD%>">
+<SET MIDDLE="<FLD%>CHAR2</FLD%><FLD%>CHAR3</FLD%>">
+
+<!-- EBI banner plus PDBsum tags -->
+#insert:tags.html
+
+<!-- Main table for layout -->
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+ <tr>
+
+  <!-- Left-hand panel containing thumbnail plus contents -->
+  <td align=left valign=top>
+#insert:dna_thumbnail.html
+#insert:contents_panel.html
+  </td>
+
+  <!-- Central and right-hand panels -->
+  <td align=left valign=top>
+   <table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+    <tr>
+
+     <!-- DNA details -->
+     <td align=left valign=top>
+#insert:ins_dna_info.html
+     </td>
+
+     <td align=left valign=top>
+      <img src="gif/1x1.gif" height=1 width=5>
+     </td>
+
+     <!-- Right-hand panel (PROCHECK plus header records and refs) -->
+     <td align=right valign=top>
+<!-- insert:right_panel.html -->
+     </td>
+    </tr>
+   </table>
+  </td>
+ <tr>
+</table>
+
+
+
+<!-- -------------------------------------------------------- -->
+<P>
+&nbsp;
+<P>
+
+

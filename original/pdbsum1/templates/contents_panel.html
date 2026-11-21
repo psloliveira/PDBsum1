@@ -1,0 +1,582 @@
+<!-- Initialise counters -->
+<FLD%>_COUNTER5=0</FLD%> <!-- Count of C-alpha-only chains -->
+<FLD%>_COUNTER6=0</FLD%> <!-- Count of chains with residue conservation -->
+
+<!-- Table for contents panel -->
+<table border=0 cellpadding=0 cellspacing=0>
+
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan=2>
+   <img src="gif/1x1.gif" height=20 width=1>
+  </td> 
+ </tr>
+
+ <!-- Contents panel -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td  bgcolor="<FLD%>TAGS_COLOUR</FLD%>" height=1 valign=bottom>
+      <img src="gif/1x1.gif" height=1 width=10>
+     </td>
+    </tr>
+   </table>
+  </td> 
+  <td>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td class=stxt>
+
+      <!-- Contents tab -->
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+        <td><img src="gif/zl09x20.gif" width=10 height=20 ALT=""></td>
+        <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width="80" height=20
+         align="center"
+         class=ftxt><b><font
+         color=white>Contents</font></b></td>
+        <td><img src="gif/zr10x20.gif" width=10 height=20 ALT=""></td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+ <tr>
+<BLOCK SIDE_LINE>
+  <td width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td>
+   <img src="gif/1x1.gif" height=1 width=10>
+  </td> 
+  <td>
+   <table border=0 cellpadding=0 cellspacing=0>
+
+<BLOCK NUNIQ>
+    <!-- Protein chains -->
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+
+       <!-- Protein chains heading -->
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+         <font color="#006666"><b>Protein
+<SKIP NUNIQ[eq1]>
+         chains
+</SKIP NUNIQ[eq1]>
+<SKIP NUNIQ[gt1]>
+<LOOP NUNIQ>
+         chain<s% NCHAINS>
+</LOOP NUNIQ>
+</SKIP NUNIQ[gt1]>
+         </b></font>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+	 src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<BLOCK PROTEIN_MID>
+        <td class=color width=1>
+</BLOCK PROTEIN_MID>
+<BLOCK PROTEIN_LAST>
+        <td width=1>
+</BLOCK PROTEIN_LAST>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+
+      <!-- List of protein chains -->
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<FLD%>_COUNTER1=<NO%>NUNIQ</NO%></FLD%> <!-- Number not listed -->
+<FLD%>_COUNTER1-<NO%>MAX_UNIQUE</NO%></FLD%>
+<FLD%>_COUNTER1++</FLD%>
+<LOOP NUNIQ>
+<SKIP MAX_UNIQUE[lt<FLD%>_LOOP1</FLD%>]>
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+<BLOCK PROTEIN_MID>
+        <td rowspan=3 class=color width=1>
+</BLOCK PROTEIN_MID>
+<BLOCK PROTEIN_LAST>
+        <td rowspan=3 width=1>
+</BLOCK PROTEIN_LAST>
+         <img src="gif/1x1.gif" width=1 height=1>
+        </td>
+        <td rowspan=3 width=15>
+         <img src="gif/1x1.gif" width=15 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+<BLOCK !LARGE>
+<SKIP MAX_UNIQUE[eq<FLD%>_LOOP1</FLD%>]>
+         <a href="./protein_<FLD%>CHAIN</FLD%>.html"
+	  title="Go to Protein page"
+         ><img
+          align=top width=18 border=0
+          src="gif/chain<FLD%>CHAIN{chn}</FLD%>.jpg"></a>
+
+<FLD%>_COUNTER2=<NO%>NCOPIES</NO%></FLD%> <!-- Number of copies not shown -->
+<FLD%>_COUNTER2-<NO%>MAX_COPIES</NO%></FLD%>
+<LOOP NCOPIES>
+<SKIP MAX_COPIES[lt<FLD%>_LOOP2</FLD%>]>
+         <a href="./protein_<FLD%>CHAIN</FLD%>.html"
+	  title="Go to Protein page"
+         ><img align=top width=18 border=0
+          src="gif/chain<FLD%>COPY{chn}</FLD%>.jpg"></a>
+</SKIP MAX_COPIES[lt<FLD%>_LOOP2</FLD%>]>
+<SKIP MAX_COPIES[ne<FLD%>_LOOP2</FLD%>]>
+         <font color=red><b>(+&nbsp;<FLD%>_COUNTER2</FLD%>&nbsp;more)</b></font>
+</SKIP MAX_COPIES[ne<FLD%>_LOOP2</FLD%>]>
+</LOOP NCOPIES>
+<SKIP CALPHA_ONLY>
+          <FLD%>NRESID</FLD%>&nbsp;a.a.</a>
+</SKIP CALPHA_ONLY>
+<SKIP !CALPHA_ONLY>
+          <FLD%>NRESID</FLD%>&nbsp;a.a.</a><font color=red>*</font>
+<FLD%>_COUNTER5++</FLD%>
+</SKIP !CALPHA_ONLY>
+<SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+<FLD%>_COUNTER6++</FLD%>
+</SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+<SKIP COUNTER6[gt0]>
+<SKIP !"<LNK%>DIRECTORY</LNK%>/conserv.dat">
+<FLD%>_COUNTER6++</FLD%>
+</SKIP !"<LNK%>DIRECTORY</LNK%>/conserv.dat">
+</SKIP COUNTER6[gt0]>
+<SKIP COUNTER6[eq0]>
+          <a href="./protein_<FLD%>CHAIN</FLD%>.html"
+           title="Residue conservation analysis for chain <FLD%>CHAIN</FLD%>"
+           class=menuClass>*</a>
+</SKIP COUNTER6[eq0]>
+</SKIP MAX_UNIQUE[eq<FLD%>_LOOP1</FLD%>]>
+<SKIP MAX_UNIQUE[ne<FLD%>_LOOP1</FLD%>]>
+         <font color=red><b>(+&nbsp;<FLD%>_COUNTER1</FLD%>&nbsp;more)</b></font>
+</SKIP MAX_UNIQUE[ne<FLD%>_LOOP1</FLD%>]>
+</BLOCK !LARGE>
+<BLOCK LARGE>
+&times;<FLD%>NPROTEIN_CHAINS</FLD%> chain<s% NPROTEIN_CHAINS>
+</BLOCK LARGE>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+          src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<SKIP MIDLOOP1>
+        <td width=1>
+</SKIP MIDLOOP1>
+<SKIP ENDLOOP1>
+        <td class=color width=1>
+</SKIP ENDLOOP1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+</SKIP MAX_UNIQUE[lt<FLD%>_LOOP1</FLD%>]>
+</LOOP NUNIQ>
+      </table>
+     </td>
+    </tr>
+</BLOCK NUNIQ>
+
+<BLOCK NNUCL>
+    <!-- DNA/RNA chains -->
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+
+       <!-- DNA chains heading -->
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+         <font color="#006666"><b>DNA/RNA</b></font>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<BLOCK DNA_MID>
+        <td class=color width=1>
+</BLOCK DNA_MID>
+<BLOCK DNA_LAST>
+        <td width=1>
+</BLOCK DNA_LAST>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+
+      <!-- List of protein chains -->
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<LOOP NNUCL>
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+<BLOCK DNA_MID>
+        <td rowspan=3 class=color width=1>
+</BLOCK DNA_MID>
+<BLOCK DNA_LAST>
+        <td rowspan=3 width=1>
+</BLOCK DNA_LAST>
+         <img src="gif/1x1.gif" width=1 height=1>
+        </td>
+        <td rowspan=3 width=15>
+         <img src="gif/1x1.gif" width=15 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10><img src="gif/1x1.gif" width=10 height=8></td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+<BLOCK !LARGE>
+<LOOP NNUCL>
+         <a href="./dna.html"
+          title="Go to DNA/RNA page"
+         ><img align=top width=18 border=0
+          src="gif/chain<FLD%>NUCL_CHAIN{chn}</FLD%>.jpg"></a>
+</LOOP NNUCL>
+</BLOCK !LARGE>
+<BLOCK LARGE>
+<SKIP NDNA_CHAINS[eq0]>
+&times;<FLD%>NDNA_CHAINS</FLD%>&nbsp;DNA&nbsp;chain<s% NDNA_CHAINS><BR>
+</SKIP NDNA_CHAINS[eq0]>
+<SKIP NRNA_CHAINS[eq0]>
+&times;<FLD%>NRNA_CHAINS</FLD%>&nbsp;RNA&nbsp;chain<s% NRNA_CHAINS>
+</SKIP NRNA_CHAINS[eq0]>
+</BLOCK LARGE>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+        <td class=width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+</BLOCK NNUCL>
+
+<BLOCK NLIGAND_TYPES>
+    <!-- Ligands -->
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+
+       <!-- Ligands heading -->
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+         <font color="#006666"><b>Ligands</b></font>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<BLOCK LIGAND_MID>
+        <td class=color width=1>
+</BLOCK LIGAND_MID>
+<BLOCK LIGAND_LAST>
+        <td width=1>
+</BLOCK LIGAND_LAST>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+
+      <!-- List of protein chains -->
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<LOOP NLIGAND_TYPES>
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+<BLOCK LIGAND_MID>
+        <td rowspan=3 class=color width=1>
+</BLOCK LIGAND_MID>
+<BLOCK LIGAND_LAST>
+        <td rowspan=3 width=1>
+</BLOCK LIGAND_LAST>
+         <img src="gif/1x1.gif" width=1 height=1>
+        </td>
+        <td rowspan=3 width=15>
+         <img src="gif/1x1.gif" width=15 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+<BLOCK !LARGE>
+         <a href="./lig_<FLD%>_LOOP1{i2}</FLD%>_01.html"
+	  title="Go to Ligands page for this ligand"
+          class=menuClass>
+         <FLD%>LIGAND_SEQ{c16}</FLD%></a>
+</BLOCK !LARGE>
+<BLOCK LARGE>
+         <FLD%>LIGAND_SEQ{c16}</FLD%>
+</BLOCK LARGE>
+<SKIP NLIGAND_TIMES[lt2]>
+         <font color=black>&times;<FLD%>NLIGAND_TIMES</FLD%></font>
+</SKIP NLIGAND_TIMES[lt2]>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<SKIP MIDLOOP1>
+        <td width=1>
+</SKIP MIDLOOP1>
+<SKIP ENDLOOP1>
+        <td class=color width=1>
+</SKIP ENDLOOP1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+</LOOP NLIGAND_TYPES>
+      </table>
+     </td>
+    </tr>
+</BLOCK NLIGAND_TYPES>
+
+<BLOCK NMETAL_TYPES>
+    <!-- Metal ions -->
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+
+       <!-- Metals heading -->
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+         <font color="#006666"><b>Metals</b></font>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<BLOCK METAL_MID>
+        <td class=color width=1>
+</BLOCK METAL_MID>
+<BLOCK METAL_LAST>
+        <td width=1>
+</BLOCK METAL_LAST>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+
+      <!-- List of protein chains -->
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<LOOP NMETAL_TYPES>
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+<BLOCK METAL_MID>
+        <td rowspan=3 class=color width=1>
+</BLOCK METAL_MID>
+<BLOCK METAL_LAST>
+        <td rowspan=3 width=1>
+</BLOCK METAL_LAST>
+         <img src="gif/1x1.gif" width=1 height=1>
+        </td>
+        <td rowspan=3 width=15>
+         <img src="gif/1x1.gif" width=15 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+<BLOCK !LARGE>
+         <a href="./lig_<FLD%>_LOOP1{i2}</FLD%>.html"><img
+          src="gif/<FLD%>METAL_COLOUR</FLD%>dot.gif" border=0
+          ALT=""></a><FLD%>METAL_SEQ{c16}</FLD%>
+</BLOCK !LARGE>
+<BLOCK LARGE>
+          <img
+          src="gif/<FLD%>METAL_COLOUR</FLD%>dot.gif" border=0
+          ALT=""><FLD%>METAL_SEQ{c16}</FLD%>
+</BLOCK LARGE>
+<SKIP NMETAL_TIMES[lt2]>
+         <font color=black>&times;<FLD%>NMETAL_TIMES</FLD%></font>
+</SKIP NMETAL_TIMES[lt2]>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+<SKIP MIDLOOP1>
+        <td width=1>
+</SKIP MIDLOOP1>
+<SKIP ENDLOOP1>
+        <td class=color width=1>
+</SKIP ENDLOOP1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+</LOOP NMETAL_TYPES>
+      </table>
+     </td>
+    </tr>
+</BLOCK NMETAL_TYPES>
+
+<BLOCK NWATER>
+    <!-- Waters -->
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+
+       <!-- Number of waters -->
+       <tr>
+        <td rowspan=3 width=6>
+         <img src="gif/1x1.gif" width=6 height=1>
+        </td> 
+        <td class=color width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td> 
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td> 
+        <td class=ftxt align=left valign=center rowspan=3>
+         <font color="#006666"><b>Waters</b></font>&nbsp;&times;<FLD%>NWATER</FLD%>
+        </td> 
+       </tr>
+       <tr>
+        <td class=color colspan=2 width=10 height=1><img
+         src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       <tr>
+        <td width=1>
+         <img src="gif/1x1.gif" width=1 height=8>
+        </td>
+        <td width=10>
+         <img src="gif/1x1.gif" width=10 height=8>
+        </td>
+       </tr>
+      </table>
+</BLOCK NWATER>
+
+    <!-- If have residue conservation, show key -->
+<SKIP COUNTER6[eq0]>
+    <tr>
+     <td class=ttxt>
+      <b>*</b>&nbsp;Residue&nbsp;conservation&nbsp;analysis
+     </td>
+    </tr>
+</SKIP COUNTER6[eq0]>
+
+    <!-- If have any C-alpha-only chains, show key -->
+<SKIP COUNTER5[eq0]>
+    <tr>
+     <td class=ttxt>
+      <font color=red><b>*</b></font>&nbsp;C-alpha&nbsp;coords&nbsp;only
+     </td>
+    </tr>
+</SKIP COUNTER5[eq0]>
+
+   </table>
+  </td> 
+ </tr>
+</table>

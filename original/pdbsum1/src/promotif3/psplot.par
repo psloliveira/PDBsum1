@@ -1,0 +1,42 @@
+C**************************************************************************
+C
+C  PSPLOT.PAR   -   Include file for PSPLOT3.F
+C
+C----------------------------------------------------------------------+---
+
+      INCLUDE 'fcommon.inc'
+
+        INTEGER MAXCOL,TRNCOL(7),GAMCOL(6),BULCOL(6),
+     ~                HPCOL(6),HXCOL(4),GKCOL(4),NNN,MTRN,MFIL
+CPDBSUM RAL 15/3/05 -->
+        INTEGER FILDAT, FILEN, RECLEN
+CPDBSUM RAL 15/3/05 <--
+
+        PARAMETER (MAXCOL=20)
+        PARAMETER (NNN=1000)
+        PARAMETER (MTRN=1000)
+        PARAMETER (MFIL=65)
+CPDBSUM RAL 15/3/05 -->
+        PARAMETER (FILDAT=2)
+        PARAMETER (FILEN=512)
+        PARAMETER (RECLEN=2000)
+CPDBSUM RAL 15/3/05 <--
+        
+        COMMON/INTS/TRNCOL,GAMCOL,BULCOL,HPCOL,HXCOL,GKCOL
+
+        REAL RGB(3,MAXCOL)
+
+        COMMON/REALS/ RGB
+
+        CHARACTER COLNAM(MAXCOL)*12
+
+        COMMON/CHARS/ COLNAM
+
+CPDBSUM1 RAL 4/3/22 -->
+C        LOGICAL BETA,GAMMA,BULG,HPIN,SHT,GKEY,HLX,DSF,SUM,BW
+
+C        COMMON/LOGS/ BETA,GAMMA,BULG,HPIN,SHT,GKEY,HLX,DSF,SUM,BW
+        LOGICAL BETA,GAMMA,BULG,HPIN,SHT,GKEY,HLX,DSF,PDBSM1,SUM,BW
+
+        COMMON/LOGS/ BETA,GAMMA,BULG,HPIN,SHT,GKEY,HLX,DSF,PDBSM1,SUM,BW
+CPDBSUM1 RAL 4/3/22 <--

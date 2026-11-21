@@ -1,0 +1,682 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET PAGE_TITLE="Cleft analysis for: <FLD%>PDB_CODE</FLD%>">
+<SET BAR_ALIGN="center">
+<SET BAR_HEADER="Cleft analysis for: <FLD%>PDB_CODE</FLD%>">
+<SET CLEFTS="TRUE">
+<SET CLEFTS_PAGE="TRUE">
+<SET SIDE_LINE="TRUE">
+
+<!-- Define ball colours -->
+<SET #FF0000="03m">
+<SET #9900FF="01m">
+<SET #FFD700="02m">
+<SET #0000FF="04m">
+<SET #00FF00="05m">
+<SET #8B4513="06m">
+<SET #FF69B4="07m">
+<SET #339966="08m">
+<SET #FF00FF="09m">
+<SET #00FFFF="10m">
+
+<!-- Define field names -->
+<SET CLEFT_VOLUME="DBT_FIELD2">
+<SET R1_RATIO="DBT_FIELD3">
+<SET ACC_VERTICES="DBT_FIELD4">
+<SET ACC_VERTICES_RANK="DBT_FIELD5">
+<SET BUR_VERTICES="DBT_FIELD6">
+<SET BUR_VERTICES_RANK="DBT_FIELD7">
+<SET DEPTH="DBT_FIELD8">
+<SET DEPTH_RANK="DBT_FIELD9">
+<SET CLEFT_NRES_TYPE="DBT_FIELD10">
+<SET CLEFT_LIGAND="DBT_FIELD11">
+
+<!-- Define colours of residue types -->
+<SET RES_COL1="#9BE2FF">
+<SET RES_COL2="LightCoral">
+<SET RES_COL3="lightgreen">
+<SET RES_COL4="#95A6B7">
+<SET RES_COL5="#E27DFB">
+<SET RES_COL6="#DCD278">
+<SET RES_COL7="#FFFF64">
+
+<!-- Define which clefts are initially checked -->
+<SET CHECKED1="CHECKED">
+<SET CHECKED2="CHECKED">
+<SET CHECKED3="CHECKED">
+<SET CHECKED4="CHECKED">
+
+<!-- Get middle part of PDB code -->
+<SET CHAR2="<FLD%>PDB_CODE(p2)</FLD%>">
+<SET CHAR3="<FLD%>PDB_CODE(p3)</FLD%>">
+<SET MIDDLE="<FLD%>CHAR2</FLD%><FLD%>CHAR3</FLD%>">
+
+<!-- Define corresponding ConSurf directory -->
+<SET CONSURF_DIR="<LNK%>NEW_CONSURF_DIR</LNK%>/<FLD%>MIDDLE</FLD%>">
+
+<!-- Check whether we have residue conservation data -->
+<FLD%>_COUNTER6=0</FLD%>
+<LOOP NUNIQ>
+<SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+<FLD%>_COUNTER6++</FLD%>
+</SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+</LOOP NUNIQ>
+
+<!-- Check for conserv.dat file in PDBsum directory -->
+<SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+<FLD%>_COUNTER6++</FLD%>
+</SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+
+#insert:tags.html
+#read:<LNK%>PDIR</LNK%>/clefts/speedfill.dbt
+<!-- Picture part -->
+<table border="0" cellpadding=0 cellspacing=0>
+ <tr>
+  <td valign=top bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=10></td>
+  <td>
+<BLOCK PDB_TYPE>
+<input type=hidden name="pdb_type" value="<FLD%>PDB_TYPE</FLD%>">
+<input type=hidden name="security_code" value="<FLD%>CODE</FLD%>">
+</BLOCK PDB_TYPE>
+  </td>
+ </tr>
+</table>
+<table border="0" cellpadding=0 cellspacing=0 width=100%>
+ <tr>
+<!-- left border for picture -->
+  <td width=1 valign=top bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=100></td>
+
+<!-- Clefts image -->
+  <td width=1%><img src="tmpgif/clefts/clefts.png"></td>
+  <td width=1%>&nbsp;</td>
+  <td width=1%>&nbsp;</td> 
+  <td valign=top>
+
+<!-- Start of View options -->
+   <table cellspacing=0 cellpadding=0 border=0>
+    <tr>
+     <td width=8><img height=28 src="gif/lcorner_m.gif" width=8></td>
+     <td bgcolor=#207a7a align=center><font face=arial size=2pt color=white><b><NOBR>View options</NOBR></b></TD>
+     <td valign=top width=12><IMG height=28 src="gif/rcorner_m.gif" width=12></td>
+    </tr>
+    <tr>
+     <td valign=top><IMG height=100 src="gif/lastline2.gif" width=8></td>
+     <td valign=top align=left>
+      <table cellspacing=0 cellpadding=0 border=0>
+       <tr><td colspan=7><img src="gif/1x1.gif" height=3></td></tr>
+       <tr>
+        <td>
+         <img src="gif/2.gif" width=80 height=40>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td align=center>
+         <a href="../clefts/clefts.rasmol"
+           download type="application/x-rasmol"
+           title="View protein clefts in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td align=center>
+         <a href="../clefts/clefts.pml"
+           download type="application/x-pymol"
+           title="View protein clefts in 3D in PyMOL"
+          ><img border=0 width=20 src="gif/pymol_script.gif"></a>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td>
+         <font face=arial size=2pt>
+	  Binding-sites, coloured as in the table below</font>
+        </td>
+       </tr>
+       <tr>
+        <td colspan=7><img src="gif/1x1.gif" width=5></td>
+       </tr>
+       <tr>
+        <td>
+         <img src="gif/1.gif" width=80 height=40>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td align=center>
+         <a href="../clefts/clefts_bv.rasmol"
+           download type="application/x-rasmol"
+           title="View protein clefts in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td align=center>
+         <a href="../clefts/clefts_bv.pml"
+           download type="application/x-pymol"
+           title="View protein clefts in 3D in PyMOL"
+          ><img border=0 width=20 src="gif/pymol_script.gif"></a>
+        </td>
+        <td><img src="gif/1x1.gif" width=5></td>
+        <td>
+         <font face=arial size=2pt>
+	  Binding-surfaces, coloured as in the table below</font>
+        </td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td><img src="gif/1x1.gif" width=10></td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=10></td>
+  <td colspan=4><img src="gif/1x1.gif" height=10></td>
+ </tr>
+</table>
+
+
+<!-- Cleft analysis table -->
+<table border="0" cellpadding=0 cellspacing=0>
+ <tr>
+  <td colspan=29>
+<!-- Gap regions tag -->
+   <table cellSpacing=0 cellPadding=0 bgcolor=white border="0">
+    <tbody>
+    <tr>
+     <td bgColor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tbody>
+       <tr>
+        <td valign=bottom><img src="gif/1x1.gif" width=10 height=1> 
+         <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+          <tbody>
+          <tr>
+           <td><img src="gif/1x1.gif" width=14 height=1></td>
+          </tr>
+          </tbody>
+         </table>
+        </td>
+        <td><img src="gif/zl09x20.gif" width=10 height=20></td>
+        <td bgcolor=#207a7a width="110" height=20 align="center"><b><font color=white face=arial size=2pt>Clefts</font></b></td>
+        <td><img src="gif/zr10x20.gif" width=10 height=20></td>
+       </tr>
+       <tr>
+        <td bgColor=#207a7a colSpan=3><img src="gif/1x1.gif" width=130
+         height=1></td>
+        <td bgColor=#207a7a><img src="gif/1x1.gif" width=10 height=1></td>
+       </tr>
+       </tbody>
+      </table>
+     </td>
+    </tr>
+    </tbody>
+   </table>
+  </td>
+ </tr>
+<!-- Column headings -->
+ <tr>
+  <td rowspan=13><img src="gif/1x1.gif" height=1 width=30></td>
+  <td colspan=5>
+   <table cellSpacing=0 cellPadding=0 bgColor=white border="0">
+    <tr>
+     <td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+     <td align=center><img src="gif/1x1.gif" width=1 height=10></td>
+     <td><img src="gif/sh.gif" width=110 height=10></td>
+    </tr>
+   </table>
+  </td> 
+<!-- R1 ratio heading -->
+  <td rowspan=2 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=8 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td align=center>
+      <font face=arial size=2pt color=navy><b>R1<br>ratio</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=8 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table>
+  </td>
+<!-- Accessible vertices heading -->
+  <td rowspan=2 colspan=4 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=7 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=7 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=7 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td align=center>
+      <font face=arial size=2pt color=navy><b>Accessible<br>vertices</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=8 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=8 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table>
+  </td>
+<!-- Buried vertices heading -->
+  <td rowspan=2 colspan=4 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=15 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td align=center>
+      <font face=arial size=2pt color=navy><b>Buried<br>vertices</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=15 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table>
+  </td>
+<!-- Average depth heading -->
+  <td rowspan=2 colspan=3 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=15 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=15 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td align=center>
+      <font face=arial size=2pt color=navy><b>Average<br>depth</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=11 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=11 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=11 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table>
+  </td>
+<!-- Residue type heading -->
+  <td colspan=9 rowspan=2 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=33 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=33 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=33 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <font face=arial size=2pt color=navy><b>Residue<font color=white>..</font>type</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=32 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=32 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=32 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table> 
+  </td>
+<!-- Ligands heading -->
+  <td rowspan=2 align=center>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=107 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=107 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=107 height=17></td>
+       </tr>
+      </table>        
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td align=center>
+      <font face=arial size=2pt color=navy><b>Ligands</b></font>
+     </td>
+     <td><img src="gif/1x1.gif" width=3 height=36></td>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=107 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=107 height=1></td>
+       </tr>
+       <tr>
+        <td><img src="gif/1x1.gif" width=107 height=17></td>
+       </tr>
+      </table>                          
+     </td>
+    </tr>
+   </table>
+  </td>
+<!-- Row end -->
+  <td rowspan=2>
+   <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+    <tr>
+     <td>
+      <table cellspacing=0 cellpadding=0 bgcolor=white border="0">
+       <tr>
+        <td><img src="gif/1x1.gif" width=1 height=17></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+       </tr>
+       <tr>
+        <td class=color><img src="gif/1x1.gif" width=1 height=18></td>
+       </tr>
+      </table>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+<!-- Volume heading -->
+ <tr>
+  <td>
+   <table cellSpacing=0 cellPadding=0 bgColor=white border="0">
+    <tr>
+     <td class=color><img height=1 src="gif/1x1.gif" width=1></td>
+     <td align=center><img height=26 src="gif/1x1.gif" width=1></td>
+    </tr>
+   </table>
+  </td>
+  <td colspan=3 align=right><img src="gif/top_ugol.gif" border="0"></td>
+  <td align=center valign=top><font face=arial size=2pt color=navy><b>Volume</b></font></td>
+ </tr>
+<!-- Cleft data -->
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER1++</FLD%>
+ <tr>
+<SKIP COUNTER1[eq<FLD%>NDBT_FIELDS</FLD%>]>
+  <td><img src="gif/krest.gif" width=20 height=31></td>
+</SKIP COUNTER1[eq<FLD%>NDBT_FIELDS</FLD%>]>
+<SKIP COUNTER1[lt<FLD%>NDBT_FIELDS</FLD%>]>
+  <td><img src="gif/rest_ugt.gif" width=20 height=31></td>
+</SKIP COUNTER1[lt<FLD%>NDBT_FIELDS</FLD%>]>
+  <td align=center><a href="" class=menuClass2><font size=3pt><FLD%>_COUNTER1</FLD%></font></a></td>
+  <td height= "31" align=center><img src="gif/col_<FLD%><NO%>DBT_FIELD1</NO%></FLD%>.jpg"></td>
+  <td align=center valign=center>&nbsp;</td>
+  <td align=center><font face=arial size=2pt
+   color=navy><FLD%><NO%>CLEFT_VOLUME</NO%>{r2}</FLD%></font></td>
+  <td align=center><font face=arial size=2pt
+   color=navy><FLD%><NO%>R1_RATIO</NO%>{r2}</FLD%></font></td>
+  <td align=center bgcolor=#eeeeee><font face=arial size=2pt
+   color=navy><FLD%><NO%>ACC_VERTICES</NO%>{r2}</FLD%></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=#cccccc rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+  <td align=center bgcolor=#eeeeee><font face=arial size=2pt
+   color=navy><b><FLD%><NO%>ACC_VERTICES_RANK</NO%></FLD%></b></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=white rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+  <td align=center bgcolor=#eeeeee><font face=arial size=2pt
+   color=navy><FLD%><NO%>BUR_VERTICES</NO%>{r2}</FLD%></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=#cccccc rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+  <td align=center bgcolor=#eeeeee><font face=arial size=2pt
+   color=navy><b><FLD%><NO%>BUR_VERTICES_RANK</NO%></FLD%></b></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=white rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+  <td align=center bgcolor=#eeeeee><font face=arial size=2pt
+   color=navy><FLD%><NO%>DEPTH</NO%>{r2}</FLD%></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=#cccccc rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+  <td align=center bgcolor=#eeeeee><font face=arial
+   size=2pt><b><FLD%><NO%>DEPTH_RANK</NO%></FLD%></b></font></td>
+<SKIP COUNTER1[gt1]>
+  <td bgcolor=white rowspan=<FLD%>NDBT_FIELDS</FLD%>><img
+   src="gif/1x1.gif" width=1 height=1></td>
+</SKIP COUNTER1[gt1]>
+<FLD%>_COUNTER2=0</FLD%>
+<LOOP NSUB_FIELDS10>
+<FLD%>_COUNTER2++</FLD%>
+  <td align=center bgcolor="<FLD%>RES_COL<NO%>_COUNTER2</NO%></FLD%>"><font face=arial
+   size=2pt><b><FLD%><NO%>CLEFT_NRES_TYPE</NO%></FLD%></b></font></td>
+</LOOP NSUB_FIELDS10>
+<SKIP COUNTER1[gt1]>
+  <td rowspan=<FLD%>NDBT_FIELDS</FLD%> align=center><img
+   src="gif/1x1.gif" width=1 height=20></td>
+</SKIP COUNTER1[gt1]>
+  <td align=left NOWRAP><font face=arial size=2pt color=navy><FLD%><NO%>CLEFT_LIGAND</NO%>{c50}</FLD%></font></td>
+<SKIP COUNTER1[gt1]>
+  <td rowspan=<FLD%>NDBT_FIELDS</FLD%> valign=top><img
+   src="gif/lastline0.jpg" width=1
+   height=310></td>
+</SKIP COUNTER1[gt1]>
+ </tr>
+</LOOP NDBT_FIELDS>
+<!-- Protein checkbox -->
+ <tr>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td align=right>&nbsp;</td>
+  <td>&nbsp;</td>
+  <td colspan=22><font face=arial size=2pt color=navy><b>&nbsp;</b></font></td>
+  <td align=right><img src="gif/sh.gif" width=180 height=15></td>
+  <td><img src="gif/1x1.gif" width=1 height=1></td>
+ </tr>
+<!-- Bottom line -->
+ <tr>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=25 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td><img src="gif/1x1.gif" width=50 height=1></td>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td><img src="gif/1x1.gif" width=1 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=3 height=1></td>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td><img src="gif/1x1.gif" width=1 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=3 height=1></td>
+  <td><img src="gif/1x1.gif" width=60 height=1></td>
+  <td><img src="gif/1x1.gif" width=1 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=5 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td><img src="gif/1x1.gif" width=5 height=1></td>
+  <td><img src="gif/1x1.gif" width=180 height=1></td>
+  <td><img src="gif/1x1.gif" width=1 height=1></td>
+ </tr>
+</table>
+<!-- End of clefts analysis -->
+
+<!-- Residue type colouring -->
+<P>
+<table border="0" cellpadding="0" cellspacing="0">
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=1></td>
+  <td align=left>
+   <table bgcolor="white" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+     <td><img src="gif/zl09x20.gif" height="20" width="9"></td>
+     <td bgcolor="#207a7a" align=center width=200><font color="white" face="arial" size="2pt"><b>Residue-type<font color="#207a7a">_</font>colouring</b></font></td>
+     <td><img src="gif/zr10x20.gif" height="20" width="10"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td>
+   <table bgcolor="#207a7a" border="0" cellpadding="1" cellspacing="0" width=800>
+    <tbody>
+    <tr>
+     <td>
+      <table border=0 width=800 bgcolor=white>
+       <tr>
+        <th bgcolor="<FLD%>RES_COL1</FLD%>">
+         <font face="arial" size="2"><b>Positive</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL2</FLD%>">
+         <font face="arial" size="2"><b>Negative</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL3</FLD%>">
+         <font face="arial" size="2"><b>Neutral</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL4</FLD%>">
+         <font face="arial" size="2"><b>Aliphatic</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL5</FLD%>">
+         <font face="arial" size="2"><b>Aromatic</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL6</FLD%>">
+         <font face="arial" size="2"><b>Pro &amp; Gly</b></font>
+        </th>
+        <th bgcolor="<FLD%>RES_COL7</FLD%>">
+         <font face="arial" size="2"><b>Cysteine</b></font>
+        </th>
+       </tr>
+       <tr>
+        <th>
+         <font color="#269BC8">H,K,R</font>
+        </th>
+        <th>
+         <font color="RED">D,E</font>
+        </th>
+        <th>
+         <font color="GREEN">S,T,N,Q</font>
+        </th>
+        <th>
+         <font color="#585858">A,V,L,I,M</font>
+        </th>
+        <th>
+         <font color="PURPLE">F,Y,W</font>
+        </th>
+        <th>
+         <font color="#6C6C2C">P,G</font>
+        </th>
+        <th>
+         <font color="#D7D700">C</font>
+        </th>
+       </tr>
+      </table>
+     </td>
+    </tr>
+    </tbody>
+   </table>
+  </td>
+ </tr>
+</table>
+
+

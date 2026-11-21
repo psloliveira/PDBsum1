@@ -1,0 +1,64 @@
+.bodynav li ul li  a:link,  .bodynav li  ul li  a:active, .bodynav li  ul li  a:hover, .bodynav li  ul li  a:visited{
+	text-decoration: underline;
+}
+
+
+.bodynav, .bodynav ul { /* all lists */
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	line-height: 1;
+}
+
+.bodynav a {
+	display: block;
+}
+
+.bodynav li { /* all list items */
+        padding-left: 0.2em;
+}
+
+.bodynav li li { /* sub  list items */
+        padding-left: 0;   /* all list items not in top row */
+        padding-top: -2em;
+	font-weight: normal;
+	font-size: 7pt;
+}
+
+.bodynav li ul { /* second-level lists */
+	position: absolute;
+	background: #ffffff;
+	left: -999em; 
+}
+
+
+.bodynav li ul ul { /* third-and-above-level lists */
+
+}
+
+.bodynav li:hover ul ul, .bodynav li:hover ul ul ul, .bodynav li.sfhover ul ul, .bodynav li.sfhover ul ul ul {
+	left: -999em;
+}
+
+.bodynav li:hover ul, .bodynav li li:hover ul, .bodynav li li li:hover ul, .bodynav li.sfhover ul, .bodynav li li.sfhover ul, .bodynav li li li.sfhover ul { /* lists nested under hovered list items */
+	left: auto;
+}
+
+.bodynav li ul li, .bodynav li ul li ul li{
+	border-left:  1px solid #006666;
+	border-right: 1px solid #006666;
+}
+
+/*level 1 */
+.bodynav a, .bodynav li{
+	width: 1.8em;
+} 
+/*level 2 */
+.bodynav li ul, .bodynav li ul li, .bodynav li ul a{
+	width: 1.8em;
+}
+/*level 3 */
+.bodynav li ul ul { 
+	margin: -1em 0 0 1.8em;
+}
+

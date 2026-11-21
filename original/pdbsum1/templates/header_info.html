@@ -1,0 +1,845 @@
+<table border=0 cellpadding=0 cellspacing=0>
+
+ <tr>
+  <td colspan=4>
+   <img src="gif/1x1.gif" HEIGHT=10 ALT="">
+  </td> 
+ </tr>
+
+<!-- Table Header-->
+<BLOCK MCSG>
+ <tr>
+  <td class=lhdr WIDTH=1% valign=bottom align=right>
+   <a href="http://www.anl.gov"><img src="gif/mcsg_logo.jpg" border=0></a>
+  </td>
+  <td WIDTH=1%><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=lhdr WIDTH=90% valign=bottom>
+   <font color=BLUE>Pre-release structure</font>
+  </td>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+</BLOCK MCSG>
+<BLOCK UPLOAD>
+ <tr>
+  <td class=lhdr WIDTH=1% valign=bottom align=right>
+<BLOCK ENCODE>
+   <font color="<FLD%>ENCODE_COLOUR</FLD%>">ENCODE:</font>
+</BLOCK ENCODE>
+<BLOCK !ENCODE>
+   <font color=RED>PRIVATE:</font>
+</BLOCK !ENCODE>
+  </td>
+  <td WIDTH=1%><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+<BLOCK ENCODE>
+  <td class=lhdr WIDTH=90% valign=bottom><font color="<FLD%>ENCODE_COLOUR</FLD%>">Homology model</font></td>
+</BLOCK ENCODE>
+<BLOCK !ENCODE>
+  <td class=lhdr WIDTH=90% valign=bottom><font color=RED>Custom-generated&nbsp;PDBsum&nbsp;page</font></td>
+</BLOCK !ENCODE>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+</BLOCK UPLOAD>
+
+<!-- Obsolete and superseded entries -->
+<BLOCK OBSOLETE>
+<SKIP !NSUPER>
+ <tr>
+  <td class=lhdr WIDTH=1% valign=bottom align=right><font color=red>Superseded&nbsp;by:</font></td>
+  <td WIDTH=1%><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=lhdr WIDTH=90% valign=bottom>
+<LOOP NSUPER>
+   <b><a href="<LNK%>GET_PDBSUM_ENTRY</LNK%><FLD%>SUPERSEDED_BY</FLD%>" class=menuClass><font color=red><FLD%>SUPERSEDED_BY</FLD%></font></a></b>
+</LOOP NSUPER>
+   <BR></td>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+</SKIP !NSUPER>
+<SKIP NSUPER>
+ <tr>
+  <td WIDTH=1% colspan=2><img src="gif/1x1.gif" width=1 HEIGHT=1 ALT=""></td>
+  <td class=lhdr align=left><font color=red>Obsolete&nbsp;entry</font></td>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+</SKIP NSUPER>
+</BLOCK OBSOLETE>
+
+<!-- Theoretical models -->
+<BLOCK THEORETICAL_MODEL>
+ <tr>
+  <td WIDTH=1% colspan=2><img src="gif/1x1.gif" width=1 HEIGHT=1 ALT=""></td>
+  <td class=lhdr align=left><font color=green>Theoretical&nbsp;model</font></td>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+</BLOCK THEORETICAL_MODEL>
+
+ <!-- PDB ID and Links drop-down menu -->
+ <tr>
+  <td class=medtxt valign=top align=right>
+   <B>PDB&nbsp;id:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=medtxt align=left valign=top>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr>
+
+     <!-- PDB id -->
+     <td align=left width=90%>
+      <font color=darkred><B><FLD%>PDB_CODE</FLD%></B></font>
+     </td>
+
+<BLOCK LINKS>
+     <!-- Drop-down Links menu -->
+     <td align=right>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr>
+        <td class=ftxt align=center>
+
+         <!-- Drop-down list of links -->
+         <ul id="bodynav" class="bodynav">
+          <li class="bodynavli">
+           <a href="./links.html"
+            ><img border=0 src="gif/links.gif">Links</a>
+           <ul>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PDBE</LNK%>"
+              target="PDBe_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Protein Data Bank, Europe (PDBe)', WRAP);"
+              onmouseout="return nd();">PDBe</a>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_RCSB</LNK%>"
+              target="RCSB_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Protein Data Bank at the RCSB', WRAP);"
+              onmouseout="return nd();">RCSB</a>
+<BLOCK NDB_REF>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_NDB</LNK%>"
+              target="NDB_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Nucleic Acids Database at Rutgers University', WRAP);"
+              onmouseout="return nd();">NDB</a>
+</BLOCK NDB_REF>
+<!-- SRS has now been retired
+            <li class="bodynavli">
+             <a href="<LNK%>URL_SRS</LNK%>"
+              target="SRS_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('SRS at the EBI', WRAP);"
+              onmouseout="return nd();">SRS</a>
+-->
+            <li class="bodynavli">
+             <a href="<LNK%>URL_MMDB</LNK%>"
+              target="MMDB_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('MMDB entry at the NCBI', WRAP);"
+              onmouseout="return nd();">MMDB</a>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_JENA</LNK%>"
+              target="JenaLib_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Jena Library of Biological Macromolecules', WRAP);"
+              onmouseout="return nd();">JenaLib</a>
+<!-- OCA no longer available
+            <li class="bodynavli">
+             <a href="<LNK%>URL_OCA</LNK%>"
+              target="OCA_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('OCA at the Weizmann Institute', WRAP);"
+              onmouseout="return nd();">OCA</a>
+-->
+<!-- PDBwiki no longer available
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PDBWIKI</LNK%>"
+              target="PDBWiki_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('PDBWiki - a community annotated knowledge base of biological molecular structures', WRAP);"
+              onmouseout="return nd();">PDBWiki</a>
+-->
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PROTEOPEDIA</LNK%>"
+              target="Proteopedia_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('PROTEOPEDIA collaborative, 3D encyclopedia of proteins and other molecules', WRAP);"
+              onmouseout="return nd();">Proteopedia</a>
+<BLOCK PROTEIN>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_CATH_PDB</LNK%>"
+              target="CATH_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('CATH structural classification', WRAP);"
+              onmouseout="return nd();">CATH</a>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_SCOP</LNK%>"
+              target="SCOP_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('SCOP structural classification', WRAP);"
+              onmouseout="return nd();">SCOP</a>
+            <li class="bodynavli">
+<!-- FSSP & HSSP no longer available
+             <a href="<LNK%>URL_FSSP</LNK%>"
+              target="FSSP_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('FSSP structural alignments', WRAP);"
+              onmouseout="return nd();">FSSP</a>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_HSSP</LNK%>"
+              target="HSSP_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('HSSP: Homology derived Secondary Structure of Proteins', WRAP);"
+              onmouseout="return nd();">HSSP</a>
+-->
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PDBSWS</LNK%>"
+              target="PDBSWS_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('PDBSWS mapping of protein chains to SwissProt entries', WRAP);"
+              onmouseout="return nd();">PDBSWS</a>
+</BLOCK PROTEIN>
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>PDBBIND_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PDBBIND</LNK%>"
+              target="PDBbind_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('PDBbind protein-ligand binding data', WRAP);"
+              onmouseout="return nd();">PDBbind</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>PDBBIND_FILE</LNK%>">
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>OPM_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_OPM</LNK%>"
+              target="OPM_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Orientations of Proteins in Membranes (OPM)', WRAP);"
+              onmouseout="return nd();">OPM</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>OPM_FILE</LNK%>">
+<BLOCK XRAY>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PQS</LNK%>"
+              target="PQS_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Proteins, Interfaces, Structures and Assemblies server at the EBI', WRAP);"
+              onmouseout="return nd();">PDBePISA</a>
+</BLOCK XRAY>
+<BLOCK NMR_RESTRAINTS>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_BMRB</LNK%>"
+              target="BMRB_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('BMRB NMR Restraints Grid', WRAP);"
+              onmouseout="return nd();">BMRB</a>
+</BLOCK NMR_RESTRAINTS>
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>DRESS_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_DRESS</LNK%>"
+              target="DRESS_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Database of REfined Solution NMR Structures', WRAP);"
+              onmouseout="return nd();">DRESS</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>DRESS_FILE</LNK%>">
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>RECOORD_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_RECOORD</LNK%>"
+              target="RECOORD_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('REcalculated COORdinates Database', WRAP);"
+              onmouseout="return nd();">RECOORD</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>RECOORD_FILE</LNK%>">
+<!-- Link to ReliBase removed -->
+<BLOCK X_NLIGAND_TYPES>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_RELIBASE</LNK%>"
+              target="ReliBase_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('ReliBase protein-ligand database', WRAP);"
+              onmouseout="return nd();">ReliBase</a>
+</BLOCK X_NLIGAND_TYPES>
+<BLOCK HAVE_CSA>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_MCSA_PDB</LNK%>"
+              target="CSA_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Catalytic Site Atlas', WRAP);"
+              onmouseout="return nd();">CSA</a>
+</BLOCK HAVE_CSA>
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>PROCOGNATE_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>GET_PROCOGNATE_ENTRY</LNK%><FLD%>PDB_CODE</FLD%>"
+              target="PROCOGNATE_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('PROCOGNATE database of cognate ligands, WRAP);"
+              onmouseout="return nd();">PROCOGNATE</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>PROCOGNATE_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_PROSAT</LNK%>"
+              target="ProSAT_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('ProSAT: Protein Structure Annotation Tool ', WRAP);"
+              onmouseout="return nd();">ProSAT</a>
+<!-- EDS no longer available
+<SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>EDS_FILE</LNK%>">
+            <li class="bodynavli">
+             <a href="<LNK%>URL_EDS</LNK%>"
+              target="EDS_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Uppsala Electron Density Server (EDS)', WRAP);"
+              onmouseout="return nd();">EDS</a>
+</SKIP ![<FLD%>PDB_CODE</FLD%>]"<LNK%>EDS_FILE</LNK%>">
+-->
+<BLOCK FROM_YEAST>
+            <li class="bodynavli">
+             <a href="<LNK%>URL_YEAST</LNK%>"
+              target="Sacch3D_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('Yeast Structures Database at Stanford University', WRAP);"
+              onmouseout="return nd();">Sacch3D</a>
+</BLOCK FROM_YEAST>
+<!-- WHATCHECK no longer available
+            <li class="bodynavli">
+             <a href="<LNK%>URL_WHATCHECK</LNK%>"
+              target="Whatcheck_<LNK%>PDB_CODE</LNK%>"
+              onmouseover="return overlib('WHATIF report on protein structural quality', WRAP);"
+              onmouseout="return nd();">Whatcheck</a>
+-->
+          </ul>
+         </li>
+        </ul></td>
+       </tr>
+      </table>
+     </td>
+</BLOCK LINKS>
+
+<!-- Links defined in prop_links.par for PDBsum Proprietary installations -->
+<BLOCK PROP_LINKS>
+     <!-- Drop-down Links menu -->
+     <td align=right>
+      <table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr>
+        <td class=ftxt align=center>
+
+         <!-- Drop-down list of links -->
+         <ul id="bodynav" class="bodynav">
+          <li class="bodynavli">
+           <img border=0 src="gif/links.gif">Links
+           <ul>
+
+<FLD%>_COUNTER4=0</FLD%>
+<LOOP NPROP_LINKS>
+<FLD%>_COUNTER4++</FLD%>
+            <li class="bodynavli">
+             <a href="<LNK%>PROP_LINK<FLD%>_COUNTER4</FLD%></LNK%>"
+              target="LINK<FLD%>_COUNTER4</FLD%>"
+              onmouseover="return overlib('<LNK%>PROP_NAME<FLD%>_COUNTER4</FLD%></LNK%>', WRAP);"
+              onmouseout="return nd();"><LNK%>PROP_LINK_ID<FLD%>_COUNTER4</FLD%></LNK%></a>
+</LOOP NPROP_LINKS>
+          </ul>
+         </li>
+        </ul></td>
+       </tr>
+      </table>
+     </td>
+</BLOCK PROP_LINKS>
+
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+
+ <!-- Name-->
+ <tr>
+  <td class=btxt WIDTH=1% valign=top align=right>Name:</td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=btxt WIDTH=90% valign=top>
+   <font color=darkred><FLD%>HEADER</FLD%></font>
+  </td>
+ </tr>
+ <tr>
+  <td WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+ </tr>
+
+<!-- Title row-->
+<BLOCK TITLE>
+ <tr>
+  <td class=ntxt valign=top align=right>
+   <B>Title:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=ntxt valign=top>
+   <FLD%>PDB_TITLE</FLD%> 
+  </td>
+ </tr>
+</BLOCK TITLE>
+
+<!-- Structure row-->
+<BLOCK STRUCTURE>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+   <B>Structure:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td class=ntxt WIDTH=90% valign=top>
+   <FLD%>STRUCTURE</FLD%>
+  </td>
+ </tr>
+</BLOCK STRUCTURE>
+
+<!-- ENCODE sequence length, plus modelled length -->
+<BLOCK ENCODE>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+    <B>Seq length:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td colspan=2 class=ntxt WIDTH=90% valign=top>
+   <FLD%>ENCODE_SEQ_LEN</FLD%> a.a.
+  </td>
+ </tr>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+    <B>Residues in model:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td colspan=2 class=ntxt WIDTH=90% valign=top>
+   <FLD%>NRESID_MODELLED</FLD%>  a.a. (<FLD%>PERCENT_MODELLED</FLD%>% of sequence)
+  </td>
+ </tr>
+<BLOCK HAVE_EXONS>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+    <B>Number of exons:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td colspan=2 class=ntxt WIDTH=90% valign=top>
+   <FLD%>NEXONS</FLD%>
+  </td>
+ </tr>
+</BLOCK HAVE_EXONS>
+</BLOCK ENCODE>
+
+<!-- Source row-->
+<BLOCK SOURCE>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+    <B>Source:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td colspan=2 class=ntxt WIDTH=90% valign=top>
+   <FLD%>SOURCE</FLD%>
+  </td>
+ </tr>
+</BLOCK SOURCE>
+
+<!-- Biological unit -->
+<SKIP !BIO_HAVE_BIOMOL>
+ <tr>
+  <td class=ntxt WIDTH=1% valign=top align=right>
+    <B>Biol.&nbsp;unit:</B>
+  </td>
+  <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+  <td colspan=2 class=ntxt WIDTH=90% valign=top>
+
+<!-- If have an inamge of the biological unit, add link -->
+<SKIP !BIO_HAVE_IMAGE>
+   <a href="./thumbox.html&param1=<FLD%>PDB_CODE</FLD%>&param2=1&param4=biomol.png"
+    onclick="NewWindow(this.href,'<FLD%>PDB_CODE</FLD%>_biomol','300','320','yes');return false;"
+    onmouseover="Tip('<img src=tmpgif/biomol.png><br><B>Biological unit</B>', WIDTH, 240, PADDING, 4, BGCOLOR, '#ffffff')"><img
+   border=0 src="gif/eye_icon.gif"></a>
+</SKIP !BIO_HAVE_IMAGE>
+
+<SKIP !BIO_AUTHOR_QSTRUC>
+   <FLD%>BIO_AUTHOR_QSTRUC{t}</FLD%> (author assigned)
+</SKIP !BIO_AUTHOR_QSTRUC>
+<SKIP BIO_AUTHOR_QSTRUC>
+<SKIP !BIO_QSTRUC>
+   <FLD%>BIO_QSTRUC{t}</FLD%> (from PDB file)
+</SKIP !BIO_QSTRUC>
+<SKIP BIO_QSTRUC>
+<SKIP !BIO_PQS_QSTRUC>
+<SKIP !BIO_NBIOMAT>
+   <FLD%>BIO_PQS_QSTRUC{t}</FLD%> (from PDB file)
+</SKIP !BIO_NBIOMAT>
+<SKIP BIO_NBIOMAT>
+   <FLD%>BIO_PQS_QSTRUC{t}</FLD%> (from
+   <a href="<LNK%>URL_PQS</LNK%>" class=menuClass
+    onmouseover="return overlib('Protein Quaternary Structure server', WRAP);"
+    onmouseout="return nd();"><B>PQS</B></a>)
+</SKIP BIO_NBIOMAT>
+</SKIP !BIO_PQS_QSTRUC>
+<SKIP BIO_PQS_QSTRUC>
+   Not given
+</SKIP BIO_PQS_QSTRUC>
+</SKIP BIO_QSTRUC>
+</SKIP BIO_AUTHOR_QSTRUC>
+  </td>
+ </tr>
+</SKIP !BIO_HAVE_BIOMOL>
+
+<!-- X-ray structure -->
+<BLOCK XRAY>
+
+<!-- Resolution row-->
+<BLOCK RESOLUTION>
+<tr>
+ <td class=ntxt VALIGN=top align=right>
+   <B>Resolution:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 height=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+  <table border=0 cellpadding=0 cellspacing=0>
+   <tr>
+    <td align=left>
+     <FLD%>RESOLUTION</FLD%>&Aring;&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+
+<!-- R-factor row-->
+<BLOCK R-FACTOR>
+     <td class=ntxt valign=top align=leftt>
+      <B>R-factor:</B>&nbsp;&nbsp;
+     </td>
+     <td class=ntxt valign=top>
+      <FLD%>R-FACTOR</FLD%>&nbsp;&nbsp;&nbsp;&nbsp;
+     </td>
+</BLOCK R-FACTOR>
+<!-- R-free row-->
+<BLOCK R-FREE>
+     <td class=ntxt valign=top>
+      <B>R-free:</B>&nbsp;&nbsp;
+     </td>
+     <td class=ntxt valign=top>
+      <FLD%>R-FREE</FLD%>
+     </td>
+</BLOCK R-FREE>
+    </tr>
+  </table>
+ </td>
+</tr>
+</BLOCK RESOLUTION>
+</BLOCK XRAY>
+
+
+<!-- NMR structure -->
+<BLOCK NMR>
+<tr>
+ <td class=ntxt valign=top align=right>
+   <B>NMR&nbsp;struc:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+   <FLD%>NMODELS</FLD%> models
+ </td>
+</tr>
+<tr>
+ <td colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></td> 
+</tr>
+</BLOCK NMR>
+
+<!-- X-ray ensemble -->
+<BLOCK ENSEMBLE>
+<SKIP NMODELS[eq0]>
+<tr>
+ <td class=ntxt valign=top align=right>
+   <B>Ensemble:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+   <FLD%>NMODELS</FLD%> models
+ </td>
+</tr>
+</SKIP NMODELS[eq0]>
+</BLOCK ENSEMBLE>
+
+<!-- Authors row-->
+<BLOCK AUTHORS>
+<tr>
+ <td class=ntxt valign=top align=right>
+   <B>Authors:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+   <FLD%>AUTHORS</FLD%>
+ </td>
+</tr>
+</BLOCK AUTHORS>
+
+<!-- Key reference -->
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NJNL_REFS>
+<FLD%>_COUNTER1++</FLD%>
+
+<!-- Show key reference only -->
+<SKIP COUNTER1[ne1]>
+<FLD%>_COUNTER3=0</FLD%>
+
+<!-- If have a PubMed id, pick up data from its database.dat file -->
+<SKIP !JNL_PUBMED_ID>
+<SKIP JNL_PUBMED_ID[eq0]>
+
+<!-- Have PubMed id, so read in appropriate database.dat file -->
+#pread:<LNK%>PUBMED_REAL_DIR</LNK%><LNK%>DIR_SEP</LNK%><LNK%>JNL_PUBMED_DIR</LNK%><LNK%>DIR_SEP</LNK%><LNK%>JNL_PUBMED_ID</LNK%><LNK%>DIR_SEP</LNK%>database.dat
+<SKIP !READ_OK>
+<FLD%>_COUNTER3++</FLD%>
+</SKIP !READ_OK>
+</SKIP JNL_PUBMED_ID[eq0]>
+</SKIP !JNL_PUBMED_ID>
+
+<tr>
+ <td class=ntxt valign=top align=right>
+   <B>Key&nbsp;ref:</B>
+<SKIP !PUB_JNL_ICON>
+   <BR>
+   <a href="<LNK%>PUB_FULLTEXT_URL</LNK%>"
+    target="top"
+    onmouseover="return overlib('Click to go to full text article', WRAP);"
+    onmouseout="return nd();"><img border=0
+    src="gif/<FLD%>PUB_JNL_ICON</FLD%>"></a>
+</SKIP !PUB_JNL_ICON>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+
+<!-- If data successfully read in from this paper's database.dat file,
+     can show fields -->
+<SKIP COUNTER3[eq0]>
+
+<!-- Show authors -->
+<FLD%>_COUNTER2=0</FLD%>
+<LOOP PUB_NAUTHORS>
+<FLD%>_COUNTER2++</FLD%>
+<SKIP COUNTER2[gt2]>
+<SKIP COUNTER2[gt1]>
+<FLD%>PUB_AUTHOR</FLD%>
+<SKIP PUB_NAUTHORS[ne2]>
+and
+</SKIP PUB_NAUTHORS[ne2]>
+<SKIP PUB_NAUTHORS[lt3]>
+et al.
+</SKIP PUB_NAUTHORS[lt3]>
+</SKIP COUNTER2[gt1]>
+<SKIP COUNTER2[ne2]>
+<SKIP PUB_NAUTHORS[ne2]>
+<FLD%>PUB_AUTHOR</FLD%>
+</SKIP PUB_NAUTHORS[ne2]>
+</SKIP COUNTER2[ne2]>
+</SKIP COUNTER2[gt2]>
+</LOOP PUB_NAUTHORS>
+
+<!-- Show year, journal, volume and pages -->
+<SKIP !PUB_YEAR>
+  (<FLD%>PUB_YEAR</FLD%>).
+</SKIP !PUB_YEAR>
+<SKIP !PUB_TITLE>
+  <FLD%>PUB_TITLE</FLD%>
+</SKIP !PUB_TITLE>
+<SKIP !PUB_JOURNAL>
+  <I><FLD%>PUB_JOURNAL</FLD%></I>,
+</SKIP !PUB_JOURNAL>
+<SKIP !PUB_VOLUME>
+  <B><FLD%>PUB_VOLUME</FLD%></B>,
+</SKIP !PUB_VOLUME>
+<SKIP !PUB_END_PAGE>
+<SKIP PUB_END_PAGE[eq0]>
+  <FLD%>PUB_START_PAGE</FLD%>-<FLD%>PUB_END_PAGE</FLD%>.
+</SKIP PUB_END_PAGE[eq0]>
+</SKIP !PUB_END_PAGE>
+<SKIP PUB_END_PAGE[gt0]>
+  <FLD%>PUB_START_PAGE</FLD%>.
+</SKIP PUB_END_PAGE[gt0]>
+
+<!-- Show PubMed identifier and DOI ref, where available -->
+  <FONT COLOR=purple>PubMed&nbsp;id:&nbsp;<b><a class=menuClass
+  href="<LNK%>URL_PUBMED</LNK%><FLD%>PUB_PUBMED_ID</FLD%>"
+  target="top" 
+  onmouseover="return overlib('Click to go to PubMed entry at NCBI', WRAP);"
+  onmouseout="return nd();"><FLD%>PUB_PUBMED_ID</FLD%></a></b></font>
+<SKIP !PUB_DOI_NUMBER>
+  <FONT COLOR=purple>DOI:&nbsp;<b><a class=menuClass
+  href="<LNK%>URL_DOI</LNK%><FLD%>PUB_DOI_NUMBER</FLD%>"
+  target="top" 
+  onmouseover="return overlib('Click to go to full text article', WRAP);"
+  onmouseout="return nd();"><FLD%>PUB_DOI_NUMBER</FLD%></a></b></font>
+</SKIP !PUB_DOI_NUMBER>
+<SKIP PUB_DOI_NUMBER>
+<SKIP !PUB_FULLTEXT_URL>
+  <FONT COLOR=purple>Ref:&nbsp;<b><a class=menuClass
+  href="<FLD%>PUB_FULLTEXT_URL</FLD%>"
+  target="top" 
+  onmouseover="return overlib('Click to go to full text article', WRAP);"
+  onmouseout="return nd();">Full text</a></b></font>
+</SKIP !PUB_FULLTEXT_URL>
+</SKIP PUB_DOI_NUMBER>
+<SKIP !PUB_HAVE_PERMISSION>
+<SKIP !PUB_NFIGS>
+  <a href="#KEY_FIGURES"
+   onmouseover="return overlib('Selected figure(s) from key publication', WRAP);"
+  onmouseout="return nd();">
+  <img border=0 src="gif/reddot.gif"></a>
+</SKIP !PUB_NFIGS>
+</SKIP !PUB_HAVE_PERMISSION>
+
+</SKIP COUNTER3[eq0]>
+
+<!-- If no database.dat file for this PubMed id, use details from PDB
+     entry's recond -->
+<SKIP COUNTER3[ne0]>
+
+<!-- Show authors -->
+<FLD%>_COUNTER2=0</FLD%>
+<LOOP NJNL_AUTHORS>
+<FLD%>_COUNTER2++</FLD%>
+<SKIP COUNTER2[gt2]>
+<SKIP COUNTER2[gt1]>
+  <FLD%>JNL_AUTHOR{t}</FLD%>
+<SKIP NJNL_AUTHORS[ne2]>
+and
+</SKIP NJNL_AUTHORS[ne2]>
+<SKIP NJNL_AUTHORS[lt3]>
+et al.
+</SKIP NJNL_AUTHORS[lt3]>
+</SKIP COUNTER2[gt1]>
+<SKIP COUNTER2[ne2]>
+<SKIP NJNL_AUTHORS[ne2]>
+  <FLD%>JNL_AUTHOR</FLD%>
+</SKIP NJNL_AUTHORS[ne2]>
+</SKIP COUNTER2[ne2]>
+</SKIP COUNTER2[gt2]>
+</LOOP NJNL_AUTHORS>
+
+<!-- Show year, journal, volume and pages -->
+<SKIP !JNL_YEAR>
+  (<FLD%>JNL_YEAR</FLD%>).
+</SKIP !JNL_YEAR>
+<SKIP !JNL_TITLE>
+  <FLD%>JNL_TITLE{t}</FLD%>.
+</SKIP !JNL_TITLE>
+<SKIP !JNL_JOURNAL>
+  <I><FLD%>JNL_JOURNAL{t}</FLD%></I>,
+</SKIP !JNL_JOURNAL>
+<SKIP !JNL_VOLUME>
+  <B><FLD%>JNL_VOLUME</FLD%></B>,
+</SKIP !JNL_VOLUME>
+<SKIP !JNL_END_PAGE>
+<SKIP JNL_END_PAGE[eq0]>
+  <FLD%>JNL_START_PAGE</FLD%>-<FLD%>JNL_END_PAGE</FLD%>.
+</SKIP JNL_END_PAGE[eq0]>
+</SKIP !JNL_END_PAGE>
+<SKIP JNL_END_PAGE[gt0]>
+  <FLD%>JNL_START_PAGE</FLD%>.
+</SKIP JNL_END_PAGE[gt0]>
+
+<!-- Show PubMed identifier and DOI ref, where available -->
+<SKIP !JNL_PUBMED_ID>
+<SKIP JNL_PUBMED_ID[lt1]>
+<FONT COLOR=purple>PubMed&nbsp;id:&nbsp;<b><a class=menuClass
+  href="<LNK%>URL_PUBMED</LNK%><FLD%>JNL_PUBMED_ID</FLD%>"
+  target="top" 
+  onmouseover="return overlib('Click to go to PubMed entry at NCBI', WRAP);"
+  onmouseout="return nd();"><FLD%>JNL_PUBMED_ID</FLD%></a></b></font>
+</SKIP JNL_PUBMED_ID[lt1]>
+</SKIP !JNL_PUBMED_ID>
+<SKIP !JNL_DOI_NUMBER>
+  <FONT COLOR=purple>DOI:&nbsp;<b><a class=menuClass
+  href="<LNK%>URL_DOI</LNK%><FLD%>JNL_DOI_NUMBER</FLD%>"
+  target="top" 
+  onmouseover="return overlib('Click to go to full text article', WRAP);"
+  onmouseout="return nd();"><FLD%>JNL_DOI_NUMBER</FLD%></a></b></font>
+</SKIP !JNL_DOI_NUMBER>
+
+</SKIP COUNTER3[ne0]>
+ </TD>
+</TR>
+<TR>
+ <TD WIDTH=1% colspan=3><img src="gif/1x1.gif" HEIGHT=3 ALT=""></TD> 
+</TR>
+</SKIP COUNTER1[ne1]>
+</LOOP NJNL_REFS>
+
+<!-- Date row-->
+<BLOCK DATE>
+<tr>
+ <td class=ntxt valign=top align=right>
+   <B>Date:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 height=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+  <table border=0 cellpadding=0 cellspacing=0>
+   <tr>
+    <td align=left>
+     <FLD%>DATE</FLD%>&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+
+<!-- Release date row-->
+<BLOCK RELEASE_DATE>
+    <td class=ntxt valign=top align=right>
+     <B>Release date:</B>&nbsp;&nbsp;
+    </td>
+    <td class=ntxt valign=top>
+     <FLD%>RELEASE_DATE</FLD%>&nbsp;&nbsp;&nbsp;&nbsp;
+    </td>
+</BLOCK RELEASE_DATE>
+    </tr>
+  </table>
+ </td>
+</tr>
+</BLOCK DATE>
+
+<BLOCK ALPHA_FOLD>
+ <tr>
+  <!-- Alpha Fold link -->
+  <td class=ftxt colspan=3>
+<BLOCK AFFRAG_FRAGMENT>
+   <P>
+    <font color=purple><B>FRAGMENT <FLD%>AFFRAG_FRAGNO</FLD%>:</B>
+    residues <FLD%>AFFRAG_FIRST_RES</FLD%>-<FLD%>AFFRAG_LAST_RES</FLD%>
+    <P>
+    <B>Other fragments:</B></font>
+<LOOP AFFRAG_NOTHER>
+<FLD%>_COUNTER1=1</FLD%>
+<SKIP AFFRAG_NOTHER[ne<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER1=0</FLD%>
+</SKIP AFFRAG_NOTHER[ne<FLD%>_LOOP1</FLD%>]>
+    <a
+       href="<LNK%>GET_PDBSUM_ENTRY</LNK%><FLD%>AFFRAG_OTHER_PDB_CODE</FLD%>"
+       target="PDBsum<FLD%>AFFRAG_OTHER_PDB_CODE</FLD%>"
+       title="Frag <FLD%>AFFRAG_OTHER_FRAGNO</FLD%>, residues <FLD%>AFFRAG_OTHER_FIRST_RES</FLD%>-<FLD%>AFFRAG_OTHER_LAST_RES</FLD%>"
+       ><FLD%>AFFRAG_OTHER_PDB_CODE</FLD%></a><FLD%>COMMA<NO%>_COUNTER1</NO%></FLD%>
+</LOOP AFFRAG_NOTHER>
+   <P>
+    <font color=blue><B>Alpha Fold page:&nbsp;</B></font> Not available
+</BLOCK AFFRAG_FRAGMENT>
+<BLOCK !AFFRAG_FRAGMENT>
+   <P>
+    <font color=blue><B>Alpha Fold page:&nbsp;</B></font><a
+     href="<LNK%>URL_ALPHA_FOLD</LNK%><FLD%>AF_UNIPROT_ACC</FLD%>"
+     target="AF_<FLD%>AF_UNIPROT_ACC</FLD%>"
+     title="Go to Alpha Fold page for this model"
+    ><FLD%>AF_UNIPROT_ACC</FLD%></a>
+</BLOCK !AFFRAG_FRAGMENT>
+    <P>
+     <B>Model comparison</B><BR>
+     Use the
+     <img border=0 src="gif/saslogo_tiny.gif">
+     button below (or on the Protein page), to compare the model against known
+     structures in the PDB, including those of homologous proteins.
+   </td>
+ </tr>
+</BLOCK ALPHA_FOLD>
+
+<!-- Supersedes-->
+<BLOCK SUPERSEDES>
+<tr>
+ <td class=ntxt valign=top align=right>
+  <B>Supersedes:</B>
+ </td>
+ <td>
+  <img src="gif/1x1.gif" width=5 HEIGHT=1 ALT="">
+ </td>
+ <td colspan=2 class=ntxt valign=top>
+  <a href="<LNK%>GET_PDBSUM_ENTRY</LNK%><FLD%>SUPERSEDES</FLD%>"
+   class=menuClass><b><FLD%>SUPERSEDES</FLD%></a></b>
+ </td>
+</tr>
+</BLOCK SUPERSEDES>
+<BLOCK NSUPERSEDES>
+<tr>
+ <td class=ntxt valign=top align=right>
+  <B>Supersedes:</B>
+ </td>
+ <td><img src="gif/1x1.gif" width=5 HEIGHT=1 ALT=""></td>
+ <td colspan=2 class=ntxt valign=top>
+<LOOP NSUPERSEDES>
+  <a href="<LNK%>GET_PDBSUM_ENTRY</LNK%><FLD%>SUPERSEDES</FLD%>"
+   class=menuClass><b><FLD%>SUPERSEDES</FLD%></b></a>
+</LOOP NSUPERSEDES>
+ </td>
+</tr>
+</BLOCK NSUPERSEDES>
+
+
+</table>
+

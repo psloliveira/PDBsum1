@@ -1,0 +1,94 @@
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td background="tmpgif/newsec/traces.png" width=240 height=240>
+   <table width=240 height=240 border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td colspan=3 rowspan=3>
+      <img width=220 height=220 src="gif/1x1.gif">
+     </td>
+     <td>
+      <img width=1 height=120 src="gif/1x1.gif">
+     </td>
+    <tr>
+     <td>
+<SKIP !SIDE_VIEWS>
+      <a href="./thumbox.html&param1=<FLD%>PDB_CODE</FLD%>&param2=2&param4=traces_r.jpg"
+       onclick="NewWindow(this.href,'<FLD%>PDB_CODE</FLD%>_side','300','320','yes');return false;"
+       onmouseover="Tip('<img src=tmpgif/newsec/traces_r.png><br><B>Side view</B>', WIDTH, 240, PADDING, 4, BGCOLOR, '#ffffff')"><img
+       border=0 width=20 src="gif/eye_left.gif"></a>
+</SKIP !SIDE_VIEWS>
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <img width=1 height=80 src="gif/1x1.gif">
+     </td>
+    </tr>
+    <tr>
+     <td>
+      <img width=120 height=1 src="gif/1x1.gif">
+     </td>
+     <td>
+<SKIP !SIDE_VIEWS>
+      <a href="./thumbox.html&param1=<FLD%>PDB_CODE</FLD%>&param2=3&param4=traces_b.jpg"
+       onclick="NewWindow(this.href,'<FLD%>PDB_CODE</FLD%>_bottom','300','320','yes');return false;"
+       onmouseover="Tip('<img src=tmpgif/newsec/traces_b.png><br><B>Bottom view</B>', WIDTH, 240, PADDING, 4, BGCOLOR, '#ffffff')"><img
+      border=0 height=20 src="gif/eye_up.gif"></a>
+</SKIP !SIDE_VIEWS>
+     </td>
+     <td>
+      <img width=80 height=1 src="gif/1x1.gif">
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+ <!-- Gap -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td>
+   <img width=1 height=10 src="gif/1x1.gif">
+  </td>
+ </tr>
+
+ <!-- Viewers -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan=3 align=center>
+   <table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+    <tr>
+<!--
+     <td align=left valign=center>
+      <B>View in: &nbsp;</B>
+     </td>
+-->
+     <td align=center valign=center>
+
+      <!-- RasMol -->
+      <a href="<LNK%>GETRASMOL_PL</LNK%>&origin=pdbsum"
+       onmouseover="return overlib('View schematic of 3D structure in RasMol', WRAP);"
+       onmouseout="return nd();"><img
+       border=0 height=18 src="gif/rasmollogo3_5.gif" ALT=""></A>
+
+     </td>
+
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+</table>

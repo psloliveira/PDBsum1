@@ -1,0 +1,1019 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET PAGE_TITLE="Ligand/metal interactions: <FLD%>PDB_CODE</FLD%>">
+<SET BAR_ALIGN="left">
+<SET BAR_HEADER="Ligand/metal interactions">
+<SET LIGANDS_PAGE="TRUE">
+<SET LABELS_3DMOL="FALSE">
+<SET PDBSUM_FIELDS="TRUE">
+<SET SIDE_LINE="TRUE">
+<BLOCK METAL_OPTION>
+<SET LIGANDS_PAGE="FALSE">
+<SET METALS_PAGE="TRUE">
+</BLOCK METAL_OPTION>
+
+<SET DATA_DIR="<LNK%>PDBSUM_REAL_DATA_DIR</LNK%><LNK%>DIR_SEP</LNK%>">
+<SET HET_INDEX="<LNK%>DATA_DIR</LNK%>het2pdb.idx">
+<SET LIG_INDEX="<LNK%>DATA_DIR</LNK%>lig2pdb.idx">
+<SET REAL_DIR="<LNK%>PDBSUM_REAL_DIR</LNK%><LNK%>DIR_SEP</LNK%>">
+<SET HET_OFFSET="-1">
+<SET LIG_OFFSET="-1">
+<SET TYPE="&t=">
+
+<!-- Define residue to be highlighted in the LIGPLOT diagram -->
+<BLOCK PARAM1>
+<SET HIGHLIGHT_RES="<FLD%>PARAM1</FLD%>">
+<SET LRES="&res=<FLD%>HIGHLIGHT_RES</FLD%>">
+<SET VAR_TYPE="<FLD%>PARAM3</FLD%>">
+<SET TYPE="&pdb_type=DISASTR">
+</BLOCK PARAM1>
+
+<!-- Define working directory, if we have one -->
+<BLOCK WORK_DIR>
+<SET WKDIR="&wkdir=<LNK%>WORK_DIR</LNK%>">
+</BLOCK WORK_DIR>
+
+<!-- 3Dmol.js scripts -->
+<script type="text/javascript" src="js/3dmol-min.js"></script>
+
+#insert:tags.html
+
+<TABLE border=0 CELLPADDING=0 CELLSPACING=0 WIDTH=100%>
+
+<TR>
+<TD WIDTH=1% VALIGN=top>
+<!-- -->
+<TABLE BGCOLOR=white border=0 CELLSPACING=0
+CELLPADDING=0 WIDTH=50% ALIGN=center>
+<TR>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+
+<BLOCK DEFAULT_OPTION>
+<BLOCK TRANSPARENT>
+  <td  width=240 height=240 valign=top align=center><img src="tmpgif/newsec/traster<FLD%>LIGAND_TYPE</FLD%>.png" border=0 width=240 hight=240></td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+<SKIP NLIGAND_TIMES[lt2]>
+   <font size=1pt face=arial color=darkred><FLD%>NLIGAND_TIMES</FLD%> instances of ligand highlighted</font>
+</SKIP NLIGAND_TIMES[lt2]>
+<SKIP NLIGAND_TIMES[gt1]>
+   <font size=1pt face=arial color=darkred>Ligand highlighted</font>
+</SKIP NLIGAND_TIMES[gt1]>
+  </td>
+</BLOCK TRANSPARENT>
+<BLOCK !TRANSPARENT>
+  <td  class=lhdr width=240 height=240 valign=top align=center><img src="tmpgif/newsec/raster<FLD%>LIGAND_TYPE</FLD%>.png" border=0 width=240 hight=240>
+  </td>
+</BLOCK !TRANSPARENT>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td class=lhdr align=center>
+   <FLD%>LIGAND_SEQ{c16}</FLD%><BR>
+  </td>
+</BLOCK DEFAULT_OPTION>
+<BLOCK METAL_OPTION>
+<BLOCK TRANSPARENT>
+  <td class=lhdr width=240 height=240 valign=top align=center><img src="tmpgif/newsec/trastermet<FLD%>METAL_TYPE</FLD%>.png" border=0 width=240 hight=240></td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+<SKIP NMETAL_TIMES[lt2]>
+   <font size=1pt face=arial color=darkred><FLD%>NMETAL_TIMES</FLD%> instances of metal highlighted</font>
+</SKIP NMETAL_TIMES[lt2]>
+<SKIP NMETAL_TIMES[gt1]>
+   <font size=1pt face=arial color=darkred>Metal highlighted</font>
+</SKIP NMETAL_TIMES[gt1]>
+  </td>
+</BLOCK TRANSPARENT>
+<BLOCK !TRANSPARENT>
+  <td  class=lhdr width=240 height=240 valign=top align=center><img src="gif/metal_<FLD%>METAL_COLOUR</FLD%>.png" border=0 width=240 hight=240>
+  </td>
+</BLOCK !TRANSPARENT>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td class=lhdr align=center>
+<img src="gif/<FLD%>METAL_COLOUR</FLD%>dot.gif" border=0 align=top ALT="">
+<FLD%>METAL_SEQ{c16}</FLD%><BR>
+&nbsp;
+  </td> 
+</BLOCK METAL_OPTION>
+</TR>
+</TABLE>
+<!-- -->
+<BLOCK DEFAULT_OPTION>
+<BLOCK !TRANSPARENT>
+<table width=40% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td>
+  <td>
+    <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+     <tr> 
+       <td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+       <td>
+        <a href="<LNK%>RASMOL_LIGAND</LNK%>"
+        onMouseOver="window.status='View ligand in RasMol';
+        return true;"><img border=0 src="gif/rasmollogo3_5.gif" ALT=""></a><BR>
+       </td>
+       <td>
+        <a href="<LNK%>RUNLIGPLOT_PS</LNK%>&file=lig<FLD%>LIGAND_TYPE</FLD%>"
+        onMouseOver="window.status='PostScript version of ligand showing atom names';
+        return true;"><img border=0 src="gif/psvers.gif" ALT=""></a>
+       </td>
+       <td>
+        <a href="<LNK%>RUNLIGPLOT_PDF</LNK%>&file=lig<FLD%>LIGAND_TYPE</FLD%>"
+        onMouseOver="window.status='PDF version of ligand showing atom names';
+        return true;"><img border=0 width=50 src="gif/pdf.gif" ALT=""></a>
+       </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+</table>
+</BLOCK !TRANSPARENT>
+</BLOCK DEFAULT_OPTION>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=10></td> 
+ </tr> 
+</table>
+
+<!-- Ligands tab -->
+<BLOCK NLIGAND_TYPES>
+<table width=50% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td>
+   <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td valign=bottom>
+      <img src="gif/1x1.gif" width=10 height=1 ALT="">
+      <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+        <td bgcolor=#207a7a><img src="gif/1x1.gif" width=5 height=1></td>
+       </tr> 
+      </table>
+     </td> 
+     <td><img src="gif/zl09x20.gif" width=10 height=20 ALT=""></td>
+     <td bgcolor=#207a7a width="150" height=20 align="center"><b><font color=white face=arial size=2pt>Ligands</font></b></td>
+     <td><img src="gif/zr10x20.gif" width=10 height=20 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+</table>
+<!-- ******************************************************************** -->
+<!-- -------------------------Tree start--------------------------------- -->
+
+<table width=185 cellspacing=0 cellpadding=0 border=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=10></td>
+  <td>
+<LOOP NLIGAND_TYPES>
+<!--Next level 1 (Ligand types list)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP ENDLOOP1>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</SKIP MIDLOOP1>
+<b>
+<FLD%>LIGAND_SEQ{c16}</FLD%>
+</b>
+<SKIP NLIGAND_TIMES[lt2]>
+<FONT COLOR=BLACK>&times;<FLD%>NLIGAND_TIMES</FLD%></FONT>
+</SKIP NLIGAND_TIMES[lt2]>
+</td> 
+</tr> 
+<SKIP MIDLOOP1>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</SKIP MIDLOOP1>
+</table>
+<!--end of level 1 (Ligand types list)-->
+<!-- level 2 (Unique ligands list)-->
+<LOOP NLIGUNIQ>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<SKIP MIDLOOP2>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</SKIP MIDLOOP2>
+<SKIP ENDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=trmlmn>
+</SKIP ENDLOOP2>
+<BLOCK DEFAULT_OPTION>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<a href="./lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.html"
+   class=menuClass><FLD%>LIG_RANGE</FLD%></a>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<FONT COLOR=darkred><B><FLD%>LIG_RANGE</FLD%></B></FONT>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+</BLOCK DEFAULT_OPTION>
+<BLOCK METAL_OPTION>
+<a href="./lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.html"
+  class=menuClass><FLD%>LIG_RANGE</FLD%></a>
+</BLOCK METAL_OPTION>
+</td> 
+</tr> 
+<tr>
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<SKIP ENDLOOP2>
+<td class=color><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP ENDLOOP2>
+<SKIP MIDLOOP2>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP MIDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+</LOOP NLIGUNIQ>
+<!-- end of level 2 (Unique ligands list)-->
+<!-- level 2 (... plus more)-->
+<SKIP !NLIGMORE>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td colspan=3 width=16777216 bgcolor=white class=trmlmn>
+<FONT COLOR=BLACK><I>... plus <FLD%>NLIGMORE</FLD%> others</I></FONT>
+</td> 
+</tr> 
+<tr>
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+</SKIP !NLIGMORE>
+<!-- end of level 2 (... plus more)-->
+</LOOP NLIGAND_TYPES>
+  </td>
+ </tr> 
+</table>
+<!-- -------------------------Tree end------------------------------- -->
+
+<img src="gif/1x1.gif" width=1 height=20>
+</BLOCK NLIGAND_TYPES>
+
+<!-- ----------------------- Second tree ---------------------------- -->
+
+<BLOCK NMETAL_TYPES>
+<!-- Metals tab -->
+<table width=50% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+<BLOCK NLIGAND_TYPES>
+  <td><img src="gif/1x1.gif" width=1 height=1></td> 
+</BLOCK NLIGAND_TYPES>
+<BLOCK !NLIGAND_TYPES>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+</BLOCK !NLIGAND_TYPES>
+  <td>
+   <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td valign=bottom>
+      <img src="gif/1x1.gif" width=10 height=1 ALT="">
+      <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+<BLOCK NLIGAND_TYPES>
+        <td><img src="gif/1x1.gif" width=5 height=1></td>
+</BLOCK NLIGAND_TYPES>
+<BLOCK !NLIGAND_TYPES>
+        <td bgcolor=#207a7a><img src="gif/1x1.gif" width=5 height=1></td>
+</BLOCK !NLIGAND_TYPES>
+       </tr> 
+      </table>
+     </td> 
+     <td><img src="gif/zl09x20.gif" width=10 height=20 ALT=""></td>
+     <td bgcolor=#207a7a width="150" height=20 align="center"><b><font color=white face=arial size=2pt>Metals</font></b></td>
+     <td><img src="gif/zr10x20.gif" width=10 height=20 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+</table>
+<!-- ******************************************************************** -->
+<!-- -------------------------Tree start--------------------------------- -->
+
+<table width=185 cellspacing=0 cellpadding=0 border=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=10></td>
+  <td>
+<LOOP NMETAL_TYPES>
+<!--Next level 1 (Metal types list)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP ENDLOOP1>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</SKIP MIDLOOP1>
+<img src="gif/<FLD%>METAL_COLOUR</FLD%>dot.gif" border=0 align=top ALT="">
+<b>
+<FLD%>METAL_SEQ{c16}</FLD%>
+</b>
+<SKIP NMETAL_TIMES[lt2]>
+<FONT COLOR=BLACK>&times;<FLD%>NMETAL_TIMES</FLD%></FONT>
+</SKIP NMETAL_TIMES[lt2]>
+</td> 
+</tr> 
+<SKIP MIDLOOP1>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</SKIP MIDLOOP1>
+</table>
+<!--end of level 1 (Metal types list)-->
+<!-- level 2 (Unique metals list)-->
+<LOOP NMETUNIQ>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<SKIP MIDLOOP2>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</SKIP MIDLOOP2>
+<SKIP ENDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=trmlmn>
+</SKIP ENDLOOP2>
+<BLOCK METAL_OPTION>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<a href="./met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.html"
+   class=menuClass><FLD%>MET_RANGE</FLD%></a>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+<FONT COLOR=darkred><B><FLD%>MET_RANGE</FLD%></B></FONT>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>.<FLD%>_LOOP2</FLD%>>
+</BLOCK METAL_OPTION>
+<BLOCK DEFAULT_OPTION>
+<a href="./met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.html"
+  class=menuClass><FLD%>MET_RANGE</FLD%></a>
+</BLOCK DEFAULT_OPTION>
+</td> 
+</tr> 
+<tr>
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<SKIP ENDLOOP2>
+<td class=color><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP ENDLOOP2>
+<SKIP MIDLOOP2>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</SKIP MIDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+</LOOP NMETUNIQ>
+<!-- end of level 2 (Unique metals list)-->
+<!-- level 2 (... plus more)-->
+<SKIP !NMETMORE>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td colspan=3 width=16777216 bgcolor=white class=trmlmn>
+<FONT COLOR=BLACK><I>... plus <FLD%>NMETMORE</FLD%> others</I></FONT>
+</td> 
+</tr> 
+<tr>
+<SKIP ENDLOOP1>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+</SKIP !NMETMORE>
+<!-- end of level 2 (... plus more)-->
+</LOOP NMETAL_TYPES>
+  </td>
+ </tr> 
+</table>
+</BLOCK NMETAL_TYPES>
+<!-- -------------------------Tree end------------------------------- -->
+
+<!-- -------------------- End of second tree ------------------------ -->
+
+
+
+<!-- ******************************************************************** -->
+
+</TD>
+
+<TD WIDTH=2%>&nbsp;&nbsp;</TD>
+
+<TD WIDTH=94% VALIGN=top>
+
+<!-- LIGPLOT plot -->
+
+<BLOCK DEFAULT_OPTION>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td colspan=2 class=lhdr align=left>Ligand
+
+<!-- Link to Het Groups page -->
+<SKIP HET_OFFSET[eq-1]>
+   <a
+    href="./het2pdb.html&param1=<FLD%>LIGAND_SEQ</FLD%>&s=<FLD%>HET_OFFSET</FLD%>&o=OFFSET"
+    class=menuClass 
+    onmouseover="return overlib('Go to list of PDB entries containing Het Group/Ligand <FLD%>LIGAND_SEQ</FLD%>', WRAP);"
+    onmouseout="return nd();"
+   ><B><FLD%>LIGAND_SEQ</FLD%></B></a>
+</SKIP HET_OFFSET[eq-1]>
+
+<!-- Link to Ligand page -->
+<SKIP HET_OFFSET[gt-1]>
+<SKIP LIG_OFFSET[eq-1]>
+   <a
+    href="./lig2pdb.html&param1=<FLD%>LIGAND_SEQ</FLD%>&s=<FLD%>LIG_OFFSET</FLD%>"
+    class=menuClass 
+    onmouseover="return overlib('Go to list of PDB entries containing Ligand <FLD%>LIGAND_SEQ</FLD%>', WRAP);"
+    onmouseout="return nd();"
+   ><B><FLD%>LIGAND_SEQ</FLD%></B></a>
+</SKIP LIG_OFFSET[eq-1]>
+
+<!-- No link -->
+<SKIP LIG_OFFSET[gt-1]>
+   <B><FLD%>LIGAND_SEQ</FLD%></B>
+</SKIP LIG_OFFSET[gt-1]>
+
+</SKIP HET_OFFSET[gt-1]>
+
+<!-- Show name/description -->
+<SKIP !NHETGROUPS>
+<SKIP NHETGROUPS[gt1]>
+- <I>
+<LOOP NHETGROUPS>
+<FLD%>HET_DESC{t60}</FLD%>
+<SKIP !HET_SYNONYM>
+<BR><font color=purple>[<FLD%>HET_SYNONYM{t60}</FLD%>]</font>
+</SKIP !HET_SYNONYM>
+<SKIP !HET_FORMULA>
+<BR>
+<B>Formula:</B> <FLD%>HET_FORMULA{f}</FLD%>
+</SKIP !HET_FORMULA>
+</LOOP NHETGROUPS>
+</I>
+</SKIP NHETGROUPS[gt1]>
+<SKIP NHETGROUPS[eq1]>
+  </td>
+ </tr>
+ <tr>
+  <td colspan=2 align=left>
+<img src="gif/1x1.gif" width=1 height=10 ALT=""><BR>
+<LOOP NHETGROUPS>
+<img src="gif/1x1.gif" width=15 height=1 ALT="">
+<a href="./het2pdb.html&param1=<FLD%>HET_NAME</FLD%>"
+  class=menuClass 
+  target="Het_group_<FLD%>HET_NAME</FLD%>"
+  onmouseover="return overlib('Go to Het Groups page for <FLD%>HET_NAME</FLD%>', WRAP);"
+  onmouseout="return nd();"><B><FLD%>HET_NAME</FLD%></B></a>
+- <I>
+<FLD%>HET_DESC{t}</FLD%>
+<SKIP !HET_SYNONYM>
+[<FLD%>HET_SYNONYM{t}</FLD%>]
+</SKIP !HET_SYNONYM>
+<SKIP !HET_FORMULA>
+<B>Formula:</B> <FLD%>HET_FORMULA{f}</FLD%>
+</SKIP !HET_FORMULA>
+</I>
+<BR>
+</LOOP NHETGROUPS>
+</SKIP NHETGROUPS[eq1]>
+</SKIP !NHETGROUPS>
+  </td>
+ </tr>
+ <tr>
+  <td align=left>
+   <img src="gif/1x1.gif" width=7 height=1 ALT="">
+   <table border=0 cellpadding=0 cellspacing=0>
+
+<!-- New MotiveValidator analysis -->
+<SKIP !"<FLD%>PDIR</FLD%>/MV_results.dat">
+    <tr>
+     <td colspan=2>
+#insert:MV_table.html
+     </td>
+    </tr>
+</SKIP !"<FLD%>PDIR</FLD%>/MV_results.dat">
+
+<!-- Ligand displays and links -->
+    <tr>
+<BLOCK TRANSPARENT>
+     <!-- 3Dmol.js view of ligand -->
+     <td width=280 height=240>
+      <div id="gldiv" class="ligand_window"></div>
+     </td>
+</BLOCK TRANSPARENT>
+
+<!--- Ligplot schematic diagram of ligand -->
+     <td align=center>
+      <a href="tmpgif/ligplot/clig_<FLD%>LIGAND_TYPE</FLD%>.gif"
+	 title="Click to enlarge"
+	 ><img height=140 border=0 src="tmpgif/ligplot/clig_<FLD%>LIGAND_TYPE</FLD%>.gif"></a>
+     </td>
+    </tr>
+
+<!-- Links to viewers and enlarged versions -->
+    <tr>
+     <td valign=top align=center>
+
+<!--
+      <table>
+       <tr>
+        <td align=center valign=center colspan=4>
+	  <div id="use_mouse">
+            <font size=2pt face=arial color=gray>
+	      Use mouse to move/zoom
+	    </font>
+	  </div>
+	</td>
+       </tr>
+       <tr>
+        <td valign=center>
+         3D Viewers:
+	</td>
+-->
+	<!-- 3Dmol.js -->
+<!--
+        <td valign=center>
+          <div id="3dicon">
+            <a href="<LNK%>GETPAGE_PL</LNK%>ligbox_3Dmoljs.html&param1=<FLD%>LIGAND_SEQ</FLD%>&param2=<FLD%>LIGAND_TYPE</FLD%>"
+               title="Open 3Dmol.js window showing ligand"
+	       onclick="NewWindow(this.href,'3Dmol','620','620','yes');return false;"
+               ><img border=0 width=50 src="gif/3dmol_sm.gif" ALT="3Dmol.js"></a>
+          </div>
+	</td>
+
+        <td>&nbsp;</td>
+-->
+
+	<!-- RasMol -->
+<!--
+        <td valign=center>
+          <a href="<LNK%>RASMOL_LIGAND</LNK%>"
+             title="View ligand in RasMol"
+	     ><img border=0 width=25 src="gif/rasmollogo3_5.gif" ALT=""></a><BR>
+	</td>
+
+        <td>&nbsp;</td>
+-->
+
+	<!-- JSmol -->
+<!--
+        <td valign=center>
+          <a href="<LNK%>RASMOL_LIGAND</LNK%>&jmol=TRUE"
+	     onclick="NewWindow(this.href,'JSmol1','1000','750','yes');return false;"
+             title="View ligand in JSmol"
+	     ><img
+             border=0 height=20 src="gif/JSmol_sm.png" ALT="JSmol"></a><BR>
+	</td>
+       </tr>
+      </table>
+-->
+
+     </td>
+     <td valign=top align=center rowspan=2>
+<!--
+      <table>
+       <tr>
+-->
+
+	<!-- PostScript plot of ligand -->
+<!--
+        <td valign=center>
+          <a href="<LNK%>RUNLIGPLOT_PS</LNK%>&file=lig<FLD%>LIGAND_TYPE</FLD%>"
+             title="PostScript version of ligand showing atom names"
+             ><img border=0 width=40 src="gif/psvers.gif" ALT=""></a>
+	</td>
+-->
+
+	<!-- PDF plot of ligand -->
+<!--
+        <td valign=center>
+          <a href="<LNK%>RUNLIGPLOT_PDF</LNK%>&file=lig<FLD%>LIGAND_TYPE</FLD%>"
+             title="PDF version of ligand showing atom names"
+             ><img border=0 width=40 src="gif/pdf.gif" ALT=""></a>
+	</td>
+       </tr>
+      </table>
+-->
+     </td>
+   </table>
+
+  </td>
+ </tr>
+<SKIP !LIG_MOLTYPE>
+ <tr>
+  <td colspan=2 align=center>
+    &nbsp;
+   <P>
+   <font size=2pt face=arial color=green>
+<SKIP !NHETGROUPS>
+<SKIP NHETGROUPS[gt1]>
+<SKIP LIG_MATCH[eq100]>
+   Ligand matches this enzyme's <FLD%>LIG_MOLTYPE</FLD%>
+   <FLD%>LIG_MOLNAME</FLD%>
+   with similarity <FLD%>LIG_MATCH</FLD%>%
+</SKIP LIG_MATCH[eq100]>
+<SKIP LIG_MATCH[lt100]>
+   Ligand corresponds to this enzyme's <FLD%>LIG_MOLTYPE</FLD%>
+   <FLD%>LIG_MOLNAME</FLD%>
+</SKIP LIG_MATCH[lt100]>
+</SKIP NHETGROUPS[gt1]>
+</SKIP !NHETGROUPS>
+<SKIP NHETGROUPS[eq1]>
+<SKIP LIG_MATCH[eq100]>
+   Het Group <FLD%>LIG_HETGROUP</FLD%> matches this enzyme's
+   <FLD%>LIG_MOLTYPE</FLD%> <FLD%>LIG_MOLNAME</FLD%> with similarity
+   <FLD%>LIG_MATCH</FLD%>%
+</SKIP LIG_MATCH[eq100]>
+<SKIP LIG_MATCH[lt100]>
+   Het Group <FLD%>LIG_HETGROUP</FLD%> corresponds to this enzyme's
+   <FLD%>LIG_MOLTYPE</FLD%> <FLD%>LIG_MOLNAME</FLD%>
+</SKIP LIG_MATCH[lt100]>
+</SKIP NHETGROUPS[eq1]>
+   </font>
+  </td>
+ </tr>
+</SKIP !LIG_MOLTYPE>
+ <tr>
+  <td class=medhdr align=center>
+   <table>
+    <tr>
+     <td>
+      <img src="gif/1x1.gif" width=7 height=20 ALT=""><BR>
+       LIGPLOT of interactions involving ligand <FLD%>LIGAND_SEQ</FLD%><BR>
+<BLOCK PARAM1>
+<SKIP VAR_TYPE[ne-1]>
+    (selected residue
+    <FLD%>HIGHLIGHT_RES</FLD%> circled in black)<BR>
+</SKIP VAR_TYPE[ne-1]>
+<SKIP VAR_TYPE[eq-1]>
+    (variant residue
+    <font color=purple><FLD%>HIGHLIGHT_RES</FLD%></font> circled in purple)<BR>
+</SKIP VAR_TYPE[eq-1]>
+</BLOCK PARAM1>
+      <img src="gif/1x1.gif" width=7 height=20 ALT="">
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td align=center>
+
+<SKIP !"<FLD%>PDIR</FLD%>NOCHEM">
+<!--   Old plot as we do have NOCHEM file -->
+   <img width=400 src="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.gif">
+</SKIP !"<FLD%>PDIR</FLD%>NOCHEM">
+<SKIP "<FLD%>PDIR</FLD%>NOCHEM">
+
+<!--   New plot as we don't have file -->
+   <a href="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.gif"
+    onclick="NewWindow(this.href,'','500','600','yes');return false;"
+    target=LIGPLOT_<FLD%>PDB_CODE</FLD%>_<FLD%>_LOOP1</FLD%><FLD%>_LOOP2</FLD%>
+    title="Click to view"
+    ><img width=400 border=0 name="chemplot"
+   src="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.gif">
+</SKIP "<FLD%>PDIR</FLD%>NOCHEM">
+  </td>
+  <td align=left valign=bottom>
+<!-- Icons linking to viewers and enlarged plots -->
+   <table>
+    <tr>
+      <!-- RasMol -->
+     <td align=center valign=bottom class=ftxt>
+    <a href="../rasmol/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.rasmol"
+       download type="application/x-rasmol"
+       title="View ligand interactions in RasMol"><img
+       border=0 src="gif/rasmollogo3_5.gif" ALT=""></a> 
+   <P>
+
+      <!-- JSmol -->
+<!--
+    <a href="<LNK%>RASMOL_LIGPLOT</LNK%>&jmol=TRUE"
+     onclick="NewWindow(this.href,'JSmol2','1000','750','yes');return false;"
+     title="View ligand interactions in JSmol"><img
+     border=0 height=25 src="gif/JSmol_sm.png" ALT="JSmol"></a><BR>
+   <BR>
+-->
+
+      <!-- PostScript version of LIGPLOT -->
+    <a href="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.ps"
+       download type="application/postscript"
+       title="PostScript version of LIGPLOT diagram"><img
+    border=0 src="gif/psvers.gif" ALT=""></a>  
+   <BR>
+
+      <!-- PDF version of LIGPLOT -->
+    <a href="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.pdf"
+       download type="application/pdf"
+       title="PDF version of LIGPLOT diagram"><img
+    border=0 width=50 src="gif/pdf.gif" ALT=""></a>  
+   <BR>
+
+      <!-- List of interactions -->
+    <a href="../ligplot/ligint_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.txt"
+    onclick="NewWindow(this.href,'','800','600','yes');return false;"
+    target="ligint_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>"
+    title="List of interactions"><img
+    border=0 src="gif/results.gif" ALT=""></a>  
+   <BR>
+    List of<BR>interactions
+   <BR>
+
+      <!-- Load into LigPlot+ -->
+    <a href="../ligplot/lig_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.drw"
+       download type="application/x-ligplot"
+       title="Load interaction diagram into LigPlot+"><img
+       border=0 src="gif/ligplus_icon.gif" ALT=""></a>  
+
+     </td>
+    </tr>
+   </table>
+ </td>
+ </tr>
+
+<!-- Show key for variants -->
+<BLOCK PARAM1>
+ <tr>
+  <td align=center>
+   <P>
+   Circled variants: 
+<FLD%>_COUNTER1=0</FLD%>
+<LOOP NVAR_TYPES>
+<font color=<FLD%>VAR_COLOUR<NO%>_COUNTER1</NO%></FLD%>>
+<FLD%>VAR_TYPE<NO%>_COUNTER1</NO%></FLD%>
+</font>
+<SKIP NVAR_TYPES[eq<FLD%>_LOOP1</FLD%>]>
+&nbsp;-&nbsp;
+</SKIP NVAR_TYPES[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER1++</FLD%>
+</LOOP NVAR_TYPES>
+  </td>
+ </tr>
+</BLOCK PARAM1>
+
+ <tr>
+  <td class=lhdr align=center>
+   <img src="gif/1x1.gif" width=7 height=20 ALT=""><BR>
+   <FLD%>LIG_RANGE</FLD%>
+  </td>
+ </tr>
+<SKIP !NLIG_DUPLIC>
+ <tr>
+  <td class=lhdr align=center>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+<SKIP NLIG_DUPLIC[gt1]>
+   <FONT color=darkred>(also representing equivalent ligand
+<LOOP NLIG_DUPLIC>
+<FLD%>LIG_DUPLIC</FLD%>
+</LOOP NLIG_DUPLIC>
+   )</font>
+</SKIP NLIG_DUPLIC[gt1]>
+<SKIP NLIG_DUPLIC[eq1]>
+   <FONT color=orange>also representing <FLD%>NLIG_DUPLIC</FLD%> other 
+    equivalent ligands:<BR>
+<LOOP NLIG_DUPLIC>
+<FLD%>LIG_DUPLIC</FLD%><BR>
+</LOOP NLIG_DUPLIC>
+   </font>
+</SKIP NLIG_DUPLIC[eq1]>
+  </td>
+ </tr>
+</SKIP !NLIG_DUPLIC>
+</table>
+</BLOCK DEFAULT_OPTION>
+
+<!-- Metal plot -->
+
+<BLOCK METAL_OPTION>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td class=lhdr align=left>Metal ion <FLD%>METAL_SEQ{s/_/ /}</FLD%>
+<SKIP NMETGROUPS[gt1]>
+- <I>
+<LOOP NMETGROUPS>
+<FLD%>MET_DESC{t}</FLD%>
+<SKIP !MET_SYNONYM>
+[<FLD%>MET_SYNONYM{t}</FLD%>]
+</SKIP !MET_SYNONYM>
+</LOOP NMETGROUPS>
+</I>
+</SKIP NMETGROUPS[gt1]>
+<SKIP NMETGROUPS[eq1]>
+  </td>
+ </tr>
+ <tr>
+  <td align=left>
+<img src="gif/1x1.gif" width=1 height=10 ALT=""><BR>
+<LOOP NMETGROUPS>
+<img src="gif/1x1.gif" width=15 height=1 ALT="">
+<B><FLD%>MET_NAME</FLD%></B>
+- <I>
+<FLD%>MET_DESC{t}</FLD%>
+<SKIP !MET_SYNONYM>
+[<FLD%>MET_SYNONYM{t}</FLD%>]
+</SKIP !MET_SYNONYM>
+<SKIP !MET_FORMULA>
+<B>Formula:</B> <FLD%>MET_FORMULA{f}</FLD%>
+</SKIP !MET_FORMULA>
+</I>
+<BR>
+</LOOP NMETGROUPS>
+</SKIP NMETGROUPS[eq1]>
+  </td>
+ </tr>
+ <tr>
+  <td class=lhdr align=center>
+   <img src="gif/1x1.gif" width=7 height=20 ALT=""><BR>
+    LIGPLOT of interactions involving metal <FLD%>METAL_SEQ{s/_/ /}</FLD%><BR>
+<BLOCK PARAM1>
+    (variant residue
+    <font color=purple><FLD%>HIGHLIGHT_RES</FLD%></font> highlighted)<BR>
+</BLOCK PARAM1>
+   <img src="gif/1x1.gif" width=7 height=20 ALT=""><BR>
+  </td>
+  <td>
+   &nbsp;
+  </td>
+ </tr>
+ <tr>
+  <td align=center>
+   <img width=400 src="../ligplot/met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.gif">
+  </td>
+  <td align=left valign=bottom>
+   <table>
+    <tr>
+     <td align=center valign=bottom>
+
+    <!-- RasMol -->
+    <a href="../rasmol/met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.rasmol"
+      download type="application/x-rasmol"
+      title="View metal interactions in RasMol"><img
+      border=0 src="gif/rasmollogo3_5.gif" ALT=""></a>
+   <P>
+
+     <!-- JSmol option -->
+<!--
+     <a href="<LNK%>RASMOL_LIGPLOT</LNK%>&metal=YES&jmol=TRUE"
+      onclick="NewWindow(this.href,'JSmol','1000','750','yes');return false;"
+      title="View metal interactions in JSmol"><img
+      border=0 height=20 src="gif/JSmol_sm.png" ALT="JSmol"></a><BR>
+   <BR>
+-->
+
+    <!-- PostScript version -->
+    <a href="../ligplot/met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.ps"
+       download type="application/postscript"
+       title="PostScript version of LIGPLOT diagram"><img
+    border=0 src="gif/psvers.gif" ALT=""></a>  
+   <BR>
+
+    <!-- PDF version -->
+    <a href="../ligplot/met_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.pdf"
+       download type="application/pdf"
+       title="PDF version of LIGPLOT diagram"><img
+       border=0 width=50 src="gif/pdf.gif" ALT=""></a>  
+   <BR>
+
+   <!-- List of interactions -->
+    <a href="../ligplot/metint_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>.txt"
+    onclick="NewWindow(this.href,'','800','600','yes');return false;"
+    target="metint_<FLD%>_LOOP1{i2}</FLD%>_<FLD%>_LOOP2{i2}</FLD%>"
+    title="List of interactions"><img
+    border=0 src="gif/results.gif" ALT=""></a>
+   <BR>
+    List of<BR>interactions
+      </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+ <tr>
+  <td class=lhdr align=center>
+   <img src="gif/1x1.gif" width=7 height=20 ALT=""><BR>
+   <FLD%>MET_RANGE</FLD%>
+  </td>
+  <td>
+   &nbsp;
+  </td>
+ </tr>
+<SKIP !NMET_DUPLIC>
+ <tr>
+  <td class=lhdr align=center>
+   <img src="gif/1x1.gif" width=1 height=10><BR>
+<SKIP NMET_DUPLIC[gt1]>
+   <FONT color=darkred>(also representing equivalent metal
+<LOOP NMET_DUPLIC>
+<FLD%>MET_DUPLIC</FLD%>
+</LOOP NMET_DUPLIC>
+   )</font>
+</SKIP NMET_DUPLIC[gt1]>
+<SKIP NMET_DUPLIC[eq1]>
+   <FONT color=orange>also representing <FLD%>NMET_DUPLIC</FLD%> other 
+    equivalent metals:<BR>
+<LOOP NMET_DUPLIC>
+<FLD%>MET_DUPLIC</FLD%><BR>
+</LOOP NMET_DUPLIC>
+   </font>
+</SKIP NMET_DUPLIC[eq1]>
+  </td>
+  <td>
+   &nbsp;
+  </td>
+ </tr>
+</SKIP !NMET_DUPLIC>
+</table>
+</BLOCK METAL_OPTION>
+</TD>
+
+<TD WIDTH=2%>&nbsp;&nbsp;</TD>
+</TR>
+
+</TABLE>
+<!-- -->
+
+<!-- Script to handle the 3Dmol.js display -->
+#insert:ins_lig_3dmol.html
+

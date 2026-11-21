@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>Viewing G-factors in 3D</title>
+
+<script language="javascript">
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)
+}
+</script>
+</head>
+<body>
+
+<H1>Viewing G-factors in 3D</H1>
+
+The <b><em>G</em>-factors</b> provide a measure of how
+"<b>normal</b>", or alternatively how "<b>unusual</b>", a given
+stereochemical property is.  There are two types computed by
+<b>PROCHECK</b>: torsion angle G-factors and covalent geometry
+G-factors.
+
+<P>
+The former can be viewed mapped onto the 3D structure of the protein
+in question if you have your browser configured to view <B>RasMol</B>
+scripts.
+
+<P>
+The torsion angle G-factors are as follows:
+
+<UL>
+<LI><b>phi-psi</b> combination
+<LI><b>chi1-chi2</b> combination
+<LI><b>chi1</b> torsion for those residues that do not have a <b>chi-2</b>
+<LI>combined <b>chi-3</b> and <b>chi-4</b> torsion angles
+<LI><b>omega</b> torsion angles
+</UL>
+
+<P>
+Where a particular torsion angle's G-factor is unusual (ie &lt;<B>-2.0</B>)
+the central bond defined by the torsion angle is highlighted in the
+structure as follows:
+
+<P>
+<BLOCKQUOTE>
+<FONT COLOR=WHITE>
+<TABLE cellspacing=0 cellpadding=0 border=1 bgcolor="#aaaaaa">
+ <TR>
+  <TD align=center>
+   <B>&nbsp;G-factor range&nbsp;</B>
+  </TD>
+  <TD align=center>
+   <B>&nbsp;Bond colour&nbsp;</B>
+  </TD>
+  <TD align=center>
+   <B>&nbsp;Bond thickness (&Aring;)&nbsp;</B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FFFF00">&nbsp;-2.0&nbsp;to&nbsp;-2.2&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFFF00">&nbsp;YELLOW&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFFF00">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FFD700">&nbsp;-2.2&nbsp;to&nbsp;-2.4&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFD700">&nbsp;GOLD&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFD700">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FFA500">&nbsp;-2.4&nbsp;to&nbsp;-2.6&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFA500">&nbsp;ORANGE&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FFA500">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF4500">&nbsp;-2.6&nbsp;to&nbsp;-2.8&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF4500">&nbsp;ORANGE-RED&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF4500">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF1493">&nbsp;-2.8&nbsp;to&nbsp;-3.0&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF1493">&nbsp;DEEP PINK&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF1493">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;-3.0&nbsp;to&nbsp;-3.5&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;RED&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;0.2&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;-3.5&nbsp;to&nbsp;-4.0&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;&quot;&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;0.3&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;-4.0&nbsp;to&nbsp;-4.5&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;&quot;&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;0.4&nbsp;</FONT></B>
+  </TD>
+ </TR>
+ <TR>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;-4.5&nbsp;to&nbsp;-5.0&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;&quot;&nbsp;</FONT></B>
+  </TD>
+  <TD align=center>
+   <B><FONT COLOR="#FF0000">&nbsp;0.5&nbsp;</FONT></B>
+  </TD>
+ </TR>
+</TABLE>
+</FONT>
+</BLOCKQUOTE>
+
+<P>
+Thus a quick look at the structure can often show the regions, or
+merely the isolated residues, that appear to have unusual geometry.
+
+
+</body>
+</html>
+

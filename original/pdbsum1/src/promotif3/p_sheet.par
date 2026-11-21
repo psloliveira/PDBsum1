@@ -1,0 +1,10 @@
+	integer maxres,maxstr,nsmax,fnamln,maxsht,maxchn,
+CPDBSUM RAL 21/4/05 -->
+C     ~	maxk,ressht,bufx,bufy
+C	parameter (maxres=20000,maxstr=600,nsmax=100,
+C     ~	fnamln=78,maxsht=150,maxchn=45,maxk=800,
+     ~	maxk,MXSSEQ,ressht,bufx,bufy,TOPLEN
+	parameter (maxres=20000,maxstr=2000,nsmax=100,
+     ~	fnamln=78,maxsht=150,maxchn=150,MXSSEQ=33,maxk=2000,TOPLEN=120,
+CPDBSUM RAL 21/4/05 <--
+     ~	ressht=800,bufx=100,bufy=160)

@@ -1,0 +1,14 @@
+	integer sizex,sizey,mres,hbfile,scfile,scfil2,scfil3,
+     ~		lmax,mhel,msht,mstr,scfil4,scfil5,npage,nsmax,
+     ~		sstfil,namfi,maxcol
+	parameter(sizex=400,sizey=120,mres=8500,hbfile=12,scfile=13,
+     ~	      scfil2=14,scfil3=15,scfil4=16,scfil5=17,mhel=100,
+     ~	      msht=100,mstr=300,npage=6,lmax=200,nsmax=50,
+     ~	      sstfil=7,namfi=8,maxcol=20)
+        real rgb(3,maxcol)
+	common/reals/ rgb
+	character colnam(maxcol)*12
+	common/chars/ colnam    
+	logical bw
+	common/logs/ bw
+

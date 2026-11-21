@@ -1,0 +1,2 @@
+#!/bin/csh
+xterm -e /software/bin/rasmol -script $1

@@ -1,0 +1,54 @@
+<html>
+<head>
+<title>10. Distorted geometry</title>
+
+<script language="javascript">
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)
+}
+</script>
+</head>
+<body>
+
+<H1>10. Distorted geometry</H1>
+
+<a href="gif/pplot10.gif"><img border=0 src="gif/pplot10.gif"></A>
+</CENTER>
+
+<H2>Description</H2>
+
+<p>
+These plots shows all distorted main-chain bond lengths, main-chain bond
+angles, and planar groups. 
+
+<p>
+For each main-chain bond length and angle plotted, the plot shows the
+<B>ideal</B> value (as defined by the Engh & Huber (1991)
+small-molecule data), the actual value, and the difference between the
+two.
+
+<p>
+For each distorted planar groups, three orthogonal projections are plotted
+and the value shown is the <B>RMS</B> distance of the atoms from the
+best-fit plane.
+
+<P>
+<B><I>Reference</I></B>
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <td valign=top>
+   Engh RA and Huber R (1991).  Accurate bond and angle
+   parameters for X-ray protein structure refinement. <EM>Acta Cryst.</EM>,
+   <B>A47</B>, 392-400.
+  </td>
+ </tr>
+</table>
+
+</body>
+</html>
+

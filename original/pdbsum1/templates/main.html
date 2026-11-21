@@ -1,0 +1,167 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET AF_FLAG="F">
+<BLOCK |ALPHA_FOLD>
+<SET PAGE_TITLE="PDBsum entry: <FLD%>PDB_CODE</FLD%>">
+</BLOCK |ALPHA_FOLD>
+<BLOCK ALPHA_FOLD>
+<SET PAGE_TITLE="Alpha Fold prediction for <FLD%>AF_UNIPROT_ACC</FLD%>">
+<SET AF_FLAG="T">
+</BLOCK ALPHA_FOLD>
+<SET PDB_TITLE="<FLD%>TITLE</FLD%>">
+<SET BAR_ALIGN="center">
+<SET BAR_HEADER="<FLD%>HEADER</FLD%>">
+<BLOCK !DNA_OPTION>
+<BLOCK !LINKS_OPTION>
+<SET TOP_PAGE="TRUE">
+<SET SIDE_LINE="TRUE">
+</BLOCK !LINKS_OPTION>
+</BLOCK !DNA_OPTION>
+<BLOCK DNA_OPTION>
+<SET DNA_PAGE="TRUE">
+</BLOCK DNA_OPTION>
+<BLOCK LINKS_OPTION>
+<SET LINKS_PAGE="TRUE">
+</BLOCK LINKS_OPTION>
+<SET COMMA1=",">
+<SET COMMA0=".">
+<SET COLON1=",">
+<SET COLON0=":">
+<SET NCOLS="20">
+<SET NWIR_IMAGES="2">
+
+<!-- Colours -->
+<SET ENCODE_COLOUR="#0D3692">
+<SET BORDER_COLOUR="#3884b0">
+
+<SET GO_TYPE1="COMP">
+<SET GO_TYPE2="PROC">
+<SET GO_TYPE3="FUNC">
+<SET NGO_TYPES="3">
+
+<SET MAX_COPIES="5">
+<SET MAX_UNIQUE="100">
+
+<SET ONE="1">
+
+<SET TAB1="Protein">
+<SET TAB2="DNA/RNA">
+<SET TAB3="Ligands">
+
+<!-- Get middle part of PDB code -->
+<SET CHAR2="<FLD%>PDB_CODE(p2)</FLD%>">
+<SET CHAR3="<FLD%>PDB_CODE(p3)</FLD%>">
+<SET MIDDLE="<FLD%>CHAR2</FLD%><FLD%>CHAR3</FLD%>">
+
+<!-- Define corresponding ConSurf directory -->
+<SET CONSURF_DIR="<LNK%>NEW_CONSURF_DIR</LNK%>/<FLD%>MIDDLE</FLD%>">
+
+<!-- Define global data files -->
+<SET UNICHAIN_DAT="<LNK%>PDBSUM_REAL_DATA_DIR</LNK%>/unichain.dat">
+<SET UNIFUNC_IDX="<LNK%>SWISSPROT_LOCAL_DIR</LNK%>/unifunc.idx">
+<SET CLUSTDIR="<LNK%>LIG_CLUSTERS_REAL_DIR</LNK%><LNK%>DIR_SEP</LNK%>">
+
+<SET CATH_0.0.0.0="TRUE">
+
+<!-- Read in the additional data files -->
+#read:<LNK%>PDIR</LNK%>/newsec/biomol.dat
+#read:<LNK%>PDIR</LNK%>/pnames.dat
+#read:<LNK%>PDIR</LNK%>/seqdata/seqinfo.dat
+#read:<LNK%>PDIR</LNK%>/seqdata/uniplot.dat
+
+<!-- EBI banner plus PDBsum tags -->
+#insert:tags.html
+
+<!-- 3Dmol.js scripts -->
+<script type="text/javascript" src="js/3dmol-min.js"></script>
+
+<!-- Main table for layout -->
+<table bgcolor="white" border=0 width=800 cellpadding=0 cellspacing=0>
+ <tr>
+
+  <!-- Left-hand panel containing thumbnail plus contents -->
+  <td align=left valign=top>
+#insert:thumbnail_3Dmoljs.html
+#insert:contents_panel.html
+  </td>
+
+  <!-- Central and right-hand panels -->
+  <td align=left valign=top>
+   <table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+    <tr>
+
+     <!-- Header information -->
+     <td align=left valign=top>
+#insert:header_info.html
+     </td>
+
+     <td align=left valign=top>
+      <img src="gif/1x1.gif" height=1 width=5>
+     </td>
+
+     <!-- Right-hand panel (PROCHECK plus header records and refs) -->
+     <td align=right valign=top>
+<BLOCK !LARGE>
+#insert:right_panel.html
+</BLOCK !LARGE>
+     </td>
+    </tr>
+
+<!-- Various inserts -->
+<BLOCK !LARGE>
+
+    <!-- Protein domain diagrams -->
+<BLOCK PROTEIN>
+    <tr>
+     <td colspan=3>
+#insert:protein_table.html
+     </td>
+    </tr>
+</BLOCK PROTEIN>
+
+    <!-- DNA/RNA chains -->
+<BLOCK DNA>
+    <tr>
+     <td colspan=3>
+#insert:dna_table.html
+     </td>
+    </tr>
+</BLOCK DNA>
+
+    <!-- Ligand definitions -->
+<BLOCK X_NLIGAND_TYPES>
+    <tr>
+     <td colspan=3>
+#insert:ligand_table.html
+     </td>
+    </tr>
+</BLOCK X_NLIGAND_TYPES>
+</BLOCK !LARGE>
+   </table>
+  </td>
+ <tr>
+</table>
+
+<!-- If any of the protein chains are enzymes, list the enzyme data -->
+<BLOCK NEC_NO>
+#insert:enzyme_reaction.html
+</BLOCK NEC_NO>
+
+<!-- If have GO annotations, show these -->
+<BLOCK HAVE_GO>
+#insert:go_annotations.html
+</BLOCK HAVE_GO>
+
+
+<!-- -------------------------------------------------------- -->
+<P>
+&nbsp;
+<P>
+
+<!-- Script to handle the 3Dmol.js thumbnail -->
+#insert:ins_3dmol.html
+
+#insert:end.html
+

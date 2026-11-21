@@ -1,0 +1,82 @@
+<script>
+  var canvas = document.createElement("canvas");
+  var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+  var show_3D = "TRUE";
+
+  //
+  // In no Webgl, unset flag
+  //
+  if (!gl)
+  {
+    console.log('*** WebGL not available');
+    var show_3D = "FALSE";
+  }
+
+  //
+  // Count number of Webgl extensions
+  //
+  else
+  {
+    var ext = gl.getSupportedExtensions();
+// debug
+    console.log("Number of GL extensions = " + ext.length);
+//    for (var i = 0; i < ext.length; i++) {
+//      console.log("  " + i + ". " + ext[i]);
+//    }
+// debug
+
+    //
+    // If too few extensions, unset flag
+    //
+    if (ext.length < 12)
+      {
+        console.log('*** Too few WebGL extensions');
+        var show_3D = "FALSE";
+      }
+  }
+
+  //
+  // If can use Webgl, then display molecule
+  //
+  if (show_3D === "TRUE")
+  {
+    //
+    // Display molecule using 3dmol.js
+    //
+    console.log('WebGL OK');
+    document.write('<script accesskey="ligand_js" src="ligand_<FLD%>LIGAND_TYPE</FLD%>_plugin.js"'+
+<SKIP !PDBSUM_FIELDS>
+    'pdb_code="<FLD%>PDB_CODE</FLD%>" ligand_seq="<FLD%>LIGAND_SEQ</FLD%>" clig_no="<FLD%>LIGAND_TYPE</FLD%>" labels="<FLD%>LABELS_3DMOL</FLD%>" type="text/javascript"></script\>');
+</SKIP !PDBSUM_FIELDS>
+<SKIP !LIG2PDB_FIELDS>
+    'pdb_code="<FLD%>LIG_PLOT_PDB</FLD%>" ligand_seq="<FLD%>LIG_NAME</FLD%>" clig_no="<FLD%>LIG_PLOT_NO</FLD%>" labels="<FLD%>LABELS_3DMOL</FLD%>" type="text/javascript"></script\>');
+</SKIP !LIG2PDB_FIELDS>
+<SKIP !HET2PDB_FIELDS>
+    'pdb_code="<FLD%>LIG_PLOT_PDB</FLD%>" ligand_seq="<FLD%>LIG_NAME</FLD%>" clig_no="<FLD%>LIGAND_TYPE</FLD%>" labels="<FLD%>LABELS_3DMOL</FLD%>" type="text/javascript"></script\>');
+</SKIP !HET2PDB_FIELDS>
+   }
+
+  //
+  // Otherwise, show static image
+  //
+  else
+  {
+    //
+    // Show static image
+    //
+    document.getElementById('gldiv').innerHTML
+    = '<img width=240 height=240 src="tmpgif/newsec/ligand_<FLD%>LIGAND_TYPE</FLD%>.png">';
+    
+    //
+    // Remove 3Dmol icon and comment
+    //
+    if (document.getElementById('3dicon'))
+    {
+       document.getElementById('3dicon').innerHTML = '';
+    }
+    if (document.getElementById('use_mouse'))
+    {
+       document.getElementById('use_mouse').innerHTML = '';
+    }
+  }
+</script>

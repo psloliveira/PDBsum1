@@ -1,0 +1,278 @@
+<!-- Insert file for helix tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOLS="25">
+
+<!-- Initialise plot parameters -->
+<SET PLOT="Helices">
+<SET DOC_NAME="helices">
+<SET PLOT_NO="8">
+<SET NPPLOT="8">
+<SET NACROSS="2">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<SET FALSE="No">
+<SET TRUE="Yes">
+<SET VALUE0.00="TRUE">
+<SET VALUE0.0="TRUE">
+<FLD%>_COUNTER3=1</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif/promotif.dat
+
+<!-- Helices: Plots and table of statistics -->
+ <tr>
+  <td width=600 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+    <table cellpadding=0 cellspacing=0 border=0>
+
+<!-- Heading -->
+     <tr>
+      <td>
+       <table cellpadding=0 cellspacing=0 bgcolor="#eef5f5">
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+        <tr>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+         <td align="left" width="600">
+          <font class="ebi_green_head">
+           &nbsp;&nbsp;<FLD%>PLOT</FLD%>
+          </font>
+         </td>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+        </tr>
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+
+<!-- Table of statistics -->
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=30></td>
+     </tr>
+     <tr>
+      <td class=lhdr align=left>
+       Table of helices
+      </td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+       <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>View</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;No.<BR>resid&nbsp;</B></FONT>
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Unit<BR>rise</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Residues<BR>per turn</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Pitch</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Deviation<BR>from ideal</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sequence</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER3++</FLD%>
+        <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+         <td align=right>
+          &nbsp;<font face=arial><FLD%>HL_HELIX_NO</FLD%>.&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+           <a href="../rasmol/<FLD%>P_MOTIFNAME<NO%>PLOT_NO</NO%></FLD%>_<FLD%>PLOT_CHAIN</FLD%>_<FLD%>_LOOP1</FLD%>.rasmol"
+           download type="application/x-rasmol"
+           title="View motif in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HL_RESNAM1{t}</FLD%><FLD%>HL_RESNUM1</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HL_RESNAM2{t}</FLD%><FLD%>HL_RESNUM2</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HL_TYPE</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HL_NRESID</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>HL_RUN_LENGTH</NO%>>
+          &nbsp;<font face=arial><FLD%>HL_RUN_LENGTH</FLD%></font>&nbsp;
+</SKIP VALUE<NO%>HL_RUN_LENGTH</NO%>>
+<SKIP !VALUE<NO%>HL_RUN_LENGTH</NO%>>
+          &nbsp;<font color="orange" face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>HL_RUN_LENGTH</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>HL_UNIT_RISE</NO%>>
+          &nbsp;<font face=arial><FLD%>HL_UNIT_RISE</FLD%></font>&nbsp;
+</SKIP VALUE<NO%>HL_UNIT_RISE</NO%>>
+<SKIP !VALUE<NO%>HL_UNIT_RISE</NO%>>
+          &nbsp;<font color="orange" face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>HL_UNIT_RISE</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>HL_RES_PER_TURN</NO%>>
+          &nbsp;<font face=arial><FLD%>HL_RES_PER_TURN</FLD%></font>&nbsp;
+</SKIP VALUE<NO%>HL_RES_PER_TURN</NO%>>
+<SKIP !VALUE<NO%>HL_RES_PER_TURN</NO%>>
+          &nbsp;<font color="orange" face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>HL_RES_PER_TURN</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>HL_PITCH</NO%>>
+          &nbsp;<font face=arial><FLD%>HL_PITCH</FLD%></font>&nbsp;
+</SKIP VALUE<NO%>HL_PITCH</NO%>>
+<SKIP !VALUE<NO%>HL_PITCH</NO%>>
+          &nbsp;<font color="orange" face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>HL_PITCH</NO%>>
+         </td>
+         <td></td>
+         <td align=center>
+<SKIP VALUE<NO%>HL_RMSD_FROM_IDEAL</NO%>>
+          &nbsp;<font face=arial><FLD%>HL_RMSD_FROM_IDEAL</FLD%></font>&nbsp;
+</SKIP VALUE<NO%>HL_RMSD_FROM_IDEAL</NO%>>
+<SKIP !VALUE<NO%>HL_RMSD_FROM_IDEAL</NO%>>
+          &nbsp;<font color="orange" face=arial>-</font>&nbsp;
+</SKIP !VALUE<NO%>HL_RMSD_FROM_IDEAL</NO%>>
+         </td>
+         <td></td>
+         <td align=left>
+          &nbsp;<font face=arial><FLD%>HL_SEQUENCE</FLD%></font>&nbsp;
+         </td>
+        </tr>
+<FLD%>_COUNTER4++</FLD%>
+</LOOP NDBT_FIELDS>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td class=medtxt>
+       <P>
+       Number of helices in chain <FLD%>PLOT_CHAIN</FLD%>:
+       <FLD%>NDBT_FIELDS</FLD%>
+      </td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=5></td>
+     </tr>
+
+<!-- Plot in PostScript and PDF format, and motif description -->
+     <tr>
+      <td>
+       <table>
+        <tr>
+	 <td>
+          <B>Plots: </B>
+         </td>
+	 <td>
+          <a href="../psplots/<FLD%>DOC_NAME</FLD%>_<FLD%>PLOT_CHAIN</FLD%>.ps"
+	   ><img src="gif/psvers.gif" width=30 border=0></a>
+	 </td>
+	 <td>
+          Postscript
+	 </td>
+	 <td><img src="gif/1x1.gif" width=20 height=1></td>
+	 <td>
+          <a href="../psplots/<FLD%>DOC_NAME</FLD%>_<FLD%>PLOT_CHAIN</FLD%>.pdf"
+	   ><img src="gif/pdf.gif" width=30 border=0></a>
+	 </td>
+	 <td>
+          PDF
+	 </td>
+	 <td><img src="gif/1x1.gif" width=30 height=1></td>
+	 <td align=left>
+	   <a href="file://<LNK%>PDBSUM_DOCS_DIR</LNK%>/doc_p_<FLD%>DOC_NAME</FLD%>.html"
+          onclick="NewWindow(this.href,'help','1000','620','yes');return false;"
+          ><img src="gif/doc.gif" width=30 border="0"></a>
+	 </td>
+	 <td>
+          Motif description
+	 </td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+

@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>1. Main Ramachandran plot</title>
+
+</head>
+<body>
+
+<H1>1. Main Ramachandran plot</H1>
+
+<CENTER>
+<a href="gif/pplot01.gif"><img border=0 src="gif/pplot01.gif"></A>
+</CENTER>
+
+<H2>Description</H2>
+
+<p>
+The <B>Ramachandran plot</B> shows the <B>phi-psi</B>
+torsion angles for all residues in the structure (except those at the chain
+termini). Glycine residues are separately identified by triangles as these
+are not restricted to the regions of the plot appropriate to the other
+sidechain types.
+
+<p>
+The colouring/shading on the plot represents the different regions (see below)
+described in Morris <I>et al.</I> (1992):
+the <B>darkest</B> areas (here shown in <em>red</em>) correspond to the
+<B>&quot;core&quot;</B> regions representing the most <B>favourable</B>
+combinations of <B>phi-psi</B> values.
+
+<p>
+Ideally, one would hope to have over <B>90%</B> of the residues in these
+<B>&quot;core&quot;</B> regions. The percentage of residues in the
+<B>&quot;core&quot;</B> regions is one of the better guides to
+stereochemical quality.
+
+<H2>Ramachandran plot regions</H2>
+
+<p>
+The different regions on the <B>Ramachandran plot</B> are as
+described in Morris <I>et al.</I> (1992).
+
+<p>
+The regions are labelled as follows:
+
+<p>
+<PRE>
+   <B> A</B>   - Core alpha           <B> L</B>   - Core left-handed alpha   
+   <B> a</B>   - Allowed alpha        <B> l</B>   - Allowed left-handed alpha
+   <B>~a</B>   - Generous alpha       <B>~l</B>   - Generous left-handed alpha
+   <B> B</B>   - Core beta            <B> p</B>   - Allowed epsilon          
+   <B> b</B>   - Allowed beta         <B>~p</B>   - Generous epsilon         
+   <B>~b</B>   - Generous beta
+</PRE>
+
+<p>
+The different regions were taken from the observed <B>phi-psi</B>
+distribution for <B>121,870</B> residues from <B>463</B> known X-ray
+protein structures. The two most favoured regions are the
+<B>&quot;core&quot;</B> and <B>&quot;allowed&quot;</B> regions which
+correspond to <B>10&#176;</B> x <B>10&#176;</B> pixels having more than
+<B>100</B> and <B>8</B> residues in them, respectively. The
+<B>&quot;generous&quot;</B> regions were defined by Morris <I>et
+al.</I> (1992) by extending out by
+<B>20&#176;</B> (two pixels) all round the <B>&quot;allowed&quot;</B>
+regions. In fact, the authors found very few residues in these
+<B>&quot;generous&quot;</B> regions, so they can probably be treated much
+like the <B>&quot;disallowed&quot;</B> region and any residues in them
+investigated more closely.
+
+
+<P>
+<B><I>Reference</I></B>
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <th valign=top>
+   <a
+   href="https://onlinelibrary.wiley.com/doi/10.1002/prot.340120407"
+   target="Morris_et_al"
+  ><img border=0 src="gif/fulltext.gif"></A>
+  </th>
+  <td valign=top>
+   Morris AL, MacArthur MW, Hutchinson EG, Thornton JM (1992).
+   Stereochemical quality of protein structure coordinates. <I>Proteins</I>,
+   <B>12</B>, 345-364.
+  </td>
+ </tr>
+</table>
+
+</body>
+</html>
+

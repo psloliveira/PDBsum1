@@ -1,0 +1,4 @@
+CLEFT_COL0 cleft
+CLEFT_COL1 closest atom type
+CLEFT_COL2 residue type
+CLEFT_COL3 residue conservation

@@ -1,0 +1,37 @@
+<script>
+  var canvas = document.createElement("canvas");
+  var gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+
+<BLOCK !LARGE>
+  if (!gl)
+</BLOCK !LARGE>
+  {
+    console.log('*** WebGL not available');
+    document.getElementById('gldiv').innerHTML = '<img width=240 height=240 src="tmpgif/newsec/traces.png">';
+    if (document.getElementById('3dicon'))
+      {
+        document.getElementById('3dicon').innerHTML = '';
+      }
+  }
+<BLOCK !LARGE>
+  else
+  {
+    var ext = gl.getSupportedExtensions();
+    if (ext.length < 12)
+      {
+        console.log('*** Too few WebGL extensions');
+        document.getElementById('gldiv').innerHTML = '<img width=240 height=240 src="tmpgif/newsec/traces.png">';
+        if (document.getElementById('3dicon'))
+          {
+            document.getElementById('3dicon').innerHTML = '';
+          }
+      }
+    else
+      {
+        console.log('WebGL OK');
+        document.write('<script accesskey="pdbsum_js" src="PDBsum1_plugin.js"'+
+	'pdb_code=<FLD%>PDB_CODE</FLD%> lock=<FLD%>LOCK</FLD%> type="text/javascript"></script\>');
+      }
+  }
+</BLOCK !LARGE>
+</script>

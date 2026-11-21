@@ -1,0 +1,15 @@
+CPDBSUM RAL 30/3/05 -->
+C	integer fnamln,strkfi,maxdsf,outfil,namfi
+	integer fnamln,strkfi,maxdsf,outfil,outdis,namfi
+CPDBSUM RAL 30/3/05 <--
+	character space
+
+	parameter(fnamln=80)
+	parameter (namfi=1)
+	parameter (strkfi=2)
+	parameter (outfil=3)
+CPDBSUM RAL 30/3/05 -->
+	parameter (outdis=8)
+CPDBSUM RAL 30/3/05 <--
+	parameter (maxdsf=5700)
+	parameter (space=' ')

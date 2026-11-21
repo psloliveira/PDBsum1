@@ -1,0 +1,73 @@
+Y <- beta turns
+Y <- gamma turns
+Y <- bulges
+Y <- hairpins
+Y <- sheets and strands
+Y <- helices
+Y <- disulphides
+Y <- summary
+N <- Black and White (Y) /Colour (N)
+ 50.0 <- percentage of structures which must agree for consenus
+K <- K for Standard Kabsch and Sander summary, P for Promotif summary data
+
+Colours:
+0.0000 0.0000 0.0000 'BLACK'        <- Colour 1
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 2
+1.0000 0.0000 0.0000 'RED'          <- Colour 3
+0.0000 1.0000 0.0000 'GREEN'        <- Colour 4
+0.0000 0.0000 1.0000 'BLUE'         <- Colour 5
+1.0000 1.0000 0.0000 'YELLOW'       <- Colour 6
+0.8000 0.5000 0.0000 'ORANGE'       <- Colour 7
+0.5000 1.0000 0.0000 'LIME GREEN'   <- Colour 8
+0.5000 0.0000 1.0000 'PURPLE'       <- Colour 9
+0.5000 1.0000 1.0000 'CYAN'         <- Colour 10
+1.0000 0.5000 1.0000 'PINK'         <- Colour 11
+0.3000 0.8000 1.0000 'SKY BLUE'     <- Colour 12
+1.0000 1.0000 0.7000 'CREAM'        <- Colour 13
+0.0000 1.0000 1.0000 'TURQUOISE'    <- Colour 14
+1.0000 0.0000 1.0000 'LILAC'        <- Colour 15
+0.8000 0.0000 0.0000 'BRICK RED'    <- Colour 16
+0.5000 0.0000 0.0000 'BROWN'        <- Colour 17
+0.9700 0.9700 0.9700 'LIGHT GREY'   <- Colour 18
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 19
+1.0000 1.0000 1.0000 'WHITE'        <- Colour 20
+
+Turn Parameters:
+CREAM        <- Ramachandran plot background colour
+PURPLE       <- Residue Markings for i+1 and i+2
+RED          <- Residue numbers and turn type
+RED          <- Schematic turn
+PURPLE       <- Residue letters on schematic turn
+BLUE         <- Calpha-Calpha distance
+RED          <- Arrow indicating hydrogen bond
+
+Gamma Turn Parameters:
+YELLOW       <- Ramachandran plot background colour
+BLUE         <- Residue Marking for i+1 and arrow
+RED          <- Residue numbers and turn type
+RED          <- Schematic turn
+PURPLE       <- Residue letters on schematic turn
+LILAC        <- Calpha-Calpha distance
+
+Bulge Parameters:
+CREAM        <- Ramachandran plot background colour
+PINK         <-	Residues x,1,2
+SKY BLUE     <-	Any extra residues in bulge
+BLUE         <-	Bulge type
+RED          <-	Residues in schematic diagram
+PURPLE       <-	Hydrogen bonds
+
+Hairpin Parameters:
+YELLOW       <- Arrows representing strands
+BLUE         <- Residue numbers
+RED          <- Hairpin class
+BLUE         <-	Strand residues in schematic diagram
+PINK         <- Hydrogen bonds
+RED          <-	Loop residues in schematic diagram
+
+
+Helix Parameters:
+GREEN        <- Circle, net and hydrophobic residues
+RED          <- Charged residues
+BLUE         <-	Polar residues
+PURPLE       <- Residue numbers and sequence

@@ -1,0 +1,12 @@
+Required software
+-----------------
+
+PyMOL
+convert
+ps2pdf
+Raste3D
+
+Download Het Group Dictionary (ie update the one in the data directory)
+
+
+

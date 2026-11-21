@@ -1,0 +1,86 @@
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td class=lhdr colspan=2>
+   <FONT COLOR=darkred>Nucleic acid sequence<s% NNUCL></FONT>
+   &nbsp;
+   <P>
+   &nbsp;
+  </td>
+ </tr>
+<LOOP NNUCL>
+ <tr>
+  <td class=lhdr colspan=2>Chain <IMG align=top width=18 border=0 src="gif/chain<FLD%>NUCL_CHAIN{chn}</FLD%>.jpg">
+(<FLD%>NNUCL_BASES</FLD%> bases)
+  </td>
+ </tr> 
+ <tr> 
+  <td colspan=2>
+   <img src="gif/1x1.gif" HEIGHT=3 ALT=""><BR>
+  </td>
+ </tr>
+
+<SKIP NSEQLINE[gt1]>
+ <tr> 
+  <td class=shdr valign=top>
+   <font color=blue>Sequence:</font>
+  </td>
+  <td align=left valign=top>
+<LOOP NSEQLINE>
+   <B><FLD%>NUCL_SEQ{c50}</FLD%></B>
+</LOOP NSEQLINE>
+  </td>
+ </tr>
+</SKIP NSEQLINE[gt1]>
+<SKIP NSEQLINE[eq1]>
+ <tr> 
+  <td class=shdr colspan=2>
+   <font color=blue>Sequence:</font>
+  </td>
+ </tr>
+ <tr> 
+  <td colspan=2>
+   <img src="gif/1x1.gif" HEIGHT=5 ALT=""><BR>
+  </td>
+ </tr> 
+ <tr> 
+  <td align=left valign=top colspan=2>
+<LOOP NSEQLINE>
+   <B><FLD%>NUCL_SEQ</FLD%></B><BR>
+</LOOP NSEQLINE>
+  </td>
+ </tr>
+</SKIP NSEQLINE[eq1]>
+ <tr> 
+  <td colspan=2>
+   <img src="gif/1x1.gif" HEIGHT=15 ALT=""><BR>
+  </td>
+ </tr> 
+</LOOP NNUCL>
+<BLOCK NUCPLOT>
+ <tr> 
+  <td class=shdr valign=top colspan=2>
+   <a href="../nucplot/nucplot.ps"
+   title="NUCPLOT of protein-DNA interactions"><img
+   download type="application/postscript"
+   align=center src="gif/nucplot.gif"></a>
+   <a href="../nucplot/nucplot.ps"
+     title="NUCPLOT of protein-DNA interactions"><img
+     download type="application/postscript"
+     class=menuClass>NUCPLOT</a>
+     - Plot of protein-DNA interactions (PostScript file)
+  </td>
+ </tr>
+ <tr>
+  <td class=shdr valign=top colspan=2>
+   <a href="../nucplot/nucplot.pdf"
+   title="PDF version of NUCPLOT"><img
+   download type="application/pdf"
+   align=center border=0 width=50 src="gif/pdf.gif" ALT=""></a>
+   <a href="../nucplot/nucplot.pdf"
+    title="PDF version of NUCPLOT"><img
+    download type="application/pdf"
+    class=menuClass>PDF version</a>
+  </td>
+ </tr>
+</BLOCK NUCPLOT>
+</table>

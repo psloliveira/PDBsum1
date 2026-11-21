@@ -1,0 +1,224 @@
+<!-- Insert file for psi loops tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOLS="17">
+
+<!-- Initialise plot parameters -->
+<SET DOC_NAME="psi_loop">
+<SET PLOT="Psi loops">
+<SET PLOT_NO="5">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<FLD%>_COUNTER3=1</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif/promotif.dat
+
+<!-- Psi Loops: Table of statistics -->
+ <tr>
+  <td width=600 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+    <table cellpadding=0 cellspacing=0 border=0>
+
+<!-- Heading -->
+     <tr>
+      <td>
+       <table cellpadding=0 cellspacing=0 bgcolor="#eef5f5">
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+        <tr>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+         <td align="left" width="600">
+          <font class="ebi_green_head">
+           &nbsp;&nbsp;<FLD%>PLOT</FLD%>
+          </font>
+         </td>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+        </tr>
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+
+<!-- Table of statistics -->
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+       <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 1</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Strand 2</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Loop</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+         <td></td>
+         <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+         <td></td>
+         <td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>View</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Start</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>End</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Length</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER3++</FLD%>
+        <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>_LOOP1</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          <a href="../rasmol/<FLD%>P_MOTIFNAME<NO%>PLOT_NO</NO%></FLD%>_<FLD%>PLOT_CHAIN</FLD%>_<FLD%>_LOOP1</FLD%>.rasmol"
+           download type="application/x-rasmol"
+           title="View motif in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+         </td>
+         <td></td>
+         <td align=right>
+          &nbsp;<font color="blue" face=arial><FLD%>PS_RES_NAM1{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM1</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>PS_RES_NAM2{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM2</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>PS_LEN_STRAND1</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=right>
+          &nbsp;<font color="green" face=arial><FLD%>PS_RES_NAM3{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM3</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="green" face=arial><FLD%>PS_RES_NAM4{t}</FLD%>&nbsp;<FLD%>PS_RES_NUM4</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="green" face=arial><FLD%>PS_LEN_STRAND2</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="red" face=arial><FLD%>PS_LEN_LOOP</FLD%>&nbsp;
+         </td>
+        </tr>
+<FLD%>_COUNTER4++</FLD%>
+<SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+<SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+</SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER4=0</FLD%>
+</SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+</LOOP NDBT_FIELDS>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td class=medtxt>
+       <P>
+       Number of psi loops in chain <FLD%>CHAIN</FLD%>:
+       <FLD%>NDBT_FIELDS</FLD%>
+      </td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=5></td>
+     </tr>
+
+<!-- Motif description -->
+     <tr>
+      <td class=lhdr align=left>
+       <a href="file://<LNK%>PDBSUM_DOCS_DIR</LNK%>/doc_p_<FLD%>DOC_NAME</FLD%>.html"
+	  onclick="NewWindow(this.href,'help','1000','620','yes');return false;"><img
+          src="gif/doc.gif" width=30 border="0"></a> Motif description
+      </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+

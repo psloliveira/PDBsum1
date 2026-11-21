@@ -1,0 +1,446 @@
+<!-- Table giving enzyme info, including enzyme reaction diagrams -->
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+
+ <tr>
+  <td colspan=4><img src="gif/1x1.gif" height=15 ALT=""></td> 
+ </tr>
+
+<!-- Enzymes tab -->
+ <tr>
+  <td align=left valign=bottom colspan=6>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tl_curve.gif" height=5 width=5>
+     </td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+       src="gif/1x1.gif"></td>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tr_curve.gif" height=5 width=5>
+     </td>
+    </tr>
+    <tr>
+     <td height=4><img
+       src="gif/1x1.gif" height=4></td>
+    </tr>
+    <tr>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+      <img src="gif/1x1.gif" width=1>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td class=submn>
+      <font color=darkred><B>&nbsp;Enzyme&nbsp;reactions&nbsp;</B></font>
+     </td> 
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1>
+      <img src="gif/1x1.gif" width=1 height=15>
+     </td>
+     <td width=16777216>
+      <img src="gif/1x1.gif">
+     </td>
+    </tr>
+    <tr>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor=white colspan=3 height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1 colspan=2><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+  <td colspan=4 width=16777216><img src="gif/1x1.gif" height=5 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+ </tr>
+
+<!-- Loop over all the E.C. numbers -->
+<FLD%>_COUNTER5=0</FLD%>
+<LOOP NEC_NO>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td width=1% class=shdr valign=top align=left>
+<SKIP NEC_NO[gt1]>
+   &nbsp;&nbsp;&nbsp;Enzyme&nbsp;class:
+</SKIP NEC_NO[gt1]>
+<SKIP NEC_NO[eq1]>
+<FLD%>_COUNTER2++</FLD%>
+   &nbsp;&nbsp;&nbsp;Enzyme&nbsp;class&nbsp;<FLD%>_COUNTER2</FLD%>:
+</SKIP NEC_NO[eq1]>
+  </td>
+  <td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+  <td class=ftxt valign=top align=left>
+<SKIP NUNIQ[eq1]>
+   Chain<s% NEC_NO_CHAINS> <FLD%>EC_NO_CHAINS</FLD%>:
+</SKIP NUNIQ[eq1]>
+
+   <!-- Link to EC->PDB -->
+   <a href="<LNK%>GET_EC</LNK%>"
+    target=EC_PDB_<FLD%>EC_NO</FLD%>
+    onmouseover="return overlib('Go to EC->PDB database', WRAP);"
+    onmouseout="return nd();">E.C.<FLD%>EC_NO</FLD%></a>
+
+<!-- Enzyme name(s) -->
+
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/enzname.dat">
+#read:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/enzname.dat
+   <font color=blue>&nbsp;-&nbsp;<FLD%>ENZ_NAME</FLD%></font>
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/enzname.dat">
+  </td>
+
+  <!-- Links to other enzyme databases -->
+  <td align=right>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td>
+      <a href="<LNK%>URL_INTENZ</LNK%><FLD%>EC_NO</FLD%>"
+       target=IntEnz_<FLD%>EC_NO</FLD%>>[IntEnz]</a> &nbsp;
+      <a href="<LNK%>URL_EXPASY_ENZYMES</LNK%><FLD%>EC_NO</FLD%>"
+       target=ExPASy_<FLD%>EC_NO</FLD%>>[ExPASy]</a> &nbsp;
+      <a href="<LNK%>URL_KEGG</LNK%><FLD%>EC_NO</FLD%>"
+       target=KEGG_<FLD%>EC_NO</FLD%>>[KEGG]</a> &nbsp;
+      <a href="<LNK%>URL_BRENDA</LNK%><FLD%>EC_NO</FLD%>"
+       target=BREND_<FLD%>EC_NO</FLD%>>[BRENDA]</a>
+     </td>
+     <td><img src="gif/1x1.gif" width=5 height=1 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+ </tr>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=3 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+ </tr>
+
+<!-- Pathway(s) -->
+
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/paths.dat">
+#read:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/paths.dat
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td class=shdr valign=top align=left>
+   <img src="gif/1x1.gif" width=100 height=1 ALT=""><BR>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pathway:
+  </td>
+  <td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+  <td colspan=2 class=ftxt valign=top>
+<FLD%>_COUNTER7=0</FLD%>
+<GLOOP NPATHS>
+<FLD%>_COUNTER7++</FLD%>
+<SKIP COUNTER7[eq1]>
+      ,
+</SKIP COUNTER7[eq1]>
+   <a href="<LNK%>URL_EC_PATH</LNK%><FLD%>PATH_LINK</FLD%>"
+    target=PATHWAY_<FLD%>EC_NO</FLD%>
+    onmouseover="return overlib('Reaction pathway diagram at the Enzyme Nomenclature database', WRAP);"
+    onmouseout="return nd();">
+    <b><FLD%>PATH_TITLE</FLD%></b></a>
+</GLOOP NPATHS>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=3 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+ </tr>
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/paths.dat">
+
+<!-- Enzyme reaction -->
+
+<SKIP "<LNK%>PDIR</LNK%>/noreaction.dat">
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.dat">
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td class=shdr valign=top align=left>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Reaction:
+  </td>
+  <td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+  <td colspan=2 class=ftxt valign=top align=left>
+   <font color=orange>
+#include:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.dat
+   </font>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=3 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+ </tr>
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.dat">
+
+<!-- If have a reaction diagram, insert it here -->
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.db">
+
+<!-- Read in the reaction steps and molecules -->
+#read:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.db
+
+<!-- Loop over the steps making up this reaction -->
+<LOOP NSTEPS>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td colspan=4 valign=top align=leftt>
+
+   <table>
+    <tr>
+<LOOP NTERMS>
+     <th align=center>
+<SKIP MOLEC_NAME>
+      <FONT COLOR=DARKRED SIZE=+1><B>
+      <FLD%>OPERATOR</FLD%>
+      </B></FONT>
+</SKIP MOLEC_NAME>
+<SKIP OPERATOR>
+<SKIP !MOLEC_NO>
+<SKIP !REAC_MATCH>
+<SKIP REAC_MATCH[eq100]>
+      <table border=0 bgcolor=blue cellpadding=2 cellspacing=0>
+</SKIP REAC_MATCH[eq100]>
+<SKIP REAC_MATCH[lt100]>
+      <table border=0 bgcolor=red cellpadding=2 cellspacing=0>
+</SKIP REAC_MATCH[lt100]>
+       <tr>
+        <th>
+         <table border=0 bgcolor=white cellpadding=3 cellspacing=0>
+          <tr>
+           <th>
+            <a href="./ligands.html&l=<FLD%>REAC_LIG</FLD%>.<FLD%>REAC_LIGNUM</FLD%>"
+            onmouseover="return overlib('Go to matching ligand', WRAP);"
+            onmouseout="return nd();">
+</SKIP !REAC_MATCH>
+            <img src="<LNK%>GET_PDBSUM_GIF</LNK%>?kegg_id=<FLD%>MOLEC_NO</FLD%>"
+            border=0>
+<FLD%>_COUNTER5++</FLD%>
+<SKIP !REAC_MATCH>
+            </a>
+           </th>
+          </tr>
+         </table>
+        </th>
+       </tr>
+      </table>
+</SKIP !REAC_MATCH>
+</SKIP !MOLEC_NO>
+<SKIP !NMOLINST>
+      <FLD%>NMOLINST</FLD%>
+<SKIP NMOLINST[eq0]>
+      &times;
+</SKIP NMOLINST[eq0]>
+</SKIP !NMOLINST>
+      <FLD%>MOLEC_NAME</FLD%><BR>
+<SKIP !REAC_MATCH>
+      <font color=green>
+      Bound ligand (Het Group name&nbsp;=&nbsp;<a
+      href="./ligands.html&l=<FLD%>REAC_LIG</FLD%>.<FLD%>REAC_LIGNUM</FLD%>"
+      onMouseOver="window.status='Go to matching ligand'; return true;"
+      class=menuClass><FLD%>REAC_HETNAME</FLD%></a>)<BR>
+<SKIP REAC_MATCH[eq100]>
+      matches with <FLD%>REAC_MATCH</FLD%>% similarity
+</SKIP REAC_MATCH[eq100]>
+<SKIP REAC_MATCH[lt100]>
+      corresponds exactly
+</SKIP REAC_MATCH[lt100]>
+      </font>
+</SKIP !REAC_MATCH>
+</SKIP OPERATOR>
+     </th>
+</LOOP NTERMS>
+    </tr>
+   </table>
+
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=5 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+ </tr>
+</LOOP NSTEPS>
+
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=5 ALT=""></td> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=5 width=1></td> 
+ </tr>
+
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/reaction.db">
+
+<!-- Cofactor -->
+
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.dat">
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td class=shdr valign=top align=left>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cofactor:
+  </td>
+  <td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+  <td colspan=2 class=ftxt valign=top align=left>
+   <font color=green>
+#include:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.dat
+   </font>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+  <td colspan=4><img src="gif/1x1.gif" height=3 ALT=""></TD> 
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" height=3 width=1></td> 
+</TR>
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.dat">
+
+<!-- If have a cofactor diagram, insert it here -->
+<SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.db">
+#read:<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.db
+
+<!-- Cofactor diagram -->
+
+<SKIP COF_NMOLECS[eq0]>
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+  <td colspan=4 valign=top align=leftt>
+
+   <table>
+    <tr>
+<LOOP COF_NTERMS>
+     <th align=center>
+<SKIP COF_MOLEC_NAME>
+      <font color=darkred size=+1><B>
+       <FLD%>COF_OPERATOR</FLD%>
+      </b></font>
+</SKIP COF_MOLEC_NAME>
+<SKIP COF_OPERATOR>
+<SKIP !COF_MOLEC_NO>
+<SKIP !COF_MATCH>
+<SKIP COF_MATCH[eq100]>
+      <table border=0 bgcolor=blue cellpadding=2 cellspacing=0>
+</SKIP COF_MATCH[eq100]>
+<SKIP COF_MATCH[lt100]>
+      <table border=0 bgcolor=red cellpadding=2 cellspacing=0>
+</SKIP COF_MATCH[lt100]>
+       <tr>
+        <th>
+         <table border=0 bgcolor=white cellpadding=3 cellspacing=0>
+          <tr>
+           <th>
+            <a href="./ligands.html&l=<FLD%>COF_LIG</FLD%>.<FLD%>COF_LIGNUM</FLD%>"
+             onmouseover="return overlib('Go to matching ligand', WRAP);"
+             onmouseout="return nd();">
+</SKIP !COF_MATCH>
+            <img src="<LNK%>GET_PDBSUM_GIF</LNK%>?kegg_id=<FLD%>COF_MOLEC_NO</FLD%>"
+             border=0>
+<FLD%>_COUNTER5++</FLD%>
+<SKIP !COF_MATCH>
+            </a>
+           </th>
+          </tr>
+         </table>
+        </th>
+       </tr>
+      </table>
+</SKIP !COF_MATCH>
+</SKIP !COF_MOLEC_NO>
+      <B><FLD%>COF_MOLEC_NAME</FLD%></B><BR>
+<SKIP !COF_MATCH>
+      <font color=green>
+      Bound ligand (Het Group name =
+      <a href="./ligands.html&l=<FLD%>COF_LIG</FLD%>.<FLD%>COF_LIGNUM</FLD%>"
+       onmouseover="return overlib('Go to matching ligand', WRAP);"
+       onmouseout="return nd();">
+      <FLD%>COF_HETNAME</FLD%></a>)
+<SKIP COF_MATCH[eq100]>
+      matches with <FLD%>COF_MATCH</FLD%>% similarity
+</SKIP COF_MATCH[eq100]>
+<SKIP COF_MATCH[lt100]>
+      corresponds exactly
+</SKIP COF_MATCH[lt100]>
+      </font>
+</SKIP !COF_MATCH>
+</SKIP COF_OPERATOR>
+     </th>
+</LOOP COF_NTERMS>
+    </tr>
+   </table>
+  </td>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" width=1><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+</SKIP COF_NMOLECS[eq0]>
+</SKIP !"<LNK%>ENZYME_REAL_DIR</LNK%>/ec<FLD%>EC_NO(1)</FLD%>/ec<FLD%>EC_NO(2){i2}</FLD%>/ec<FLD%>EC_NO(3){i2}</FLD%>/ec<FLD%>EC_NO(4){i4}</FLD%>/cofactor.db">
+
+
+</SKIP "<LNK%>PDIR</LNK%>/noreaction.dat">
+
+</LOOP NEC_NO>
+
+ <tr>
+  <td bgcolor="<FLD%>BORDER_COLOUR</FLD%>" height=1 width=1
+   colspan=6><img src="gif/1x1.gif" width=1></td> 
+ </tr>
+ <tr bgcolor="#DDDDDD">
+  <td colspan=6><img width=1 height=4 src="gif/1x1.gif"></td>
+ </tr>
+
+ <!-- If have more than one E.C. code per chain, show warning message -->
+<FLD%>_COUNTER1=0</FLD%>
+<SKIP NEC_NO[eq1]>
+ <tr>
+  <td colspan=6 class=ttxt>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=4 ALT=""></td>
+    </tr>
+    <tr>
+     <td align=left>
+      <font color=red>
+      Note, where more than one E.C. class is given (as above), each may
+      correspond to a different protein domain or, in the case of polyprotein
+      precursors, to a different mature protein.
+      </font>
+<FLD%>_COUNTER1++</FLD%>
+     </td> 
+    </tr>
+   </table>
+  </td> 
+ </tr>
+ <tr>
+  <td colspan=4><img src="gif/1x1.gif" height=3 ALT=""></td> 
+ </tr>
+</SKIP NEC_NO[eq1]>
+ 
+ <!-- Show note about molecule diags coming from KEGG -->
+<SKIP COUNTER5[eq0]>
+ <tr>
+  <td colspan=6 class=ttxt>
+   <table border=0 cellpadding=0 cellspacing=0>
+<SKIP COUNTER1[ne0]>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=4 ALT=""></td>
+    </tr>
+</SKIP COUNTER1[ne0]>
+    <tr>
+     <td align=left>
+      <font color=darkred>
+      Molecule diagrams generated from .mol files obtained from the
+      <a href="<LNK%>URL_KEGG_FTP</LNK%>">KEGG ftp site</a>
+      </font>
+     </td> 
+    </tr>
+   </table>
+  </td> 
+ </tr>
+ <tr>
+  <td colspan=6><img src="gif/1x1.gif" height=3 ALT=""></td> 
+ </tr>
+</SKIP COUNTER5[eq0]>
+
+</table>

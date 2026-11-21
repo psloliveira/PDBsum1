@@ -1,0 +1,253 @@
+<!-- Insert file for helix interaction tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOLS="22">
+
+<!-- Initialise plot parameters -->
+<SET PLOT="Helix-helix interactions">
+<SET DOC_NAME="helint">
+<SET PLOT_NO="9">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<FLD%>_COUNTER3=1</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+<FLD%>BLANK<NO%>_ON_OFF++</NO%></FLD%>
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif/promotif.dat
+
+<!-- Helix Interactions: Plots and table of statistics -->
+ <tr>
+  <td width=600 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+    <table cellpadding=0 cellspacing=0 border=0>
+
+<!-- Heading -->
+     <tr>
+      <td>
+       <table cellpadding=0 cellspacing=0 bgcolor="#eef5f5">
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+        <tr>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+         <td align="left" width="600">
+          <font class="ebi_green_head">
+           &nbsp;&nbsp;<FLD%>PLOT</FLD%>
+          </font>
+         </td>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+        </tr>
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+
+<!-- Table of statistics -->
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+       <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom colspan=2 bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">&nbsp;</td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom colspan=2 bgcolor="#DDDDDD">
+          <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;Interaction&nbsp;</B></FONT>
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD" colspan=5>
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No. interacting residues</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td colspan=2 bgcolor="#DDDDDD"><img src="gif/1x1.gif" width=1 height=1></td>
+         <td></td>
+         <td class=color colspan=5><img src="gif/1x1.gif" width=3 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No.</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>View</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helices</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>types</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Distance&nbsp;(&Aring;)</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Angle&nbsp;(&deg;)</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom colspan=2 bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>type</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Total</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix&nbsp;1</B></FONT>&nbsp;
+         </td>
+         <td></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Helix&nbsp;2</B></FONT>&nbsp;
+         </td>
+        </tr>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER3++</FLD%>
+        <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+         <td align=right>
+          &nbsp;<font face=arial><FLD%>_LOOP1</FLD%>.&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          <a href="../rasmol/<FLD%>P_MOTIFNAME<NO%>PLOT_NO</NO%></FLD%>_<FLD%>PLOT_CHAIN</FLD%>_<FLD%>_LOOP1</FLD%>.rasmol"
+           download type="application/x-rasmol"
+           title="View motif in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="red" face=arial><FLD%>HI_CHAIN1</FLD%><FLD%>HI_HELIX_NUM1</FLD%>&nbsp;
+         </td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>HI_CHAIN2</FLD%><FLD%>HI_HELIX_NUM2</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="red" face=arial><FLD%>HI_HELIX_TYPE1</FLD%>&nbsp;
+         </td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>HI_HELIX_TYPE2</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HI_DISTANCE</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HI_OMEGA</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="red" face=arial><FLD%>HI_INT_TYPE1</FLD%>&nbsp;
+         </td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>HI_INT_TYPE2</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>HI_NINT_PAIRS</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="red" face=arial><FLD%>HI_NRES_INT1</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font color="blue" face=arial><FLD%>HI_NRES_INT2</FLD%>&nbsp;
+         </td>
+        </tr>
+<FLD%>_COUNTER4++</FLD%>
+<SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+<SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+</SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER4=0</FLD%>
+</SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+</LOOP NDBT_FIELDS>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td class=medtxt>
+       <P>
+       Number of helix interactions involving helices of chain <FLD%>CHAIN</FLD%>:
+       <FLD%>NDBT_FIELDS</FLD%>
+      </td>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=5></td>
+     </tr>
+
+<!-- Motif description -->
+     <tr>
+      <td class=lhdr align=left>
+       <a href="file://<LNK%>PDBSUM_DOCS_DIR</LNK%>/doc_p_<FLD%>DOC_NAME</FLD%>.html"
+        onclick="NewWindow(this.href,'help','1000','620','yes');return false;"><img
+        src="gif/doc.gif" width=30 border="0"></a> Motif description
+      </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+

@@ -1,0 +1,14 @@
+	integer maxres,maxstr,hpinfi,namfi,mapfi,nhfi,
+     ~	        nsmax,maxsht,ressht,maxchn
+	real energy
+	character space*1
+CPDBSUM RAL 21/4/05 -->
+C	parameter (maxres=20000,maxstr=600,energy=-0.5,
+	parameter (maxres=20000,maxstr=2000,energy=-0.5,
+CPDBSUM RAL 21/4/05 <--
+     ~	hpinfi=14,space=' ',namfi=1,mapfi=15,nhfi=16,
+     ~	nsmax=100,maxsht=150,ressht=800, maxchn=1000)
+CPDBSUM RAL 24/3/05 -->
+      integer mxhlen, mxslen, outpin
+      parameter (mxhlen=300,mxslen=30,outpin=10)
+CPDBSUM RAL 24/3/05 <--

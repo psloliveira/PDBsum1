@@ -1,0 +1,68 @@
+c************************************************************************
+c     filename:      newtab2ds.par
+c     last modified: 26th March 1991
+c************************************************************************
+c
+c     implicit complex(a-z)
+c     implicit none
+c
+      integer   maxaas, fnamln, namfi,  strkfi, outfi,  brcdpl, hdsz,
+     +          intset, nbeta,  ngamma, hlxtyp, btrnsz, ks3,    gtrnsz,
+     +          gamodd, mxbgdf, gamcla, gaminv, maxtyp, beta,   gamma, 
+     +          nturn,  NPHIS,  PPFI,   GOODTN, ABANDN, LGETN,  KS4,
+CPDBSUM RAL 14/3/05 -->
+C     +          KS5,outfig
+     +          KS5,outfig,outbet,outgam
+CPDBSUM RAL 14/3/05 <--
+      real      angtol, nulang, btrnds, LGETOL
+      character brksym*1, misch*1, bndbeg*1, bndbth*1, idnull*6,
+     +          space*1, brform*7, slform*8
+c
+      parameter(maxaas = 20000) 
+      parameter(fnamln = 80) 
+      parameter(namfi  = 15) 
+      parameter(strkfi = 16)
+      parameter(outfi  = 17)   
+      parameter(PPFI = 18)     
+      parameter(outfig = 19)
+CPDBSUM RAL 14/3/05 -->
+      parameter(outbet = 20)
+      parameter(outgam = 21)
+CPDBSUM RAL 14/3/05 <--
+      parameter(brcdpl = 3)  
+      parameter(hdsz   = 3)  
+      parameter(intset = 8) 
+      parameter(nbeta  = 9)    
+      parameter(ngamma = 3)  
+      parameter(hlxtyp = 3)  
+      parameter(btrnsz = 3)
+      parameter(ks3    = 2)    
+      parameter(gtrnsz = 2)  
+      parameter(gamodd = nbeta + 1)
+      parameter(mxbgdf = nbeta + ngamma)    
+      parameter(gamcla = nbeta + 2)
+      parameter(gaminv = nbeta + 3)         
+      parameter(maxtyp = nbeta + ngamma + 3)
+      parameter(beta = 1)      
+      parameter(gamma = 2)   
+      parameter(nturn = 3)    
+      parameter(NPHIS = 36) 
+      parameter(GOODTN = 1)  
+      parameter(ABANDN = 3)   
+      parameter(LGETN = 2) 
+      parameter(KS4 = 1)       
+      parameter(KS5 = 3)
+      parameter(angtol = 30.0) 
+      parameter(nulang = 999.9) 
+      parameter(btrnds = 7.0)
+      parameter(LGETOL = 40.0)
+      parameter(brksym = '!')       
+      parameter(misch  = '*')      
+      parameter(bndbeg = '>') 
+      parameter(bndbth = 'X')       
+      parameter(idnull = '-0000 ') 
+      parameter(space  = ' ') 
+      parameter(brform = '(1X,A4)') 
+      parameter(slform = '(19X,I4)')
+c
+c===============================================================================

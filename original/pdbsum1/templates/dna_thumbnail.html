@@ -1,0 +1,100 @@
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+<BLOCK !TRANSPARENT>
+  <td  width=240 height=240 valign=top><img src="tmpgif/newsec/dna.png" border=0 width=240 height=240></td> 
+</BLOCK !TRANSPARENT>
+<BLOCK TRANSPARENT>
+  <td  width=240 height=240 valign=top><a href="tmpgif/newsec/dna.png" 
+   onclick="NewWindow(this.href,'','260','260','yes');return false;"
+   target=image
+   onmouseout="mouseoff('dna')" onmouseover="mouseon('dna'); window.status='Click to view'; return true;"><img src="tmpgif/newsec/tdna.png" name="dna" border=0 width=240 hight=240></a></td>
+ </tr>
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td align=center>
+   <font size=1pt face=arial color=darkred>DNA/RNA chain(s) highlighted</font>
+  </td>
+ </tr>
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td align=center><font size=1pt face=arial color=darkred>(click to view)</font></td>
+ </tr>
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td align=center>
+   &nbsp;
+  </td>
+</BLOCK TRANSPARENT>
+ </tr>
+
+ <!-- Gap -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td>
+   <img width=1 height=10 src="gif/1x1.gif">
+  </td>
+ </tr>
+
+ <!-- Viewers -->
+ <tr>
+<BLOCK SIDE_LINE>
+  <td bgcolor="<FLD%>TAGS_COLOUR</FLD%>" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+</BLOCK SIDE_LINE>
+  <td colspan=3 align=center>
+   <table bgcolor="white" border=0 cellpadding=0 cellspacing=0>
+    <tr>
+<!--
+     <td align=left valign=center>
+      <B>View in: &nbsp;</B>
+     </td>
+-->
+     <td align=center valign=center>
+
+      <!-- RasMol -->
+      <a href="<LNK%>GETRASMOL_PL</LNK%>&origin=pdbsum"
+       onmouseover="return overlib('View schematic of 3D structure in RasMol', WRAP);"
+       onmouseout="return nd();"><img
+       border=0 height=18 src="gif/rasmollogo3_5.gif" ALT=""></A>
+
+     </td>
+     <td>&nbsp;</td>
+     <td align=left valign=center>
+
+      <!-- JSmol -->
+<!--
+      <a href="./jmolrasmol.html&param1=pdbsum"
+      onclick="NewWindow(this.href,'jmol','750','750','yes');return false;"
+       onmouseover="return overlib('View schematic of 3D structure in JSmol', WRAP);"
+       onmouseout="return nd();"><img
+       border=0 height=20 src="gif/JSmol_sm.png" ALT="Jmol"></A>
+-->
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+
+</table>

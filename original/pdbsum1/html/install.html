@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="eng"><head><!-- InstanceBegin template="/Templates/new_template_leftmenu.dwt" codeOutsideHTMLIsLocked="false" -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="EBI Web Team">
+<meta http-equiv="Content-Language" content="en-GB">
+<meta http-equiv="Window-target" content="_top">
+<meta name="no-email-collection" content="http://www.unspam.com/noemailcollection/">
+<meta name="generator" content="Dreamweaver 8"><!-- InstanceBeginEditable name="doctitle" -->
+<meta name="robots" content="index,nofollow">
+<title>PDBsum1 installation</title><!-- InstanceEndEditable -->
+<link rel="stylesheet" href="//www.ebi.ac.uk/inc/css/contents.css" type="text/css">
+<link rel="stylesheet" href="//www.ebi.ac.uk/inc/css/userstyles.css" type="text/css">
+<link rel="stylesheet" href="css/page.css" type="text/css"/>
+<script src="//www.ebi.ac.uk/inc/js/contents.js" type="text/javascript"></script><style type="text/css">@media print { body, .contents, .header, .contentsarea, .head{ position: relative;}  } </style>
+<link rel="stylesheet" href="//www.ebi.ac.uk/inc/css/sidebars.css" type="text/css">
+<link rel="SHORTCUT ICON" href="http://www.ebi.ac.uk/bookmark.ico">
+<style type="text/css">
+@media print {
+  body, .contents, .header, .contentsarea, .head {
+    position: relative;
+  }
+}
+</style><!-- InstanceBeginEditable name="head" --><!--  start meta tags, css , javascript here   --><!--  end meta tags, css , javascript here  -->
+<!-- ... Overlib script (c) Erik Bosrup -->
+<script type="text/javascript" src="/thornton-srv/databases/pdbsum/javascript/overlib.js">
+</script>
+<!-- overLIB end -->
+<!-- InstanceEndEditable --></head>
+<body onload="if(navigator.userAgent.indexOf('MSIE') != -1) {document.getElementById('head').allowTransparency = true;}">
+  <div class="headerdiv" id="headerdiv" style="position: absolute; z-index: 1;">
+    <iframe src="//www.ebi.ac.uk/inc/head.html" name="head" id="head" marginwidth="0" marginheight="0" style="position: absolute; z-index: 1; height: 57px;" frameborder="0" scrolling="no" width="100%">Your
+browser does not support inline frames or is currently configured not
+to display inline frames. Content can be viewed at actual source page:
+http://www.ebi.ac.uk/inc/head.html</iframe>
+  </div>
+  <div class="contents" id="contents"><table class="contentspane" id="contentspane" summary="The main content pane of the page"><tbody><tr><td class="leftmargin"><img src="//www.ebi.ac.uk/inc/images/spacer.gif" class="spacer" alt="spacer"></td><td class="leftmenucell" id="leftmenucell">
+<td class="contentsarea" id="contentsarea">
+    <!-- InstanceBeginEditable name="contents" -->
+    <!-- start contents here -->
+    <div class="breadcrumbs">
+        <a href="/" class="firstbreadcrumb">EBI</a>
+        <a href="/Groups/">Groups</a>
+        <a href="/research/thornton/">Thornton</a>
+        <a href="/research/thornton/software">Software</a>
+        <a href="index.html">PDBsum<i>1</i></a>
+        <a href="">Installation Instructions</a>
+    </div>
+
+<font size=+1>
+
+<h1>PDBsum<i>1</i> Installation Instructions</h1>
+
+<a href="index.html"
+   title="Go to PDBsum1 home page"
+   ><img width=150 alt="PDBsum1" src="gif/PDBsum1_logo.png"
+   border=0></a>
+
+<h1><font size=+1>1. Download PDBsum<i>1</i> (v.1.0.1)</font></h1>
+
+You can obtain the latest version (v.1.0.1) of the <B>PDBsum<i>1</i></B> programs here:
+
+<BR>&nbsp;<BR>
+<table border=0 cellpadding=0 cellspacing=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=20 height=1></td>
+  <td align=left valign=top>
+<!--   <a href="https://oc.ebi.ac.uk/s/s8LKYaTxcpkknkT" -->
+   <a href="download.html"
+    target=PDBsum1
+    title="Download PDBsum1"
+   ><img border=0 src="gif/download.gif"></a>
+  </td>
+  <td><img src="gif/1x1.gif" width=6 height=1></td>
+  <td align=left valign=top>
+   <B>PDBsum1 programs</B>
+   <BR>&nbsp;<BR>
+   Click on the icon on the left to download the <B>pdbsum1.zip</B>
+   file which contains the PDBsum<i>1</i> executables and associated
+   files.
+  </td>
+ </tr>
+</table>
+
+<P>
+&nbsp;
+
+<h1><font size=+1>2. Install the programs</font></h1>
+
+Move <B>pdbsum1.zip</B> to an appropriate location. On Windows, for
+example, this might be the <B>C:\</B> drive. Then unpack as follows:
+
+<H2><font size=+1>a. Linux and mac</font></H2>
+
+Unzip the file as follows:
+
+<BLOCKQUOTE>
+<font color=blue><B>unzip pdbsum1.zip</B></font>
+</BLOCKQUOTE>
+
+This will create a directory called 
+<B>pdbsum1</B>, and various subdirectories beneath, containing all the
+necessary files.
+
+<H2><font size=+1>b. Windows</font></H2>
+
+Right-click on the file's icon and select
+<font color=blue><B>Extract All</B></font>. When prompted, choose to
+extract to <B>C:\</B>, or wherever else you would like to store the
+programs.
+
+A directory called <B>pdbsum1</B> will be created containing all
+ the necessary files.
+<BR>&nbsp;<BR>
+
+&nbsp;
+
+<h1><font size=+1>3. Check the executables</font></h1>
+
+It is a good idea to check whether the installed executables are
+compatible with your operating system. If not, you can recompile the
+programs from the supplied source code, as described shortly.
+
+<H2><font size=+1>a. Linux and mac</font></H2>
+
+To perform the check on linux or mac, open a terminal window and go to
+the appropriate executables directory:
+
+<UL>
+<LI><B>linux</B>
+<BLOCKQUOTE>
+<font color=blue><B>cd [fullpath]/pdbsum1/exe_linux</B></font>
+</BLOCKQUOTE>
+
+<LI><B>mac</B>
+<BLOCKQUOTE>
+<font color=blue><B>cd [fullpath]/pdbsum1/exe_mac</B></font>
+</BLOCKQUOTE>
+</UL>
+
+Then type:
+
+<BLOCKQUOTE>
+<font color=blue><B>./pdbsum1</B></font>
+</BLOCKQUOTE>
+
+If all is OK, you will see the following message:
+
+<PRE>
+Usage is:
+
+pdbsum1 {file [pdb_code] | -l dataset.lst} [-nomaxchn]  [-help]
+
+where
+     * file           = Name of single PDB file to be processed
+     * pdb_code       = Optional 4-character identifier
+     * -l dataset.lst = Name of file listing PDB files to be processed
+     * -nomaxchn      = Clefts to be generated even if more than 4 chains in structure
+     * -relinks       = Make all image links relative
+</PRE>
+
+If not, you will see something line:
+
+<PRE>
+./pdbsum1: Exec format error. Binary file not executable.
+</PRE>
+
+or
+
+<PRE>
+'.\pdbsum1' is not recognized as an internal or external command, operable program or batch file.
+</PRE>
+
+<BR>&nbsp;<BR>
+In which case, you will need to recompile the programs as described below.
+
+<H2><font size=+1>b. Windows</font></H2>
+
+For Windows, you need to open a "Command Prompt" window. This is the
+window you will use to run <B>PDBsum<i>1</i></B>. To open it, enter
+"command" into the Windows search box at the bottom left of the
+screen:
+
+<BR>&nbsp;<BR>
+<img src="gif/WindowsSearch.png" width=700><BR>
+
+<BR>&nbsp;<BR>
+Then, click on the "Command Prompt" app:<BR>
+
+<BR>&nbsp;<BR>
+<img src="gif/CommandPrompt.png" width=600><BR>
+
+<BR>&nbsp;<BR>
+And you will get the Command Prompt window:
+<BR>&nbsp;<BR>
+
+<img src="gif/CommandPromptWindow.png" width=600><BR>
+
+<BR>&nbsp;<BR>
+You can now enter the required commands into this window.
+
+<BR>&nbsp;<BR>
+To check whether the installed executables are
+compatible with your operating system go to the <B>exe_win</B>
+directory. If you installed the programs in <B>C:\</B>, the commands will be:
+
+<BLOCKQUOTE>
+<font color=blue><B>C:</B></font><BR>
+<font color=blue><B>cd C:\pdbsum1\exe_win</B></font><BR>
+</BLOCKQUOTE>
+
+If you installed the program elsewhere, then the path in the second
+command will need to be changed accordingly. For example, if you uzipped
+the programs into <B>C:\Users\yourname</B>, the second command becomes:
+
+<BLOCKQUOTE>
+<font color=blue><B>cd C:\Users\yourname\pdbsum1\exe_win</B></font><BR>
+</BLOCKQUOTE>
+
+Then type::
+
+<BLOCKQUOTE>
+<font color=blue><B>.\pdbsum1</B></font>
+</BLOCKQUOTE>
+
+If all is OK, you will see the following message:
+
+<PRE>
+Usage is:
+
+pdbsum1 {file [pdb_code] | -l dataset.lst} [-nomaxchn]  [-help]
+
+where
+     * file           = Name of single PDB file to be processed
+     * pdb_code       = Optional 4-character identifier
+     * -l dataset.lst = Name of file listing PDB files to be processed
+     * -nomaxchn      = Clefts to be generated even if more than 4 chains in structure
+</PRE>
+
+If not, you will see something line:
+
+<PRE>
+./pdbsum1: Exec format error. Binary file not executable.
+</PRE>
+
+or
+
+<PRE>
+'.\pdbsum1' is not recognized as an internal or external command, operable program or batch file.
+</PRE>
+
+<BR>&nbsp;<BR>
+In which case, you will need to recompile the programs as described in
+the next section.
+
+</UL>
+
+<H1><font size=+1>4. Recompiling the programs</font></H1>
+
+If your check in the previous section gives you an error, you can
+recompile the programs from this same directory by typing:
+
+<BLOCKQUOTE>
+<font color=blue><B>source ../scripts/compile.linux</B></font> - for linux
+</BLOCKQUOTE>
+
+or
+
+<BLOCKQUOTE>
+<font color=blue><B>source ../scripts/compile.mac</B></font> - for mac
+</BLOCKQUOTE>
+
+For Windows, you will need to have a linux-like environment such as
+<B>cygwin</B> or <B>Msys2</B> installed with a C and gfortran
+compiler, or make use of the Visual Studio build tools. The equivalent
+command from the exe_win directory will then be:
+
+<BLOCKQUOTE>
+<font color=blue><B>source ../scripts/compile.win</B></font>
+</BLOCKQUOTE>
+
+Contact <a href="mailto:roman@ebi.ac.uk"
+	   class=menuClass>roman@ebi.ac.uk</a> if you have any problems,
+stating the version of the operating system that you have.
+
+<BR>&nbsp;<BR>
+
+&nbsp;
+
+
+<H1><font size=+1>5. Download required external packages</font></H1>
+
+PDBsum<i>1</i> requires a number of 3rd-party packages to run. These
+are listed below and must be installed or the programs will not be
+able to run properly. If your system does not already have them, a
+Google search will help you to find where to obtain them. On mac,
+you can use Homebrew (https://brew.sh) to install them all.
+
+<OL>
+<LI><B>PyMOL</B> - There are a number of versions of this program
+  available. Many are free - or are available for free as educational
+  versions. Any version from <B>v.0.99</B> upwards is fine.
+
+<P>
+<LI><B>ImageMagick convert</B> - PDBsum<i>1</i> contains many images,
+  and the bulk of the image conversion is performed by
+  the <B>convert</B> utility in the ImageMagick package, which is
+  available from:
+
+<BLOCKQUOTE>
+    <a href="https://imagemagick.org/script/download.php"
+       >https://imagemagick.org/script/download.php</a>
+</BLOCKQUOTE>
+
+Note that, if during running PDBsum<i>1</i> you get an error of the form:
+
+<PRE>
+convert: attempt to perform an operation not allowed by the security policy
+`PS' @ error/constitute.c/IsCoderAuthorized/408.
+</PRE>
+
+you may need to make the change to the ImageMagick <B>policy.xml</B> file, as
+described in:
+
+<BLOCKQUOTE>
+    <a href="https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion"
+       >https://stackoverflow.com/questions/52998331/imagemagick-security-policy-pdf-blocking-conversion</a>
+</BLOCKQUOTE>
+
+<P>
+<LI><B>wget</B> - This is a tool for downloading files from the web
+  and is used by PDBsum<i>1</i> to retrieve a protein's UniProt data and Pfam
+  domains, where relevant.
+
+  <UL>
+<BR>&nbsp;<BR>
+   <LI>On <B>linux</B> systems <B>wget</B> is likely already part of
+       your installation. You can check whether you have it by
+       typing:
+
+<BLOCKQUOTE>
+<font color=blue><B>which wget</B></font>    
+</BLOCKQUOTE>
+
+      If this doesn't find the program, use Google to learn how to
+      install it.
+
+<BR>&nbsp;<BR>
+   <LI>For <B>Windows</B> systems, the following link will tell you how to
+   get <B>wget</B>:
+<BLOCKQUOTE>
+    <a href="https://builtvisible.com/download-your-website-with-wget/"
+       >https://builtvisible.com/download-your-website-with-wget/</a>
+</BLOCKQUOTE>
+
+     Save the file in your "C:\Program Files" directory in, say, a
+     subdirectory called <B>wget</B>.
+  </UL>
+
+<BR>&nbsp;<BR>
+<LI><B>ps2pdf</B> - This is a utility for converting PostScript files
+  to PDF and comes as part of the <B>Ghostscript</B> package:
+<BLOCKQUOTE>
+    <a href="https://www.ghostscript.com/releases/gsdnld.html"
+       >https://www.ghostscript.com/releases/gsdnld.html</a>
+</BLOCKQUOTE>
+
+If you are running on Windows, you will need to update your computer's
+"PATH" variable to include the <B>Ghostscript</B> <B>bin</B>
+and <B>lib</B> directories. The former might have already been done
+automatically for you during installation.
+
+<BR>&nbsp;<BR>
+To update your "PATH", follow the instructions applying to your
+version of Windows, as given here:
+<BLOCKQUOTE>
+    <a href="https://www.computerhope.com/issues/ch000549.htm"
+       target="WinPath"
+       >https://www.computerhope.com/issues/ch000549.htm</a>
+</BLOCKQUOTE>
+
+The paths you need to add will be of the form:
+
+<BR>&nbsp;<BR>
+<UL>
+  <LI>C:\Program Files\gs\gs9.56.1\bin
+<BR>&nbsp;<BR>
+  <LI>C:\Program Files\gs\gs9.56.1\lib
+</UL>
+
+<BR>&nbsp;<BR>
+where the <B>gs9.56.1</B> is the <B>Ghostscript</B> version and will
+depend on which version you have installed.
+
+<BR>&nbsp;<BR>
+Once the path has been set, you can test it is correct by typing the name of the application
+file in the <B>bin</B> directory - eg <B>gswin64</B>. If the path is right,
+you will see a new window open with a "<B>GS></B>" prompt. Close the window
+by entering "<B>quit</B>".
+
+
+</OL>
+
+<BR>&nbsp;<BR>
+<H1><font size=+1>5. Download optional packages</font></H1>
+
+The following packages are recommended for download.
+
+<OL>
+<LI><B>RasMol</B> - This was one of the first molecular viewers
+  developed and is still probably the simplest to use, with a fairly
+  intuitive set of commands. Many of the analyses in PDBsum<i>1</i>
+  (eg beta turns, protein-ligand interactions) can only currently be
+  viewed in 3D using <B>RasMol</B>, so it is recommended you install
+  it.
+
+<BR>&nbsp;<BR>
+<LI><B>LigPlot+</B> - This is a program for plotting, and then
+  interactively editing, schematic diagrams of protein-ligand
+  interactions. The Ligands tab on a PDBsum<i>1</i> page includes a
+  LIGPLOT diagram. If you have <B>LigPlot+</B> installed, you can
+  click on the <B>LigPlot+</B> icon to load the diagram into this
+  program for modifying, printing, etc.
+
+<BR>&nbsp;<BR>
+    The program is freely available to academic institutions. Further
+    information can be found at:
+
+<BLOCKQUOTE>
+    <a href="https://www.ebi.ac.uk/thornton-srv/software/LigPlus"
+       >LigPlot+ home page</a>
+</BLOCKQUOTE>
+
+</OL>
+
+<BR>&nbsp;<BR>
+<h1><font size=+1>6. Editing the parameter file</font></h1>
+
+Before you can run PDBsum<i>1</i>, you need to tell the program where
+certain things are located so that it can find them. This is done
+by editing a simple text file called <B>CATHPARAM</B>, located in the
+directory:
+
+<BLOCKQUOTE>
+  <font color=blue><B>pdbsum1/params</B></font>
+</BLOCKQUOTE>
+
+Only six parameters need to be edited, as shown in green below:
+
+<BR>&nbsp;<BR>
+<CENTER>
+<table>
+ <tr>
+  <td align=center>
+   linux example
+  </td>
+  <td>&nbsp; &nbsp;</td>
+  <td align=center>
+   Windows example
+  </td>
+ </tr>
+ <tr>
+  <td align=center>
+   <table cellpadding=10 border=1>
+    <tr>
+     <td>
+<PRE>
+###########################################################################
+#
+# Paths and directories for PDBsum1
+#
+###########################################################################
+
+#
+#-- Operating system: linux/win/mac
+#<font color=green>
+OPERATING_SYSTEM      = linux
+</font>
+
+#
+#-- Location of installed PDBsum1 system and subdirectories
+#<font color=green>
+PDBSUM1_DIR           = /nfs/userapps/pdbsum1
+</font>
+#
+#-- Directory where the results are to be written
+#<font color=green>
+PDBSUM1_RESULTS_DIR   = /nfs/data/pdbsum1
+</font>
+#
+#-- Paths to required external software (put NONE if not available)
+#<font color=green>
+CONVERT_EXE = /usr/bin/convert
+PS2PDF      = /usr/bin/ps2pdf
+PYMOL_EXE   = /nfs/research1/software/Linux_x86_64/bin/pymol
+WGET        = /usr/bin/wget
+</font>
+</PRE>
+     </td>
+    </tr>
+   </table>
+  </td>
+  <td>&nbsp; &nbsp;</td>
+  <td align=center>
+   <table cellpadding=10 border=1>
+    <tr>
+     <td>
+<PRE>
+###########################################################################
+#
+# Paths and directories for PDBsum1
+#
+###########################################################################
+
+#
+#-- Operating system: linux/win/mac
+#<font color=green>
+OPERATING_SYSTEM      = win
+</font>
+
+#
+#-- Location of installed PDBsum1 system and subdirectories
+#<font color=green>
+PDBSUM1_DIR           = C:\PDBsum1
+</font>
+#
+#-- Directory where the results are to be written
+#<font color=green>
+PDBSUM1_RESULTS_DIR   = C:\Users\user\data\PDBsum1
+</font>
+#
+#-- Paths to required external software (put NONE if not available)
+#<font color=green>
+CONVERT_EXE = "C:\Program Files\ImageMagick-7.1.0-Q16-HDRI\convert"
+PS2PDF      = "C:\Program Files\gs\gs9.56.1\lib\ps2pdf"
+PYMOL_EXE   = "C:\Program Files (x86)\PyMOL\PyMOLWin.exe"
+WGET        = "C:\Windows\System32\wget"
+</font>
+</PRE>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table>
+</CENTER>
+
+<BR>&nbsp;<BR>
+The parameters you need to define are:
+
+<BR>&nbsp;<BR>
+<UL>
+<LI><font color=green>OPERATING_SYSTEM</font> - This should be
+<font color=green>linux</font>,
+<font color=green>mac</font>, or
+<font color=green>win</font>, and tells the programs which set of
+executables to use.
+  
+<BR>&nbsp;<BR>
+<LI><font color=green>PDBSUM1_DIR</font> - This defines the
+  directory where the PDBsum<i>1</i> programs are installed. The
+  correct directory will contain the following
+  subdirectories: <B>compile</B>, <B>data</B>, <B>docs</B>, etc.
+
+<BR>&nbsp;<BR>
+<LI><font color=green>PDBSUM1_RESULTS_DIR</font> - This tells PDBsum<i>1</i>
+  the name of the directory where it is to write all its output
+  files. This directory must exist, so make sure you create it before
+  running the program.
+
+<BR>&nbsp;<BR>
+<LI><font color=green>CONVERT_EXE</font> - The full path to the
+  ImageMagick <B>convert</B> image conversion program. <B>Note</B> for
+  more recent versions of ImageMagick, replace <B>convert</B> with
+  <B>magick</B>. You will need <B>V.1.0.1</B> of <B>PDBsum1</B> or later.
+
+<BR>&nbsp;<BR>
+<LI><font color=green>PS2PDF</font> - The path of the <B>ps2pdf</B>
+  utility that converts PostScript files to PDF.
+
+<BR>&nbsp;<BR>
+<LI><font color=green>PYMOL_EXE</font> - The path to the <B>PyMOL</B>
+  executable.
+
+<BR>&nbsp;<BR>
+<LI><font color=green>WGET</font> - The path of <B>wget</B>, which
+  downloads files from the web.
+</UL>
+
+<BR>&nbsp;<BR>
+<h1><font size=+1>7. Script for RasMol</font></h1>
+
+Many of the PDBsum<i>1</i> analyses can be viewed in 3D using
+the <B>RasMol</B> molecular viewer. These include the structure as a
+whole, protein-ligand interasctions, and individual ProMotif motifs.
+
+<BR>&nbsp;<BR>
+PDBsum<i>1</i> generates <B>RasMol</B> scripts to display these
+correctly. However, to view them needs a little set-up. There are two
+scripts in the <B>pdbsum1/scripts</B> directory to help you. Both are
+called <B>rasscriptstart</B>. The one with the <B>.scr</B> extension
+is for use on linux or mac, while the <B>.bat</B> one is for Windows
+machines. They are:
+
+<BR>&nbsp;<BR>
+<table>
+ <tr>
+  <th align=left valign=bottom>
+   Operating<BR>system
+  </th>
+  <td>&nbsp;</td>
+  <th align=left valign=bottom>
+   File name
+  </th>
+  <td>&nbsp;</td>
+  <th align=left valign=bottom>
+   Contents
+  </th>
+ </tr>
+ <tr>
+  <td align=left valign=center>
+   linux/mac
+  </td>
+  <td>&nbsp;</td>
+  <td align=left valign=center>
+   rasscriptstart.scr
+  </td>
+  <td>&nbsp;</td>
+  <td align=left valign=center><PRE><font size=+1>#!/bin/csh
+xterm -e /software/bin/rasmol -script $1</font></PRE>
+  </td>
+ </tr>
+ <tr>
+  <td align=left valign=center>
+   windows
+  </td>
+  <td>&nbsp;</td>
+  <td align=left valign=center>
+   rasscriptstart.bat
+  </td>
+  <td>&nbsp;</td>
+  <td align=left valign=center><PRE><font size=+1>"C:\Program Files (x86)\RasWin\raswin.exe" -script "%~1"</font></PRE>
+  </td>
+ </tr>
+</table>
+
+Edit the appropriate file to change the <B>RasMol</B> path to whatever
+it is on your computer.
+
+
+
+<BR>&nbsp;<BR>
+Once you have installed all the required programs, and edited
+the <B>CATHPARAM</B> file as described above, you are ready to start
+running PDBsum<i>1</i>.
+
+<BR>&nbsp;<BR>
+Instructions can be found in:
+
+<BLOCKQUOTE>
+  <a href="manual.html"
+     title="PDBsum1 Operating Manual"><B>PDBsum<i>1</i> Manual</B></a>
+</BLOCKQUOTE>
+
+
+    <P>
+    &nbsp;
+    <P>
+    &nbsp;
+    <P>
+    <!-- end contents here -->
+    <!-- InstanceEndEditable -->
+
+     </tr></tbody></table>
+    <table class="footerpane" id="footerpane" summary="The main footer pane of the page"><tbody><tr><td colspan="4" class="footerrow"><div class="footerdiv" id="footerdiv" style="z-index: 2;"><iframe src="//www.ebi.ac.uk/inc/foot.html" name="foot" marginwidth="0" marginheight="0" style="z-index: 2;" frameborder="0" height="22" scrolling="no" width="100%">Your
+browser does not support inline frames or is currently configured not
+to display inline frames. Content can be viewed at actual source page:
+http://www.ebi.ac.uk/inc/foot.html</iframe></div></td></tr>
+    </tbody></table>
+    <script src="//www.ebi.ac.uk/inc/js/footer.js" type="text/javascript"></script>
+  </div>
+<!-- InstanceEnd --></body></html>

@@ -1,0 +1,176 @@
+<!-- Table of ligand molecules -->
+
+<P>
+
+<!-- Initialise counters -->
+<FLD%>_COUNTER7=0</FLD%> <!-- Ligand counter -->
+
+<table bgcolor="white" width=100% border=0 cellpadding=0 cellspacing=0>
+
+<!-- Ligands tab -->
+ <tr>
+  <td align=left valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tl_curve.gif" height=5 width=5>
+     </td>
+     <td bgcolor="#3884b0" height=1><img
+       src="gif/1x1.gif"></td>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tr_curve.gif" height=5 width=5>
+     </td>
+    </tr>
+    <tr>
+     <td height=4><img
+       src="gif/1x1.gif" height=4></td>
+    </tr>
+    <tr>
+     <td bgcolor="#3884b0" width=1>
+      <img src="gif/1x1.gif" width=1>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td class=ftxt valign=top>
+      <table border=0 cellpadding=0 cellspacing=0>
+       <tr>
+        <td align=left valign=center>
+         <B>Ligand<s% NLIGAND_TYPES></B>
+        </td>
+       </tr>
+      </table>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td bgcolor="#3884b0" width=1>
+      <img src="gif/1x1.gif" width=1 height=15>
+     </td>
+    </tr>
+    <tr>
+     <td bgcolor="#3884b0" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor=white colspan=3 height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor="#3884b0" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+    </tr>
+   </table>
+  </td>
+  <td valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td width=16777216><img src="gif/1x1.gif" height="1" width="1"></td>
+    <tr>
+    </tr>
+     <td bgcolor="#3884b0" height=1 width=16777216><img
+      src="gif/1x1.gif" height="1"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table> 
+
+<!-- Loop over each unique chain defined in uniplot.dat -->
+<table bgcolor="white" width=100% border=0 cellpadding=0 cellspacing=0>
+
+<LOOP NLIGAND_TYPES>
+ <tr>
+  <td bgcolor="#3884b0" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+
+  <!-- Thumbnail image of ligand -->
+  <td  width=50 align=left valign=top>
+   <a href="./ligands.html&l=<FLD%>_LOOP1</FLD%>.1"
+    onmouseover="Tip('<img src=<LNK%>RUNLIGPLOT_PL</LNK%>&file=clig<FLD%>LIGAND_TYPE</FLD%>&gif=YES&chem=TRUE&fullsize=TRUE><br><B>Ligand <FLD%>LIGAND_SEQ</FLD%></B>', PADDING, 4, BGCOLOR, '#ffffff')"><img
+   src="tmpgif/raster<FLD%>LIGAND_TYPE</FLD%>.jpg"
+    align=left border=0 width=60>
+  </td> 
+
+  <td><img src="gif/1x1.gif" width=15></td>
+
+  <!-- Ligand details table -->
+  <td width=16777216 valign=top align=left>
+
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td colspan=2 align=left valign=top class=ntxt>
+
+      <!-- Ligand sequence -->
+      <B><FLD%>LIGAND_SEQ</FLD%></B>
+<SKIP NLIGAND_TIMES[lt2]>
+       <font color=red>&times;<FLD%>NLIGAND_TIMES</FLD%></font>
+</SKIP NLIGAND_TIMES[lt2]>
+
+<!-- If have any Het Groups, show descriptions and formulae -->
+<SKIP !NHETGROUPS>
+
+<!-- If ligand is a single Het Group, show its description on the same line -->
+<SKIP LIGAND_NRESID[ne1]>
+
+<!-- Show name/description -->
+      - <I>
+<LOOP NHETGROUPS>
+      <FLD%>HET_DESC{t}</FLD%>
+<SKIP !HET_SYNONYM>
+      [<FLD%>HET_SYNONYM{t}</FLD%>]
+</SKIP !HET_SYNONYM>
+      </I>
+
+<!-- Show formula, if there is one -->
+<SKIP !HET_FORMULA>
+      &nbsp; &nbsp; &nbsp; <font color=purple><I><B>Formula:</B>
+       <FLD%>HET_FORMULA{f}</FLD%></I></font>
+</SKIP !HET_FORMULA>
+</LOOP NHETGROUPS>
+     </td>
+    </tr> 
+</SKIP LIGAND_NRESID[ne1]>
+
+<!-- If we have more than one Het Group, list descriptions and formulae -->
+<SKIP LIGAND_NRESID[eq1]>
+     </td>
+    </tr>
+<LOOP NHETGROUPS>
+    <tr>
+     <td align=left valign=top>
+      <img src="gif/1x1.gif" width=15 height=1 ALT="">
+     <td align=left valign=top>
+      <I><B><FLD%>HET_NAME</FLD%></B>
+      <FLD%>HET_DESC{t}</FLD%>
+<SKIP !HET_SYNONYM>
+      [<FLD%>HET_SYNONYM{t}</FLD%>]
+</SKIP !HET_SYNONYM>
+<SKIP !HET_FORMULA>
+      &nbsp; &nbsp; &nbsp; <font color=purple><B>Formula:</B>
+      <FLD%>HET_FORMULA{f}</FLD%></font>
+</SKIP !HET_FORMULA>
+      </I>
+     </td>
+    </tr>
+</LOOP NHETGROUPS>
+</SKIP LIGAND_NRESID[eq1]>
+</SKIP !NHETGROUPS>
+   </table>
+  </td>
+  <td bgcolor="#3884b0" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+ </tr>
+</LOOP NLIGAND_TYPES>
+
+ <!-- Close off line -->
+ <tr>
+  <td bgcolor="#3884b0" colspan=4><img
+   src="gif/1x1.gif" width=1 height=1></td>
+ </tr>
+
+ <tr bgcolor="#DDDDDD">
+  <td colspan=4><img width=1 height=4 src="gif/1x1.gif"></td>
+ </tr>
+</table>
+
+<P>
+

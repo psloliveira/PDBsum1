@@ -1,0 +1,174 @@
+<!-- Insert file for sheet tables -->
+
+<!-- Initialise table parameters -->
+<SET NCOLS="11">
+<SET SHEET_TYPEA="Antiparallel">
+<SET SHEET_TYPEP="Parallel">
+<SET SHEET_TYPEM="Mixed">
+<SET BARRELN="No">
+<SET BARRELY="Yes">
+
+<!-- Initialise plot parameters -->
+<SET PLOT="Beta sheets">
+<SET DOC_NAME="sheets">
+<SET PLOT_NO="2">
+<SET CHAIN_NO="<FLD%>_LOOP1</FLD%>">
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<SET LETTERS="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz">
+<FLD%>_COUNTER3=1</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+
+<!-- Read in promotif.dat data -->
+#read:<LNK%>PDIR</LNK%>/promotif/promotif.dat
+
+<!-- Sheets: Plots and table of statistics -->
+ <tr>
+  <td width=600 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+    <table cellpadding=0 cellspacing=0 border=0>
+
+<!-- Heading -->
+     <tr>
+      <td>
+       <table cellpadding=0 cellspacing=0 bgcolor="#eef5f5">
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+        <tr>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+         <td align="left" width="600">
+          <font class="ebi_green_head">
+           &nbsp;&nbsp;<FLD%>PLOT</FLD%>
+          </font>
+         </td>
+         <td class=color>
+          <img src="gifgif/1x1.gif" width=1 height=30>
+         </td>
+        </tr>
+        <tr>
+         <td class=color colspan=3>
+          <img src="gifgif/1x1.gif" height=1>
+         </td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+
+<!-- Table of statistics -->
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+       <table cellpadding=0 cellspacing=0 border=0 bgcolor=white>
+        <tr>
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+        <tr>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Sheet</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=right valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>View</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>No. of<BR>strands</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=center valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Type</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          &nbsp;<FONT FACE=ARIAL COLOR=NAVY><B>Barrel</B></FONT>&nbsp;
+         </td>
+         <td><img src="gif/1x1.gif" width=3 height=1></td>
+         <td align=left valign=bottom bgcolor="#DDDDDD">
+          <FONT FACE=ARIAL COLOR=NAVY><B>&nbsp;Topology&nbsp;</B></FONT>
+         </td>
+        </tr>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+<LOOP NDBT_FIELDS>
+<FLD%>_COUNTER3++</FLD%>
+        <tr bgcolor="<LNK%>ALT_COLOUR<FLD%>_ON_OFF++</FLD%></LNK%>">
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>LETTERS(p<NO%>SH_SHEET_ID</NO%>)</FLD%>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+           <a href="../rasmol/<FLD%>P_MOTIFNAME<NO%>PLOT_NO</NO%></FLD%>_<FLD%>PLOT_CHAIN</FLD%>_<FLD%>_LOOP1</FLD%>.rasmol"
+           download type="application/x-rasmol"
+           title="View motif in 3D in RasMol"
+          ><img border=0 width=20 src="gif/rasmollogo3_5.gif"></a>
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>SH_NSTRANDS</FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>SHEET_TYPE<NO%>SH_TYPE</NO%></FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>BARREL<NO%>SH_BARREL_FLAG</NO%></FLD%></font>&nbsp;
+         </td>
+         <td></td>
+         <td align=center>
+          &nbsp;<font face=arial><FLD%>SH_TOPOLOGY</FLD%>&nbsp;
+         </td>
+        </tr>
+<FLD%>_COUNTER4++</FLD%>
+<SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+<SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+</SKIP NDBT_FIELDS[eq<FLD%>_LOOP1</FLD%>]>
+<FLD%>_COUNTER4=0</FLD%>
+</SKIP COUNTER4[ne<NO%>NPPAGE</NO%>]>
+</LOOP NDBT_FIELDS>
+        <tr> 
+         <td class=color colspan=<NO%>NCOLS</NO%>><img src="gif/1x1.gif"
+         width=1 height=1></td>
+        </tr>
+       </table>
+      </td>
+     </tr>
+     </tr>
+     <tr>
+      <td><img src="gif/1x1.gif" width=1 height=10></td>
+     </tr>
+     <tr>
+      <td class=medtxt>
+       <P>
+       Number of sheets in chain <FLD%>CHAIN</FLD%>:
+       <FLD%>NDBT_FIELDS</FLD%>
+      </td>
+     </tr>
+
+<!-- Motif description -->
+     <tr>
+      <td class=lhdr align=left>
+       <a href="file://<LNK%>PDBSUM_DOCS_DIR</LNK%>/doc_p_<FLD%>DOC_NAME</FLD%>.html"
+	  onclick="NewWindow(this.href,'help','1000','620','yes');return false;"><img 
+          src="gif/doc.gif" width=30 border="0"></a> Motif description
+      </td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+

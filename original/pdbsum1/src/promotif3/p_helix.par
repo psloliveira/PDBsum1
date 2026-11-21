@@ -1,0 +1,68 @@
+c===============================================================================
+c     This is include file p_helix.par
+c     Last modified : 26th May 1992
+c     18/12/96 mhlx increased to 250  GH
+c     7/1/97 matm increased to 77000,mhlx increased to 300
+c     24/11/97 mchn increased to 50 GH
+c     19/1/99  mhlx increased to 350 GH
+c     19/1/99  maxrph increased to 130 GH;maxaph =1000
+c     04/12/00 maxaph increased to 3000 GH
+c===============================================================================
+c     implicit none
+c     implicit complex (a-z)
+c
+c     maximum number of atoms in protein 
+      integer    matm
+CPDBSUM RAL 28/5/12 -->
+C      parameter (matm = 77000)
+      parameter (matm = 770000)
+CPDBSUM RAL 28/5/12 <--
+c
+c     maximum number of helices in protein
+      integer    mhlx
+CPDBSUM RAL 21/4/05 -->
+C      parameter (mhlx = 350)
+      parameter (mhlx = 800)
+CPDBSUM RAL 21/4/05 <--
+c
+c     maximum number of chains in protein
+      integer    mnch
+CPDBSUM RAL 2/8/17 -->
+C      parameter (mnch = 50) 
+      parameter (mnch = 160) 
+CPDBSUM RAL 2/8/17 <--
+c
+c     maximum number of mainchain atoms in a single helix
+      integer    maxaph
+      parameter (maxaph=3000)
+c
+c     minimum no of residues in an alpha helix
+      integer minrph
+      parameter (minrph=4)
+c
+c     maximum number of residues in protein
+      integer   maxres
+      parameter (maxres = 20000)
+c
+c     maximum number of residues in a helix
+      integer maxrph
+      parameter (maxrph=300)
+c
+c     maximum no of helices that are allowed to split into two or more
+c     helices
+      integer msplits
+      parameter (msplits=40)
+c
+c     maximum kink angle in a helix before the helix is considered as two 
+c     separate helices
+      real kinkangle
+      parameter (kinkangle=60.0)
+c
+c     maximum no of interacting pairs of residues between any two helices
+      integer mintp
+CPDBSUM RAL 21/4/05 -->
+C      parameter (mintp=200)
+      parameter (mintp=1000)
+CPDBSUM RAL 21/4/05 <--
+
+c===============================================================================

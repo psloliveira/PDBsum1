@@ -1,0 +1,747 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="eng"><head><!-- InstanceBegin template="/Templates/new_template_leftmenu.dwt" codeOutsideHTMLIsLocked="false" -->
+<title>PDBsum1 Operating Manual</title><!-- InstanceEndEditable -->
+<link rel="stylesheet" href="manual_files/contents.css" type="text/css">
+<link rel="stylesheet" href="manual_files/userstyles.css" type="text/css">
+<link rel="stylesheet" href="manual_files/page.css" type="text/css">
+<script src="manual_files/contents.js" type="text/javascript"></script><link rel="alternate" title="EBI News RSS" href="https://www.ebi.ac.uk/Information/News/rss/ebinews.xml" type="application/rss+xml"><style type="text/css">@media print { body, .contents, .header, .contentsarea, .head{ position: relative;}  } </style><style type="text/css">@media print { body, .contents, .header, .contentsarea, .head{ position: relative;}  } </style>
+<link rel="stylesheet" href="manual_files/sidebars.css" type="text/css">
+<style type="text/css">
+@media print {
+  body, .contents, .header, .contentsarea, .head {
+    position: relative;
+  }
+}
+</style><!-- InstanceBeginEditable name="head" --><!--  start meta tags, css , javascript here   --><!--  end meta tags, css , javascript here  -->
+<!-- ... Overlib script (c) Erik Bosrup -->
+<script type="text/javascript" src="manual_files/overlib.js">
+</script>
+<!-- overLIB end -->
+<!-- InstanceEndEditable --><script type="text/javascript" src="manual_files/jquery.min.js"></script></head>
+<body >
+  <div class="headerdiv" id="headerdiv" style="z-index: 1;"><div class="header">
+      <div id="global-masthead" class="masthead grid_24">
+      <!--This has to be one line and no newline characters-->
+      <a href="https://www.ebi.ac.uk/" title="Go to the EMBL-EBI homepage"><img src="manual_files/EMBL_EBI_Logo_white.png" alt="EMBL European Bioinformatics Institute"></a>
+
+	<div class="nav">
+      </div>
+    </div>
+
+    <div id="local-masthead" class="masthead grid_24">
+
+      <!-- local-title -->
+
+      <div class="grid_24 alpha omega" id="local-title">
+        <h1>PDBsum<i>1</i> Operating Manual</h1>
+      </div>
+      
+      <!-- /local-title -->
+
+    </div>
+  </div></div>
+  <div class="contents" id="contents"><table class="contentspane" id="contentspane" summary="The main content pane of the page"><tbody><tr><td class="leftmargin"><img src="manual_files/spacer.gif" class="spacer" alt="spacer"></td><td class="leftmenucell" id="leftmenucell">
+</td><td class="contentsarea" id="contentsarea">
+<br><br>
+
+<font size="+1">
+
+
+
+<a href="https://www.ebi.ac.uk/thornton-srv/software/PDBsum1/index.html" title="Go to PDBsum1 home page"><img width="150" alt="PDBsum1" src="manual_files/PDBsum1_logo.png" border="0"></a>
+
+<h1><font size="+1">Running PDBsum<i>1</i></font></h1>
+
+PDBsum<i>1</i> is run from the command line.
+
+<br>&nbsp;<br>
+Before you can run it, you need to create an environment variable
+called <b>CATHPARAM</b> that points to the file:
+<b>pdbsum1/params/CATHPARAM</b>. This is the file you edited during
+installation (see <a href="https://www.ebi.ac.uk/thornton-srv/software/PDBsum1/install.html">Installation Instructions</a>).
+
+<br>&nbsp;<br>
+<h1><font size="+1">Defining the CATHPARAM environment variable</font></h1>
+
+<h2><font size="+1">a. Linux</font></h2>
+
+In <b>linux</b>, <b>CATHPARAM</b> is defined via the command:
+
+<blockquote>
+<font color="blue"><b>setenv CATHPARAM [fullpath]/pdbsum1/params/CATHPARAM</b></font> 
+</blockquote>
+
+where <b>[fullpath]</b> points to the location of the PDBsum<i>1</i>
+programs.
+
+<br>&nbsp;<br>
+If you use the <b>bash</b> shell, you need to use the command:
+
+<blockquote>
+<font color="blue"><b>export CATHPARAM=[fullpath]/pdbsum1/params/CATHPARAM</b></font>
+</blockquote>
+
+<h2><font size="+1">b. Mac</font></h2>
+
+For macs, the command is the same as for the linux bash shell above:
+
+<blockquote>
+<font color="blue"><b>export CATHPARAM=[fullpath]/pdbsum1/params/CATHPARAM</b></font>
+</blockquote>
+
+<h2><font size="+1">c. Windows</font></h2>
+
+Under Windows, the <b>CATHPARAM</b> environment variable is defined from
+the Command Prompt by:
+
+<blockquote>
+<font color="blue"><b>setx CATHPARAM "[fullpath]\pdbsum1\params\CATHPARAM"</b></font>
+</blockquote>
+
+This will set <b>CATHPARAM</b> to this value every time you open a new
+Command Prompt window, but will not set it in the current window. To
+set it for the current window, enter:
+
+<blockquote>
+<font color="blue"><b>set CATHPARAM=[fullpath]\pdbsum1\params\CATHPARAM</b></font>
+</blockquote>
+
+
+<br>&nbsp;<br>
+<h1><font size="+1">Setting up an alias for pdbsum1</font></h1>
+
+To make your life easier, you can set up an alias so that typing
+<b>pdbsum1</b> will run the program without you having to enter the
+full path to the appropriate executable directory.
+
+<h2><font size="+1">a. Linux</font></h2>
+
+In <b>linux</b>, you can do this by:
+
+<blockquote>
+<font color="blue"><b>alias pdbsum1
+    [fullpath]/pdbsum1/exe_linux/pdbsum1</b></font> 
+</blockquote>
+
+where <b>[fullpath]</b> points to the location of the PDBsum<i>1</i>
+programs.
+
+<br>&nbsp;<br>
+If you use the <b>bash</b> shell, you need to use the command:
+
+<blockquote>
+<font color="blue"><b>export pdbsum1='[fullpath]/pdbsum1/exe_linux/pdbsum1'</b></font>
+</blockquote>
+
+<h2><font size="+1">b. Mac</font></h2>
+
+On macs, the command will depend on whether you have the <b>bash</b> or the
+<b>Z</b> shell. To tell which one you have, type:
+
+<blockquote>
+<font color="blue"><b>echo $0</b></font>
+</blockquote>
+
+For <b>bash</b>, the command is as for the linux bash shell above:
+
+<blockquote>
+<font color="blue"><b>export pdbsum1='[fullpath]/pdbsum1/exe_mac/pdbsum1'</b></font>
+</blockquote>
+
+For the <b>Z</b> shell, use:
+
+<blockquote>
+<font color="blue"><b>alias pdbsum1='[fullpath]/pdbsum1/exe_mac/pdbsum1'</b></font>
+</blockquote>
+
+<h2><font size="+1">c. Windows</font></h2>
+
+Under Windows, the easiest option is to add
+the <b>exe_win</b> directory to your <b>%PATH%</b> parameter as
+follows:
+
+<blockquote>
+<font color="blue"><b>set PATH=%PATH%;"[fullpath]\pdbsum1\exe_win"</b></font>
+</blockquote>
+
+<br>&nbsp;<br>
+<h1><font size="+1">Saving the environment variables</font></h1>
+
+As the <b>CATHPARAM</b> and <b>pdbsum1</b> variables need to be
+defined as above in each window you open, you will find it convenient
+to have them automatically set up.
+
+<br>&nbsp;<br>
+This is done by adding the relevant commands to your <b>.cshrc</b>, <b>.zshrc</b>,
+<b>.bashrc</b>, or <b>autoexec.bat</b> file - whichever is appropriate for your
+operating system (ie linux C shell, Z shell, bash shell, or Windows,
+respectively).
+
+<br>&nbsp;<br>
+For example, for windows, you woule create a file called <b>C:\autoexec.bat</b>
+in the <b>C:\</b> directory containing the following lines:
+
+<blockquote>
+<font color="blue"><b>setx CATHPARAM "C:\pdbsum1\params\CATHPARAM"<br>
+set PATH=%PATH%;"C:\pdbsum1\exe_win"</b></font>
+</blockquote>
+
+After creating this file you may need to reboot your windows machine for the
+settings to take effect.
+
+<br>&nbsp;<br>
+Check that all is OK by opening a new window and typing: <b>pdbsum1</b>.
+This should give the message:
+
+<pre>Usage is:
+
+pdbsum1 {file [pdb_code] | -l dataset.lst} [-nomaxchn]  [-relinks]  [-help]
+
+where
+     * file           = Name of single PDB file to be processed
+     * pdb_code       = Optional 4-character identifier
+     * -l dataset.lst = Name of file listing PDB files to be processed
+     * -nomaxchn      = Clefts to be generated even if more than 4 chains in structure
+     * -relinks       = Make all image links relative (if directories to be moved)
+</pre>
+
+<br>&nbsp;<br>
+<h1><font size="+1">Running the program</font></h1>
+
+There are two ways of running the program:
+
+<ol>
+<li><b>Single PDB file</b> - where the analyses are to be run on only
+  one file. The command is:
+
+<blockquote>
+<font color="blue"><b>pdbsum1 filename</b></font>
+</blockquote>
+
+where <b>filename</b> is the name of the PDB file. The file can be a
+standard text file, or a gzipped version.
+
+<br>&nbsp;<br>
+</li><li><b>Multiple files</b> - where you run the program on many
+  files. The files should be listed in a simple text file, one
+  filename per line, including the full path to the files if they are
+  not in the current directory.
+
+  The program is run by the command:
+
+<blockquote>
+<font color="blue"><b>pdbsum1 -l dataset.lst</b></font>
+</blockquote>
+
+where <b>dataset.lst</b> is the file listing the PDB files to be
+processed, and may look like:
+
+<pre><font size="+1">
+/nfs/data/pdb/3p/pdb13pk.ent.gz
+/nfs/data/pdb/8g/pdb18gs.ent.gz
+/nfs/data/pdb/aa/pdb1aaw.ent.gz
+/nfs/data/pdb/co/pdb1coh.ent.gz
+/nfs/data/pdb/sd/pdb1sdx.ent.gz
+/nfs/data/pdb/or/pdb2or1.ent.gz
+</font></pre>
+
+The results will listed in a .html file called <b>index.html</b> in
+your PDBsum<i>1</i> results directory (see
+<a href="#Results">Results</a> below).
+
+</li></ol>
+
+There is one extra, optional, parameter: <b>-nomaxchn</b> which
+relates to the <b>Clefts</b> analysis. As the calculation of the
+clefts can take a very long time for large structures, the
+calculations will not be performed if the structure contains more than 4
+protein chains. If you add <b>-nomaxchn</b> to the command, the
+clefts will be calculated however many chains the structure contains:
+
+<blockquote>
+<font color="blue"><b>pdbsum1 filename -nomaxchn</b></font>
+</blockquote>
+
+Note that, on <b>Windows</b>, you may see new windows popping open and
+then closing as the program runs. This is fine. If you accidentally
+click on one of these and the windows freezes, just
+press <b>RETURN</b> and the program should resume.
+
+<br>&nbsp;<br>
+<h1><font size="+1">PDB codes</font></h1>
+
+Each PDB file processed is identified by a 4-character 'PDB code'. If
+the name of your file is of the form:
+
+<blockquote>
+<font color="blue"><b>pdbXXXX.ent</b></font> or
+<font color="blue"><b>pdbXXXX.pdb</b></font>
+</blockquote>
+
+the program will use <b>XXXX</b> as the PDB code.
+
+<br>&nbsp;<br>
+Alternatively, you can assign a PDB code when you run the program by:
+
+<blockquote>
+<font color="blue"><b>pdbsum1 filename XXXX</b></font>
+</blockquote>
+
+where <b>XXXX</b> is the PDB code.
+
+<br>&nbsp;<br>
+When using the <b>dataset.lst</b> file to run on multiple PDB files,
+you can assign individual PDB codes in the file as follows:
+
+<pre><font size="+1">
+/nfs/data/pdb/3p/pdb13pk.ent.gz pdb1
+/nfs/data/pdb/8g/pdb18gs.ent.gz pdb2
+/nfs/data/pdb/aa/pdb1aaw.ent.gz pdb3
+/nfs/data/pdb/co/pdb1coh.ent.gz pdb4
+/nfs/data/pdb/sd/pdb1sdx.ent.gz pdb5
+/nfs/data/pdb/or/pdb2or1.ent.gz pdb6
+</font></pre>
+
+where <b>pdb1</b>, <b>pdb2</b>, etc, are the PDB codes.
+
+<br>&nbsp;<br>
+If the program cannot identify a suitable code from your file name,
+and no code is supplied as described above, it will automatically
+generate a code starting from <b>a001</b>, <b>a002</b>, and so on.
+
+<br>&nbsp;<br>
+<h1><font size="+1">PDB file format</font></h1>
+
+The file(s) you run should be in correct PDB format. This is defined
+in:
+
+<a href="http://www.wwpdb.org/documentation/file-format-content/format33/v3.3.html" title="PDB file format" target="PDBFileFormat">PDB file format</a>
+
+<br>&nbsp;<br>
+Some docking and molecular modelling programs fail to adhere to
+this format. PDBsum<i>1</i> tries to correct certain types of errors
+(eg missing chain identifiers, duplicate atom names, incorrect base
+names), but may not catch them all. If the programs fail to run
+correctly, you may need to check the file format.
+
+<br>&nbsp;<br>
+You will find it useful to make sure the file contains a <b>TITLE</b>
+and a <b>DBREF</b> record, as described below.
+
+<h2><font size="+1">a. TITLE record</font></h2> You can use this record
+for the name of the protein. This will appear on the PDBsum<i>1</i>
+results page and will help identify different structures if you have
+processed many. The format of this record is given in:
+
+<a href="http://www.wwpdb.org/documentation/file-format-content/format33/sect2.html#TITLE" title="TITLE record" target="TITLE">TITLE record</a>
+
+<h2><font size="+1">b. DBREF record</font></h2> This record can tell PDBsum<i>1</i>
+what the UniProt accession code of your protein is. The program will
+then obtain the Pfam domains and generate a domain diagram like this:
+
+<center>
+<img src="manual_files/PfamDomains.png" width="700"><br>
+<i><b>Figure 1.</b> Pfam domains for the given UniProt sequence and
+  PDB structure's coverage.</i>
+</center>
+
+<br>&nbsp;<br>
+The format of the record is given in:
+
+<a href="http://www.wwpdb.org/documentation/file-format-content/format33/sect3.html#DBREF" title="DBREF record" target="DBREF">DBREF record</a>
+
+<br>&nbsp;<br>
+<a name="Results">
+<h1><font size="+1">Results</font></h1></a>
+
+The results of the PDBsum<i>1</i> run are listed in the <b>index.html</b> in
+your PDBsum<i>1</i> results directory - as defined in
+the <b>PDBSUM1_RESULTS_DIR</b> parameter in your <b>CATHPARAM</b> file
+(see 
+<a href="https://www.ebi.ac.uk/thornton-srv/software/PDBsum1/install.html" title="Installation instructions" target="Install">Installation instructions</a>).
+
+<br>&nbsp;<br>
+The results page will look like <i>(a)</i> or <i>(b)</i> below
+depending on whether you ran on a list of PDB files using the "<b>-l
+dataset.lst</b>" option, or only on a single file, respectively.
+
+<center>
+<table>
+ <tbody><tr>
+  <th>
+   <font size="+2"><i>(a)</i></font>
+  </th>
+  <td>&nbsp;</td>
+  <th>
+   <font size="+2"><i>(b)</i></font>
+  </th>
+ </tr>
+ <tr>
+  <th align="center" valign="top">
+   <img border="1" width="500" src="manual_files/Run1.png">
+  </th>
+  <td>&nbsp;</td>
+  <th align="center" valign="top">
+   <img border="1" width="500" src="manual_files/Run2.png">
+  </th>
+ </tr>
+</tbody></table>
+<i><b>Figure 2.</b> List of results from each run. (a) Run 1 was for 9
+  PDB structures, while (b) Run 2 was for a single file.</i>
+</center>
+
+<br>&nbsp;<br>
+Clicking the links will take you to the results page for that
+entry. For example, for the first structure, <b>13pk</b>, the results
+page looks like:
+
+<br>&nbsp;<br>
+<center>
+<img border="1" src="manual_files/Results_13pk.png" width="700"><br>
+<i><b>Figure 3.</b> Results page for <b>13pk</b>.</i>
+</center>
+
+<br>&nbsp;<br>
+Clicking on the PDBsum<i>1</i> logo in the top right-hand corner will
+return you to the list of results as in Fig.2 above, whereas clicking
+on the same logo in the lists illustrated in Fig.2 will list all the
+PDBsum<i>1</i> runs to date:
+
+<br>&nbsp;<br>
+<center>
+<img src="manual_files/RunList.png" border="1" width="700"><br>
+<i><b>Figure 4.</b> List of PDBsum1 runs to date.</i>
+</center>
+
+<br>&nbsp;<br>
+<h1><font size="+1">Viewing the structures</font></h1>
+
+To view each structure in 3D, you need to have installed either
+the <b>RasMol</b> or <b>PyMOL</b> molecular viewer, or both, and your
+browser needs to be configured to load the appropriate one when you
+click on its icon:
+
+<br>&nbsp;<br>
+<table>
+ <tbody><tr>
+  <td align="center" valign="top">
+    <img src="manual_files/rasmollogo.gif">
+  </td>
+  <td>&nbsp;</td>
+  <td valign="top">
+    <b>RasMol</b>. Before you click on this icon for the very first
+    time you will need to edit the appropriate <b>rasscriptstart</b>
+    script file to indicate where the <b>RasMol</b> executable is 
+(see
+<a href="https://www.ebi.ac.uk/thornton-srv/software/PDBsum1/install.html" title="Installation instructions" target="Install">Installation instructions</a>).
+
+<br>&nbsp;<br>
+Then, when you first click on this icon, your browser will ask what
+you want done with the file (ie whether to save it or to open it in an
+application). You need to say to Open it using
+the <b>rasscriptstart</b> script file. This will open
+the <b>RasMol</b> program which will then interpret the script that
+PDBsum<i>1</i> has generated and render the structure correctly.
+
+<br>&nbsp;<br>
+An alternative method is to: save the file, open <b>RasMol</b>, and then
+issue the command:
+
+<blockquote>
+RasMol&gt; <font color="blue"><b>script filename</b></font>
+</blockquote>
+
+where <b>filename</b> is the name (and full path) of the file you just
+saved.
+<br>&nbsp;<br>
+  </td>
+ </tr>
+ <tr>
+  <td align="center" valign="top">
+    <img width="30" src="manual_files/pymol_script.gif">
+  </td>
+  <td>&nbsp;</td>
+  <td valign="top">
+    <b>PyMOL</b>. When you first click on this icon, your browser will
+    ask what to do with the file (ie whether to save it or to open it
+    with an application). You need to say to Open it using <b>PyMOL</b>,
+    providing the full path to the <b>PyMOL</b> executable.
+
+  </td>
+ </tr>
+</tbody></table>
+
+<br>&nbsp;<br>
+After configuring your browser as above, you should be able to check
+that your brower has the correct responses to both file types. For
+example, in the <b>about:preferences</b> page in Firefox, this will
+look like:
+
+<br>&nbsp;<br>
+<center>
+<img src="manual_files/Applics.png" border="1" width="700"><br>
+<i><b>Figure 5.</b> Application preferences in Firefox.</i>
+</center>
+
+<br>&nbsp;<br>
+If you use a different browser, the following Google search will find
+information on how to view/edit the above application preferences:
+
+<blockquote>
+<font color="blue"><b>browser-name MIME types</b></font>
+</blockquote>
+
+where <b>browser-name</b> is the name of your browser (eg Chrome).
+
+<br>&nbsp;<br>
+<h1><font size="+1">Linking to LigPlot<sup>+</sup></font></h1>
+
+If you have 
+<a href="http://www.ebi.ac.uk/thornton-srv/software/LigPlus" title="LigPlot+" target="LigPlus">LigPlot<sup>+</sup></a> installed, you can import the <b>LIGPLOT</b>
+   diagrams on each PDBsum<i>1</i> Ligands pages into the program by configuring the
+   link as follows.
+
+<br>&nbsp;<br>
+<table>
+ <tbody><tr>
+  <td align="center" valign="top">
+    <img width="30" src="manual_files/ligplus_icon.gif">
+  </td>
+  <td>&nbsp;</td>
+  <td valign="top">
+    <b>LigPlot<sup>+</sup></b>. When you first click on this icon,
+    your browser will
+    ask what to do with the file (ie whether to save it or to open it
+    with an application). You need to say to Open it
+    using <b>LigPlot<sup>+</sup></b>, providing the full path to
+    the <b>LigPlus.jar</b> executable (which is in the <b>LigPlus</b> directory).
+  </td>
+ </tr>
+</tbody></table>
+
+<br>&nbsp;<br>
+The list of applications will now look like:
+
+<br>&nbsp;<br>
+<center>
+<img src="manual_files/Applics_drw.png" border="1" width="700"><br>
+<i><b>Figure 6.</b> Application preferences in Firefox with DRW file added.</i>
+</center>
+
+<br>&nbsp;<br>
+where <b>DRW file</b> represents the file extension of the file read
+in by <b>LigPlot<sup>+</sup></b>.
+
+
+<br>&nbsp;<br>
+<h1><font size="+1">Documentation and acknowledgements</font></h1><font size="+1">
+
+Descriptions of the outputs can be found here:
+
+<blockquote>
+    <a href="pages.html" target="PDBSum" title="PDBsum pages">PDBsum1 pages</a>
+</blockquote>
+
+Acknowledgements:
+
+<table cellspacing="0" cellpadding="0" border="0" bgcolor="white">
+
+ <tbody><tr>
+  <td valign="top" class="medtxt" colspan="2">
+   PDBsum<i>1</i> gratefully acknowledges use of the following software: 
+   <p>
+  </p></td>
+ </tr>
+
+<!-- 3Dmol.js  -->
+ <tr>
+  <td valign="top">
+   <a href="https://doi.org/10.1093/bioinformatics/btu829" target="3dmol" title="3Dmol.js reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>3Dmol.js</b><br>
+   Rego N &amp; Koes D (2015) 3Dmol.js: molecular visualization with WebGL,
+   <i>Bioinformatics</i>, <b>31</b>, 1322–1324,
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- HBPLUS -->
+ <tr>
+  <td valign="top">
+   <a href="http://www.sciencedirect.com/science/article/pii/S0022283684713349" target="HBPLUS" title="HBPLUS reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>HBPLUS</b><br>
+     McDonald I K &amp; Thornton J M (1994). Satisfying hydrogen bonding potential
+     in proteins.
+     <i>J. Mol. Biol.</i>, <b>238</b>, 777-793.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- Hera -->
+ <tr>
+  <td valign="top">
+   <a href="https://onlinelibrary.wiley.com/doi/10.1002/prot.340080303" target="Hera" title="Hera reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>Hera</b><br>
+     Hutchinson E G &amp; Thornton J M (1990). Hera - a program to draw schematic diagrams of protein secondary structures.
+     <i>Proteins.</i> <b>8</b>, 203-212.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- LIGPLOT -->
+ <tr>
+  <td valign="top">
+   <a href="https://doi.org/10.1093/protein/8.2.127" target="LIGPLOT" title="LIGPLOT reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>LIGPLOT</b><br>
+     Wallace A C, Laskowski R A, Thornton J M (1995).
+     LIGPLOT: A program to generate schematic diagrams of protein-ligand
+     interactions.
+     <i>Prot. Eng.</i>, <b>8</b>, 127-134.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- NUCPLOT -->
+ <tr>
+  <td valign="top">
+   <a href="https://academic.oup.com/nar/article/25/24/4940/1747862" target="NUCPLOT" title="NUCPLOT reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>NUCPLOT</b><br>
+     Luscombe N M, Laskowski R A, Thornton J M (1997).
+     NUCPLOT: a program to generate schematic diagrams of protein-nucleic
+     acid interactions.
+     <i>Nucleic Acids Res.</i>, <b>25
+ </b></td></tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- PROCHECK -->
+ <tr>
+  <td valign="top">
+   <a href="https://www.ebi.ac.uk/thornton-srv/software/PROCHECK" target="PROCHECK" title="PROCHECK page"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>PROCHECK</b><br>
+     Laskowski R A, MacArthur M W, Moss D S and Thornton J M (1993).
+     PROCHECK: a program to check the stereochemical quality of protein
+     structures.
+     <i>J. Appl. Cryst.</i>, <b>26</b>, 283-291.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- PROMOTIF -->
+ <tr>
+  <td valign="top">
+   <a href="https://onlinelibrary.wiley.com/doi/10.1002/pro.5560050204" target="PROMOTIF" title="PROMOTIF reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>PROMOTIF</b><br>
+     Hutchinson E G &amp; Thornton J M (1996).
+     PROMOTIF - a program to identify and analyze structural motifs in proteins.
+     <i>Protein Science</i>, <b>5</b>, 212-220.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- PyMOL -->
+ <tr>
+  <td valign="top">
+   <a href="https://pymol.org/" target="PyMOL" title="PyMOL"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>PyMOL</b><br>
+   DeLano W L (2002). The PyMOL molecular graphics system. Palo Alto, CA:
+   DeLano Scientific.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+<!-- SURFNET -->
+ <tr>
+  <td valign="top">
+   <a href="https://academic.oup.com/nar/article/25/24/4940/1747862" target="SURFNET" title="SURFNET reference"><img border="0" src="manual_files/fulltext.gif"></a>
+  </td>
+  <td valign="top" class="medtxt">
+   <b>SURFNET</b><br>
+     Laskowski R A (1995). SURFNET: A program for visualizing molecular
+     surfaces, cavities and intermolecular interactions.
+     <i>J. Mol. Graph.</i>, <b>13</b>, 323-330.
+  </td>
+ </tr>
+
+ <tr>
+  <td colspan="2">
+   <img src="manual_files/1x1.gif" height="15">
+  </td>
+ </tr>
+
+</tbody></table>
+
+
+
+    <p>
+    &nbsp;
+    </p><p>
+    &nbsp;
+    </p><p>
+    <!-- end contents here -->
+    <!-- InstanceEndEditable -->
+
+</p></td></tr></tbody></table>
+</div>
+<!-- InstanceEnd -->
+<div id="mitigation"><link type="text/css" rel="stylesheet" href="manual_files/ebi-mitigation.css">
+<link type="text/css" rel="stylesheet" href="manual_files/embl-petrol-colours.css">
+
+
+</div></body></html>
+
+

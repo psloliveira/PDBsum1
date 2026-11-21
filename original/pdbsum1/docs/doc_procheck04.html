@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>4. Main-chain parameters</title>
+
+<script language="javascript">
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)
+}
+</script>
+</head>
+<body>
+
+<H1>4. Main-chain parameters</H1>
+
+<a href="gif/pplot04.gif"><img border=0 src="gif/pplot04.gif"></A>
+</CENTER>
+
+<H2>Description</H2>
+
+The six graphs on the main-chain parameters plot show how the structure
+(represented by the solid square) compares with well-refined structures at
+a similar resolution. The dark band in each graph represents the results
+from the well-refined structures; the central line is a least-squares fit
+to the mean trend as a function of resolution, while the width of the band
+on either side of it corresponds to a variation of one standard deviation
+about the mean. In some cases, the trend is dependent on the resolution,
+and in other cases it is not. For structures solved by NMR a nominal resolution
+of 2.0&Aring; is used.
+
+<p>
+<b>Note</b>. This plot is intended as a <B>rough guide only</B> and too much
+reliance should not be placed on the results being "better than
+structures at the same resolution".
+
+<p>
+The 6 properties plotted are: 
+
+<UL>
+
+<LI><B>a. Ramachandran plot quality</B>. This property is measured by the
+<B>percentage</B> of the protein's residues that are in the most favoured,
+or <B>core</B>, regions of the
+<A 
+  href="doc_procheck01.html"
+  target="Ramachandranplot"
+  onclick="NewWindow(this.href,'ramplot','800','640','yes');return false;"
+>Ramachandran
+plot</A>.  For a good model structure, obtained at high resolution, one
+would expect this percentage to be over <B>90%</B>. However, as the
+resolution gets poorer, so this figure decreases - as might be
+expected. The shaded region reflects this expected decrease with worsening
+resolution.
+
+<p>
+<LI><B>b. Peptide bond planarity</B>. This property is measured by
+calculating the <B>standard deviation</B> of the protein structure's
+<B>omega</B> torsion angles. The smaller the value the tighter the
+clustering around the ideal of <B>180</B> degrees (which represents a
+perfectly planar peptide bond).
+
+<p>
+<LI><B>c. Bad non-bonded interactions</B>. This property is measured by the
+<B>number of bad contacts</B> per <B>100</B> residues. These are defined
+as contacts where the distance of closest approach is less than or equal to
+<B>2.6&Aring;</B>.
+
+<p>
+<LI><B>d. Calpha tetrahedral distortion</B>. This property is measured by
+calculating the <B>standard deviation</B> of the <B>zeta torsion
+angle</B>. This is a <B>notional</B> torsion angle in that it is not
+defined about any actual bond in the structure. Rather, it is defined by
+the following four atoms within a given residue: <B>Calpha</B>, <B>N</B>,
+<B>C</B>, and <B>Cbeta</B>.
+
+<p>
+<LI><B>e. Main-chain hydrogen bond energy</B>. This property is measured by
+the <B>standard deviation</B> of the <B>hydrogen bond energies</B> for
+<B>main-chain hydrogen bonds</B>. The energies are calculated using the
+method of Kabsch & Sander (1983).
+
+<p>
+<LI><B>f. Overall G-factor</B>. The overall <B>
+<a 
+   href="doc_procheckgf.html"
+   target="Gfactors"
+   onclick="NewWindow(this.href,'gfact','800','640','yes');return false;"
+>G-factor</A></B> is a measure of the overall
+<B>normality</B> of the structure.  The overall value is obtained from an
+average of all the different G-factors for each residue in the structure.
+
+</UL>
+
+
+<P>
+<B><I>Reference</I></B><BR>
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=6667333"
+   target="Kabsch_and_Sander"
+  ><img border=0 src="gif/fulltext.gif"></A>
+  </th>
+  <td valign=top>
+   Kabsch W and Sander C (1983).
+   Dictionary of protein secondary structure: pattern recognition of
+   hydrogen-bonded and geometrical features.
+   <I>Biopolymers</I>, <B>22</B>, 2577-2637.
+  </td>
+ </tr>
+</table>
+
+</body>
+</html>
+

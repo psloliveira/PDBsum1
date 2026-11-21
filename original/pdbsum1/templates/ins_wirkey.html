@@ -1,0 +1,549 @@
+<!-- Insert-box giving key for current wiring diagram -->
+<table cellSpacing=0 cellPadding=0 width="100%" border=0>
+ <tbody>
+
+<!-- Using author sst assignments for C-alpha only structure -->
+<SKIP !WIRING_AUTHOR_ASSIGNED>
+  <tr>
+   <td colspan=2>
+    <img width=1 height=5 src="gif/1x1.gif">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy><i>Note. This is a C-alpha only structure, so the
+       secondary structure shown above is as assigned by the author
+       in the PDB file</i></font>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=15 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_AUTHOR_ASSIGNED>
+
+<!-- C-alpha only structure with no secondary structure -->
+<SKIP WIRING_AUTHOR_ASSIGNED>
+<SKIP !WIRING_CALPHA_ONLY>
+<SKIP WIRING_ALPHA_HELIX>
+<SKIP WIRING_BETA_STRAND>
+  <tr>
+   <td colspan=2>
+    <img width=1 height=5 src="gif/1x1.gif">
+   </td>
+  </tr>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy><i>Note. This is a C-alpha only structure with no
+       secondary structure assigned in the PDB file</i></font>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=15 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP WIRING_BETA_STRAND>
+</SKIP WIRING_ALPHA_HELIX>
+</SKIP !WIRING_CALPHA_ONLY>
+</SKIP WIRING_AUTHOR_ASSIGNED>
+
+<!-- Determine whether a key is required -->
+<FLD%>_COUNTER1=0</FLD%>
+<SKIP !WIRING_HAVE_MOTIFS>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_HAVE_MOTIFS>
+<SKIP !WIRING_DISULPH>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_DISULPH>
+<SKIP !WIRING_CSA_RESIDUES>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_CSA_RESIDUES>
+<SKIP !WIRING_HAVE_CONTACTS>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_HAVE_CONTACTS>
+<SKIP !WIRING_SITE_RECORDS>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_SITE_RECORDS>
+<SKIP !WIRING_PROSITE_PATTERNS>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_PROSITE_PATTERNS>
+<SKIP !WIRING_HUMAN_VARIANTS>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_HUMAN_VARIANTS>
+
+<!-- Start key -->
+<SKIP COUNTER1[eq0]>
+  <tr>
+   <td class=shdr valign=center>
+    <B>Key: &nbsp; </B>
+   </td>
+  </tr>
+  <tr>
+   <td colspan=2>
+    <img width=1 height=5 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP COUNTER1[eq0]>
+
+<!-- Secondary structure -->
+<FLD%>_COUNTER1=0</FLD%>
+<SKIP !WIRING_ALPHA_HELIX>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_ALPHA_HELIX>
+<SKIP !WIRING_BETA_STRAND>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !WIRING_BETA_STRAND>
+<SKIP COUNTER1[eq0]>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+
+      <!-- Top line with images -->
+      <td valign=center><font size=1.5pt face=arial
+        color=navy>Sec.&nbsp;struc:</font>
+      </td>
+      <td><img src="gif/1x1.gif" width=10 height=1></td>
+      <td valign=top colspan=2><img src="gif/act_sst_sm.gif"></td>
+      <td><img src="gif/1x1.gif" width=5 height=1></td>
+      <td valign=center>
+       <font class="tiny">Helices labelled <font color=blue>H1, H2, </font> ...
+       and strands by their sheets <font color=red>A, B, </font>...</font>
+      </td>
+      <td><img src="gif/1x1.gif" width=10 height=1></td>
+     </tr>
+
+     <!-- Second line giving helix/strand labels -->
+     <tr>
+      <td colspan=2>&nbsp;</td>
+      <td align=center valign=top>
+       <font class="tiny" color=purple>Helix</font>
+      </td>
+      <td align=center valign=top>
+       <font class="tiny" color=purple>Strand</font>
+      </td>
+      <td colspan=3>&nbsp;</td>
+     </tr>
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP COUNTER1[eq0]>
+
+
+<!-- Secondary structure motifs -->
+<SKIP !WIRING_HAVE_MOTIFS>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy>Motifs:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+<SKIP !WIRING_BTURNS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wirbeta.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>beta&nbsp;turn</font>
+         </td>
+</SKIP !WIRING_BTURNS>
+<SKIP !WIRING_GTURNS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wirgamma.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>gamma&nbsp;turn</font>
+         </td>
+</SKIP !WIRING_GTURNS>
+<SKIP !WIRING_BHAIRPINS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wirhpin.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>beta&nbsp;hairpin</font>
+         </td>
+</SKIP !WIRING_BHAIRPINS>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_HAVE_MOTIFS>
+
+<!-- Disulphide bonds -->
+<SKIP !WIRING_DISULPH>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy>Disulphides:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wirdisulph.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>disulphide&nbsp;bond</font>
+         </td>
+<SKIP !WIRING_EXTERN_DISULPH>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wirextdis.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>disulphide&nbsp;bond&nbsp;to&nbsp;other&nbsp;chain</font>
+         </td>
+</SKIP !WIRING_EXTERN_DISULPH>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_DISULPH>
+
+<!-- Catalytic residues from CSA -->
+<SKIP !WIRING_CSA_RESIDUES>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy>CSA annotation:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/wircsa.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>catalytic&nbsp;residue</font>
+         </td>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_CSA_RESIDUES>
+
+<!-- Human Variants -->
+<SKIP !WIRING_HUMAN_VARIANTS>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=center><font size=1.5pt face=arial
+       color=navy>Human variant:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=center>
+          <img src="gif/variant.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=center><font size=1.5pt
+          face=arial>variant&nbsp;residue</font>
+         </td>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_HUMAN_VARIANTS>
+
+<!-- Residues involved in contacts to other molecules/ions -->
+<SKIP !WIRING_HAVE_CONTACTS>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=top><font size=1.5pt face=arial
+       color=navy>Residue&nbsp;contacts:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+<SKIP !WIRING_LIGAND_CONTACTS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=top>
+          <img src="gif/wircont_lig.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=top><font size=1.5pt
+          face=arial>to&nbsp;ligand</font>
+         </td>
+</SKIP !WIRING_LIGAND_CONTACTS>
+<SKIP !WIRING_DNA_CONTACTS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=top>
+          <img src="gif/wircont_dna.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=top><font size=1.5pt
+          face=arial>to&nbsp;DNA/RNA</font>
+         </td>
+</SKIP !WIRING_DNA_CONTACTS>
+<SKIP !WIRING_METAL_CONTACTS>
+         <td>
+          &nbsp;
+         </td>
+         <td valign=top>
+          <img src="gif/wircont_met.gif">
+         </td>
+         <td>
+          &nbsp;
+         </td>
+         <td
+          valign=top><font size=1.5pt
+          face=arial>to&nbsp;metal</font>
+         </td>
+</SKIP !WIRING_METAL_CONTACTS>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_HAVE_CONTACTS>
+
+<!-- SITE records from PDB file -->
+<SKIP !WIRING_SITE_RECORDS>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=top><font size=1.5pt face=arial
+       color=navy>PDB&nbsp;SITE&nbsp;records:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+<FLD%>_COUNTER1=0</FLD%>
+<FLD%>_COUNTER2=0</FLD%>
+<LOOP WIRING_NSITES>
+<SKIP COUNTER1[lt5]>
+        </tr>
+        <tr>
+<FLD%>_COUNTER1=0</FLD%>
+</SKIP COUNTER1[lt5]>
+<FLD%>_COUNTER1++</FLD%>
+<SKIP COUNTER2[lt8]>
+<FLD%>_COUNTER2=0</FLD%>
+</SKIP COUNTER2[lt8]>
+<FLD%>_COUNTER2++</FLD%>
+         <td valign=top>
+          <img src="gif/wirsite<FLD%>_COUNTER2</FLD%>.gif">
+         </td>
+         <td valign=top><font size=1.5pt
+          face=arial>&nbsp;<FLD%>WIRING_SITE</FLD%>
+          </font>
+         </td>
+</LOOP WIRING_NSITES>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr>
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_SITE_RECORDS>
+
+<!-- Residues belonging to PROSITE patterns -->
+<SKIP !WIRING_PROSITE_PATTERNS>
+  <tr>
+   <td>
+    <table cellspacing=0 cellpadding=0 border=0>
+     <tr>
+      <td
+       valign=top><font size=1.5pt face=arial
+       color=navy>PROSITE&nbsp;patterns:</font>
+      </td>
+      <td>&nbsp;&nbsp;</td>
+      <td valign=top align=left>
+       <table cellspacing=0 cellpadding=0 border=0>
+        <tr>
+         <td valign=middle><font size=1.5pt color=blue
+          face=arial>Low&nbsp;
+          </font>
+         </td>
+         <td valign=middle>
+          <img src="gif/wirprosite.gif">
+         </td>
+         <td valign=middle><font size=1.5pt color=red
+          face=arial>&nbsp;High&nbsp;<font color=black>conservation
+          </font></font>
+         </td>
+        </tr> 
+       </table>
+      </td>
+     </tr> 
+    </table>
+   </td>
+  </tr> 
+  <tr>
+   <td colspan=2>
+    <img width=1 height=1 src="gif/1x1.gif">
+   </td>
+  </tr>
+</SKIP !WIRING_PROSITE_PATTERNS>
+
+<!-- Key to Alpha Fold confidence scores -->
+<BLOCK !RESCONS_OPTION>
+<BLOCK ALPHA_FOLD>
+  <tr>
+   <td colspan=2>
+    <img width=1 height=10 src="gif/1x1.gif">
+   </td>
+  </tr>
+  <tr>
+    <td valign=center class=ttxt colspan=2>
+      <font color=darkred>
+	<B>Alpha Fold confidence scores:</B>
+      </font>:
+      <img width=10 src="gif/square_blue.png"> Very high;
+      <img width=10 src="gif/square_skyblue.png"> Confident;
+      <img width=10 src="gif/square_gold.png"> Low;
+      <img width=10 src="gif/square_orange.png"> Very low.
+    </td>
+  </tr>
+</BLOCK ALPHA_FOLD>
+</BLOCK !RESCONS_OPTION>
+
+ </tbody>
+</table>

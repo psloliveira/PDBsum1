@@ -1,0 +1,23 @@
+ENCODE_COLOUR      #0D3692
+GREY_BG_COLOUR     #EEF5F5
+RED_BORDER_COLOUR  #B85050
+TAGS_COLOUR        #207A7A
+THEORETICAL_COLOUR #00FF00
+UPLOAD_COLOUR      #FF0000
+ALPHAFOLD_COLOUR   #0000FF
+BURIED                   5
+PARTIALLY_BURIED        20
+VAR_COLOUR0            red
+VAR_COLOUR1           gray
+VAR_COLOUR2          green
+VAR_COLOUR3           blue
+VAR_COLNAM0            red
+VAR_COLNAM1           grey
+VAR_COLNAM2          green
+VAR_COLNAM3           blue
+NVAR_TYPES               4
+VAR_TYPE0          Disease
+VAR_TYPE1          Note
+VAR_TYPE2          Mutagenesis expt
+VAR_TYPE3          DDD varaint
+LINKS              FALSE

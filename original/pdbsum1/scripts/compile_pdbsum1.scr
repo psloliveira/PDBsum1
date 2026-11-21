@@ -1,0 +1,354 @@
+#!/bin/csh
+#########################################################################
+#
+# compile_pdbsum1.scr - Script to compile all the PDBsum1 programs
+#
+#                       Run from script directory
+#
+#########################################################################
+
+
+#
+#-- Source and executable directories
+#
+setenv basedir ".."
+setenv compiledir $basedir/compile
+setenv exedir $basedir/exe_linux
+setenv paramdir $basedir
+setenv sourcedir $basedir/src
+setenv scriptdir $basedir/scripts
+
+#
+#-- Specific source subdirectories
+#
+setenv hbplus_source_dir    $sourcedir/hbplus
+setenv ligplot_source_dir   $sourcedir/ligplot
+setenv naccess_source_dir   $sourcedir/naccess
+setenv nucplot_source_dir   $sourcedir/nucplot
+setenv pdbsum_source_dir    $sourcedir/pdbsum
+setenv procheck_source_dir  $sourcedir/procheck
+setenv promotif_source_dir  $sourcedir/promotif3
+setenv speedfill_source_dir $sourcedir/speedfill
+
+#
+#-- Define the list of source files to be compiled
+#
+set source_list = $scriptdir/source.list
+
+#
+#-- Get start time and go to complie directory
+#
+set date = `date`
+cd $compiledir
+
+#
+#-- Create log file
+#
+set run_log = 'compile.log'
+if (-e $run_log) then
+  \rm $run_log
+endif
+
+#
+#-- Write heading to log file
+#
+echo 'PDBsum compilation, started at '$date >> $run_log
+echo '-----------------------------------------------------------' >> $run_log
+echo ' ' >> $run_log
+
+#
+#-- Initialize count of compilation errors
+#
+@ ndone = 0
+@ nerrors = 0
+@ group = 0
+set prog_type = 'C'
+
+#
+#-- Compile C programs used for generating PDBsum pages
+#
+@ group++
+echo $group'. Compiling C programs ...' >> $run_log
+
+#
+#-- Loop over the programs to be compiled
+#
+foreach prog_list (`cat $source_list`)
+
+  #
+  #-- Initialise file name counter
+  #
+  @ nterms = 1
+  set done = 'FALSE'
+
+  #
+  #-- Get position of first colon
+  #
+  @ cpos = `expr index "$prog_list" :`
+
+  #  
+  #-- Loop to replace all the colons with spaces
+  #  
+  while ($cpos > 0)
+
+    #
+    #-- Replace the colon with a space
+    #
+    @ cpos1 = $cpos - 1
+    @ cpos2 = $cpos + 1
+    @ length = `expr "$prog_list" : '.*'`
+    @ cpos3 = $length - $cpos
+    set sub1 = `expr substr "$prog_list" 1 $cpos1`
+    set sub2 = `expr substr "$prog_list" $cpos2 $cpos3`
+
+    #
+    #-- Form new file list
+    #
+    set prog_list = "$sub1 $sub2"
+    @ nterms++
+
+    #
+    #-- Get position of next colon
+    #
+    @ cpos = `expr index "$prog_list" :`
+
+  #... end while cpos > 0
+  end
+
+  #
+  #-- Initialise file counter
+  #
+  @ iterm = 0
+  if ($prog_type == 'C') then
+    set link_command = 'cc -o '
+  else
+    set link_command = 'gfortran -o '
+  endif
+  set ok = 'TRUE'
+
+  #
+  #-- Loop over the files to compile
+  #
+  foreach prog_file ($prog_list)
+
+    #
+    #-- Increment file counter
+    #
+    @ iterm++
+
+    #
+    #-- If this is the first item, then get corresponding source directory
+    #
+    if ($iterm == 1) then
+
+      #
+      #-- Get corresponding source directory
+      #
+      if ($prog_file == 'FORTRAN') then
+        set prog_type = 'FORTRAN'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling FORTRAN programs ...' >> $run_log
+      else if ($prog_file == 'EXE') then
+        set prog_type = 'C'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling C programs ...' >> $run_log
+      else if ($prog_file == 'PROFUNC_EXE') then
+        set prog_type = 'C'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling ProFunc C programs ...' >> $run_log
+      else if ($prog_file == 'ARCHSCHEMA_EXE') then
+        set prog_type = 'C'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling ArchSchema C programs ...' >> $run_log
+      else if ($prog_file == 'DRUGPORT_EXE') then
+        set prog_type = 'C'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling DrugPort C programs ...' >> $run_log
+      else if ($prog_file == 'SAS_EXE') then
+        set prog_type = 'C'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling SAS C programs ...' >> $run_log
+      else if ($prog_file == 'NACCESS_EXE') then
+        set prog_type = 'FORTRAN'
+        @ group++
+        echo ' ' >> $run_log
+        echo ' ' >> $run_log
+        echo $group'. Compiling NACCESS program ...' >> $run_log
+      else if ($prog_file == 'ENZYME') then
+        setenv source_dir $enzyme_source_dir
+      else if ($prog_file == 'PDBSUM') then
+        setenv source_dir $pdbsum_source_dir
+      else if ($prog_file == 'HBPLUS') then
+        setenv source_dir $hbplus_source_dir
+      else if ($prog_file == 'JESSITE') then
+        setenv source_dir $jessite_source_dir
+      else if ($prog_file == 'LIGPLOT') then
+        setenv source_dir $ligplot_source_dir
+      else if ($prog_file == 'NACCESS') then
+        setenv source_dir $naccess_source_dir
+      else if ($prog_file == 'NUCPLOT') then
+        setenv source_dir $nucplot_source_dir
+      else if ($prog_file == 'PROCHECK') then
+        setenv source_dir $procheck_source_dir
+      else if ($prog_file == 'PROFUNC') then
+        setenv source_dir $profunc_source_dir
+      else if ($prog_file == 'PROMOTIF') then
+        setenv source_dir $promotif_source_dir
+      else if ($prog_file == 'SAS') then
+        setenv source_dir $sas_source_dir
+      else if ($prog_file == 'SPEEDFILL') then
+        setenv source_dir $speedfill_source_dir
+      else if ($prog_file == 'SURFNET') then
+        setenv source_dir $surfnet_source_dir
+      endif
+
+    #
+    #-- If this is the first file, then compile it
+    #
+    else if ($iterm == 2) then
+
+      #
+      #-- Compile
+      #
+      if ($prog_type == 'C') then
+        set src_file = $prog_file'.c'
+        set command = "cc -O2 -funroll-loops -c $source_dir/$src_file"
+      else
+        set src_file = $prog_file'.f'
+        set command = "gfortran -fbounds-check -c $source_dir/$src_file"
+      endif
+      echo $command > error.log
+      $command >>& error.log
+      set errstatus = $status
+
+      #
+      #-- Add file name to link command
+      #
+      set command = "$link_command $prog_file"
+      set main_file = "$prog_file"
+
+      #
+      #-- If compiled with error, then add error message to log file
+      #
+      if ($errstatus != 0) then
+
+        #
+        #-- Write error log to run log
+        #
+        echo "     *** ERROR! "$src_file" failed to compile" >> $run_log
+        cat error.log >> $run_log
+        @ nerrors++
+
+        #
+        #-- Unset OK flag
+        #
+        set ok = 'FALSE'
+
+      #... end if errstatus != 0
+      endif
+
+    #... endif iterm = 1
+    endif
+
+    #
+    #-- Add file to link command
+    #
+    if ($iterm > 1) then
+
+      #
+      #-- Check for lz flag
+      #
+      if ($prog_file == 'lz') then
+        set command = "$command -lz"
+      else
+        set command = "$command $prog_file.o"
+      endif
+    endif
+
+  #... end foreach prog_file
+  end
+
+  #
+  #-- Terminate link command
+  #
+  if ($prog_type == 'C') then
+    set command = "$command -lm"
+  endif
+
+  #
+  #-- Check that the file has a main function and so can be linked
+  #
+  if ($prog_type == 'C') then
+    @ nmain = `grep "^int main" $source_dir/$src_file | wc -l`
+  else
+    @ nmain = `grep "^      PROGRAM " $source_dir/$src_file | wc -l`
+  endif
+  if ($nmain == 0) then
+    set ok = 'FALSE'
+  endif
+
+  #
+  #-- If main file compiled OK, can perform link
+  #
+  if ($ok == 'TRUE') then
+
+    #
+    #-- Perform the link
+    #
+    $command >& error.log
+    set errstatus = $status
+
+    #
+    #-- If linked without error, then copy across to executable directory
+    #
+    if ($errstatus == 0) then
+
+      #
+      #-- Transfer executable
+      #
+      mv -f $main_file $exedir
+      echo "     * "$main_file" compiled" >> $run_log
+      @ ndone++
+
+    #
+    #-- Otherwise, add error message to log file
+    #
+    else
+      echo "     *** ERROR! "$main_file" failed to compile" >> $run_log
+      cat error.log >> $run_log
+
+    #... end if errstatus != 0
+    endif
+
+  #.. end if ok = TRUE
+  endif
+
+#.. end foreach prog_list
+end
+
+#
+#-- Get end time
+#
+set date = `date`
+echo ' ' >> $run_log
+echo ' ' >> $run_log
+echo 'Completed at '$date >> $run_log
+echo ' ' >> $run_log
+
+#
+#-- Show number of files compiled and failed
+#
+echo "Number of failed compilations: "$nerrors
+echo "Number of files compiled:      "$ndone

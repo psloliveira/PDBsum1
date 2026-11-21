@@ -1,0 +1,150 @@
+<!-- Table of DNA/RNA chains and sequences -->
+
+<P>
+
+<!-- Initialise counters -->
+<FLD%>_COUNTER7=0</FLD%> <!-- Chain counter -->
+
+<table bgcolor="white" width=100% border=0 cellpadding=0 cellspacing=0>
+
+<!-- DNA/RNA chains tab -->
+ <tr>
+  <td align=left valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tl_curve.gif" height=5 width=5>
+     </td>
+     <td bgcolor="#3884b0" height=1><img
+       src="gif/1x1.gif"></td>
+     <td rowspan=2 colspan=2>
+      <img src="gif/tr_curve.gif" height=5 width=5>
+     </td>
+    </tr>
+    <tr>
+     <td height=4><img
+       src="gif/1x1.gif" height=4></td>
+    </tr>
+    <tr>
+     <td bgcolor="#3884b0" width=1>
+      <img src="gif/1x1.gif" width=1>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td class=ftxt valign=top>
+      <table border=0 cellpadding=0 cellspacing=0>
+       <tr>
+<FLD%>_COUNTER7=<NO%>NNUCL</NO%></FLD%>
+        <td align=left valign=center>
+         <B>DNA/RNA&nbsp;chain<s% COUNTER7></B>
+        </td>
+        <td align=left valign=center>
+         <img src="gif/1x1.gif" width=3>
+        </td>
+<LOOP NNUCL>
+        <td align=left valign=center>
+         <a href="./dna.html"
+	  title="Go to DNA/RNA page"><img
+          width=18 border=0
+          src="gif/chain<FLD%>NUCL_CHAIN{chn}</FLD%>.jpg"></a>
+        </td>
+</LOOP NNUCL>
+       </tr>
+      </table>
+     </td>
+     <td width=4>
+      <img src="gif/1x1.gif" width=4>
+     </td>
+     <td bgcolor="#3884b0" width=1>
+      <img src="gif/1x1.gif" width=1 height=15>
+     </td>
+    </tr>
+    <tr>
+     <td bgcolor="#3884b0" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor=white colspan=3 height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+     <td bgcolor="#3884b0" height=1><img
+      src="gif/1x1.gif" height="1" width="1"></td>
+    </tr>
+   </table>
+  </td>
+  <td valign=bottom>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+     <td width=16777216><img src="gif/1x1.gif" height="1" width="1"></td>
+    <tr>
+    </tr>
+     <td bgcolor="#3884b0" height=1 width=16777216><img
+      src="gif/1x1.gif" height="1"></td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</table> 
+
+<!-- Loop over each unique chain defined in uniplot.dat -->
+<table bgcolor="white" width=100% border=0 cellpadding=0 cellspacing=0>
+ <tr>
+
+  <td bgcolor="#3884b0" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+
+  <!-- Thumbnail image of the DNA/RNA in this entry -->
+  <td  width=50 align=left valign=top>
+   <a href="./dna.html"
+    onmouseover="Tip('<img src=tmpgif/newsec/dna.png><br><B>DNA/RNA chains in structure</B>', WIDTH, 240, PADDING, 4, BGCOLOR, '#ffffff')"
+   ><img
+   src="tmpgif/newsec/dna.png" align=left border=0 width=60>
+  </td> 
+
+  <!-- List of DNA/RNA chains -->
+  <td valign=top align=left>
+   <table border=0 cellpadding=0 cellspacing=0>
+<LOOP NNUCL>
+    <tr>
+     <td valign=top>
+      <a href="./dna.html"
+       title="Go to DNA/RNA page"><img width=18 border=0
+       src="gif/chain<FLD%>NUCL_CHAIN{chn}</FLD%>.jpg"></a>
+     </td>
+     <td>
+      &nbsp;
+     </td>
+     <td valign=top class=ntxt>
+      <font color=<FLD%>NUCL_COL</FLD%>>
+<LOOP NSEQLINE>
+<SKIP ONE[ne<NO%>_LOOP2</NO%>]>
+      <B><FLD%>NUCL_SEQ</FLD%></B>
+<SKIP NSEQLINE[eq1]>
+      ...
+</SKIP NSEQLINE[eq1]>
+</SKIP ONE[ne<NO%>_LOOP2</NO%>]>
+</LOOP NSEQLINE>
+      </font>
+      <FLD%>NNUCL_BASES</FLD%> base<s% NNUCL_BASES>
+     </td>
+    </tr>
+</LOOP NNUCL>
+   </table>
+  </td>
+  <td bgcolor="#3884b0" width=1>
+   <img src="gif/1x1.gif" width=1>
+  </td>
+ </tr>
+
+ <!-- Close off line -->
+ <tr>
+  <td bgcolor="#3884b0" colspan=4><img
+   src="gif/1x1.gif" width=1 height=1></td>
+ </tr>
+
+ <tr bgcolor="#DDDDDD">
+  <td colspan=4><img width=1 height=4 src="gif/1x1.gif"></td>
+ </tr>
+</table>
+
+<P>
+

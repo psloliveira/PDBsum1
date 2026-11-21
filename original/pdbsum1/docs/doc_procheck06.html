@@ -1,0 +1,153 @@
+<html>
+<head>
+<title>6. Residue properties plot</title>
+
+<script language="javascript">
+var win = null;
+function NewWindow(mypage,myname,w,h,scroll){
+LeftPosition = (screen.width) ? (screen.width-w)/2 : 0;
+TopPosition = (screen.height) ? (screen.height-h)/2 : 0;
+settings =
+'height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
+win = window.open(mypage,myname,settings)
+}
+</script>
+</head>
+<body>
+
+<H1>6. Residue properties plot</H1>
+
+<a href="gif/pplot06.gif"><img border=0 src="gif/pplot06.gif"></A>
+</CENTER>
+
+<H2>Description</H2>
+
+The various graphs and diagrams on this plot show how the protein's
+geometrical properties vary along its sequence. This gives a visualization
+of which regions appear to have consistently poor or unusual geometry
+(perhaps because they are poorly defined) and which have more normal
+geometry.
+
+<p>
+The properties plotted are:- 
+
+<UL>
+
+<LI><B>Graphs a-c: Stereochemical properties</B>
+
+<p>
+The first three graphs at the top of the page show:
+
+<p>
+<UL>
+       1. Absolute deviation from mean Chi-1 value (excl. Pro)<BR>
+       2. Absolute deviation from mean of omega torsion<BR>
+       3. C-alpha chirality: abs. deviation of zeta torsion<BR>
+</UL>
+
+<p>
+For each graph, <B>unusual</B> values (usually those more than <B>2.0</B>
+standard deviations away from the "ideal" mean value) are shown
+<B>highlighted</B>.
+
+<p>
+<LI><B>Graph d: Secondary structure & average estimated accessibility</B>
+
+<p>
+The <B>secondary structure plot</B> shows a <B>schematic</B> representation
+of the Kabsch &amp; Sander (1983)
+secondary structure assignments. The key just below the picture shows which
+structure is which. Beta strands are taken to include all residues with a
+Kabsch &amp; Sander assignment of <B>E</B>, helices corresponds to both
+<B>H</B> and <B>G</B> assignments, while everything else is taken to be
+random coil.
+
+<p>
+The shading behind the schematic picture gives an <B>approximation</B>
+to the <B>residue accessibilities</B>. The approximation is a fairly
+crude one, being based on each residue's <B>Ooi</B> number (Nishikawa
+&amp; Ooi, 1986).  An <B>Ooi</B> number is a count of the number of
+other <B>C<em>alpha</em></B> atoms within a radius of, in this case,
+<B>14&Aring;</B> of the given residue's own
+<B>C<em>alpha</em></B>. Although crude, this does give a good impression of
+which parts of the structure are buried and which are exposed on the
+surface. Future versions of <B>PROCHECK</B> will include an accurate
+calculation of residue accessibility.
+
+<p>
+<LI><B>Graph e: Sequence & Ramachandran regions</B>
+
+<p>
+The next section shows the <B>sequence</B> of the structure (using the
+20 standard one-letter amino-acid codes) and a set of markers that
+identify the <B>region </B>of the <B>
+<A
+  href="doc_procheck01.html"
+  target="Ramaplot"
+  onclick="NewWindow(this.href,'rama','800','640','yes');return false;"
+>Ramachandran
+plot</A></B> in which each residue is located. There are <B>four</B>
+marker types, one for each of the four different types of region:
+<B>core</B> (<EM>ie</EM> most favoured), <B>allowed</B>,
+<B>generous</B> and
+<B>disallowed</B>.
+
+<p>
+<LI><B>Graph f: Max. deviation</B>
+
+<p>
+The small histogram of <B>asterisks</B> and <B>plus-signs</B> shows each
+residue's <B>maximum deviation</B> from one of the ideal values given on
+the <B>
+<A 
+  href="doc_procheckls.html"
+  target="RbyRlisting"
+  onclick="NewWindow(this.href,'resi','800','640','yes');return false;"
+>residue-by-residue listing</A></B> in the
+<B>.out</B> file. Refer to the final column of the <B>.out</B> file to see
+which is the parameter that deviates by the amount shown here.
+
+
+<p>
+<LI><b>Graph g: <em>G</em>-factors</b>
+
+<p>
+The shaded squares give a schematic representation of each residue's
+<A
+   href="doc_procheckgf.html"
+   target="Gfactors"
+   onclick="NewWindow(this.href,'GF','800','640','yes');return false;"
+><b><em>G</em>-factor</b></A>
+values. (Note that the <b>chi-1</b> <em>G</em>-factors are shown only
+for those residues that do not have a <b>chi-2</b>, and hence no
+<b>chi1-chi2</b> <em>G</em>-factor).
+
+<p>
+Regions with many dark squares correspond to regions where the properties
+are "<b>unusual</b>", as defined by a low (or negative)
+<em>G</em>-factor. These may correspond to highly mobile or poorly
+defined regions such as loops, or may need further investigation.
+
+</UL>
+
+<P>
+<B><I>Reference</I></B><BR>
+<table cellpadding=0 cellspacing=0>
+ <tr>
+  <th valign=top>
+   <a
+   href="http://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&db=pubmed&dopt=Abstract&list_uids=3818558&query_hl=3"
+   target="Nishikawa_and_Ooi"
+  ><img border=0 src="gif/fulltext.gif"></A>
+  </th>
+  <td valign=top>
+   Nishikawa K and Ooi T (1986).  Radial locations of
+   amino-acid residues in a globular protein - correlation with the
+   sequence. <EM>J. Biochem.</EM>, <B>100</B>, 1043-1047.
+  </td>
+ </tr>
+</table>
+
+</body>
+</html>
+

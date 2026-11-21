@@ -1,0 +1,121 @@
+<!-- Table for right panel -->
+<table border=0 cellpadding=0 cellspacing=0>
+
+<!-- PROCHECK Ramachandran, if we have it -->
+<BLOCK PROCHECK>
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" height=10 width=1>
+  </td> 
+ </tr>
+
+ <tr>
+  <td align=center class=ftxt>
+   <font color="#006666"><B>PROCHECK</B></font>
+  </td>
+ </tr>
+ <tr>
+  <!-- PROCHECK's Ramachandran plot -->
+  <td valign=top align=center>
+   <a href="./procheck.html"
+    target=procheck<FLD%>PDB_CODE</FLD%>
+    onmouseover="Tip('<img src=tmpgif/procheck/ramach.gif><br><B>Ramachandran Plot</B>', OFFSETX, -600, OFFSETY, -100, PADDING, 4, BGCOLOR, '#ffffff')"><img
+    border=0 width=100 src="tmpgif/procheck/ramach.gif"
+    ALT="Go to PROCHECK summary"></a>
+  </td>
+ </tr>
+</BLOCK PROCHECK>
+
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" height=10 width=1>
+  </td> 
+ </tr>
+
+ <!-- Show link to PDB file's header records and references -->
+ <tr>
+  <td align=center>
+   <table border=0 cellpadding=0 cellspacing=0>
+<SKIP HEADERS_PAGE>
+<!--
+    <tr>
+     <td align=center valign=center>
+      <a href="./header_records.html&r=getheader"
+       title="View header records in PDB file"
+       target="Header_<FLD%>PDB_CODE</FLD%>"
+       class=menuClass><img
+       border=0 src="gif/headers_sm.gif"></a></td>
+     <td align=left valign=center class=ttxt>
+      &nbsp;<b>Headers</b>
+     </td>
+    </tr>
+-->
+</SKIP HEADERS_PAGE>
+    <tr>
+     <td colspan=2><img width=1 height=6 src="gif/1x1.gif"></td>
+    </tr>
+
+<!-- References link -->
+<BLOCK !PROPRIETARY>
+<BLOCK !ALPHA_FOLD>
+<SKIP REFS_PAGE>
+<!--
+    <tr>
+     <td align=center valign=center>
+      <a href="./header_references.html"
+       title="View all references listed in PDB file"
+       target="Refs_<FLD%>PDB_CODE</FLD%>"
+      class=menuClass><img
+      border=0 src="gif/fulltext_sm.gif"></a></td>
+     <td align=left valign=center class=ttxt>
+      &nbsp;<b>References</b>
+     </td>
+    </tr>
+-->
+</SKIP REFS_PAGE>
+</BLOCK !ALPHA_FOLD>
+</BLOCK !PROPRIETARY>
+   </table>
+  </td> 
+ </tr>
+
+<!-- Species icon(s), if present -->
+<BLOCK !PROPRIETARY>
+<BLOCK NSPECIES_GIF>
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" height=10 width=1>
+  </td> 
+ </tr>
+
+ <tr>
+  <td align=center valign=top>
+   <table border=0 cellpadding=0 cellspacing=0>
+    <tr>
+<LOOP NSPECIES_GIF>
+<SKIP !TAX_ID>
+     <td align=left valign=top>
+      <a href="<LNK%>PDBE_SPECIES_LIST</LNK%><FLD%>TAX_ID</FLD%>"
+       onmouseover="return overlib('PDBe list of other 3D structures from this species', WRAP);"
+       onmouseout="return nd();"
+       onclick="NewWindow(this.href,'111','750','600','yes');return false;">
+</SKIP !TAX_ID>
+      <img
+       border=0 src="gif/species/<FLD%>SPECIES_GIF</FLD%>.gif"
+      >
+<SKIP !TAX_ID>
+      </a>
+</SKIP !TAX_ID>
+     </td>
+     <td align=left valign=top>
+      <img src="gif/1x1.gif" height=1 width=5>
+     </td>
+</LOOP NSPECIES_GIF>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</BLOCK NSPECIES_GIF>
+</BLOCK !PROPRIETARY>
+
+</table>

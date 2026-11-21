@@ -1,0 +1,1356 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET PAGE_TITLE="Secondary structure: <FLD%>PDB_CODE</FLD%>(<FLD%>CHAIN</FLD%>)">
+<SET BAR_ALIGN="left">
+<SET BAR_HEADER="Protein chain <FLD%>CHAIN</FLD%>">
+<BLOCK NCOPIES>
+<SET TXT1="&nbsp; &nbsp;- &nbsp; &nbsp;representing identical chain<s% NCOPIES>:">
+<SET BAR_HEADER="<FLD%>BAR_HEADER</FLD%> <FLD%>TXT1</FLD%>">
+</BLOCK NCOPIES>
+<SET PROTEIN_PAGE="TRUE">
+<SET SIDE_LINE="TRUE">
+
+<SET PLOT_CHAIN="<FLD%>CHAIN</FLD%>">
+<FLD%>_COUNTER7=1</FLD%>
+<SET BLANK="TRUE">
+
+<!-- Get middle part of PDB code -->
+<SET CHAR2="<FLD%>PDB_CODE(p2)</FLD%>">
+<SET CHAR3="<FLD%>PDB_CODE(p3)</FLD%>">
+<SET MIDDLE="<FLD%>CHAR2</FLD%><FLD%>CHAR3</FLD%>">
+
+<!-- Define location of PDBsum directory -->
+<SET WIRING_DIR="wiring<FLD%>PDB_CODE</FLD%>_l<FLD%>_LOOP1</FLD%>">
+<SET WIRING_FILE="wirplot_<FLD%>CHAIN</FLD%>.gif">
+<SET WIRING_DAT="<LNK%>PDIR</LNK%>/wiring/wiring_<FLD%>CHAIN</FLD%>.dat">
+<SET UNIFUNC_IDX="<LNK%>SWISSPROT_LOCAL_DIR</LNK%>/unifunc.idx">
+
+<!-- Check for ProMotif summary page -->
+<SKIP !"<LNK%>PDIR</LNK%>/pdb<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>_summary_01.gif">
+<SET PROMOTIF_SUMMARY="TRUE">
+</SKIP !"<LNK%>PDIR</LNK%>/pdb<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>_summary_01.gif">
+
+<!-- Determine whether promotif.dat file needs to be read in -->
+<BLOCK NEW_PROMOTIF>
+<SET P_MOTIFNAME1="beta_barrel">
+<SET P_MOTIFNAME2="sheet">
+<SET P_MOTIFNAME3="beta_alpha_beta_unit">
+<SET P_MOTIFNAME4="beta_hairpin">
+<SET P_MOTIFNAME5="psi_loop">
+<SET P_MOTIFNAME6="beta_bulge">
+<SET P_MOTIFNAME7="strands">
+<SET P_MOTIFNAME8="helices">
+<SET P_MOTIFNAME9="helint">
+<SET P_MOTIFNAME10="bturns">
+<SET P_MOTIFNAME11="gturns">
+<SET P_MOTIFNAME12="disulphide">
+<SET P_MOTIFDESC1="beta barrel">
+<SET P_MOTIFDESC2="sheet">
+<SET P_MOTIFDESC3="beta-alpha-beta unit">
+<SET P_MOTIFDESC4="beta hairpin">
+<SET P_MOTIFDESC5="psi loop">
+<SET P_MOTIFDESC6="beta bulge">
+<SET P_MOTIFDESC7="strand">
+<SET P_MOTIFDESC8="helix">
+<SET P_MOTIFDESC9="helix-helix interacs">
+<SET P_MOTIFDESC10="beta turn">
+<SET P_MOTIFDESC11="gamma turn">
+<SET P_MOTIFDESC12="disulphide">
+<SET P_OPTION1="BETA_BARRELS">
+<SET P_OPTION2="SHEETS">
+<SET P_OPTION3="BAB_MOTIFS">
+<SET P_OPTION4="BETA_HAIRPINS">
+<SET P_OPTION5="PSI_LOOPS">
+<SET P_OPTION6="BETA_BULGES">
+<SET P_OPTION7="STRANDS">
+<SET P_OPTION8="HELICES">
+<SET P_OPTION9="HELIX_INTERACTIONS">
+<SET P_OPTION10="BETA_TURNS">
+<SET P_OPTION11="GAMMA_TURNS">
+<SET P_OPTION12="DISULPHIDES">
+</BLOCK NEW_PROMOTIF>
+
+<!-- Define colours for topology borders -->
+<SET BCOLOUR1="red">
+<SET BCOLOUR2="blue">
+<SET BCOLOUR3="green">
+<SET BCOLOUR4="purple">
+<SET BCOLOUR5="brown">
+<SET BCOLOUR6="cyan">
+<SET BCOLOUR7="magenta">
+<SET HTMLCOL0="#207a7a">
+<SET HTMLCOL1="#FF0000">
+<SET HTMLCOL2="#0000FF">
+<SET HTMLCOL3="#00FF00">
+<SET HTMLCOL4="#A020F0">
+<SET HTMLCOL5="#8B4513">
+<SET HTMLCOL6="#00FFFF">
+<SET HTMLCOL7="#FF00FF">
+
+<SET CATH_0.0.0.0="TRUE">
+
+<!-- PDBsum tags -->
+#insert:tags.html
+
+#read:<LNK%>PDIR</LNK%>uniplot/uniplot.dat
+#read:<LNK%>WIRING_DAT</LNK%>
+
+<TABLE border=0 CELLPADDING=0 CELLSPACING=0>
+
+<TR>
+<TD VALIGN=top>
+<!-- -->
+<TABLE BGCOLOR=white border=0 CELLSPACING=0
+CELLPADDING=0 WIDTH=50% ALIGN=center>
+<TR>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+<BLOCK !TRANSPARENT>
+  <td  width=240 height=240 valign=top><img src="tmpgif/newsec/chain<FLD%>CHAIN</FLD%>.png" border=0 width=240 hight=240></td> 
+</BLOCK !TRANSPARENT>
+<BLOCK TRANSPARENT>
+  <td  width=240 height=240 valign=top><a href="tmpgif/newsec/chain<FLD%>CHAIN</FLD%>.png" 
+   onclick="NewWindow(this.href,'','260','260','yes');return false;"
+   target="image"
+   onmouseout="mouseoff('chain')" onmouseover="mouseon('chain'); window.status='Click to view'; return true;"><img src="tmpgif/newsec/tchain<FLD%>CHAIN</FLD%>.png" name="chain" border=0 width=240 hight=240></a></td> 
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+   <font size=1pt face=arial color=darkred>Protein chain <FLD%>CHAIN</FLD%> highlighted</font>
+  </td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center><font size=1pt face=arial color=darkred>(click to view)</font></td>
+ </tr>
+ <tr>
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td align=center>
+   &nbsp;
+  </td>
+</BLOCK TRANSPARENT>
+</TR>
+</TABLE>
+<!-- -->
+<BLOCK NOT_WANTED_DEFAULT_OPTION>
+<table width=40% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td>
+  <td>
+    <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+     <tr> 
+      <td valign=bottom><img src="gif/1x1.gif" width=40 height=1 ALT=""></td>
+
+      <!-- RasMol -->
+      <td>
+       <a href="../rasmol/chain_<FLD%>CHAIN</FLD%>.rasmol"
+       download type="application/x-rasmol"
+       title="View chain in RasMol"><img
+       border=0 height=18 src="gif/rasmollogo3_5.gif" ALT=""></a>
+      </td>
+      <td valign=bottom><img src="gif/1x1.gif" width=2 height=1 ALT=""></td>
+
+     <!-- PyMol -->
+     <td align=left valign=center>
+      <a href="../pymol/chain_<FLD%>CHAIN</FLD%>.pml"
+       download type="application/x-pymol"
+       title="View chain in PyMol"><img
+       border=0 height=18 src="gif/pymol_script.gif" ALT="PyMol"></A>
+     </td>
+      <td valign=bottom><img src="gif/1x1.gif" width=2 height=1 ALT=""></td>
+
+      <!-- JSmol
+      <td>
+       <a href="./jmolrasmol.html&param1=pdbsum&param2=<FLD%>CHAIN</FLD%>&param3=<FLD%>CHAIN</FLD%>"
+       onclick="NewWindow(this.href,'jmol','750','750','yes');return false;"
+       title="View chain in JSmol"><img
+       border=0 height=20 src="gif/JSmol_sm.png" ALT="JSmol"></A>
+      </td>
+      <td valign=bottom><img src="gif/1x1.gif" width=5 height=1 ALT=""></td>
+      <td><img border=0 src="gif/1x1.gif" width=30></td>
+-->
+     </tr>
+     <tr>
+       <td colspan=6>&nbsp;</td>
+     </tr>
+    </table>
+  </td>
+ </tr> 
+</table>
+</BLOCK NOT_WANTED_DEFAULT_OPTION>
+
+<!-- Motifs tab -->
+<table width=50% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td bgcolor=#207a7a><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td>
+   <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td valign=bottom>
+      <img src="gif/1x1.gif" width=10 height=1 ALT="">
+      <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+        <td bgcolor=#207a7a><img src="gif/1x1.gif" width=5 height=1></td>
+       </tr> 
+      </table>
+     </td> 
+     <td><img src="gif/zl09x20.gif" width=10 height=20 ALT=""></td>
+     <td bgcolor=#207a7a width="150" height=20 align="center"><b><font color=white face=arial size=2pt>Motifs</font></b></td>
+     <td><img src="gif/zr10x20.gif" width=10 height=20 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+</table>
+<!-- ******************************************************************** -->
+
+<FLD%>_COUNTER2=0</FLD%>
+
+<!-- If not, then check whether PDB entry has a local conserv.dat file -->
+<SKIP COUNTER2[gt0]>
+<SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+<FLD%>_COUNTER2++</FLD%>
+<FLD%>_COUNTER4++</FLD%>
+</SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+</SKIP COUNTER2[gt0]>
+
+<!-- Check whether this chain has exon data -->
+<SKIP !HAVE_EXONS>
+<FLD%>_COUNTER3++</FLD%>
+<FLD%>_COUNTER4++</FLD%>
+</SKIP !HAVE_EXONS>
+
+<!-- -------------------------Tree start--------------------------------- -->
+<table width=185 cellspacing=0 cellpadding=0 border=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=10></td>
+  <td>
+<BLOCK WIRPLOT>
+<!--Next level 1 (Wiring diagram heading)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<BLOCK WIRPLOT_MID>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</BLOCK WIRPLOT_LAST>
+<b>Secondary structure</b>
+</td> 
+</tr> 
+<BLOCK WIRPLOT_LAST>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</BLOCK WIRPLOT_LAST>
+</table>
+<!--end of level 1 (Wiring diagram heading)-->
+<!-- level 2 (Wiring diagram link)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<SKIP COUNTER4[eq0]>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=trmlmn>
+</SKIP COUNTER4[eq0]>
+<SKIP COUNTER4[gt0]>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</SKIP COUNTER4[gt0]>
+<SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<a href="./protein_<FLD%>CHAIN</FLD%>.html" class=menuClass>Wiring diagram</a>
+</SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<SKIP !CALL_NO<FLD%>_CALL_NO</FLD%>>
+<FONT COLOR=darkred><B>Wiring diagram</B></FONT>
+</SKIP !CALL_NO<FLD%>_CALL_NO++</FLD%>>
+</td> 
+</tr>
+<SKIP COUNTER4[gt0]>
+<tr>
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</SKIP COUNTER4[gt0]>
+</table>
+<!-- end of level 2 (Wiring diagram link)-->
+</BLOCK WIRPLOT>
+<BLOCK !WIRPLOT>
+<SKIP !CALL_NO<FLD%>_CALL_NO</FLD%>>
+</SKIP !CALL_NO<FLD%>_CALL_NO++</FLD%>>
+</BLOCK !WIRPLOT>
+
+<!-- level 2 (Residue conservation)-->
+<SKIP COUNTER2[eq0]>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+<SKIP CALL_NO999>
+<a href="./protein_<FLD%>CHAIN</FLD%>.html" class=menuClass>Residue conservation</a>
+</SKIP CALL_NO999>
+<SKIP !CALL_NO999>
+<FONT COLOR=darkred><B>Residue conservation</B></FONT>
+</SKIP !CALL_NO999>
+</td>
+</tr> 
+<SKIP COUNTER3[gt0]>
+<tr>
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</SKIP COUNTER3[gt0]>
+</table>
+</SKIP COUNTER2[eq0]>
+<!-- end of level 2 (Residue conservation)-->
+
+
+<!-- level 2 (Exons)-->
+<SKIP COUNTER3[eq0]>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</td>
+</tr> 
+<tr>
+<BLOCK WIRPLOT_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_MID>
+<BLOCK WIRPLOT_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK WIRPLOT_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</table>
+</SKIP COUNTER3[eq0]>
+<!-- end of level 2 (Exons)-->
+
+<!-- PROMOTIF index -->
+<SKIP !NMOTIFS>
+<SKIP NMOTIFS[eq0]>
+#insert:p_index.html
+</SKIP NMOTIFS[eq0]>
+</SKIP !NMOTIFS>
+
+<!-- Variants index -->
+
+<BLOCK NPROSITE>
+<!--Next level 1 (PROSITE patterns)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<BLOCK PROSITE_MID>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</BLOCK PROSITE_MID>
+<BLOCK PROSITE_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</BLOCK PROSITE_LAST>
+<b>PROSITE</b>
+</td>
+</tr> 
+<BLOCK PROSITE_LAST>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</BLOCK PROSITE_LAST>
+</table>
+<!--end of level 1 (PROSITE patterns)-->
+<!-- terminal level 2 (List of patterns)-->
+<LOOP NPROSITE>
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<BLOCK PROSITE_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK PROSITE_MID>
+<BLOCK PROSITE_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK PROSITE_LAST>
+<td><img src="gif/1x1.gif" width=15 height=1 ALT=""></td> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP MIDLOOP2>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=trmlmn>
+</SKIP MIDLOOP2>
+<SKIP ENDLOOP2>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td width=16777216 bgcolor=white class=trmlmn>
+</SKIP ENDLOOP2>
+<SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<a href="./protein_<FLD%>CHAIN</FLD%>.html" class=menuClass><FLD%>PROSITE_NAME{c15}</FLD%></a>
+</SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+<SKIP !CALL_NO<FLD%>_CALL_NO</FLD%>>
+<FONT COLOR=darkred><B><FLD%>PROSITE_NAME{c15}</FLD%></B></FONT>
+</SKIP !CALL_NO<FLD%>_CALL_NO</FLD%>>
+</td> 
+</tr>
+<SKIP MIDLOOP2>
+<tr>
+<BLOCK PROSITE_MID>
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK PROSITE_MID>
+<BLOCK PROSITE_LAST>
+<td><img src="gif/1x1.gif" width=1 height=1></td>
+</BLOCK PROSITE_LAST>
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=2 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""></td>
+<td><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+</tr> 
+</SKIP MIDLOOP2>
+</table>
+</LOOP NPROSITE>
+<SKIP CALL_NO<FLD%>_CALL_NO</FLD%>>
+</SKIP CALL_NO<FLD%>_CALL_NO++</FLD%>>
+</BLOCK NPROSITE>
+
+<!-- ============== -->
+
+
+
+
+<!-- end of terminal level 2 (List of prosite patterns)-->
+  </td>
+ </tr> 
+</table>
+<!-- -------------------------Tree end------------------------------- -->
+
+<img src="gif/1x1.gif" width=1 height=20>
+
+<!-- ----------------------- Second tree ---------------------------- -->
+
+<SKIP NUNIQ[lt2]>
+<table width=50% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr> 
+  <td><img src="gif/1x1.gif" width=1 height=1></td> 
+  <td>
+   <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+    <tr> 
+     <td valign=bottom>
+      <img src="gif/1x1.gif" width=10 height=1 ALT="">
+<!-- -->
+      <table width=100% cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+       <tr> 
+        <td><img src="gif/1x1.gif" width=5 height=1></td>
+       </tr> 
+      </table>
+<!-- -->
+     </td> 
+     <td><img src="gif/protein.gif" width=162 height=20 ALT=""></td>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+</table>
+<!-- ******************************************************************** -->
+<!-- -------------------------Tree start--------------------------------- -->
+
+<table width=185 cellspacing=0 cellpadding=0 border=0>
+ <tr>
+  <td><img src="gif/1x1.gif" width=25 height=10></td>
+  <td>
+<LOOP NUNIQ>
+<!--Next level 1 (Chains list)-->
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+<tr> 
+<td class=color><img src="gif/1x1.gif" width=1 height=1></td> 
+<SKIP ENDLOOP1>
+<td><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table><img src="gif/1x1.gif" width=10 height=1 ALT=""></td> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td width=16777216 bgcolor=white class=submn>
+</SKIP ENDLOOP1>
+<SKIP MIDLOOP1>
+<td valign=bottom><img src="gif/1x1.gif" width=1 height=1><img src="gif/1x1.gif" width=10 height=1 ALT=""><table cellspacing=0 cellpadding=0 border=0 bgcolor=white><tr><td class=color><img src="gif/1x1.gif" width=10 height=1></td></td></tr></table></td>
+<td></td> 
+<td width=16777216 bgcolor=white rowspan=2 class=submn>
+</SKIP MIDLOOP1>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<BLOCK !RESCONS_OPTION>
+<a href="./protein_<FLD%>CHAIN</FLD%>.html"
+   class=menuClass>Chain<s% NCHAINS>
+</BLOCK !RESCONS_OPTION>
+<BLOCK RESCONS_OPTION>
+<a href="./protein.html&o=RESCONS&l=<FLD%>_LOOP1</FLD%>&chain=<FLD%>CHAIN</FLD%>&c=999&r=wiring" class=menuClass>Chain<s% NCHAINS>
+</BLOCK RESCONS_OPTION>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+<FONT COLOR=darkred><B>Chain<s% NCHAINS>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+<IMG align=top width=18 border=0 src="gif/chain<FLD%>CHAIN{chn}</FLD%>.jpg">
+<LOOP NCOPIES>
+<IMG align=top width=18 border=0 src="gif/chain<FLD%>COPY{chn}</FLD%>.jpg">
+</LOOP NCOPIES>
+<SKIP CALPHA_ONLY>
+<FLD%>NRESID</FLD%>&nbsp;a.a.</a>
+</SKIP CALPHA_ONLY>
+<SKIP !CALPHA_ONLY>
+<FLD%>NRESID</FLD%>&nbsp;a.a.</a><FONT COLOR=RED>*</FONT>
+<FLD%>_COUNTER1++</FLD%>
+</SKIP !CALPHA_ONLY>
+<SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+</a>
+</SKIP CALL_VAL<FLD%>_LOOP1</FLD%>>
+<SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</B></FONT>
+</SKIP !CALL_VAL<FLD%>_LOOP1</FLD%>>
+</td> 
+</tr> 
+<SKIP MIDLOOP1>
+<tr> 
+<td><img src="gif/1x1.gif" width=1 height=1></td> 
+<td valign=bottom><img src="gif/1x1.gif" width=10 height=3 ALT=""></td> 
+<td></td> 
+</tr>
+</SKIP MIDLOOP1>
+</table>
+<!--end of level 1 (Chains list)-->
+</LOOP NUNIQ>
+  </td>
+ </tr> 
+</table>
+</SKIP NUNIQ[lt2]>
+<!-- -------------------------Tree end------------------------------- -->
+
+<!-- -------------------- End of second tree ------------------------ -->
+
+<SKIP COUNTER1[eq0]>
+<img src="gif/1x1.gif" width=1 height=5><BR>
+<img src="gif/1x1.gif" width=5 height=1>
+<FONT SIZE=-1 COLOR=RED>* C-alpha coords only</FONT>
+</SKIP COUNTER1[eq0]>
+
+<!-- ******************************************************************** -->
+</TD>
+
+<TD>&nbsp;&nbsp;</TD>
+
+<TD VALIGN=top>
+
+<table cellspacing=0 cellpadding=0 border=0 bgcolor=white> 
+ <tr>
+  <td class=lhdr>
+<BLOCK RESCONS_OPTION>
+  <FONT COLOR=RED>Residue conservation:</FONT>
+</BLOCK RESCONS_OPTION>
+  Chain <IMG align=bottom width=18 border=0 src="gif/chain<FLD%>CHAIN{chn}</FLD%>.jpg"> <&% NCOPIES>
+<LOOP NCOPIES>
+<IMG align=bottom width=18 border=0 src="gif/chain<FLD%>COPY{chn}</FLD%>.jpg">
+</LOOP NCOPIES>
+(<FLD%>NRESID</FLD%> residues)
+<SKIP !CALPHA_ONLY>
+- <FONT COLOR=RED>C-alpha coords only</FONT>
+</SKIP !CALPHA_ONLY>
+  </td>
+ </tr> 
+<BLOCK DEFAULT_OPTION>
+<SKIP !NSWISSPROT_CODE>
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" width=1 height=15 ALT=""><BR>
+  </td>
+ </tr>
+<LOOP NSWISSPROT_CODE>
+ <tr>
+  <td align=left class=shdr>
+   <table cellspacing=0 cellpadding=0 border=0>
+    <tr>
+     <td valign=center>
+      <font color=darkred>UniProt code:</font>
+     </td>
+     <td valign=center>
+<SKIP !UNIPLOT_UNIPROT_NAME>
+     <B><FONT COLOR=GREEN>
+</SKIP !UNIPLOT_UNIPROT_NAME>
+<a href="<LNK%>URL_SWISS_PROT</LNK%><FLD%>SWISSPROT_ID</FLD%>"
+     target=top
+<SKIP UNIPLOT_UNIPROT_NAME>
+     class=menuClass
+</SKIP UNIPLOT_UNIPROT_NAME>
+<SKIP !UNIPLOT_UNIPROT_NAME>
+      class=annotClass
+      title="UniProt sequence: <FLD%>UNIPLOT_UNIPROT_NAME</FLD%>"
+</SKIP !UNIPLOT_UNIPROT_NAME>
+     ><FLD%>SWISSPROT_ID</FLD%></a>
+<SKIP !UNIPLOT_UNIPROT_NAME>
+     </FONT></B>
+</SKIP !UNIPLOT_UNIPROT_NAME>
+(<FLD%>SWISSPROT_CODE</FLD%>)
+     </td>
+<SKIP ![<FLD%>SWISSPROT_ID</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+     <td valign=center>
+     <a href="./unifunc.html&u=<FLD%>SWISSPROT_ID</FLD%>"
+      onclick="NewWindow(this.href,'','800','600','yes');return false;"
+      target=<FLD%>SWISSPROT_ID</FLD%>
+      title="Click to view UniProt functional annotation for this sequence">
+      <img align=center border=0 src="gif/fn.gif"></a>
+     </td>
+</SKIP ![<FLD%>SWISSPROT_ID</FLD%>]"<LNK%>UNIFUNC_IDX</LNK%>">
+     <td valign=center>
+      &nbsp;
+      <a href="<LNK%>URL_PFAM</LNK%><FLD%>SWISSPROT_ID</FLD%>"
+       target=top
+       title="Pfam entry for UniProt seq <FLD%>SWISSPROT_ID</FLD%>"
+       class=menuClass>[Pfam]</a>
+     </td>
+
+    </tr>
+   </table>
+  </td>
+ </tr>
+</LOOP NSWISSPROT_CODE>
+</SKIP !NSWISSPROT_CODE>
+ <tr>
+  <td class=shdr>
+<BLOCK NOCATH>
+   <img src="gif/1x1.gif" width=1 height=15 ALT=""><BR>
+<SKIP !WIRING_WIRPLOT>
+   <font color=darkred>Secondary structure:</font>
+</SKIP !WIRING_WIRPLOT>
+<SKIP WIRING_WIRPLOT>
+   <font color=darkred>Sequence:</font>
+</SKIP WIRING_WIRPLOT>
+</BLOCK NOCATH>
+  </td>
+ </tr>
+ <tr>
+  <td width=485 valign=top align=left>
+   <P>
+   <table>
+    <tr>
+     <td valign=top>
+<SKIP !WIRING_WIRPLOT>
+      <table cellspacing=0 cellpadding=0 border=0>
+       <tr>
+        <td colspan=2 valign=top>
+         <img border=0
+          usemap=#MapWir
+          src="tmpgif/wiring/<LNK%>WIRING_FILE</LNK%>">
+         <map name=MapWir>
+<LOOP WIRING_NMAPS>
+          <area shape="rect"
+           coords="<FLD%>WIRING_MAP_XMIN</FLD%>, <FLD%>WIRING_MAP_YMIN</FLD%>, <FLD%>WIRING_MAP_XMAX</FLD%>, <FLD%>WIRING_MAP_YMAX</FLD%>"
+           title="<FLD%>WIRING_ANNOT_TITLE</FLD%>"
+           html=""
+          >
+</LOOP WIRING_NMAPS>
+          <area shape="rect"
+           coords="<FLD%>WIRING_WIRPLOT_XMIN</FLD%>, <FLD%>WIRING_WIRPLOT_YMIN</FLD%>, <FLD%>WIRING_WIRPLOT_XMAX</FLD%>, <FLD%>WIRING_WIRPLOT_YMAX</FLD%>"
+           title="Click for larger version ..."
+           href="../wiring/wirplot_x5_<FLD%>CHAIN</FLD%>.gif"
+           target=wiring<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>
+           onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+          >
+         </map>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img width=1 height=15 src="gif/1x1.gif">
+        </td>
+       </tr>
+       <tr>
+        <td align=left valign=top>
+#insert:ins_wirkey.html
+        </td>
+        <td align=right valign=top>
+         <a href="../wiring/wirplot_x5_<FLD%>CHAIN</FLD%>.gif"
+          onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+          target="wiring<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>"
+          title="Click for larger version of secondary structure plot">
+          <img border=0 width=30 src="gif/zoom_in.gif"></a>
+        </td>
+       </tr>
+      </table>
+</SKIP !WIRING_WIRPLOT>
+<SKIP WIRING_WIRPLOT>
+<PRE>
+#include:<LNK%>PDIR</LNK%>seq<FLD%>_LOOP1{i3}</FLD%>.html
+</PRE>
+</SKIP WIRING_WIRPLOT>
+     </td>
+<SKIP !WIRPLOT>
+     <td align=center valign=top class=ftxt>
+<SKIP !NDOMAINS>
+<SKIP NDOMAINS[lt2]>
+     <BR>
+       <a href="./jmolrasmol.html&param1=domains&param2=<FLD%>CHAIN</FLD%>&param3=<FLD%>CHAIN</FLD%>"
+       onclick="NewWindow(this.href,'jmol','650','650','yes');return false;"
+       title="View chain <FLD%>CHAIN</FLD%> in JSmol, coloured by domain"><img
+         border=0 height=20 src="gif/JSmol_sm.png" ALT="Jmol"></A>
+     <BR>
+     <a href="<LNK%>GETRASMOL_PL</LNK%>&origin=domains&pdb=<FLD%>PDB_CODE</FLD%>&chain=<FLD%>CHAIN</FLD%>"
+     title="View chain <FLD%>CHAIN</FLD%> in RasMol, coloured by domain"><img
+       border=0 height=20 src="gif/rasmollogo3_5.gif" ALT="RasMol"></a>
+</SKIP NDOMAINS[lt2]>
+</SKIP !NDOMAINS>
+     <BR>
+      <a href="../newsec/seq<FLD%>_LOOP1{i3}</FLD%>.fasta"
+       title="Protein sequence in FASTA format"><img
+	border=0 src="gif/results.gif"
+       ALT=""></a>
+     <BR>
+     FASTA<BR>file
+     </td>
+</SKIP !WIRPLOT>
+
+<!-- Topology diagram for whole chain -->
+<SKIP !TOPOLCHN>
+     <td>
+      <img src="gif/1x1.gif" width=20 height=1 ALT="">
+     </td>
+     <td valign=top>
+      <table bgcolor=white border="0" width="100" cellspacing="0" cellpadding="0">
+       <tr>
+        <td><img src="gif/zl09x20.gif" width="9" height="20" ALT=""></td>
+        <td bgcolor="#207a7a" width="72" align="center"><font color=white face=arial size=2pt><b>Topology</b></font></td>
+        <td><img src="gif/zr23x20.gif" width="23" height="20" ALT=""></td>
+       </tr>
+      </table>
+      <table border="0" width="150" cellspacing="0" cellpadding="0">
+       <tr>
+        <td colspan=3 width=100 bgcolor="#207a7a"><img src="gif/1x1.gif" width=100 height=1 ALT=""></td>
+        <td colspan=2><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+       </tr>
+       <tr>
+        <td width=1 bgcolor="#207a7a"><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+        <td width=98 align=center>
+         <table border="0" cellspacing="0" cellpadding="3">
+          <tr>
+           <th>
+            <img src="gif/1x1.gif" width=5 height=1 ALT=""><a
+              href="tmpgif/hera/dom<FLD%>CHAIN{zchn}</FLD%>01.gif"
+              title="Click to enlarge"
+              onclick="NewWindow(this.href,'111','850','600','yes');return false;"><img
+              border=0 src="tmpgif/hera/topoldia_<FLD%>CHAIN{zchn}</FLD%>_01_small.png" ALT="Topology diagram"></a>
+           </th>
+          </tr>
+         </table>
+        </td>
+        <td width=1 bgcolor="#207a7a"><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+        <td><img src="gif/1x1.gif" width=6 height=1 ALT=""></td>
+        <td class=shdr align=center valign=top><a
+          href="tmpgif/hera/dom<FLD%>CHAIN{zchn}</FLD%>01.ps"
+         title="View full-size PostScript version of this diagram"
+         class=menuClass><img valign=top border=0 src="gif/psvers_small.gif" ALT=""></a><BR>
+         <img src="gif/1x1.gif" width=1 height=6 ALT=""><BR>
+         <a href="tmpgif/hera/dom<FLD%>CHAIN{zchn}</FLD%>01.pdf"
+         title="View full-size PDF version of this diagram" class=menuClass
+         onclick="NewWindow(this.href,'111','850','800','yes');return false;"><img border=0 src="gif/pdf_small.gif" ALT=""></a><BR>
+         <img src="gif/1x1.gif" width=1 height=6 ALT=""><BR>
+
+<!-- Links to original Hera plots -->
+<SKIP !"<LNK%>PDIR</LNK%>/hera/hera<FLD%>CHAIN{zchn}</FLD%>01.ps">
+         <font color=purple>Hera</font><BR>
+         <a href="tmpgif/hera/hera<FLD%>CHAIN{zchn}</FLD%>01.ps"
+         title="View the Hera diagram of main-chain H-bonds as a PostScript file"
+         class=menuClass><img valign=top border=0 src="gif/psvers_small.gif" ALT=""></a><BR>
+         <img src="gif/1x1.gif" width=1 height=6 ALT=""><BR>
+         <a href="tmpgif/hera/hera<FLD%>CHAIN{zchn}</FLD%>01.pdf"
+         target="hera<FLD%>CHAIN{zchn}</FLD%>"
+         title="View the Hera diagram of main-chain H-bonds as a PDF file" class=menuClass><img border=0 src="gif/pdf_small.gif" ALT=""></a>
+</SKIP !"<LNK%>PDIR</LNK%>/hera/hera<FLD%>CHAIN{zchn}</FLD%>01.ps">
+
+        </td>
+       </tr>
+       <tr>
+        <td colspan=3 width=100 bgcolor="#207a7a"><img src="gif/1x1.gif" width=100 height=1 ALT=""></td>
+        <td colspan=2><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+       </tr>
+      </table>
+     </td>
+</SKIP !TOPOLCHN>
+
+<!-- Topology diagrams by domain -->
+<SKIP !NDOMAINS>
+     <td>
+      <img src="gif/1x1.gif" width=20 height=1 ALT="">
+     </td>
+     <td valign=top>
+<FLD%>_COUNTER8=0</FLD%>
+<LOOP NDOMAINS>
+<SKIP !TOPOLDOM>
+<FLD%>_COUNTER8%7</FLD%>
+<FLD%>_COUNTER8++</FLD%>
+      <table bgcolor=white border="0" width="100" cellspacing="0" cellpadding="0">
+       <tr>
+        <td><img src="gif/zl09x20<FLD%>BCOLOUR<NO%>COUNTER8</NO%></FLD%>.gif" width="9" height="20" ALT=""></td>
+        <td bgcolor="<FLD%>HTMLCOL<NO%>COUNTER8</NO%></FLD%>" width="72" align="center"><font color=white face=arial size=2pt><b>Domain <FLD%>_LOOP2</FLD%></b></font></td>
+        <td><img src="gif/zr23x20<FLD%>BCOLOUR<NO%>COUNTER8</NO%></FLD%>.gif" width="23" height="20" ALT=""></td>
+       </tr>
+      </table>
+      <table border="0" width="150" cellspacing="0" cellpadding="0">
+       <tr>
+        <td colspan=3 width=100 bgcolor="#207a7a"><img src="gif/1x1.gif" width=100 height=1 ALT=""></td>
+        <td colspan=2><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+       </tr>
+       <tr>
+        <td width=1 bgcolor="#207a7a"><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+        <td width=98 align=center>
+         <table border="0" cellspacing="0" cellpadding="3">
+          <tr>
+           <th>
+            <a href="tmpgif/dom<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.gif"
+             title="Click to enlarge"
+             onclick="NewWindow(this.href,'111','850','600','yes');return false;"><img
+             border=0 src="tmpgif/dom<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>_small.png" ALT="Topology diagram"></a>
+           </th>
+          </tr>
+         </table>
+        </td>
+        <td width=1 bgcolor="#207a7a"><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+        <td><img src="gif/1x1.gif" width=6 height=1 ALT=""></td>
+        <td valign=top><a href="<LNK%>SHOWTOPOLDIA_PS</LNK%>&file=dom<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.plt"
+         title="View full-size PostScript version of this diagram"
+         class=menuClass><img valign=top border=0 src="gif/psvers_small.gif" ALT=""></a><BR>
+         <img src="gif/1x1.gif" width=1 height=6 ALT=""><BR>
+         <a href="<LNK%>SHOWTOPOLDIA_PDF</LNK%>&file=dom<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.plt"
+         title="View full-size PDF version of this diagram" class=menuClass
+         onclick="NewWindow(this.href,'111','850','800','yes');return false;"><img border=0 src="gif/pdf_small.gif" ALT=""></a>
+
+<!-- Links to original Hera plots -->
+<SKIP !"<LNK%>PDIR</LNK%>/hera<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.ps">
+         <font color=purple>Hera</font><BR>
+         <a href="<LNK%>SHOWPPLOT_PS</LNK%>&file=hera<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.ps"
+         title="View the Hera diagram of main-chain H-bonds as a PostScript file"
+         class=menuClass><img valign=top border=0 src="gif/psvers_small.gif" ALT=""></a><BR>
+         <img src="gif/1x1.gif" width=1 height=6 ALT=""><BR>
+         <a href="<LNK%>SHOWPPLOT_PDF</LNK%>&file=hera<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.ps&pdf=YES"
+         title="View the Hera diagram of main-chain H-bonds as a PDF file"
+         class=menuClass><img border=0 src="gif/pdf_small.gif" ALT=""></a>
+</SKIP !"<LNK%>PDIR</LNK%>/hera<FLD%>CHAIN{zchn}</FLD%><FLD%>_LOOP2{i2}</FLD%>.ps">
+
+        </td>
+       </tr>
+       <tr>
+        <td colspan=3 width=100 bgcolor="#207a7a"><img src="gif/1x1.gif" width=100 height=1 ALT=""></td>
+        <td colspan=2><img src="gif/1x1.gif" width=1 height=1 ALT=""></td>
+       </tr>
+      </table>
+      <P>
+</SKIP !TOPOLDOM>
+</LOOP NDOMAINS>
+     </td>
+</SKIP !NDOMAINS>
+    </tr>
+   </table>
+  </td>
+ </tr> 
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" width=1 height=20 ALT="">
+  </td>
+ </tr>
+ <tr>
+  <td>
+   <table cellspacing=0 cellpadding=0 border=0 bgcolor=white>
+<BLOCK !PROPRIETARY>
+
+<FLD%>_COUNTER2=0</FLD%>
+<FLD%>_COUNTER3=0</FLD%>
+<FLD%>_COUNTER4=0</FLD%>
+<FLD%>_COUNTER5=0</FLD%>
+
+<!-- Check whether this chain has ConSurf residue conservation data -->
+<SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+<FLD%>_COUNTER2++</FLD%>
+<FLD%>_COUNTER4++</FLD%>
+<FLD%>_COUNTER5++</FLD%>
+</SKIP !"<LNK%>CONSURF_DIR</LNK%>/<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>.gradesPE">
+
+<!-- If not, then check whether PDB entry has a local conserv.dat file -->
+<SKIP COUNTER2[gt0]>
+<SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+<FLD%>_COUNTER2++</FLD%>
+<FLD%>_COUNTER4++</FLD%>
+</SKIP !"<LNK%>PDIR</LNK%>/conserv.dat">
+</SKIP COUNTER2[gt0]>
+
+<!-- Check whether this chain has exon data -->
+<SKIP !HAVE_EXONS>
+<FLD%>_COUNTER3++</FLD%>
+<FLD%>_COUNTER4++</FLD%>
+</SKIP !HAVE_EXONS>
+
+<SKIP COUNTER2[eq0]>
+<!-- Residue conservation -->
+    <tr>
+     <td valign=center align=center>
+      <a href="./protein.html&o=RESCONS&l=<FLD%>_LOOP1</FLD%>&chain=<FLD%>CHAIN</FLD%>&c=999&r=wiring"
+      class=menuClass
+      title="Residue conservation"><img border=0 src="gif/conserv.gif"></A>
+     </td>
+     <td valign=center align=left class=medhdr>
+      <FONT COLOR=BLACK>
+      &nbsp; Analysis of sequence's residue conservation
+      </FONT>
+     </td>
+    </tr>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=8 ALT=""></td>
+    </tr>
+</SKIP COUNTER2[eq0]>
+</BLOCK !PROPRIETARY>
+<SKIP COUNTER3[eq0]>
+<!-- Exon positions -->
+    <tr>
+     <td valign=center align=center>
+      <a href="./protein.html&o=EXONS&l=<FLD%>_LOOP1</FLD%>&chain=<FLD%>CHAIN</FLD%>&c=998"
+      class=menuClass
+      title="Exon positions"><img border=0 src="gif/scissors.gif"></A>
+     </td>
+     <td valign=center align=left class=medhdr>
+      <FONT COLOR=BLACK>
+      &nbsp; Locations of exon splice positions
+      </FONT>
+     </td>
+    </tr>
+    <tr>
+     <td><img src="gif/1x1.gif" width=1 height=8 ALT=""></td>
+    </tr>
+</SKIP COUNTER3[eq0]>
+   </table>
+  </td>
+ </tr>
+</BLOCK DEFAULT_OPTION>
+
+
+<!-- Residue conservation -->
+<BLOCK RESCONS_OPTION>
+<SKIP !NSWISSPROT_CODE>
+ <tr>
+  <td>
+   <img src="gif/1x1.gif" width=1 height=15 ALT=""><BR>
+  </td>
+ </tr>
+<LOOP NSWISSPROT_CODE>
+ <tr>
+  <td align=left class=shdr>
+   <table cellspacing=0 cellpadding=0 border=0>
+    <tr>
+     <td valign=top>
+      <font color=darkred>UniProt code:</font>
+     </td>
+     <td valign=top>
+<a href="<LNK%>URL_SWISS_PROT</LNK%><FLD%>SWISSPROT_ID</FLD%>" target=top class=menuClass><FLD%>SWISSPROT_ID</FLD%></a> &nbsp;
+<a href="<LNK%>URL_PFAM</LNK%><FLD%>SWISSPROT_ID</FLD%>" target=top class=menuClass>[Pfam]</a>
+     </td>
+    </tr>
+   </table>
+  </td>
+ </tr>
+</LOOP NSWISSPROT_CODE>
+</SKIP !NSWISSPROT_CODE>
+ <tr>
+  <td class=lhdr>
+   <img src="gif/1x1.gif" width=1 height=15 ALT=""><BR>
+   <font color=darkred>Sequence coloured by residue conservation:</font>
+  </td>
+ </tr>
+ <tr>
+  <td valign=top align=left>
+   <P>
+   <table>
+    <tr>
+     <td valign=top>
+<SKIP !WIRING_WIRPLOT>
+      <table cellspacing=0 cellpadding=0 border=0>
+       <tr>
+        <td colspan=2 valign=top>
+         <a href="tmpgif/wiring/wirplot_<FLD%>CHAIN</FLD%>_x5.gif"
+          onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+          target="wiring<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>"
+          title="Click for larger version"><img valign=top border=0
+          src="tmpgif/wiring/wirplot_<FLD%>CHAIN</FLD%>.gif"></a>
+        </td>
+       </tr>
+       <tr>
+        <td>
+         <img width=1 height=15 src="gif/1x1.gif">
+        </td>
+       </tr>
+       <tr>
+        <td align=left valign=top>
+#insert:ins_wirkey.html
+        </td>
+        <td align=right valign=top>
+         <a href="./wiring/wirlarge_<FLD%>CHAIN</FLD%>.html"
+          onclick="NewWindow(this.href,'','1000','650','yes');return false;"
+          target="wiring<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>"
+          title="Click for larger version of secondary structure plot">
+          <img border=0 width=30 src="gif/zoom_in.gif"></a>
+        </td>
+       </tr>
+      </table>
+</SKIP !WIRING_WIRPLOT>
+<SKIP WIRING_WIRPLOT>
+#rescons:<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>
+</SKIP WIRING_WIRPLOT>
+     </td>
+    </tr>
+    <tr>
+     <td class=ftxt colspan=2 align=right>
+      Conservation colouring: &nbsp; &nbsp;
+<B><FONT COLOR="#0000FF">Low&nbsp;1</FONT>&nbsp;<FONT COLOR="#CC66FF">2</FONT>&nbsp;<FONT COLOR="#0099FF">3</FONT>&nbsp;<FONT COLOR="#33CCFF">4</FONT>&nbsp;<FONT COLOR="#00FF00">5</FONT>&nbsp;<FONT COLOR="#FFFF00">6</FONT>&nbsp;<FONT COLOR="#FF6600">7</FONT>&nbsp;<FONT COLOR="#FF69B4">8</FONT>&nbsp;<FONT COLOR="#FF0000">9&nbsp;High</FONT>
+     </td>
+    </tr>
+    <tr>
+     <td valign=top align=left class=lhdr>
+      <FONT COLOR=darkred>
+      View:
+      </FONT>
+     </td>
+    </tr>
+    <tr>
+     <td valign=top>
+      <table cellpadding=0 cellspacing=0 border=0>
+       <tr>
+        <td align=left valign=center><img src="gif/1x1.gif" width=20 height=1 ALT=""></td>
+        <td align=center valign=center>
+         <a href="<LNK%>RUNCONTOUR_PL</LNK%>&colour_type=3"
+          title="Protein surface"><img
+          valign=top border=0 src="gif/rasmollogo3_5.gif" ALT=""></a>
+        </td>
+        <td class=ftxt>
+          Protein surface showing most poorly (<B><FONT COLOR="#0000FF">1</FONT></B>) and highly conserved (<B><FONT COLOR="#FF6600">7</FONT>&nbsp;<FONT COLOR="#FF69B4">8</FONT>&nbsp;<FONT COLOR="#FF0000">9</FONT></B>) regions
+        </td>
+       </tr>
+
+<SKIP COUNTER5[eq0]>
+       <tr>
+        <td align=left valign=center><img src="gif/1x1.gif" width=20 height=1 ALT=""></td>
+        <td align=center valign=center>
+         <a href="<LNK%>RUNCONTOUR_PL</LNK%>&colour_type=3&consurf=TRUE"
+          title="ConSurf representation"><img valign=top border=0 src="gif/rasmollogocons.gif" ALT=""></a>
+        </td>
+        <td class=ftxt>
+         <table cellpadding=0 cellspacing=0 border=0>
+          <tr>
+           <td align=left class=ftxt>
+            ConSurf representation of conserved regions:
+           </td>
+           <th width=20 bgcolor="#10C8D1" class=ftxt>
+            <FONT COLOR="#777777">1</FONT>
+           </th>
+           <th width=20 bgcolor="#8CFFFF" class=ftxt>
+            <FONT COLOR="#777777">2</FONT>
+           </th>
+           <th width=20 bgcolor="#D7FFFF" class=ftxt>
+            <FONT COLOR="#777777">3</FONT>
+           </th>
+           <th width=20 bgcolor="#EAFFFF" class=ftxt>
+            <FONT COLOR="#777777">4</FONT>
+           </th>
+           <th width=20 bgcolor="#FFFFFF" class=ftxt>
+            <FONT COLOR="#777777">5</FONT>
+           </th>
+           <th width=20 bgcolor="#FCEDF4" class=ftxt>
+            <FONT COLOR="#777777">6</FONT>
+           </th>
+           <th width=20 bgcolor="#FAC9DE" class=ftxt>
+            <FONT COLOR="#777777">7</FONT>
+           </th>
+           <th width=20 bgcolor="#F07DAB" class=ftxt>
+            <FONT COLOR="#777777">8</FONT>
+           </th>
+           <th width=20 bgcolor="#A02560" class=ftxt>
+            <FONT COLOR="#777777">9</FONT>
+           </th>
+          </tr>
+         </table>
+        </td>
+       </tr>
+
+       <tr>
+        <td align=left valign=center><img src="gif/1x1.gif" width=20 height=1 ALT=""></td>
+        <td align=center valign=center>
+         <a href="<LNK%>GET_CONSURF_FILE</LNK%>"
+            title="ConSurf output"
+            target="ConSurf_<FLD%>PDB_CODE</FLD%>"
+         ><img valign=top border=0 src="gif/results.gif" ALT=""></a>
+        </td>
+        <td class=ftxt>
+         Download tab-separated text file of ConSurf analysis
+        </td>
+       </tr>
+
+<BLOCK !ALPHA_FOLD>
+       <tr>
+        <td align=left valign=center><img src="gif/1x1.gif" width=20 height=1 ALT=""></td>
+        <td align=center valign=center>
+         <a href="<LNK%>GET_CONTOUR</LNK%>"
+          title="Raster3D image of conservation mapped onto surface"><img
+          valign=top border=0 src="gif/contour_cons.gif" ALT=""></a>
+        </td>
+        <td class=ftxt>
+         Generate Raster3D image of surface coloured by conservation
+        </td>
+       </tr>
+
+       <tr>
+        <td align=left valign=center><img src="gif/1x1.gif" width=20 height=1 ALT=""></td>
+        <td align=center valign=center>
+         <a href="<LNK%>CONSURF_URL</LNK%>"
+          target="ConSurf<FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>"
+          title="Go to ConSurf-DB page for <FLD%>PDB_CODE</FLD%><FLD%>CHAIN{bchn}</FLD%>"><img
+          valign=top border=0 src="gif/consurf_logo.gif" ALT="ConSurf-DB"></a>
+        </td>
+        <td class=ftxt>
+         ConSurf-DB data (including mult seq alignment) for <FLD%>PDB_CODE</FLD%>, chain <FLD%>CHAIN{bchn}</FLD%>
+        </td>
+       </tr>
+</BLOCK !ALPHA_FOLD>
+
+</SKIP COUNTER5[eq0]>
+      </table>
+     </td>
+    </tr>
+<SKIP COUNTER5[eq0]>
+    <tr>
+     <td>
+      <font size=1pt face=arial color=darkred>Residue conservation calculated by
+<A target="ConSurfDB"
+   title="Go to ConSurfDB home page"
+   href="<LNK%>CONSURF_HOME_PAGE</LNK%>">ConSurf-DB</A>.</font>
+
+     </td>
+    </tr>
+</SKIP COUNTER5[eq0]>
+   </table>
+  </td>
+ </tr> 
+</BLOCK RESCONS_OPTION>
+
+<!-- Promotif summary page -->
+<BLOCK PROMOTIF_SUMMARY_OPTION>
+ <tr> 
+  <td width=485 valign=top>
+   &nbsp;
+   <P>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+   <img src="tmpgif/pdb<FLD%>PDB_CODE</FLD%><FLD%>CHAIN</FLD%>_summary_01.gif">
+  </td>
+ </tr> 
+</BLOCK PROMOTIF_SUMMARY_OPTION>
+
+<!-- Promotif analysis - old -->
+<BLOCK PROMOTIF_OPTION>
+ <tr> 
+  <td width=485 valign=top>
+   <img src="gif/1x1.gif" width=1 height=10 ALT="">
+#include:filename
+  </td>
+ </tr> 
+</BLOCK PROMOTIF_OPTION>
+
+<!-- Promotif analysis: beta turns -->
+<BLOCK SUMMARY_OPTION>
+#insert:p_sum.html
+</BLOCK SUMMARY_OPTION>
+
+<!-- Promotif analysis: beta turns -->
+<BLOCK BETA_TURNS_OPTION>
+#insert:p_btn.html
+</BLOCK BETA_TURNS_OPTION>
+
+<!-- Promotif analysis: gamma turns -->
+<BLOCK GAMMA_TURNS_OPTION>
+#insert:p_gtn.html
+</BLOCK GAMMA_TURNS_OPTION>
+
+<!-- Promotif analysis: beta bulges -->
+<BLOCK BETA_BULGES_OPTION>
+#insert:p_blg.html
+</BLOCK BETA_BULGES_OPTION>
+
+<!-- Promotif analysis: beta hairpins -->
+<BLOCK BETA_HAIRPINS_OPTION>
+#insert:p_hpn.html
+</BLOCK BETA_HAIRPINS_OPTION>
+
+<!-- Promotif analysis: helices -->
+<BLOCK HELICES_OPTION>
+#insert:p_hlx.html
+</BLOCK HELICES_OPTION>
+
+<!-- Promotif analysis: helix-helix interactions -->
+<BLOCK HELIX_INTERACTIONS_OPTION>
+#insert:p_hin.html
+</BLOCK HELIX_INTERACTIONS_OPTION>
+
+<!-- Promotif analysis: beta strands -->
+<BLOCK STRANDS_OPTION>
+#insert:p_str.html
+</BLOCK STRANDS_OPTION>
+
+<!-- Promotif analysis: beta sheets -->
+<BLOCK SHEETS_OPTION>
+#insert:p_sht.html
+</BLOCK SHEETS_OPTION>
+
+<!-- Promotif analysis: disulphides -->
+<BLOCK DISULPHIDES_OPTION>
+#insert:p_dsf.html
+</BLOCK DISULPHIDES_OPTION>
+
+<!-- Promotif analysis: beta-alpha-beta units -->
+<BLOCK BAB_MOTIFS_OPTION>
+#insert:p_bab.html
+</BLOCK BAB_MOTIFS_OPTION>
+
+<!-- Promotif analysis: psi loops -->
+<BLOCK PSI_LOOPS_OPTION>
+#insert:p_psi.html
+</BLOCK PSI_LOOPS_OPTION>
+
+<!-- Promotif analysis: beta barrels -->
+<BLOCK BETA_BARRELS_OPTION>
+#insert:p_bar.html
+</BLOCK BETA_BARRELS_OPTION>
+
+<!-- CSA catalytic residues -->
+<BLOCK CSA_OPTION>
+#insert:csa.html
+</BLOCK CSA_OPTION>
+
+<!-- Active site records, as defined by SITE records -->
+<BLOCK PDB_SITE_OPTION>
+#insert:site.html
+</BLOCK PDB_SITE_OPTION>
+
+<!-- Active site records - old version -->
+<BLOCK SITE_OPTION>
+ <tr> 
+  <td><img src="gif/1x1.gif" width=1 height=25 ALT=""></td>
+ </tr> 
+ <tr> 
+  <td width=485 valign=top>
+#include:filename
+  </td>
+ </tr>
+ <tr> 
+  <td>
+   <a href="<LNK%>RASMOL_SITE</LNK%>"
+   title="View active site in RasMol"><img
+   border=0 src="gif/rasmollogo3_5.gif" ALT=""></a>
+   View site in RasMol
+  </td>
+ </tr>
+</BLOCK SITE_OPTION>
+
+<!-- PROSITE patterns -->
+<BLOCK PROSITE_OPTION>
+ <tr> 
+  <td width=485 valign=top>
+ <table>
+  <tr>
+   <td>
+    <img src="gif/1x1.gif" width=1 height=10 ALT="">
+   </td>
+  </tr>
+  <tr>
+   <td class=shdr><font color=darkred>PROSITE pattern<s% NPROSITE></font>
+    <A HREF="<LNK%>GET_PDBSUM_DOC</LNK%>/doc_procols.html"
+     onclick="NewWindow(this.href,'','800','620','yes');return false;"
+     target="docs"
+     title="Explanation of PROSITE pattern colours"><img
+     align=bottom border=0 src="gif/bubble_help.gif" ALT="Help!"></A>
+   </td>
+  </tr>
+<LOOP NPROSITE>
+  <tr>
+   <td class=ftxt>
+    <P>
+    <a href="<LNK%>RASMOL_PROSITE</LNK%>"
+    title="View PROSITE residues in 3D in RasMol"><img
+     border=0 width=17 src="gif/rasmollogo3_5.gif" ALT=""></a>
+    &nbsp; <a href="<LNK%>PROSITE_PAGE</LNK%>" class=menuClass
+    onclick="NewWindow(this.href,'<FLD%>PROSITE_ID</FLD%>','750','595','yes');return false;"><B><FLD%>PROSITE_ID</FLD%></B></a> -
+    <B><FLD%>PROSITE_NAME</FLD%></B>
+    <BLOCKQUOTE>
+     <FLD%>PROSITE_START</FLD%> to <FLD%>PROSITE_END</FLD%>:&nbsp;
+<B>
+<LOOP PROSITE_LEN>
+ <FONT COLOR="<FLD%>COL</FLD%>"><FLD%>R</FLD%></FONT>
+</LOOP PROSITE_LEN>
+</B>
+   </td>
+  </tr>
+</LOOP NPROSITE>
+</table>
+</td>
+ </tr> 
+</BLOCK PROSITE_OPTION>
+
+</table>
+</TD>
+
+<TD>&nbsp;&nbsp;</TD>
+</TR>
+
+</TABLE>
+<!-- -->
+
+</body>
+</html>
+

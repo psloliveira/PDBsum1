@@ -1,0 +1,126 @@
+<!-- Read in all the main parameters -->
+#param:main.par
+
+<!-- Define which page this is -->
+<SET RUN="<FLD%>_START_NO</FLD%>">
+<SET PAGE_TITLE="PDBsum1 run <FLD%>RUN</FLD%>">
+<SET NO_TABS="TRUE">
+<SET COMMA1=",">
+<SET COMMA0=".">
+<SET COLON1=",">
+<SET COLON0=":">
+<SET NCOLS="20">
+<SET UPDIR="./">
+<BLOCK UPDIR_OPTION>
+<SET UPDIR="../">
+</BLOCK UPDIR_OPTION>
+
+#insert:head.html
+
+<!-- Read in the details of the current run -->
+#read:<LNK%>PDBSUM1_RESULTS_DIR</LNK%>/runs/run.dat
+
+<!-- Main table for layout -->
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0 width=850>
+  <tr>
+    <td colspan=2>
+      <a href="<FLD%>UPDIR</FLD%>runs/allruns.html"
+	 title="Go to list of runs"
+      ><img SRC="gif/PDBsum1_logo.png" border="0" width=150></a>
+    </td>
+  </tr>
+  <tr bgcolor="#006666">
+    <td colspan=2><img SRC="gif/1x1.gif" width=1 height=6></td>
+  </tr>
+  <tr bgcolor="#006666">
+    <td class="lhdr" align=left>
+      <font color="white">
+      &nbsp;&nbsp;Run <FLD%>RUN_NUMBER</FLD%>
+      </font>
+    </td>
+    <td class="lhdr" align=right>
+      <font color="white">
+      <FLD%>RUN_TIME</FLD%>&nbsp;&nbsp;
+      </font>
+    </td>
+  </tr>
+  <tr bgcolor="#006666">
+    <td colspan=2><img SRC="gif/1x1.gif" c="T" width=1 height=6></td>
+  </tr>
+</table>
+
+<CENTER>
+  <H2><FLD%>NPDB</FLD%> structure<s% NPDB> processed</H2>
+</CENTER>
+
+<P>
+<table bgcolor="white" border=0 cellpadding=0 cellspacing=0 width=850>
+
+<!-- Loop over the PDB entries -->
+<LOOP NPDB>
+  <tr>
+    <!-- Thumbnail image -->
+    <td width=120 valign=center>
+      <a href="<FLD%>UPDIR</FLD%><FLD%>PDB_DIR</FLD%>/html/index.html"
+	 ><img border=0 width=120
+	 src="<FLD%>UPDIR</FLD%><FLD%>PDB_DIR</FLD%>/newsec/traces.png"</a>
+    </td>
+    <td>
+      &nbsp;
+    </td>
+
+    <!-- Table with protein info -->
+    <td valign=center>
+      <table bgcolor="white" border=0 cellpadding=0 cellspacing=0 width=720>
+
+        <!-- Column headings -->
+	<tr>
+<SKIP NPDB[eq1]>
+	  <td>&nbsp;</td>
+</SKIP NPDB[eq1]>
+	  <td bgcolor="#EEEEEE" align=center valign=bottom>
+	    <font color="navy">
+	      <B>PDB<BR>code</B>
+	    </font>
+	  </td>
+	  <td>&nbsp;</td>
+	  <td bgcolor="#EEEEEE" align=left valign=bottom>
+	    <font color="navy">
+	      <B>File name and protein name</B>
+	    </font>
+	  </td>
+	<tr>
+	  <td><img SRC="gif/1x1.gif" width=1 height=1></td>
+	  <td width=95% class=color colspan=3>
+	    <img SRC="gif/1x1.gif" width=1 height=1>
+	  </td>
+	</tr>
+</tr>
+
+        <!-- Protein info -->
+	<tr>
+<SKIP NPDB[eq1]>
+	  <td valign=top><FLD%>_LOOP1</FLD%>. &nbsp;</td>
+</SKIP NPDB[eq1]>
+	  <td align=center valign=top>
+	    <a href="<FLD%>UPDIR</FLD%><FLD%>PDB_DIR</FLD%>/html/index.html"
+	       ><FLD%>PDB_CODE</FLD%></a>
+	  </td>
+	  <td>&nbsp;</td>
+	  <td align=left valign=top>
+	    <font color="darkred">
+	      <FLD%>ORIGINAL_FILE_NAME</FLD%><BR>
+	    </font>
+	    <font color="#006666">
+	      <FLD%>TITLE{t}</FLD%><BR>
+	    </font>
+	  </td>
+	</tr>
+      </table>
+    </td>
+  </tr>
+</LOOP NPDB>
+</table>
+
+#insert:end.html
+
